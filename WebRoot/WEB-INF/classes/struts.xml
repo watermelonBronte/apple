@@ -47,4 +47,13 @@
 			<result name="ERROR">/sucess.jsp</result>
 		</action>
 	</package>
+	
+		<package name="finance" extends="struts-default" namespace="/finance">
+		<action name="finance_*_*" class="{1}Action" method="{2}">
+			<result name="findFinanceById">/jsp/finance_update.jsp</result>
+			<result name="pageFinance">/jsp/finance_page.jsp</result>
+			<result name="successFinance">/jsp/finance_success.jsp</result>
+			<result name="addFinance">/jsp/finance_add.jsp</result>
+		</action>
+	</package>
 </struts>    

@@ -49,5 +49,7 @@
 		<br>
 
 
+		<a href="finance/finance_Finance_pageFinance.action">财务入账列表</a>
+		<br>
 	</body>
 </html>

@@ -135,6 +135,20 @@ function submitFrom(formName){
 			</table>
 		</form>
 		<hr />
+<h1>创建财务入账</h1>
+		<form action="finance/finance_Finance_createFinance.action"
+			method="post">
+			财务入账编码
+			<input type="text" name="fcode" value="123"/>
+			<br />
+			财务入账人ID
+			<input type="text" name="fuid" value="123"/>
+			<br />
+			财务是否入账
+			<input type="text" name="fenter" value="123"/>
+			<br />
+			<input type="submit" value="创建" />
+		</form>
 
 	</body>
 </html>

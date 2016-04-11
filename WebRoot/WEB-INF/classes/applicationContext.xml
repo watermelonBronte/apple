@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans
-	xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:p="http://www.springframework.org/schema/p"
-	xmlns:aop="http://www.springframework.org/schema/aop"
-    xmlns:tx="http://www.springframework.org/schema/tx"
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
-    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd"
-    >
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
 	<!-- dataSource -->
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver">
@@ -49,7 +45,8 @@
 				<value>com/mars/vo/Checked.hbm.xml</value>
 				<value>com/mars/vo/TransBills.hbm.xml</value>
 				<value>com/mars/vo/PurchaseNote.hbm.xml</value>
-				<value>com/mars/vo/Finance.hbm.xml</value></list>
+				<value>com/mars/vo/Finance.hbm.xml</value>
+			</list>
 		</property>
 	</bean>
 	<!-- task manager -->
@@ -143,9 +140,9 @@
 	</bean>
 
 	<!-- 参数信息 end -->
-	
+
 	<!-- 资产信息start -->
-		<!-- dao -->
+	<!-- dao -->
 	<bean id="assetDao" class="com.mars.dao.impl.AssetDao">
 		<property name="sessionFactory">
 			<ref local="sessionFactory" />
@@ -156,10 +153,28 @@
 		<property name="assetDao" ref="assetDao" />
 	</bean>
 	<!-- Action -->
-	<bean id="AssetAction" class="com.mars.action.AssetAction"
-		scope="prototype">
+	<bean id="AssetAction" class="com.mars.action.AssetAction" scope="prototype">
 		<property name="assetService" ref="assetService" />
 	</bean>
-	
-		<!-- 资产信息end -->
+
+	<!-- 资产信息end -->
+
+	<!-- 财务入账start -->
+	<!-- dao -->
+	<bean id="financeDao" class="com.mars.dao.impl.FinanceDao">
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+	<!-- Service -->
+	<bean id="financeService" class="com.mars.service.impl.FinanceService">
+		<property name="financeDao" ref="financeDao" />
+	</bean>
+	<!-- Action -->
+	<bean id="FinanceAction" class="com.mars.action.FinanceAction"
+		scope="prototype">
+		<property name="financeService" ref="financeService" />
+	</bean>
+
+	<!-- 财务入账end -->
 </beans>
