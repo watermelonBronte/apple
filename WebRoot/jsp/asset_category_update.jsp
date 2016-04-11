@@ -22,10 +22,11 @@
 			action="asset_category/test_AssetCategory_updateAssetCategory.action"
 			method="post">
 			资产类别ID
-			<input type="hidden" name="acid" value="${acid}"/>
+			<input type="text" name="acid" value="${acid}"/>
 			<br />
 			资产类别编号
 			<input type="text" name="accode" value="${accode}"/>
+			<br />
 			资产类别名称
 			<input type="text" name="acname" value="${acname}"/>
 			<br />

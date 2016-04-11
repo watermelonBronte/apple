@@ -73,8 +73,6 @@ public class AssetCategoryDao extends HibernateDaoSupport implements
 	 */
 	public void updateAssetCategory(AssetCategory assetCategory) {
 
-//		super.getHibernateTemplate().load(AssetCategory.class,
-//				new Integer(assetCategory.getAcid()));
 		super.getHibernateTemplate().update(assetCategory);
 	}
 
@@ -128,7 +126,9 @@ public class AssetCategoryDao extends HibernateDaoSupport implements
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.mars.dao.IAssetCategoryDao#findAssetCategoryById(java.lang.Integer)
+	 * 
+	 * @see
+	 * com.mars.dao.IAssetCategoryDao#findAssetCategoryById(java.lang.Integer)
 	 */
 	public AssetCategory findAssetCategoryById(Integer acid) {
 		AssetCategory assetCategory = (AssetCategory) super
@@ -136,5 +136,4 @@ public class AssetCategoryDao extends HibernateDaoSupport implements
 				new Integer(acid));
 		return assetCategory;
 	}
-
 }

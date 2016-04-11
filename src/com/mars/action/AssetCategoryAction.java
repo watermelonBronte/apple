@@ -28,9 +28,17 @@ public class AssetCategoryAction extends ActionSupport{
 	private Integer supacid;
 	private String supacname;
 	
-    
+    private AssetCategory assetCategory = new AssetCategory();
 
 	
+	public AssetCategory getAssetCategory() {
+		return assetCategory;
+	}
+
+	public void setAssetCategory(AssetCategory assetCategory) {
+		this.assetCategory = assetCategory;
+	}
+
 	public IAssetCategoryService getAssetCategoryService() {
 		return assetCategoryService;
 	}
@@ -112,12 +120,12 @@ public class AssetCategoryAction extends ActionSupport{
 	 * @return
 	 */
 	public String updateAssetCategory() {
-		AssetCategory assetCategory=new AssetCategory();
-		assetCategory.setAccode(accode);
-		assetCategory.setAcid(acid);
-		assetCategory.setAcname(acname);
-		assetCategory.setSupacid(supacid);
-		assetCategory.setSupacname(supacname);
+		
+		assetCategory.setAccode(getAccode());
+		assetCategory.setAcid(getAcid());
+		assetCategory.setAcname(getAcname());
+		assetCategory.setSupacid(getSupacid());
+		assetCategory.setSupacname(getSupacname());
 		assetCategoryService.updateAssetCategory(assetCategory);
 		
 		return pageAssetCategory();
@@ -137,9 +145,10 @@ public class AssetCategoryAction extends ActionSupport{
 	 * @return
 	 */
 	public String findAssetCategoryById() {
-		AssetCategory assetCategory = new AssetCategory();
-		assetCategory=	assetCategoryService.findAssetCategoryById(this.getAcid());
-//		System.out.println(this.getAcid());
+		
+		
+		assetCategory = assetCategoryService.findAssetCategoryById(this.getAcid());
+		//,this.setAccode(assetCategory.getAccode());
 		return "findAssetCategoryById";
 	}
 	
