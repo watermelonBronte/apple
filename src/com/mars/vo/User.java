@@ -22,13 +22,14 @@ public class User implements java.io.Serializable {
 	private Set repairses = new HashSet(0);
 	private Set transBillsesForInuid = new HashSet(0);
 	private Set assetTransesForUid = new HashSet(0);
-	private Set checkeds = new HashSet(0);
 	private Set transBillsesForOutuid = new HashSet(0);
+	private Set checkeds = new HashSet(0);
 	private Set assetTransDetails = new HashSet(0);
 	private Set purchaseDetails = new HashSet(0);
 	private Set assetReturnsForRuid = new HashSet(0);
 	private Set purchaseNotes = new HashSet(0);
 	private Set assets = new HashSet(0);
+	private Set finances = new HashSet(0);
 	private Set assetTransesForTid = new HashSet(0);
 	private Set assetReturnsForGuid = new HashSet(0);
 	private Set scrapsForUid = new HashSet(0);
@@ -42,11 +43,11 @@ public class User implements java.io.Serializable {
 	/** full constructor */
 	public User(Role role, Department department, String uname, String upwd,
 			Integer ustate, Integer usex, Set scrapsForCuid, Set repairses,
-			Set transBillsesForInuid, Set assetTransesForUid, Set checkeds,
-			Set transBillsesForOutuid, Set assetTransDetails,
+			Set transBillsesForInuid, Set assetTransesForUid,
+			Set transBillsesForOutuid, Set checkeds, Set assetTransDetails,
 			Set purchaseDetails, Set assetReturnsForRuid, Set purchaseNotes,
-			Set assets, Set assetTransesForTid, Set assetReturnsForGuid,
-			Set scrapsForUid) {
+			Set assets, Set finances, Set assetTransesForTid,
+			Set assetReturnsForGuid, Set scrapsForUid) {
 		this.role = role;
 		this.department = department;
 		this.uname = uname;
@@ -57,13 +58,14 @@ public class User implements java.io.Serializable {
 		this.repairses = repairses;
 		this.transBillsesForInuid = transBillsesForInuid;
 		this.assetTransesForUid = assetTransesForUid;
-		this.checkeds = checkeds;
 		this.transBillsesForOutuid = transBillsesForOutuid;
+		this.checkeds = checkeds;
 		this.assetTransDetails = assetTransDetails;
 		this.purchaseDetails = purchaseDetails;
 		this.assetReturnsForRuid = assetReturnsForRuid;
 		this.purchaseNotes = purchaseNotes;
 		this.assets = assets;
+		this.finances = finances;
 		this.assetTransesForTid = assetTransesForTid;
 		this.assetReturnsForGuid = assetReturnsForGuid;
 		this.scrapsForUid = scrapsForUid;
@@ -159,20 +161,20 @@ public class User implements java.io.Serializable {
 		this.assetTransesForUid = assetTransesForUid;
 	}
 
-	public Set getCheckeds() {
-		return this.checkeds;
-	}
-
-	public void setCheckeds(Set checkeds) {
-		this.checkeds = checkeds;
-	}
-
 	public Set getTransBillsesForOutuid() {
 		return this.transBillsesForOutuid;
 	}
 
 	public void setTransBillsesForOutuid(Set transBillsesForOutuid) {
 		this.transBillsesForOutuid = transBillsesForOutuid;
+	}
+
+	public Set getCheckeds() {
+		return this.checkeds;
+	}
+
+	public void setCheckeds(Set checkeds) {
+		this.checkeds = checkeds;
 	}
 
 	public Set getAssetTransDetails() {
@@ -213,6 +215,14 @@ public class User implements java.io.Serializable {
 
 	public void setAssets(Set assets) {
 		this.assets = assets;
+	}
+
+	public Set getFinances() {
+		return this.finances;
+	}
+
+	public void setFinances(Set finances) {
+		this.finances = finances;
 	}
 
 	public Set getAssetTransesForTid() {

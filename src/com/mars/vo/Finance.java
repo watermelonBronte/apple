@@ -13,8 +13,8 @@ public class Finance implements java.io.Serializable {
 	// Fields
 
 	private Integer fid;
+	private User user;
 	private String fcode;
-	private Integer fuid;
 	private Integer fenter;
 	private Timestamp fdate;
 	private Set assets = new HashSet(0);
@@ -26,10 +26,10 @@ public class Finance implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Finance(String fcode, Integer fuid, Integer fenter, Timestamp fdate,
+	public Finance(User user, String fcode, Integer fenter, Timestamp fdate,
 			Set assets) {
+		this.user = user;
 		this.fcode = fcode;
-		this.fuid = fuid;
 		this.fenter = fenter;
 		this.fdate = fdate;
 		this.assets = assets;
@@ -45,20 +45,20 @@ public class Finance implements java.io.Serializable {
 		this.fid = fid;
 	}
 
+	public User getUser() {
+		return this.user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 	public String getFcode() {
 		return this.fcode;
 	}
 
 	public void setFcode(String fcode) {
 		this.fcode = fcode;
-	}
-
-	public Integer getFuid() {
-		return this.fuid;
-	}
-
-	public void setFuid(Integer fuid) {
-		this.fuid = fuid;
 	}
 
 	public Integer getFenter() {

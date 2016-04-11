@@ -177,4 +177,22 @@
 	</bean>
 
 	<!-- 财务入账end -->
+		<!-- 用户start -->
+		<!-- dao -->
+	<bean id="userDao" class="com.mars.dao.impl.UserDao">
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+	<!-- Service -->
+	<bean id="userService" class="com.mars.service.impl.UserService">
+		<property name="userDao" ref="userDao" />
+	</bean>
+	<!-- Action -->
+	<bean id="UserAction" class="com.mars.action.UserAction"
+		scope="prototype">
+		<property name="userService" ref="userService" />
+	</bean>
+
+	<!-- 用户end -->
 </beans>

@@ -4,11 +4,13 @@
 package com.mars.action;
 
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import com.mars.service.IFinanceService;
+import com.mars.service.IUserService;
 import com.mars.tools.IPage;
 import com.mars.tools.PageInfo;
 import com.mars.vo.Finance;
@@ -26,10 +28,23 @@ public class FinanceAction extends ActionSupport {
 	private IFinanceService financeService;
 	protected IPage pageInfo = new PageInfo();
 
+	private IUserService userService;
 	private String result;
 	private Integer fid;
+	private User user;
+	private String fcode;
+	private Integer fenter;
+	private Timestamp fdate;
 	private Finance finance = new Finance();
 	private List<Finance> financeList = new ArrayList<Finance>();
+
+	public IUserService getUserService() {
+		return userService;
+	}
+
+	public void setUserService(IUserService userService) {
+		this.userService = userService;
+	}
 
 	public Integer getFid() {
 		return fid;
@@ -37,6 +52,38 @@ public class FinanceAction extends ActionSupport {
 
 	public void setFid(Integer fid) {
 		this.fid = fid;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public String getFcode() {
+		return fcode;
+	}
+
+	public void setFcode(String fcode) {
+		this.fcode = fcode;
+	}
+
+	public Integer getFenter() {
+		return fenter;
+	}
+
+	public void setFenter(Integer fenter) {
+		this.fenter = fenter;
+	}
+
+	public Timestamp getFdate() {
+		return fdate;
+	}
+
+	public void setFdate(Timestamp fdate) {
+		this.fdate = fdate;
 	}
 
 	public Finance getFinance() {
@@ -111,7 +158,15 @@ public class FinanceAction extends ActionSupport {
 	 */
 	public String createFinance() {
 		// Finance.setAccode(getAccode());
-
+		finance.setFcode(this.getFcode());
+		Date date = new Date();       
+		Timestamp nousedate = new Timestamp(date.getTime());
+		finance.setFdate(nousedate);
+		//////////////////////
+		
+		
+		finance.setUser(userService.findUserById(this.getUser().getUid()));
+		finance.setFenter(this.getFenter());
 		financeService.createFinance(finance);
 		this.setResult("创建");
 		return "successFinance";

@@ -10,11 +10,11 @@
             <column name="fid" />
             <generator class="identity" />
         </id>
+        <many-to-one name="user" class="com.mars.vo.User" fetch="select">
+            <column name="fuid" />
+        </many-to-one>
         <property name="fcode" type="java.lang.String">
             <column name="fcode" length="100" />
-        </property>
-        <property name="fuid" type="java.lang.Integer">
-            <column name="fuid" />
         </property>
         <property name="fenter" type="java.lang.Integer">
             <column name="fenter" />

@@ -74,6 +74,9 @@ function submitFrom(formName){
 					<td class="left_bt2" align="center" width="10%">
 						财务入账人日期
 					</td>
+					<td class="left_bt2" align="center" width="10%">
+						操作
+					</td>
 				</tr>
 
 				<s:iterator id="f" value="pageInfo.result" status="st">
@@ -92,16 +95,13 @@ function submitFrom(formName){
 						</td>
 						<td align="center" class="left_txt">
 							${f.fdate}
-						</td>
-						<td align="center" class="left_txt">
-							${f.fcode}
-						</td>
+						</td>					
 						<td align="center" class="left_txt">
 							<a
 								href="finance/finance_Finance_findFinanceById.action?fid=${fid}">修改</a>
 							|
 							<a
-								href="finance/finance_Finance_deletefinance.action?fid=${fid}">删除</a>
+								href="finance/finance_Finance_deleteFinance.action?fid=${fid}">删除</a>
 
 						</td>
 					</tr>
@@ -142,7 +142,7 @@ function submitFrom(formName){
 			<input type="text" name="fcode" value="123"/>
 			<br />
 			财务入账人ID
-			<input type="text" name="fuid" value="123"/>
+			<input type="text" name="user" value="123"/>
 			<br />
 			财务是否入账
 			<input type="text" name="fenter" value="123"/>
