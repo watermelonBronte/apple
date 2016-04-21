@@ -4,6 +4,8 @@
 package com.mars.action;
 
 import com.mars.service.IParameterService;
+import com.mars.tools.IPage;
+import com.mars.tools.PageInfo;
 import com.opensymphony.xwork2.ActionSupport;
 
 
@@ -14,7 +16,9 @@ import com.opensymphony.xwork2.ActionSupport;
 public class ParameterAction extends ActionSupport{
 	private IParameterService parameterService;
 
+	protected IPage pageInfo = new PageInfo();   
 	
+	private int pid;
 	
 	public IParameterService getParameterService() {
 		return parameterService;
@@ -22,6 +26,23 @@ public class ParameterAction extends ActionSupport{
 
 	public void setParameterService(IParameterService parameterService) {
 		this.parameterService = parameterService;
+	}
+
+	
+	public IPage getPageInfo() {
+		return pageInfo;
+	}
+
+	public void setPageInfo(IPage pageInfo) {
+		this.pageInfo = pageInfo;
+	}
+
+	public int getPid() {
+		return pid;
+	}
+
+	public void setPid(int pid) {
+		this.pid = pid;
 	}
 
 	/**
@@ -38,7 +59,7 @@ public class ParameterAction extends ActionSupport{
 	 * @return
 	 */
 	public String deleteParameter() {
-		parameterService.deleteParameter();
+		parameterService.deleteParameter(this.getPid());
 		return "deleteParameter";
 	}
 	

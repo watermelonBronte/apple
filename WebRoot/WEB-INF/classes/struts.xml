@@ -4,10 +4,10 @@
 	<package name="asset_category" extends="struts-default"
 		namespace="/asset_category">
 		<action name="test_*_*" class="{1}Action" method="{2}">
-			<result name="createAssetCategory">/index.jsp</result>
-			<result name="deleteAssetCategory">/index.jsp</result>
-			<result name="updateAssetCategory">/index.jsp</result>
-			<result name="findAssetCategory">/index.jsp</result>
+			<result name="createAssetCategory">/jsp/asset_category_page.jsp</result>
+			<result name="deleteAssetCategory">/jsp/asset_category_page.jsp</result>
+			<result name="updateAssetCategory">/jsp/asset_category_page.jsp</result>
+			<result name="findAssetCategoryById">/jsp/asset_category_update.jsp</result>
 		    <result name="pageAssetCategory">/jsp/asset_category_page.jsp</result>
 		</action>
 	</package>

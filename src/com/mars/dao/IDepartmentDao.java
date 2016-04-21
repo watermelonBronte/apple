@@ -5,6 +5,7 @@ package com.mars.dao;
 
 import java.util.List;
 
+import com.mars.tools.IPage;
 import com.mars.vo.Department;
 
 
@@ -22,9 +23,9 @@ public interface IDepartmentDao {
 	
 	/**
 	 * 删除部门
-	 * @param department
+	 * @param did
 	 */
-	public void deleteDepartment(Department department); 
+	public void deleteDepartment(Integer did); 
 	
 	/**
 	 * 更新部门
@@ -37,5 +38,12 @@ public interface IDepartmentDao {
 	 * @return
 	 */
 	public List<Department> findDepartment();
+
+	/**
+	 * 分页查找部门
+	 * @param pageInfo
+	 * @return
+	 */
+	public List<Department> findAllDepartment(IPage pageInfo);
 	
 }

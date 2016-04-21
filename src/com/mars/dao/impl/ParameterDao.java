@@ -22,22 +22,30 @@ import com.mars.vo.Parameter;
  */
 public class ParameterDao extends HibernateDaoSupport implements IParameterDao {
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see com.mars.dao.IParameterDao#createParameter(com.mars.vo.Parameter)
 	 */
 	public void createParameter(Parameter parameter) {
 		super.getHibernateTemplate().save(parameter);
-		
+
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see com.mars.dao.IParameterDao#deleteParameter(com.mars.vo.Parameter)
 	 */
-	public void deleteParameter(Parameter parameter) {
+	public void deleteParameter(Integer pid) {
+		Parameter parameter = (Parameter) super.getHibernateTemplate().load(
+				Parameter.class, new Integer(pid));
 		super.getHibernateTemplate().delete(parameter);
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see com.mars.dao.IParameterDao#findParameter()
 	 */
 	@SuppressWarnings("unchecked")
@@ -61,7 +69,9 @@ public class ParameterDao extends HibernateDaoSupport implements IParameterDao {
 				});
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see com.mars.dao.IParameterDao#updateParameter(com.mars.vo.Parameter)
 	 */
 	public void updateParameter(Parameter parameter) {

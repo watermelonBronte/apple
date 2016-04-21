@@ -3,11 +3,13 @@
  */
 package com.mars.action;
 
+
+
 import com.mars.service.IAssetCategoryService;
 import com.mars.tools.IPage;
 import com.mars.tools.PageInfo;
+import com.mars.vo.AssetCategory;
 import com.opensymphony.xwork2.ActionSupport;
-
 
 
 /**
@@ -20,7 +22,14 @@ public class AssetCategoryAction extends ActionSupport{
 
 	protected IPage pageInfo = new PageInfo();   
 	
-	private int acid;
+	private Integer acid;
+	private String accode;
+	private String acname;
+	private Integer supacid;
+	private String supacname;
+	
+    
+
 	
 	public IAssetCategoryService getAssetCategoryService() {
 		return assetCategoryService;
@@ -29,7 +38,7 @@ public class AssetCategoryAction extends ActionSupport{
 	public void setAssetCategoryService(IAssetCategoryService assetCategoryService) {
 		this.assetCategoryService = assetCategoryService;
 	}
-	
+
 	public IPage getPageInfo() {
 		return pageInfo;
 	}
@@ -38,13 +47,47 @@ public class AssetCategoryAction extends ActionSupport{
 		this.pageInfo = pageInfo;
 	}
 
-	public int getAcid() {
+	public Integer getAcid() {
 		return acid;
 	}
 
-	public void setAcid(int acid) {
+	public void setAcid(Integer acid) {
 		this.acid = acid;
 	}
+
+	public String getAccode() {
+		return accode;
+	}
+
+	public void setAccode(String accode) {
+		this.accode = accode;
+	}
+
+	public String getAcname() {
+		return acname;
+	}
+
+	public void setAcname(String acname) {
+		this.acname = acname;
+	}
+
+	public Integer getSupacid() {
+		return supacid;
+	}
+
+	public void setSupacid(Integer supacid) {
+		this.supacid = supacid;
+	}
+
+	public String getSupacname() {
+		return supacname;
+	}
+
+	public void setSupacname(String supacname) {
+		this.supacname = supacname;
+	}
+
+	
 
 	/**
 	 * 创建
@@ -52,7 +95,7 @@ public class AssetCategoryAction extends ActionSupport{
 	 */
 	public String createAssetCategory() {
 		assetCategoryService.createAssetCategory();
-		return "createAssetCategory";
+		return pageAssetCategory();
 	}
 	
 	/**
@@ -61,7 +104,7 @@ public class AssetCategoryAction extends ActionSupport{
 	 */
 	public String deleteAssetCategory() {
 		assetCategoryService.deleteAssetCategory(this.getAcid());
-		return "deleteAssetCategory";
+		return pageAssetCategory();
 	}
 	
 	/**
@@ -69,8 +112,15 @@ public class AssetCategoryAction extends ActionSupport{
 	 * @return
 	 */
 	public String updateAssetCategory() {
-		assetCategoryService.updateAssetCategory();
-		return "updateAssetCategory";
+		AssetCategory assetCategory=new AssetCategory();
+		assetCategory.setAccode(accode);
+		assetCategory.setAcid(acid);
+		assetCategory.setAcname(acname);
+		assetCategory.setSupacid(supacid);
+		assetCategory.setSupacname(supacname);
+		assetCategoryService.updateAssetCategory(assetCategory);
+		
+		return pageAssetCategory();
 	}
 	
 	/**
@@ -80,6 +130,17 @@ public class AssetCategoryAction extends ActionSupport{
 	public String findAssetCategory() {
 		assetCategoryService.findAssetCategory();
 		return "findAssetCategory";
+	}
+	
+	/**
+	 * 根据ID查找
+	 * @return
+	 */
+	public String findAssetCategoryById() {
+		AssetCategory assetCategory = new AssetCategory();
+		assetCategory=	assetCategoryService.findAssetCategoryById(this.getAcid());
+//		System.out.println(this.getAcid());
+		return "findAssetCategoryById";
 	}
 	
 	/**

@@ -10,7 +10,6 @@ import com.mars.service.IAssetCategoryService;
 import com.mars.tools.IPage;
 import com.mars.vo.AssetCategory;
 
-
 /**
  * @author ye
  * @date 2016/4/19
@@ -19,7 +18,6 @@ public class AssetCategoryService implements IAssetCategoryService {
 
 	private IAssetCategoryDao assetCategoryDao;
 
-	
 	public IAssetCategoryDao getAssetCategoryDao() {
 		return assetCategoryDao;
 	}
@@ -48,11 +46,11 @@ public class AssetCategoryService implements IAssetCategoryService {
 	 * 
 	 * @see com.mars.service.IAssetCategoryService#deleteAssetCategory()
 	 */
-	public void deleteAssetCategory(int acid) {
+	public void deleteAssetCategory(Integer acid) {
 		AssetCategory assetCategory = new AssetCategory();
 		assetCategory.setAcid(acid);
 		assetCategoryDao.deleteAssetCategory(assetCategory.getAcid());
-	
+
 	}
 
 	/*
@@ -76,19 +74,27 @@ public class AssetCategoryService implements IAssetCategoryService {
 	 * 
 	 * @see com.mars.service.IAssetCategoryService#updateAssetCategory()
 	 */
-	public void updateAssetCategory() {
-		AssetCategory assetCategory = new AssetCategory();
-		assetCategory.setAcid(1);
+	public void updateAssetCategory(AssetCategory assetCategory) {
 		assetCategoryDao.updateAssetCategory(assetCategory);
 	}
 
 	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see com.mars.service.IAssetCategoryService#findAll(com.mars.tools.IPage)
 	 */
 	public List<AssetCategory> findAll(IPage pageInfo) {
-		List<AssetCategory> list=assetCategoryDao.findAllAssetCategory(pageInfo);
+		List<AssetCategory> list = assetCategoryDao
+				.findAllAssetCategory(pageInfo);
 		return list;
+	}
+
+	public AssetCategory findAssetCategoryById(Integer acid) {
+		AssetCategory assetCategory = assetCategoryDao
+				.findAssetCategoryById(acid);
+		return assetCategory;
+		
+
 	}
 
 }

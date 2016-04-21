@@ -7,7 +7,7 @@ import java.util.List;
 
 import com.mars.dao.IParameterDao;
 import com.mars.service.IParameterService;
-import com.mars.vo.AssetCategory;
+import com.mars.tools.IPage;
 import com.mars.vo.Parameter;
 
 /**
@@ -19,6 +19,8 @@ public class ParameterService implements IParameterService {
 	private IParameterDao parameterDao;
 	
 	
+	
+
 	public IParameterDao getParameterDao() {
 		return parameterDao;
 	}
@@ -43,8 +45,10 @@ public class ParameterService implements IParameterService {
 	/* (non-Javadoc)
 	 * @see com.mars.service.IParameterService#deleteParameter()
 	 */
-	public void deleteParameter() {
-		// TODO Auto-generated method stub
+	public void deleteParameter(Integer pid) {
+		Parameter parameter = new Parameter();
+		parameter.setPid(pid);
+		parameterDao.deleteParameter(parameter.getPid());
 
 	}
 
@@ -64,6 +68,11 @@ public class ParameterService implements IParameterService {
 	public void updateParameter() {
 		// TODO Auto-generated method stub
 
+	}
+
+	public List<Parameter> findAll(IPage pageInfo) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

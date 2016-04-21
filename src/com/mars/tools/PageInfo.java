@@ -8,7 +8,7 @@ public class PageInfo implements IPage {
 	protected int pages;   //总页�??
 	protected int offset;   //当前页在数据库中的第几行，默认为0
 	protected int currentPage=1;   //当前页为第一�??
-	protected int pageSize = 2;// 每页的行�??,可以传参数进�??
+	protected int pageSize = 6;// 每页的行�??,可以传参数进�??
 	protected List result;
 	
 	

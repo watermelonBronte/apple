@@ -30,19 +30,9 @@
   	</form>
    -->
 		<!-- 资源类别 -->
-		<a href="asset_category/test_AssetCategory_createAssetCategory.action">测试创建资源类别</a>
-		<br>
 
-		<a href="asset_category/test_AssetCategory_deleteAssetCategory.action">测试删除资源类别</a>
-		<br>
-
-		<a href="asset_category/test_AssetCategory_updateAssetCategory.action">测试修改资源类别</a>
-		<br>
-
-		<a href="asset_category/test_AssetCategory_findAssetCategory.action">测试查找资源类别</a>
-		<br>
 		
-		<a href="asset_category/test_AssetCategory_pageAssetCategory.action">测试分页资源类别</a>
+		<a href="asset_category/test_AssetCategory_pageAssetCategory.action">测试资源类别</a>
 		<br>
 		<hr />
 		<!-- 部门 -->
@@ -70,6 +60,7 @@
 
 		<a href="parameter/test_Parameter_findParameter.action">测试查找参数信息</a>
 		<br>
+
 
 	</body>
 </html>

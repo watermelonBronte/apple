@@ -5,10 +5,10 @@ package com.mars.service.impl;
 
 import java.util.List;
 
-import com.mars.dao.IAssetCategoryDao;
+
 import com.mars.dao.IDepartmentDao;
 import com.mars.service.IDepartmentService;
-import com.mars.vo.AssetCategory;
+import com.mars.tools.IPage;
 import com.mars.vo.Department;
 
 /**
@@ -41,8 +41,11 @@ public class DepartmentService implements IDepartmentService {
 	/* (non-Javadoc)
 	 * @see com.mars.service.IDepartmentService#deleteDepartment()
 	 */
-	public void deleteDepartment() {
-		// TODO Auto-generated method stub
+	public void deleteDepartment(int did) {
+		Department department = new Department();
+		department.setDid(did);
+		departmentDao.deleteDepartment(department.getDid());
+	
 
 	}
 
@@ -63,6 +66,11 @@ public class DepartmentService implements IDepartmentService {
 	public void updateDepartment() {
 		// TODO Auto-generated method stub
 
+	}
+
+	public List<Department> findAll(IPage pageInfo) {
+		List<Department> list=departmentDao.findAllDepartment(pageInfo);
+		return list;
 	}
 
 }

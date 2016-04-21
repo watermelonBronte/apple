@@ -3,8 +3,9 @@
  */
 package com.mars.action;
 
-import com.mars.service.IAssetCategoryService;
 import com.mars.service.IDepartmentService;
+import com.mars.tools.IPage;
+import com.mars.tools.PageInfo;
 import com.opensymphony.xwork2.ActionSupport;
 
 
@@ -15,7 +16,9 @@ import com.opensymphony.xwork2.ActionSupport;
 public class DepartmentAction extends ActionSupport{
 	private IDepartmentService departmentService;
 
+	protected IPage pageInfo = new PageInfo();   
 	
+	private int did;
 	
 	public IDepartmentService getDepartmentService() {
 		return departmentService;
@@ -23,6 +26,23 @@ public class DepartmentAction extends ActionSupport{
 
 	public void setDepartmentService(IDepartmentService departmentService) {
 		this.departmentService = departmentService;
+	}
+
+	
+	public IPage getPageInfo() {
+		return pageInfo;
+	}
+
+	public void setPageInfo(IPage pageInfo) {
+		this.pageInfo = pageInfo;
+	}
+
+	public int getDid() {
+		return did;
+	}
+
+	public void setDid(int did) {
+		this.did = did;
 	}
 
 	/**
@@ -39,7 +59,7 @@ public class DepartmentAction extends ActionSupport{
 	 * @return
 	 */
 	public String deleteDepartment() {
-		departmentService.deleteDepartment();
+		departmentService.deleteDepartment(this.getDid());
 		return "deleteDepartment";
 	}
 	

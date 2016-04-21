@@ -23,7 +23,7 @@ public interface IParameterDao {
 	 * 删除参数信息
 	 * @param assetcategory
 	 */
-	public void deleteParameter(Parameter parameter); 
+	public void deleteParameter(Integer pid); 
 	
 	/**
 	 * 更新参数信息

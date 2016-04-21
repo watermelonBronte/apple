@@ -46,6 +46,8 @@ function submitFrom(formName){
 	</head>
 
 	<body>
+		<a href="asset_category/test_AssetCategory_createAssetCategory.action">添加记录</a>
+						
 		<form action="" id="_form" method="post">
 			<table width="100%" border="1" cellpadding="0"
 				style="margin-top: 5px;" cellspacing="0">
@@ -89,8 +91,9 @@ function submitFrom(formName){
 							${ac.supacname}
 						</td>
 						<td align="center" class="left_txt">
-							<a href="asset_category/test_AssetCategory_updateAssetCategory.action?acid=${acid}>">修改</a> |
+							<a href="asset_category/test_AssetCategory_findAssetCategoryById.action?acid=${acid}">修改</a> |
 							<a href="asset_category/test_AssetCategory_deleteAssetCategory.action?acid=${acid}">删除</a>
+						    
 						</td>
 					</tr>
 				</s:iterator>

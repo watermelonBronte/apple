@@ -22,12 +22,12 @@ public interface IAssetCategoryService {
 	/**
 	 * 删除资产类别
 	 */
-	public void deleteAssetCategory(int acid);
+	public void deleteAssetCategory(Integer acid);
 	
 	/**
 	 * 更新资产类别
 	 */
-	public void updateAssetCategory();
+	public void updateAssetCategory(AssetCategory assetCategory);
 	
 	/**
 	 * 查找资产类别
@@ -40,4 +40,6 @@ public interface IAssetCategoryService {
 	 * @return
 	 */
 	public List<AssetCategory> findAll(IPage pageInfo);
+
+	public AssetCategory findAssetCategoryById(Integer acid);
 }

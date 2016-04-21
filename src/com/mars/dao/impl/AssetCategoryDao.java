@@ -13,14 +13,11 @@ import org.hibernate.Session;
 import org.springframework.orm.hibernate3.HibernateCallback;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
-
 import com.mars.dao.IAssetCategoryDao;
-import com.mars.factory.HibernateSessionFactory;
 import com.mars.tools.Execute;
 import com.mars.tools.IExecute;
 import com.mars.tools.IPage;
 import com.mars.vo.AssetCategory;
-
 
 /**
  * @author ye
@@ -39,19 +36,6 @@ public class AssetCategoryDao extends HibernateDaoSupport implements
 	public void createAssetCategory(AssetCategory assetCategory) {
 		super.getHibernateTemplate().save(assetCategory);
 
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * com.mars.dao.IAssetCategoryDao#deleteAssetCategory(com.mars.vo.AssetCategory
-	 * )
-	 */
-	public void deleteAssetCategory(int acid) {
-		AssetCategory assetCategory=(AssetCategory) super.getHibernateTemplate().load(AssetCategory.class,new Integer(acid));
-		
-		super.getHibernateTemplate().delete(assetCategory);
 	}
 
 	/*
@@ -88,12 +72,17 @@ public class AssetCategoryDao extends HibernateDaoSupport implements
 	 * )
 	 */
 	public void updateAssetCategory(AssetCategory assetCategory) {
+
+//		super.getHibernateTemplate().load(AssetCategory.class,
+//				new Integer(assetCategory.getAcid()));
 		super.getHibernateTemplate().update(assetCategory);
 	}
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.mars.dao.IAssetCategoryDao#findAllAssetCategory(com.mars.tools.IPage)
+	 * 
+	 * @see
+	 * com.mars.dao.IAssetCategoryDao#findAllAssetCategory(com.mars.tools.IPage)
 	 */
 	@SuppressWarnings("unchecked")
 	public List<AssetCategory> findAllAssetCategory(final IPage pageInfo) {
@@ -102,33 +91,50 @@ public class AssetCategoryDao extends HibernateDaoSupport implements
 
 					public Object doInHibernate(Session session)
 							throws HibernateException, SQLException {
-						
-						
+
 						IPage pages = null;
 						List<AssetCategory> list = new ArrayList<AssetCategory>();
 						try {
-							Criteria criteria = session.createCriteria(AssetCategory.class);
+							Criteria criteria = session
+									.createCriteria(AssetCategory.class);
 							IExecute exc = new Execute(pageInfo);
-							pages=exc.excute(criteria);
-							if(pages !=null){
-								list=pages.getResult();
+							pages = exc.excute(criteria);
+							if (pages != null) {
+								list = pages.getResult();
 							}
 						} catch (Exception e) {
 							e.printStackTrace();
 						}
 
 						return list;
-						
-				
-						
+
 					}
 				});
 	}
 
-	
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * com.mars.dao.IAssetCategoryDao#deleteAssetCategory(java.lang.Integer)
+	 */
+	public void deleteAssetCategory(Integer acid) {
+		AssetCategory assetCategory = (AssetCategory) super
+				.getHibernateTemplate().load(AssetCategory.class,
+						new Integer(acid));
+		super.getHibernateTemplate().delete(assetCategory);
 
-	
+	}
 
-
+	/*
+	 * (non-Javadoc)
+	 * @see com.mars.dao.IAssetCategoryDao#findAssetCategoryById(java.lang.Integer)
+	 */
+	public AssetCategory findAssetCategoryById(Integer acid) {
+		AssetCategory assetCategory = (AssetCategory) super
+		.getHibernateTemplate().load(AssetCategory.class,
+				new Integer(acid));
+		return assetCategory;
+	}
 
 }

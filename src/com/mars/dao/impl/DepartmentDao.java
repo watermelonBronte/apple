@@ -14,8 +14,8 @@ import org.springframework.orm.hibernate3.HibernateCallback;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import com.mars.dao.IDepartmentDao;
+import com.mars.tools.IPage;
 import com.mars.vo.Department;
-
 
 /**
  * @author ye
@@ -75,6 +75,19 @@ public class DepartmentDao extends HibernateDaoSupport implements
 	 */
 	public void updateDepartment(Department department) {
 		super.getHibernateTemplate().update(department);
+	}
+
+	public void deleteDepartment(Integer did) {
+		Department department = (Department) super
+				.getHibernateTemplate().load(Department.class,
+						new Integer(did));
+		super.getHibernateTemplate().delete(department);
+
+	}
+
+	public List<Department> findAllDepartment(IPage pageInfo) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
