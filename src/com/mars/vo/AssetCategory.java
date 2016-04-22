@@ -1,6 +1,7 @@
 package com.mars.vo;
 
 /**
+ * 资产类别
  * AssetCategory entity. @author MyEclipse Persistence Tools
  */
 
@@ -8,11 +9,11 @@ public class AssetCategory implements java.io.Serializable {
 
 	// Fields
 
-	private Integer acid;
-	private String accode;
-	private String acname;
-	private Integer supacid;
-	private String supacname;
+	private Integer acid;     //资产类别ID
+	private String accode;    //资产类别编号
+	private String acname;    //资产类别名称
+	private Integer supacid;  //上级资产类别ID
+	private String supacname;   //上级资产类别名称
 
 	// Constructors
 

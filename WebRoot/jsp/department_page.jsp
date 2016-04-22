@@ -48,28 +48,22 @@ function submitFrom(formName){
 	<body>
 		<br />
 		<a href="asset_category/test_AssetCategory_home.action">主界面</a>
+		
 		<br />
-		<h1>资产类别列表</h1>
-		<a href="asset_category/test_AssetCategory_addAssetCategory.action">添加记录</a>
-						
+		<h1>
+			部门列表
+		</h1>
+		<a href="department/test_Department_addDepartment.action">添加记录</a>
+
 		<form action="" id="_form" method="post">
 			<table width="100%" border="1" cellpadding="0"
 				style="margin-top: 5px;" cellspacing="0">
 				<tr class="datalist_head">
 					<td class="left_bt2" align="center" width="10%">
-						资产类别ID
+						部门ID
 					</td>
 					<td class="left_bt2" align="center" width="10%">
-						资产类别编号
-					</td>
-					<td class="left_bt2" align="center" width="10%">
-						资产类别名称
-					</td>
-					<td class="left_bt2" align="center" width="10%">
-						上级资产类别ID
-					</td>
-					<td class="left_bt2" align="center" width="10%">
-						上级资产类别名称
+						部门名称
 					</td>
 					<td class="left_bt2" align="center" width="10%">
 						操作
@@ -77,27 +71,22 @@ function submitFrom(formName){
 
 				</tr>
 
-				<s:iterator id="ac" value="pageInfo.result" status="st">
+				<s:iterator id="d" value="pageInfo.result" status="st">
 					<tr align=center>
 						<td align="center" class="left_txt">
-							${ac.acid}
+							${d.did}
 						</td>
 						<td align="center" class="left_txt">
-							${ac.accode}
+							${d.dname}
 						</td>
+
 						<td align="center" class="left_txt">
-							${ac.acname}
-						</td>
-						<td align="center" class="left_txt">
-							${ac.supacid}
-						</td>
-						<td align="center" class="left_txt">
-							${ac.supacname}
-						</td>
-						<td align="center" class="left_txt">
-							<a href="asset_category/test_AssetCategory_findAssetCategoryById.action?acid=${acid}">修改</a> |
-							<a href="asset_category/test_AssetCategory_deleteAssetCategory.action?acid=${acid}">删除</a>
-						    
+							<a
+								href="department/test_Department_findDepartmentById.action?did=${did}">修改</a>
+							|
+							<a
+								href="department/test_Department_deleteDepartment.action?did=${did}">删除</a>
+
 						</td>
 					</tr>
 				</s:iterator>

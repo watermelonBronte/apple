@@ -27,10 +27,9 @@ public class AssetCategoryDao extends HibernateDaoSupport implements
 		IAssetCategoryDao {
 
 	/*
+	 * 添加对象
 	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * com.mars.dao.IAssetCategoryDao#createAssetCategory(com.mars.vo.AssetCategory
+	 * @see com.mars.dao.IAssetCategoryDao#createAssetCategory(com.mars.vo.AssetCategory
 	 * )
 	 */
 	public void createAssetCategory(AssetCategory assetCategory) {
@@ -39,8 +38,8 @@ public class AssetCategoryDao extends HibernateDaoSupport implements
 	}
 
 	/*
+	 * 查找对象
 	 * (non-Javadoc)
-	 * 
 	 * @see com.mars.dao.IAssetCategoryDao#findAssetCategory()
 	 */
 	@SuppressWarnings("unchecked")
@@ -65,22 +64,19 @@ public class AssetCategoryDao extends HibernateDaoSupport implements
 	}
 
 	/*
+	 * 更新对象
 	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * com.mars.dao.IAssetCategoryDao#updateAssetCategory(com.mars.vo.AssetCategory
+	 * @see com.mars.dao.IAssetCategoryDao#updateAssetCategory(com.mars.vo.AssetCategory
 	 * )
 	 */
 	public void updateAssetCategory(AssetCategory assetCategory) {
-
 		super.getHibernateTemplate().update(assetCategory);
 	}
 
 	/*
+	 * 分页查找对象
 	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * com.mars.dao.IAssetCategoryDao#findAllAssetCategory(com.mars.tools.IPage)
+	 * @see com.mars.dao.IAssetCategoryDao#findAllAssetCategory(com.mars.tools.IPage)
 	 */
 	@SuppressWarnings("unchecked")
 	public List<AssetCategory> findAllAssetCategory(final IPage pageInfo) {
@@ -111,10 +107,9 @@ public class AssetCategoryDao extends HibernateDaoSupport implements
 	}
 
 	/*
+	 * 根据主键删除对象
 	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * com.mars.dao.IAssetCategoryDao#deleteAssetCategory(java.lang.Integer)
+	 * @see com.mars.dao.IAssetCategoryDao#deleteAssetCategory(java.lang.Integer)
 	 */
 	public void deleteAssetCategory(Integer acid) {
 		AssetCategory assetCategory = (AssetCategory) super
@@ -125,15 +120,16 @@ public class AssetCategoryDao extends HibernateDaoSupport implements
 	}
 
 	/*
+	 * 根据主键查找对象并返回对象
 	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * com.mars.dao.IAssetCategoryDao#findAssetCategoryById(java.lang.Integer)
+	 * @see com.mars.dao.IAssetCategoryDao#findAssetCategoryById(java.lang.Integer)
 	 */
 	public AssetCategory findAssetCategoryById(Integer acid) {
 		AssetCategory assetCategory = (AssetCategory) super
-		.getHibernateTemplate().load(AssetCategory.class,
-				new Integer(acid));
+				.getHibernateTemplate().get(AssetCategory.class,
+						new Integer(acid));
 		return assetCategory;
 	}
+
+	
 }

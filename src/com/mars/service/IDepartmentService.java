@@ -16,17 +16,17 @@ public interface IDepartmentService {
 	/**
 	 * 增加部门
 	 */
-	public void createDepartment();
+	public void createDepartment(Department department);
 	
 	/**
 	 * 删除部门
 	 */
-	public void deleteDepartment(int did);
+	public void deleteDepartment(Integer did);
 	
 	/**
 	 * 更新部门
 	 */
-	public void updateDepartment();
+	public void updateDepartment(Department department);
 	
 	/**
 	 * 查找部门
@@ -39,4 +39,11 @@ public interface IDepartmentService {
 	 * @return
 	 */
 	public List<Department> findAll(IPage pageInfo);
+	
+	/**
+	 * 根据ID查找部门
+	 * @param did
+	 * @return
+	 */
+	public Department findDepartmentById(Integer did);
 }

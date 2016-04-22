@@ -17,9 +17,6 @@ import com.mars.vo.Parameter;
 public class ParameterService implements IParameterService {
 
 	private IParameterDao parameterDao;
-	
-	
-	
 
 	public IParameterDao getParameterDao() {
 		return parameterDao;
@@ -29,50 +26,68 @@ public class ParameterService implements IParameterService {
 		this.parameterDao = parameterDao;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see com.mars.service.IParameterService#createParameter()
 	 */
-	public void createParameter() {
-		Parameter parameter = new Parameter();
-		parameter.setPname("fsd");
-		parameter.setPnum("234");
-		parameter.setPtypeid(1);
-		parameter.setPtypename("234");
+	public void createParameter(Parameter parameter) {
+
 		parameterDao.createParameter(parameter);
 
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see com.mars.service.IParameterService#deleteParameter()
 	 */
 	public void deleteParameter(Integer pid) {
-		Parameter parameter = new Parameter();
-		parameter.setPid(pid);
-		parameterDao.deleteParameter(parameter.getPid());
+		parameterDao.deleteParameter(pid);
 
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see com.mars.service.IParameterService#findParameter()
 	 */
 	public void findParameter() {
-		List<Parameter> list=parameterDao.findParameter();
-		for(Parameter parameter:list){
+		List<Parameter> list = parameterDao.findParameter();
+		for (Parameter parameter : list) {
 			System.out.println(parameter);
 		}
 	}
 
-	/* (non-Javadoc)
-	 * @see com.mars.service.IParameterService#updateParameter()
+	/*
+	 * (non-Javadoc)
+	 * @see com.mars.service.IParameterService#findAll(com.mars.tools.IPage)
 	 */
-	public void updateParameter() {
-		// TODO Auto-generated method stub
-
+	public List<Parameter> findAll(IPage pageInfo) {
+		List<Parameter> list = parameterDao.findAllParameter(pageInfo);
+		return list;
 	}
 
-	public List<Parameter> findAll(IPage pageInfo) {
-		// TODO Auto-generated method stub
-		return null;
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * com.mars.service.IParameterService#findParameterById(java.lang.Integer)
+	 */
+	public Parameter findParameterById(Integer pid) {
+		Parameter parameter = parameterDao.findParameterById(pid);
+		return parameter;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * com.mars.service.IParameterService#updateParameter(com.mars.vo.Parameter)
+	 */
+	public void updateParameter(Parameter parameter) {
+		parameterDao.updateParameter(parameter);
+
 	}
 
 }

@@ -18,23 +18,14 @@
 	</head>
 
 	<body>
-		<form action="asset_category/test_AssetCategory_updateAssetCategory.action"
+		<form action="department/test_Department_updateDepartment.action"
 			method="post">
 			
-			资产类别ID
-			<input type="text" name="acid" value="${acid}" readonly="readonly"/>
+			部门ID
+			<input type="text" name="did" value="${did}" readonly="readonly"/>
 			<br />
-			资产类别编号
-			<input type="text" name="accode" value="${accode}"/>
-			<br />
-			资产类别名称
-			<input type="text" name="acname" value="${acname}"/>
-			<br />
-			上级资产类别ID
-			<input type="text" name="supacid" value="${supacid}"/>
-			<br />
-			上级资产类别名称
-			<input type="text" name="supacname" value="${supacname}"/>
+			部门名称
+			<input type="text" name="dname" value="${dname}"/>
 			<br />
 			<input type="submit" value="更新" />
 		</form>

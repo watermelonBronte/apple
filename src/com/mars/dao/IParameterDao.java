@@ -5,6 +5,7 @@ package com.mars.dao;
 
 import java.util.List;
 
+import com.mars.tools.IPage;
 import com.mars.vo.Parameter;
 
 
@@ -25,6 +26,7 @@ public interface IParameterDao {
 	 */
 	public void deleteParameter(Integer pid); 
 	
+	
 	/**
 	 * 更新参数信息
 	 * @param assetcategory
@@ -37,4 +39,16 @@ public interface IParameterDao {
 	 */
 	public List<Parameter> findParameter();
 	
+	/**
+	 * 分页查找参数信息
+	 * @param pageInfo
+	 * @return
+	 */
+	public List<Parameter> findAllParameter(IPage pageInfo);
+	
+	/**
+	 * 根据ID查询参数信息
+	 * @return
+	 */
+	public Parameter findParameterById(Integer did);
 }

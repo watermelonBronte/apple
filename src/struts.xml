@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
+
+
 	<package name="asset_category" extends="struts-default"
 		namespace="/asset_category">
 		<action name="test_*_*" class="{1}Action" method="{2}">
-			<result name="createAssetCategory">/jsp/asset_category_page.jsp</result>
-			<result name="deleteAssetCategory">/jsp/asset_category_page.jsp</result>
-			<result name="updateAssetCategory">/jsp/asset_category_page.jsp</result>
 			<result name="findAssetCategoryById">/jsp/asset_category_update.jsp</result>
-		    <result name="pageAssetCategory">/jsp/asset_category_page.jsp</result>
+			<result name="pageAssetCategory">/jsp/asset_category_page.jsp</result>
+			<result name="successAssetCategory">/jsp/asset_category_success.jsp</result>
+			<result name="addAssetCategory">/jsp/asset_category_add.jsp</result>
+		    <result name="home">/index.jsp</result>
 		</action>
 	</package>
-	
-	<package name="department" extends="struts-default"
-		namespace="/department">
+
+	<package name="department" extends="struts-default" namespace="/department">
 		<action name="test_*_*" class="{1}Action" method="{2}">
-			<result name="createDepartment">/index.jsp</result>
-			<result name="deleteDepartment">/index.jsp</result>
-			<result name="updateDepartment">/index.jsp</result>
-			<result name="findDepartment">/index.jsp</result>
+			<result name="findDepartmentById">/jsp/department_update.jsp</result>
+			<result name="pageDepartment">/jsp/department_page.jsp</result>
+			<result name="successDepartment">/jsp/department_success.jsp</result>
+			<result name="addDepartment">/jsp/department_add.jsp</result>
 		</action>
 	</package>
-	
-	<package name="parameter" extends="struts-default"
-		namespace="/parameter">
+
+	<package name="parameter" extends="struts-default" namespace="/parameter">
 		<action name="test_*_*" class="{1}Action" method="{2}">
-			<result name="createParameter">/index.jsp</result>
-			<result name="deleteParameter">/index.jsp</result>
-			<result name="updateParameter">/index.jsp</result>
-			<result name="findParameter">/index.jsp</result>
+			<result name="findParameterById">/jsp/parameter_update.jsp</result>
+			<result name="pageParameter">/jsp/parameter_page.jsp</result>
+			<result name="successParameter">/jsp/parameter_success.jsp</result>
+			<result name="addParameter">/jsp/parameter_add.jsp</result>
 		</action>
 	</package>
 </struts>    

@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
+ * 部门
  * Department entity. @author MyEclipse Persistence Tools
  */
 
@@ -11,9 +12,9 @@ public class Department implements java.io.Serializable {
 
 	// Fields
 
-	private Integer did;
-	private String dname;
-	private Set users = new HashSet(0);
+	private Integer did;             //部门ID
+	private String dname;            //部门名称
+	private Set users = new HashSet(0);             //用户
 
 	// Constructors
 

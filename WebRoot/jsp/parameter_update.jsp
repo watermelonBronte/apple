@@ -18,23 +18,23 @@
 	</head>
 
 	<body>
-		<form action="asset_category/test_AssetCategory_updateAssetCategory.action"
+		<form action="parameter/test_Parameter_updateParameter.action"
 			method="post">
 			
-			资产类别ID
-			<input type="text" name="acid" value="${acid}" readonly="readonly"/>
+			参数信息ID
+			<input type="text" name="pid" value="${pid}" readonly="readonly"/>
 			<br />
-			资产类别编号
-			<input type="text" name="accode" value="${accode}"/>
+			参数信息名称
+			<input type="text" name="pname" value="${pname}"/>
 			<br />
-			资产类别名称
-			<input type="text" name="acname" value="${acname}"/>
+			参数信息值
+			<input type="text" name="pnum" value="${pnum}"/>
 			<br />
-			上级资产类别ID
-			<input type="text" name="supacid" value="${supacid}"/>
+			参数类型ID
+			<input type="text" name="ptypeid" value="${ptypeid}"/>
 			<br />
-			上级资产类别名称
-			<input type="text" name="supacname" value="${supacname}"/>
+			参数信息名称
+			<input type="text" name="ptypename" value="${ptypename}"/>
 			<br />
 			<input type="submit" value="更新" />
 		</form>

@@ -49,27 +49,30 @@ function submitFrom(formName){
 		<br />
 		<a href="asset_category/test_AssetCategory_home.action">主界面</a>
 		<br />
-		<h1>资产类别列表</h1>
-		<a href="asset_category/test_AssetCategory_addAssetCategory.action">添加记录</a>
-						
+		<br />
+		<h1>
+			参数信息列表
+		</h1>
+		<a href="parameter/test_Parameter_addParameter.action">添加记录</a>
+
 		<form action="" id="_form" method="post">
 			<table width="100%" border="1" cellpadding="0"
 				style="margin-top: 5px;" cellspacing="0">
 				<tr class="datalist_head">
 					<td class="left_bt2" align="center" width="10%">
-						资产类别ID
+						参数信息ID
 					</td>
 					<td class="left_bt2" align="center" width="10%">
-						资产类别编号
+						参数信息名称
 					</td>
 					<td class="left_bt2" align="center" width="10%">
-						资产类别名称
+						参数信息值
 					</td>
 					<td class="left_bt2" align="center" width="10%">
-						上级资产类别ID
+						参数信息类型ID
 					</td>
 					<td class="left_bt2" align="center" width="10%">
-						上级资产类别名称
+						参数信息类型名称
 					</td>
 					<td class="left_bt2" align="center" width="10%">
 						操作
@@ -77,27 +80,30 @@ function submitFrom(formName){
 
 				</tr>
 
-				<s:iterator id="ac" value="pageInfo.result" status="st">
+				<s:iterator id="p" value="pageInfo.result" status="st">
 					<tr align=center>
 						<td align="center" class="left_txt">
-							${ac.acid}
+							${p.pid}
 						</td>
 						<td align="center" class="left_txt">
-							${ac.accode}
+							${p.pname}
 						</td>
 						<td align="center" class="left_txt">
-							${ac.acname}
+							${p.pnum}
 						</td>
 						<td align="center" class="left_txt">
-							${ac.supacid}
+							${p.ptypeid}
 						</td>
 						<td align="center" class="left_txt">
-							${ac.supacname}
+							${p.ptypename}
 						</td>
 						<td align="center" class="left_txt">
-							<a href="asset_category/test_AssetCategory_findAssetCategoryById.action?acid=${acid}">修改</a> |
-							<a href="asset_category/test_AssetCategory_deleteAssetCategory.action?acid=${acid}">删除</a>
-						    
+							<a
+								href="parameter/test_Parameter_findParameterById.action?pid=${pid}">修改</a>
+							|
+							<a
+								href="parameter/test_Parameter_deleteParameter.action?pid=${pid}">删除</a>
+
 						</td>
 					</tr>
 				</s:iterator>

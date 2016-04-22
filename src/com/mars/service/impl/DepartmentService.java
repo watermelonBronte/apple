@@ -5,7 +5,6 @@ package com.mars.service.impl;
 
 import java.util.List;
 
-
 import com.mars.dao.IDepartmentDao;
 import com.mars.service.IDepartmentService;
 import com.mars.tools.IPage;
@@ -18,8 +17,7 @@ import com.mars.vo.Department;
 public class DepartmentService implements IDepartmentService {
 
 	private IDepartmentDao departmentDao;
-	
-	
+
 	public IDepartmentDao getDepartmentDao() {
 		return departmentDao;
 	}
@@ -28,49 +26,66 @@ public class DepartmentService implements IDepartmentService {
 		this.departmentDao = departmentDao;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see com.mars.service.IDepartmentService#createDepartment()
 	 */
-	public void createDepartment() {
-		Department department = new Department();
-		department.setDname("dfg");
+	public void createDepartment(Department department) {
 		departmentDao.createDepartment(department);
 
 	}
 
-	/* (non-Javadoc)
-	 * @see com.mars.service.IDepartmentService#deleteDepartment()
-	 */
-	public void deleteDepartment(int did) {
-		Department department = new Department();
-		department.setDid(did);
-		departmentDao.deleteDepartment(department.getDid());
-	
-
-	}
-
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see com.mars.service.IDepartmentService#findDepartment()
 	 */
 	public void findDepartment() {
-		List<Department> list=departmentDao.findDepartment();
-		for(Department department:list){
-			System.out.println(department.getDid()+"  "+department.getDname());
+		List<Department> list = departmentDao.findDepartment();
+		for (Department department : list) {
+			System.out.println(department.getDid() + "  "
+					+ department.getDname());
 		}
 
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see com.mars.service.IDepartmentService#updateDepartment()
 	 */
-	public void updateDepartment() {
-		// TODO Auto-generated method stub
+	public void updateDepartment(Department department) {
+		departmentDao.updateDepartment(department);
 
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.mars.service.IDepartmentService#findAll(com.mars.tools.IPage)
+	 */
 	public List<Department> findAll(IPage pageInfo) {
-		List<Department> list=departmentDao.findAllDepartment(pageInfo);
+		List<Department> list = departmentDao.findAllDepartment(pageInfo);
 		return list;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * @see com.mars.service.IDepartmentService#deleteDepartment(java.lang.Integer)
+	 */
+	public void deleteDepartment(Integer did) {
+		departmentDao.deleteDepartment(did);
+
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * @see com.mars.service.IDepartmentService#findDepartmentById(java.lang.Integer)
+	 */
+	public Department findDepartmentById(Integer did) {
+		Department department = departmentDao.findDepartmentById(did);
+		return department;
 	}
 
 }

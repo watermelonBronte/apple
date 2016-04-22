@@ -27,6 +27,7 @@ public interface IAssetCategoryDao {
 	 */
 	public void deleteAssetCategory(Integer acid); 
 	
+	
 	/**
 	 * 更新资产类别
 	 * @param assetcategory
@@ -46,7 +47,7 @@ public interface IAssetCategoryDao {
 	public List<AssetCategory> findAllAssetCategory(IPage pageInfo);
 	
 	/**
-	 * 查询资产类别
+	 * 根据ID查询资产类别
 	 * @return
 	 */
 	public AssetCategory findAssetCategoryById(Integer acid);

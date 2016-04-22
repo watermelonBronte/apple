@@ -18,25 +18,23 @@
 	</head>
 
 	<body>
-		<form action="asset_category/test_AssetCategory_updateAssetCategory.action"
+	<h1>创建资产类别</h1>
+		<form action="asset_category/test_AssetCategory_createAssetCategory.action"
 			method="post">
 			
-			资产类别ID
-			<input type="text" name="acid" value="${acid}" readonly="readonly"/>
-			<br />
 			资产类别编号
-			<input type="text" name="accode" value="${accode}"/>
+			<input type="text" name="accode" value="123"/>
 			<br />
 			资产类别名称
-			<input type="text" name="acname" value="${acname}"/>
+			<input type="text" name="acname" value="长江一号"/>
 			<br />
 			上级资产类别ID
-			<input type="text" name="supacid" value="${supacid}"/>
+			<input type="text" name="supacid" value="234"/>
 			<br />
 			上级资产类别名称
-			<input type="text" name="supacname" value="${supacname}"/>
+			<input type="text" name="supacname" value="黄河二号"/>
 			<br />
-			<input type="submit" value="更新" />
+			<input type="submit" value="创建" />
 		</form>
 
 

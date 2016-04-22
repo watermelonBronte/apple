@@ -23,29 +23,8 @@
 	</head>
 
 	<body>
-		<!-- <form action="admin_login/login.action" method="post">
-  	姓名：<input type="text" name="username" /> <br/>
-  	密码：<input type="text" name="pwd" />
-  	<input type="submit" value="提交" />
-  	</form>
-   -->
-		<!-- 资源类别 -->
-
-
-		<a href="asset_category/test_AssetCategory_pageAssetCategory.action">测试资源类别</a>
-		<br>
-		<hr />
-		<!-- 部门 -->
-		<a href="department/test_Department_pageDepartment.action">测试部门</a>
-		<br>
-		<hr />
-
-		<!-- 参数 -->
-		<a href="parameter/test_Parameter_pageParameter.action">测试参数信息</a>
-		<br>
-
-
-
-
+	资产类别${result}成功~
+	<br/>
+	<a href="asset_category/test_AssetCategory_pageAssetCategory.action">返回</a>
 	</body>
 </html>

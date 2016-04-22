@@ -3,9 +3,12 @@
  */
 package com.mars.action;
 
+
+
 import com.mars.service.IDepartmentService;
 import com.mars.tools.IPage;
 import com.mars.tools.PageInfo;
+import com.mars.vo.Department;
 import com.opensymphony.xwork2.ActionSupport;
 
 
@@ -18,8 +21,32 @@ public class DepartmentAction extends ActionSupport{
 
 	protected IPage pageInfo = new PageInfo();   
 	
-	private int did;
+	private Integer did;
+	private String dname;
+	private Department department = new Department();
 	
+	private String result;
+	
+	public String getDname() {
+		return dname;
+	}
+
+	public void setDname(String dname) {
+		this.dname = dname;
+	}
+
+	public Department getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(Department department) {
+		this.department = department;
+	}
+
+	public void setDid(Integer did) {
+		this.did = did;
+	}
+
 	public IDepartmentService getDepartmentService() {
 		return departmentService;
 	}
@@ -37,21 +64,37 @@ public class DepartmentAction extends ActionSupport{
 		this.pageInfo = pageInfo;
 	}
 
-	public int getDid() {
+	
+
+	public String getResult() {
+		return result;
+	}
+
+	public void setResult(String result) {
+		this.result = result;
+	}
+
+	public Integer getDid() {
 		return did;
 	}
 
-	public void setDid(int did) {
-		this.did = did;
+	/**
+	 * 添加界面
+	 * @return
+	 */
+	public String addDepartment()
+	{
+		return "addDepartment";
 	}
-
 	/**
 	 * 创建
 	 * @return
 	 */
 	public String createDepartment() {
-		departmentService.createDepartment();
-		return "createDepartment";
+		department.setDname(this.getDname());
+		departmentService.createDepartment(department);
+		this.setResult("创建");
+		return "successDepartment";
 	}
 	
 	/**
@@ -60,7 +103,8 @@ public class DepartmentAction extends ActionSupport{
 	 */
 	public String deleteDepartment() {
 		departmentService.deleteDepartment(this.getDid());
-		return "deleteDepartment";
+		this.setResult("删除");
+		return "successDepartment";
 	}
 	
 	/**
@@ -68,8 +112,11 @@ public class DepartmentAction extends ActionSupport{
 	 * @return
 	 */
 	public String updateDepartment() {
-		departmentService.updateDepartment();
-		return "updateDepartment";
+		department.setDid(this.getDid());
+		department.setDname(this.getDname());
+		departmentService.updateDepartment(department);
+		this.setResult("更新");
+		return "successDepartment";
 	}
 	
 	/**
@@ -81,4 +128,29 @@ public class DepartmentAction extends ActionSupport{
 		return "findDepartment";
 	}
 	
+	/**
+	 * 根据ID查找
+	 * 
+	 * @return
+	 */
+	public String findDepartmentById() {
+
+		department = departmentService.findDepartmentById(this
+				.getDid());
+		
+		this.setDid(department.getDid());
+		this.setDname(department.getDname());
+		return "findDepartmentById";
+	}
+
+	/**
+	 * 分页查找
+	 * 
+	 * @return
+	 */
+	public String pageDepartment() {
+		this.getPageInfo().setResult((departmentService.findAll(pageInfo)));
+
+		return "pageDepartment";
+	}
 }

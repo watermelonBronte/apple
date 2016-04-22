@@ -17,7 +17,7 @@ public interface IParameterService {
 	/**
 	 * 增加参数信息
 	 */
-	public void createParameter();
+	public void createParameter(Parameter parameter);
 	
 	/**
 	 * 删除参数信息
@@ -27,7 +27,7 @@ public interface IParameterService {
 	/**
 	 * 更新参数信息
 	 */
-	public void updateParameter();
+	public void updateParameter(Parameter parameter);
 	
 	/**
 	 * 查找参数信息
@@ -40,4 +40,11 @@ public interface IParameterService {
 	 * @return
 	 */
 	public List<Parameter> findAll(IPage pageInfo);
+	
+	/**
+	 * 根据ID查找参数信息
+	 * @param pid
+	 * @return
+	 */
+	public Parameter findParameterById(Integer pid);
 }

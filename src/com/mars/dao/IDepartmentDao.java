@@ -27,6 +27,8 @@ public interface IDepartmentDao {
 	 */
 	public void deleteDepartment(Integer did); 
 	
+	
+	
 	/**
 	 * 更新部门
 	 * @param department
@@ -46,4 +48,9 @@ public interface IDepartmentDao {
 	 */
 	public List<Department> findAllDepartment(IPage pageInfo);
 	
+	/**
+	 * 根据ID查询部门
+	 * @return
+	 */
+	public Department findDepartmentById(Integer did);
 }

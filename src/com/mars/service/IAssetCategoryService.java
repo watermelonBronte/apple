@@ -17,7 +17,7 @@ public interface IAssetCategoryService {
 	/**
 	 * 增加资产类别
 	 */
-	public void createAssetCategory();
+	public void createAssetCategory(AssetCategory assetCategory);
 	
 	/**
 	 * 删除资产类别
@@ -41,5 +41,10 @@ public interface IAssetCategoryService {
 	 */
 	public List<AssetCategory> findAll(IPage pageInfo);
 
+	/**
+	 * 根据ID查找资产类别
+	 * @param acid
+	 * @return
+	 */
 	public AssetCategory findAssetCategoryById(Integer acid);
 }

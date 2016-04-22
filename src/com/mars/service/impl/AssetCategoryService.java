@@ -31,13 +31,7 @@ public class AssetCategoryService implements IAssetCategoryService {
 	 * 
 	 * @see com.mars.service.IAssetCategoryService#createAssetCategory()
 	 */
-	public void createAssetCategory() {
-		AssetCategory assetCategory = new AssetCategory();
-		// assetCategory.setAcid(1);
-		assetCategory.setAccode("88");
-		assetCategory.setAcname("123");
-		assetCategory.setSupacid(1);
-		assetCategory.setSupacname("123");
+	public void createAssetCategory(AssetCategory assetCategory) {
 		assetCategoryDao.createAssetCategory(assetCategory);
 	}
 
@@ -47,9 +41,7 @@ public class AssetCategoryService implements IAssetCategoryService {
 	 * @see com.mars.service.IAssetCategoryService#deleteAssetCategory()
 	 */
 	public void deleteAssetCategory(Integer acid) {
-		AssetCategory assetCategory = new AssetCategory();
-		assetCategory.setAcid(acid);
-		assetCategoryDao.deleteAssetCategory(assetCategory.getAcid());
+		assetCategoryDao.deleteAssetCategory(acid);
 
 	}
 
@@ -89,11 +81,17 @@ public class AssetCategoryService implements IAssetCategoryService {
 		return list;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * com.mars.service.IAssetCategoryService#findAssetCategoryById(java.lang
+	 * .Integer)
+	 */
 	public AssetCategory findAssetCategoryById(Integer acid) {
 		AssetCategory assetCategory = assetCategoryDao
 				.findAssetCategoryById(acid);
 		return assetCategory;
-		
 
 	}
 

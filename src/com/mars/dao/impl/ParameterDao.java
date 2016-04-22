@@ -14,6 +14,9 @@ import org.springframework.orm.hibernate3.HibernateCallback;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import com.mars.dao.IParameterDao;
+import com.mars.tools.Execute;
+import com.mars.tools.IExecute;
+import com.mars.tools.IPage;
 import com.mars.vo.Parameter;
 
 /**
@@ -76,6 +79,48 @@ public class ParameterDao extends HibernateDaoSupport implements IParameterDao {
 	 */
 	public void updateParameter(Parameter parameter) {
 		super.getHibernateTemplate().update(parameter);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * @see com.mars.dao.IParameterDao#findParameterById(java.lang.Integer)
+	 */
+	public Parameter findParameterById(Integer did) {
+		Parameter parameter = (Parameter) super.getHibernateTemplate().get(
+				Parameter.class, new Integer(did));
+		return parameter;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * @see com.mars.dao.IParameterDao#findAllParameter(com.mars.tools.IPage)
+	 */
+	@SuppressWarnings("unchecked")
+	public List<Parameter> findAllParameter(final IPage pageInfo) {
+		return (List<Parameter>) super.getHibernateTemplate().execute(
+				new HibernateCallback() {
+
+					public Object doInHibernate(Session session)
+							throws HibernateException, SQLException {
+
+						IPage pages = null;
+						List<Parameter> list = new ArrayList<Parameter>();
+						try {
+							Criteria criteria = session
+									.createCriteria(Parameter.class);
+							IExecute exc = new Execute(pageInfo);
+							pages = exc.excute(criteria);
+							if (pages != null) {
+								list = pages.getResult();
+							}
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+
+						return list;
+
+					}
+				});
 	}
 
 }
