@@ -1,18 +1,18 @@
 package com.mars.vo;
 
 /**
- * 参数信息 Parameter entity. @author MyEclipse Persistence Tools
+ * Parameter entity. @author MyEclipse Persistence Tools
  */
 
 public class Parameter implements java.io.Serializable {
 
 	// Fields
 
-	private Integer pid; // 参数信息ID
-	private String pname; // 参数信息名称
-	private String pnum; // 参数信息值
-	private Integer ptypeid; // 参数信息类型ID
-	private String ptypename; // 参数信息名称
+	private Integer pid;
+	private String pname;
+	private String pnum;
+	private Integer ptypeid;
+	private String ptypename;
 
 	// Constructors
 

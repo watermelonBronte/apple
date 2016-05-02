@@ -38,7 +38,17 @@
 				<value>com/mars/vo/User.hbm.xml</value>
 				<value>com/mars/vo/Role.hbm.xml</value>
 				<value>com/mars/vo/AssetCategory.hbm.xml</value>
-			</list>
+				<value>com/mars/vo/PurchaseDetail.hbm.xml</value>
+				<value>com/mars/vo/AssetReturn.hbm.xml</value>
+				<value>com/mars/vo/AssetTransDetail.hbm.xml</value>
+				<value>com/mars/vo/CheckDetail.hbm.xml</value>
+				<value>com/mars/vo/Repairs.hbm.xml</value>
+				<value>com/mars/vo/AssetTrans.hbm.xml</value>
+				<value>com/mars/vo/Asset.hbm.xml</value>
+				<value>com/mars/vo/Scrap.hbm.xml</value>
+				<value>com/mars/vo/Checked.hbm.xml</value>
+				<value>com/mars/vo/TransBills.hbm.xml</value>
+				<value>com/mars/vo/PurchaseNote.hbm.xml</value></list>
 		</property>
 	</bean>
 	<!-- task manager -->

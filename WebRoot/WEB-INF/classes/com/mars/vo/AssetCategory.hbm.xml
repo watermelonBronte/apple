@@ -11,7 +11,9 @@
             <generator class="identity" />
         </id>
         <property name="accode" type="java.lang.String">
-            <column name="accode" length="500" />
+            <column name="accode" length="500">
+                <comment>前三位（资产类别）+登记时间（YYYYMMDD）+部门编号（两位）+自增序列（00001）、 如：001201604220900001</comment>
+            </column>
         </property>
         <property name="acname" type="java.lang.String">
             <column name="acname" length="50" />
@@ -22,5 +24,29 @@
         <property name="supacname" type="java.lang.String">
             <column name="supacname" length="50" />
         </property>
+        <set name="assetsForSupacid" inverse="true">
+            <key>
+                <column name="supacid" />
+            </key>
+            <one-to-many class="com.mars.vo.Asset" />
+        </set>
+        <set name="purchaseDetailsForSupacid" inverse="true">
+            <key>
+                <column name="supacid" />
+            </key>
+            <one-to-many class="com.mars.vo.PurchaseDetail" />
+        </set>
+        <set name="purchaseDetailsForAcid" inverse="true">
+            <key>
+                <column name="acid" />
+            </key>
+            <one-to-many class="com.mars.vo.PurchaseDetail" />
+        </set>
+        <set name="assetsForAcid" inverse="true">
+            <key>
+                <column name="acid" />
+            </key>
+            <one-to-many class="com.mars.vo.Asset" />
+        </set>
     </class>
 </hibernate-mapping>

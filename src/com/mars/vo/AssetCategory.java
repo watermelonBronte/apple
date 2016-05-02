@@ -1,7 +1,9 @@
 package com.mars.vo;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
- * 资产类别
  * AssetCategory entity. @author MyEclipse Persistence Tools
  */
 
@@ -9,11 +11,15 @@ public class AssetCategory implements java.io.Serializable {
 
 	// Fields
 
-	private Integer acid;     //资产类别ID
-	private String accode;    //资产类别编号
-	private String acname;    //资产类别名称
-	private Integer supacid;  //上级资产类别ID
-	private String supacname;   //上级资产类别名称
+	private Integer acid;
+	private String accode;
+	private String acname;
+	private Integer supacid;
+	private String supacname;
+	private Set assetsForSupacid = new HashSet(0);
+	private Set purchaseDetailsForSupacid = new HashSet(0);
+	private Set purchaseDetailsForAcid = new HashSet(0);
+	private Set assetsForAcid = new HashSet(0);
 
 	// Constructors
 
@@ -23,11 +29,17 @@ public class AssetCategory implements java.io.Serializable {
 
 	/** full constructor */
 	public AssetCategory(String accode, String acname, Integer supacid,
-			String supacname) {
+			String supacname, Set assetsForSupacid,
+			Set purchaseDetailsForSupacid, Set purchaseDetailsForAcid,
+			Set assetsForAcid) {
 		this.accode = accode;
 		this.acname = acname;
 		this.supacid = supacid;
 		this.supacname = supacname;
+		this.assetsForSupacid = assetsForSupacid;
+		this.purchaseDetailsForSupacid = purchaseDetailsForSupacid;
+		this.purchaseDetailsForAcid = purchaseDetailsForAcid;
+		this.assetsForAcid = assetsForAcid;
 	}
 
 	// Property accessors
@@ -70,6 +82,38 @@ public class AssetCategory implements java.io.Serializable {
 
 	public void setSupacname(String supacname) {
 		this.supacname = supacname;
+	}
+
+	public Set getAssetsForSupacid() {
+		return this.assetsForSupacid;
+	}
+
+	public void setAssetsForSupacid(Set assetsForSupacid) {
+		this.assetsForSupacid = assetsForSupacid;
+	}
+
+	public Set getPurchaseDetailsForSupacid() {
+		return this.purchaseDetailsForSupacid;
+	}
+
+	public void setPurchaseDetailsForSupacid(Set purchaseDetailsForSupacid) {
+		this.purchaseDetailsForSupacid = purchaseDetailsForSupacid;
+	}
+
+	public Set getPurchaseDetailsForAcid() {
+		return this.purchaseDetailsForAcid;
+	}
+
+	public void setPurchaseDetailsForAcid(Set purchaseDetailsForAcid) {
+		this.purchaseDetailsForAcid = purchaseDetailsForAcid;
+	}
+
+	public Set getAssetsForAcid() {
+		return this.assetsForAcid;
+	}
+
+	public void setAssetsForAcid(Set assetsForAcid) {
+		this.assetsForAcid = assetsForAcid;
 	}
 
 }
