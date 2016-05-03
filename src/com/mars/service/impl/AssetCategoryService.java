@@ -50,15 +50,16 @@ public class AssetCategoryService implements IAssetCategoryService {
 	 * 
 	 * @see com.mars.service.IAssetCategoryService#findAssetCategory()
 	 */
-	public void findAssetCategory() {
-		List<AssetCategory> list = assetCategoryDao.findAssetCategory();
-		for (AssetCategory assetCategory : list) {
-			System.out.println(assetCategory.getAcid() + "  "
-					+ assetCategory.getAccode() + "  "
-					+ assetCategory.getAcname() + "  "
-					+ assetCategory.getSupacid() + "  "
-					+ assetCategory.getSupacname());
-		}
+	public AssetCategory findAssetCategory() {
+		AssetCategory assetCategory = assetCategoryDao.findAssetCategory();
+//		for (AssetCategory assetCategory : list) {
+//			System.out.println(assetCategory.getAcid() + "  "
+//					+ assetCategory.getAccode() + "  "
+//					+ assetCategory.getAcname() + "  "
+//					+ assetCategory.getSupacid() + "  "
+//					+ assetCategory.getSupacname());
+//		}
+		return assetCategory;
 	}
 
 	/*

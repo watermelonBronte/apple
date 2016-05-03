@@ -16,14 +16,14 @@ import com.mars.vo.Asset;
  */
 public class AssetService implements IAssetService {
 
-	private IAssetDao AssetDao;
+	private IAssetDao assetDao;
 
 	public IAssetDao getAssetDao() {
-		return AssetDao;
+		return assetDao;
 	}
 
-	public void setAssetDao(IAssetDao AssetDao) {
-		this.AssetDao = AssetDao;
+	public void setAssetDao(IAssetDao assetDao) {
+		this.assetDao = assetDao;
 	}
 
 	/*
@@ -31,8 +31,8 @@ public class AssetService implements IAssetService {
 	 * 
 	 * @see com.mars.service.IAssetService#createAsset()
 	 */
-	public void createAsset(Asset Asset) {
-		AssetDao.createAsset(Asset);
+	public void createAsset(Asset asset) {
+		assetDao.createAsset(asset);
 	}
 
 	/*
@@ -41,7 +41,7 @@ public class AssetService implements IAssetService {
 	 * @see com.mars.service.IAssetService#deleteAsset()
 	 */
 	public void deleteAsset(Integer aid) {
-		AssetDao.deleteAsset(aid);
+		assetDao.deleteAsset(aid);
 
 	}
 
@@ -51,9 +51,9 @@ public class AssetService implements IAssetService {
 	 * @see com.mars.service.IAssetService#findAsset()
 	 */
 	public void findAsset() {
-		List<Asset> list = AssetDao.findAsset();
-		for (Asset Asset : list) {
-			System.out.println(Asset);
+		List<Asset> list = assetDao.findAsset();
+		for (Asset asset : list) {
+			System.out.println(asset);
 		}
 	}
 
@@ -62,8 +62,8 @@ public class AssetService implements IAssetService {
 	 * 
 	 * @see com.mars.service.IAssetService#updateAsset()
 	 */
-	public void updateAsset(Asset Asset) {
-		AssetDao.updateAsset(Asset);
+	public void updateAsset(Asset asset) {
+		assetDao.updateAsset(asset);
 	}
 
 	/*
@@ -72,7 +72,7 @@ public class AssetService implements IAssetService {
 	 * @see com.mars.service.IAssetService#findAll(com.mars.tools.IPage)
 	 */
 	public List<Asset> findAll(IPage pageInfo) {
-		List<Asset> list = AssetDao.findAllAsset(pageInfo);
+		List<Asset> list = assetDao.findAllAsset(pageInfo);
 		return list;
 	}
 
@@ -82,7 +82,7 @@ public class AssetService implements IAssetService {
 	 * @see com.mars.service.IAssetService#findAssetById(java.lang .Integer)
 	 */
 	public Asset findAssetById(Integer aid) {
-		Asset Asset = AssetDao.findAssetById(aid);
+		Asset Asset = assetDao.findAssetById(aid);
 		return Asset;
 
 	}

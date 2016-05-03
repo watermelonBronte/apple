@@ -32,8 +32,8 @@ public class AssetDao extends HibernateDaoSupport implements
 	 * @see com.mars.dao.IAssetDao#createAsset(com.mars.vo.Asset
 	 * )
 	 */
-	public void createAsset(Asset Asset) {
-		super.getHibernateTemplate().save(Asset);
+	public void createAsset(Asset asset) {
+		super.getHibernateTemplate().save(asset);
 
 	}
 
@@ -69,8 +69,8 @@ public class AssetDao extends HibernateDaoSupport implements
 	 * @see com.mars.dao.IAssetDao#updateAsset(com.mars.vo.Asset
 	 * )
 	 */
-	public void updateAsset(Asset Asset) {
-		super.getHibernateTemplate().update(Asset);
+	public void updateAsset(Asset asset) {
+		super.getHibernateTemplate().update(asset);
 	}
 
 	/*
@@ -112,10 +112,10 @@ public class AssetDao extends HibernateDaoSupport implements
 	 * @see com.mars.dao.IAssetDao#deleteAsset(java.lang.Integer)
 	 */
 	public void deleteAsset(Integer aid) {
-		Asset Asset = (Asset) super
+		Asset asset = (Asset) super
 				.getHibernateTemplate().load(Asset.class,
 						new Integer(aid));
-		super.getHibernateTemplate().delete(Asset);
+		super.getHibernateTemplate().delete(asset);
 
 	}
 
@@ -125,10 +125,10 @@ public class AssetDao extends HibernateDaoSupport implements
 	 * @see com.mars.dao.IAssetDao#findAssetById(java.lang.Integer)
 	 */
 	public Asset findAssetById(Integer aid) {
-		Asset Asset = (Asset) super
+		Asset asset = (Asset) super
 				.getHibernateTemplate().get(Asset.class,
 						new Integer(aid));
-		return Asset;
+		return asset;
 	}
 
 	

@@ -32,7 +32,7 @@ public interface IAssetDao {
 	 * 更新资产
 	 * @param Asset
 	 */
-	public void updateAsset(Asset Asset); 
+	public void updateAsset(Asset asset); 
 	
 	/**
 	 * 查询资产

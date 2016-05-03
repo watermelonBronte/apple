@@ -38,7 +38,7 @@ public interface IAssetCategoryDao {
 	 * 查询资产类别
 	 * @return
 	 */
-	public List<AssetCategory> findAssetCategory();
+	public AssetCategory findAssetCategory();
 	
 	/**
 	 * 分页查询资产类别

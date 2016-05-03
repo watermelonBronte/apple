@@ -27,7 +27,7 @@
         </property>
         <set name="assets" inverse="true">
             <key>
-                <column name="nid" />
+                <column name="pnid" />
             </key>
             <one-to-many class="com.mars.vo.Asset" />
         </set>

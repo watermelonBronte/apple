@@ -17,7 +17,7 @@ public interface IAssetService {
 	/**
 	 * 增加资产
 	 */
-	public void createAsset(Asset Asset);
+	public void createAsset(Asset asset);
 	
 	/**
 	 * 删除资产
@@ -27,7 +27,7 @@ public interface IAssetService {
 	/**
 	 * 更新资产
 	 */
-	public void updateAsset(Asset Asset);
+	public void updateAsset(Asset asset);
 	
 	/**
 	 * 查找资产

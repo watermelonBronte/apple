@@ -15,17 +15,17 @@ public class Asset implements java.io.Serializable {
 
 	private Integer aid;
 	private User userByUserid;
-	private PurchaseNote purchaseNote;
 	private AssetCategory assetCategoryBySupacid;
 	private AssetCategory assetCategoryByAcid;
 	private User userByUid;
+	private PurchaseNote purchaseNote;
 	private User userByFaccountid;
 	private Department department;
 	private String cid;
 	private Integer astate;
 	private Integer fifaccount;
 	private String specificat;
-	private Integer auserstate;
+	private Integer ausestate;
 	private String aname;
 	private Integer pdepartment;
 	private Timestamp fdate;
@@ -56,29 +56,29 @@ public class Asset implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Asset(User userByUserid, PurchaseNote purchaseNote,
-			AssetCategory assetCategoryBySupacid,
+	public Asset(User userByUserid, AssetCategory assetCategoryBySupacid,
 			AssetCategory assetCategoryByAcid, User userByUid,
-			User userByFaccountid, Department department, String cid,
-			Integer astate, Integer fifaccount, String specificat,
-			Integer auserstate, String aname, Integer pdepartment,
-			Timestamp fdate, String fcode, String acode, String amaker,
-			String aprovider, Date adate, String aunit, Integer acount,
-			String anote, Float aprice, Integer tprint, String onepath,
-			String twopath, String barcode, Set checkDetails, Set assetReturns,
-			Set repairses, Set transBillses, Set scraps, Set assetTransDetails) {
+			PurchaseNote purchaseNote, User userByFaccountid,
+			Department department, String cid, Integer astate,
+			Integer fifaccount, String specificat, Integer ausestate,
+			String aname, Integer pdepartment, Timestamp fdate, String fcode,
+			String acode, String amaker, String aprovider, Date adate,
+			String aunit, Integer acount, String anote, Float aprice,
+			Integer tprint, String onepath, String twopath, String barcode,
+			Set checkDetails, Set assetReturns, Set repairses,
+			Set transBillses, Set scraps, Set assetTransDetails) {
 		this.userByUserid = userByUserid;
-		this.purchaseNote = purchaseNote;
 		this.assetCategoryBySupacid = assetCategoryBySupacid;
 		this.assetCategoryByAcid = assetCategoryByAcid;
 		this.userByUid = userByUid;
+		this.purchaseNote = purchaseNote;
 		this.userByFaccountid = userByFaccountid;
 		this.department = department;
 		this.cid = cid;
 		this.astate = astate;
 		this.fifaccount = fifaccount;
 		this.specificat = specificat;
-		this.auserstate = auserstate;
+		this.ausestate = ausestate;
 		this.aname = aname;
 		this.pdepartment = pdepartment;
 		this.fdate = fdate;
@@ -121,14 +121,6 @@ public class Asset implements java.io.Serializable {
 		this.userByUserid = userByUserid;
 	}
 
-	public PurchaseNote getPurchaseNote() {
-		return this.purchaseNote;
-	}
-
-	public void setPurchaseNote(PurchaseNote purchaseNote) {
-		this.purchaseNote = purchaseNote;
-	}
-
 	public AssetCategory getAssetCategoryBySupacid() {
 		return this.assetCategoryBySupacid;
 	}
@@ -151,6 +143,14 @@ public class Asset implements java.io.Serializable {
 
 	public void setUserByUid(User userByUid) {
 		this.userByUid = userByUid;
+	}
+
+	public PurchaseNote getPurchaseNote() {
+		return this.purchaseNote;
+	}
+
+	public void setPurchaseNote(PurchaseNote purchaseNote) {
+		this.purchaseNote = purchaseNote;
 	}
 
 	public User getUserByFaccountid() {
@@ -201,12 +201,12 @@ public class Asset implements java.io.Serializable {
 		this.specificat = specificat;
 	}
 
-	public Integer getAuserstate() {
-		return this.auserstate;
+	public Integer getAusestate() {
+		return this.ausestate;
 	}
 
-	public void setAuserstate(Integer auserstate) {
-		this.auserstate = auserstate;
+	public void setAusestate(Integer ausestate) {
+		this.ausestate = ausestate;
 	}
 
 	public String getAname() {

@@ -142,4 +142,23 @@
 	</bean>
 
 	<!-- 参数信息 end -->
+	
+	<!-- 资产信息start -->
+		<!-- dao -->
+	<bean id="assetDao" class="com.mars.dao.impl.AssetDao">
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+	<!-- Service -->
+	<bean id="assetService" class="com.mars.service.impl.AssetService">
+		<property name="assetDao" ref="assetDao" />
+	</bean>
+	<!-- Action -->
+	<bean id="AssetAction" class="com.mars.action.AssetAction"
+		scope="prototype">
+		<property name="assetService" ref="assetService" />
+	</bean>
+	
+		<!-- 资产信息end -->
 </beans>

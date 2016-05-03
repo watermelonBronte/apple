@@ -13,9 +13,6 @@
         <many-to-one name="userByUserid" class="com.mars.vo.User" fetch="select">
             <column name="userid" />
         </many-to-one>
-        <many-to-one name="purchaseNote" class="com.mars.vo.PurchaseNote" fetch="select">
-            <column name="nid" />
-        </many-to-one>
         <many-to-one name="assetCategoryBySupacid" class="com.mars.vo.AssetCategory" fetch="select">
             <column name="supacid" />
         </many-to-one>
@@ -24,6 +21,9 @@
         </many-to-one>
         <many-to-one name="userByUid" class="com.mars.vo.User" fetch="select">
             <column name="uid" />
+        </many-to-one>
+        <many-to-one name="purchaseNote" class="com.mars.vo.PurchaseNote" fetch="select">
+            <column name="pnid" />
         </many-to-one>
         <many-to-one name="userByFaccountid" class="com.mars.vo.User" fetch="select">
             <column name="faccountid" />
@@ -45,8 +45,8 @@
         <property name="specificat" type="java.lang.String">
             <column name="specificat" length="100" />
         </property>
-        <property name="auserstate" type="java.lang.Integer">
-            <column name="auserstate" />
+        <property name="ausestate" type="java.lang.Integer">
+            <column name="ausestate" />
         </property>
         <property name="aname" type="java.lang.String">
             <column name="aname" length="500" />

@@ -42,23 +42,24 @@ public class AssetCategoryDao extends HibernateDaoSupport implements
 	 * (non-Javadoc)
 	 * @see com.mars.dao.IAssetCategoryDao#findAssetCategory()
 	 */
-	@SuppressWarnings("unchecked")
-	public List<AssetCategory> findAssetCategory() {
-		return (List<AssetCategory>) super.getHibernateTemplate().execute(
+
+	public AssetCategory findAssetCategory() {
+		return (AssetCategory) super.getHibernateTemplate().execute(
 				new HibernateCallback() {
 
 					public Object doInHibernate(Session session)
 							throws HibernateException, SQLException {
-						List<AssetCategory> list = new ArrayList<AssetCategory>();
+						AssetCategory assetCategory = new AssetCategory();
 						try {
 							Criteria criteria = session
 									.createCriteria(AssetCategory.class);
-							list = (List<AssetCategory>) criteria.list();
+//							list = (List<AssetCategory>) criteria.list();
+							assetCategory = (AssetCategory) criteria.uniqueResult(); 
 						} catch (Exception e) {
 							e.printStackTrace();
 						}
 
-						return list;
+						return assetCategory;
 					}
 				});
 	}

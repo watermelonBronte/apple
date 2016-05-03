@@ -32,7 +32,7 @@ public interface IAssetCategoryService {
 	/**
 	 * 查找资产类别
 	 */
-	public void findAssetCategory();
+	public AssetCategory findAssetCategory();
 	
 	/**
 	 * 分页查找资产类别
