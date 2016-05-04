@@ -9,16 +9,13 @@ public class PurchaseDetail implements java.io.Serializable {
 	// Fields
 
 	private Integer pdid;
-	private AssetCategory assetCategoryBySupacid;
-	private AssetCategory assetCategoryByAcid;
 	private User user;
 	private PurchaseNote purchaseNote;
-	private String pdunit;
 	private String atype;
-	private String aname;
 	private Integer pdcount;
 	private String pdmarker;
 	private String pdprovider;
+	private String pdunit;
 	private Float pdprice;
 
 	// Constructors
@@ -28,21 +25,16 @@ public class PurchaseDetail implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public PurchaseDetail(AssetCategory assetCategoryBySupacid,
-			AssetCategory assetCategoryByAcid, User user,
-			PurchaseNote purchaseNote, String pdunit, String atype,
-			String aname, Integer pdcount, String pdmarker, String pdprovider,
+	public PurchaseDetail(User user, PurchaseNote purchaseNote, String atype,
+			Integer pdcount, String pdmarker, String pdprovider, String pdunit,
 			Float pdprice) {
-		this.assetCategoryBySupacid = assetCategoryBySupacid;
-		this.assetCategoryByAcid = assetCategoryByAcid;
 		this.user = user;
 		this.purchaseNote = purchaseNote;
-		this.pdunit = pdunit;
 		this.atype = atype;
-		this.aname = aname;
 		this.pdcount = pdcount;
 		this.pdmarker = pdmarker;
 		this.pdprovider = pdprovider;
+		this.pdunit = pdunit;
 		this.pdprice = pdprice;
 	}
 
@@ -54,22 +46,6 @@ public class PurchaseDetail implements java.io.Serializable {
 
 	public void setPdid(Integer pdid) {
 		this.pdid = pdid;
-	}
-
-	public AssetCategory getAssetCategoryBySupacid() {
-		return this.assetCategoryBySupacid;
-	}
-
-	public void setAssetCategoryBySupacid(AssetCategory assetCategoryBySupacid) {
-		this.assetCategoryBySupacid = assetCategoryBySupacid;
-	}
-
-	public AssetCategory getAssetCategoryByAcid() {
-		return this.assetCategoryByAcid;
-	}
-
-	public void setAssetCategoryByAcid(AssetCategory assetCategoryByAcid) {
-		this.assetCategoryByAcid = assetCategoryByAcid;
 	}
 
 	public User getUser() {
@@ -88,28 +64,12 @@ public class PurchaseDetail implements java.io.Serializable {
 		this.purchaseNote = purchaseNote;
 	}
 
-	public String getPdunit() {
-		return this.pdunit;
-	}
-
-	public void setPdunit(String pdunit) {
-		this.pdunit = pdunit;
-	}
-
 	public String getAtype() {
 		return this.atype;
 	}
 
 	public void setAtype(String atype) {
 		this.atype = atype;
-	}
-
-	public String getAname() {
-		return this.aname;
-	}
-
-	public void setAname(String aname) {
-		this.aname = aname;
 	}
 
 	public Integer getPdcount() {
@@ -134,6 +94,14 @@ public class PurchaseDetail implements java.io.Serializable {
 
 	public void setPdprovider(String pdprovider) {
 		this.pdprovider = pdprovider;
+	}
+
+	public String getPdunit() {
+		return this.pdunit;
+	}
+
+	public void setPdunit(String pdunit) {
+		this.pdunit = pdunit;
 	}
 
 	public Float getPdprice() {

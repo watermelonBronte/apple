@@ -13,7 +13,6 @@ public class Department implements java.io.Serializable {
 
 	private Integer did;
 	private String dname;
-	private Set assets = new HashSet(0);
 	private Set users = new HashSet(0);
 	private Set transBillsesForIndid = new HashSet(0);
 	private Set purchaseNotes = new HashSet(0);
@@ -26,11 +25,9 @@ public class Department implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Department(String dname, Set assets, Set users,
-			Set transBillsesForIndid, Set purchaseNotes,
-			Set transBillsesForOutdid) {
+	public Department(String dname, Set users, Set transBillsesForIndid,
+			Set purchaseNotes, Set transBillsesForOutdid) {
 		this.dname = dname;
-		this.assets = assets;
 		this.users = users;
 		this.transBillsesForIndid = transBillsesForIndid;
 		this.purchaseNotes = purchaseNotes;
@@ -53,14 +50,6 @@ public class Department implements java.io.Serializable {
 
 	public void setDname(String dname) {
 		this.dname = dname;
-	}
-
-	public Set getAssets() {
-		return this.assets;
-	}
-
-	public void setAssets(Set assets) {
-		this.assets = assets;
 	}
 
 	public Set getUsers() {

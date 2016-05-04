@@ -9,6 +9,7 @@ import com.mars.dao.IAssetCategoryDao;
 import com.mars.service.IAssetCategoryService;
 import com.mars.tools.IPage;
 import com.mars.vo.AssetCategory;
+import com.mars.vo.Department;
 
 /**
  * @author ye
@@ -45,22 +46,7 @@ public class AssetCategoryService implements IAssetCategoryService {
 
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.mars.service.IAssetCategoryService#findAssetCategory()
-	 */
-	public AssetCategory findAssetCategory() {
-		AssetCategory assetCategory = assetCategoryDao.findAssetCategory();
-//		for (AssetCategory assetCategory : list) {
-//			System.out.println(assetCategory.getAcid() + "  "
-//					+ assetCategory.getAccode() + "  "
-//					+ assetCategory.getAcname() + "  "
-//					+ assetCategory.getSupacid() + "  "
-//					+ assetCategory.getSupacname());
-//		}
-		return assetCategory;
-	}
+	
 
 	/*
 	 * (non-Javadoc)
@@ -79,6 +65,7 @@ public class AssetCategoryService implements IAssetCategoryService {
 	public List<AssetCategory> findAll(IPage pageInfo) {
 		List<AssetCategory> list = assetCategoryDao
 				.findAllAssetCategory(pageInfo);
+		System.out.println(pageInfo);
 		return list;
 	}
 
@@ -96,4 +83,16 @@ public class AssetCategoryService implements IAssetCategoryService {
 
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see com.mars.service.IAssetCategoryService#findAssetCategory()
+	 */
+	public void findAssetCategory() {
+		List<AssetCategory> list = assetCategoryDao.findAssetCategory();
+		for (AssetCategory department : list) {
+			System.out.println(department.getAccode()+ "  "
+					+ department.getAcname());
+		
+	}
+	}
 }

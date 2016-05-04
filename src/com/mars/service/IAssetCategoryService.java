@@ -29,10 +29,7 @@ public interface IAssetCategoryService {
 	 */
 	public void updateAssetCategory(AssetCategory assetCategory);
 	
-	/**
-	 * 查找资产类别
-	 */
-	public AssetCategory findAssetCategory();
+	
 	
 	/**
 	 * 分页查找资产类别
@@ -47,4 +44,10 @@ public interface IAssetCategoryService {
 	 * @return
 	 */
 	public AssetCategory findAssetCategoryById(Integer acid);
+	
+	/**
+	 * 罗列所有
+	 * @return
+	 */
+	public  void findAssetCategory();
 }

@@ -6,6 +6,7 @@ package com.mars.dao;
 import java.util.List;
 
 import com.mars.tools.IPage;
+import com.mars.vo.Asset;
 import com.mars.vo.AssetCategory;
 
 
@@ -38,7 +39,7 @@ public interface IAssetCategoryDao {
 	 * 查询资产类别
 	 * @return
 	 */
-	public AssetCategory findAssetCategory();
+	public List<AssetCategory> findAssetCategory();
 	
 	/**
 	 * 分页查询资产类别
@@ -51,5 +52,6 @@ public interface IAssetCategoryDao {
 	 * @return
 	 */
 	public AssetCategory findAssetCategoryById(Integer acid);
+	
 	
 }

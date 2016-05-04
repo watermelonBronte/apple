@@ -48,7 +48,8 @@
 				<value>com/mars/vo/Scrap.hbm.xml</value>
 				<value>com/mars/vo/Checked.hbm.xml</value>
 				<value>com/mars/vo/TransBills.hbm.xml</value>
-				<value>com/mars/vo/PurchaseNote.hbm.xml</value></list>
+				<value>com/mars/vo/PurchaseNote.hbm.xml</value>
+				<value>com/mars/vo/Finance.hbm.xml</value></list>
 		</property>
 	</bean>
 	<!-- task manager -->

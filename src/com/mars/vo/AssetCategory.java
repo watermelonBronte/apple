@@ -16,10 +16,7 @@ public class AssetCategory implements java.io.Serializable {
 	private String acname;
 	private Integer supacid;
 	private String supacname;
-	private Set assetsForSupacid = new HashSet(0);
-	private Set purchaseDetailsForSupacid = new HashSet(0);
-	private Set purchaseDetailsForAcid = new HashSet(0);
-	private Set assetsForAcid = new HashSet(0);
+	private Set assets = new HashSet(0);
 
 	// Constructors
 
@@ -29,17 +26,12 @@ public class AssetCategory implements java.io.Serializable {
 
 	/** full constructor */
 	public AssetCategory(String accode, String acname, Integer supacid,
-			String supacname, Set assetsForSupacid,
-			Set purchaseDetailsForSupacid, Set purchaseDetailsForAcid,
-			Set assetsForAcid) {
+			String supacname, Set assets) {
 		this.accode = accode;
 		this.acname = acname;
 		this.supacid = supacid;
 		this.supacname = supacname;
-		this.assetsForSupacid = assetsForSupacid;
-		this.purchaseDetailsForSupacid = purchaseDetailsForSupacid;
-		this.purchaseDetailsForAcid = purchaseDetailsForAcid;
-		this.assetsForAcid = assetsForAcid;
+		this.assets = assets;
 	}
 
 	// Property accessors
@@ -84,36 +76,12 @@ public class AssetCategory implements java.io.Serializable {
 		this.supacname = supacname;
 	}
 
-	public Set getAssetsForSupacid() {
-		return this.assetsForSupacid;
+	public Set getAssets() {
+		return this.assets;
 	}
 
-	public void setAssetsForSupacid(Set assetsForSupacid) {
-		this.assetsForSupacid = assetsForSupacid;
-	}
-
-	public Set getPurchaseDetailsForSupacid() {
-		return this.purchaseDetailsForSupacid;
-	}
-
-	public void setPurchaseDetailsForSupacid(Set purchaseDetailsForSupacid) {
-		this.purchaseDetailsForSupacid = purchaseDetailsForSupacid;
-	}
-
-	public Set getPurchaseDetailsForAcid() {
-		return this.purchaseDetailsForAcid;
-	}
-
-	public void setPurchaseDetailsForAcid(Set purchaseDetailsForAcid) {
-		this.purchaseDetailsForAcid = purchaseDetailsForAcid;
-	}
-
-	public Set getAssetsForAcid() {
-		return this.assetsForAcid;
-	}
-
-	public void setAssetsForAcid(Set assetsForAcid) {
-		this.assetsForAcid = assetsForAcid;
+	public void setAssets(Set assets) {
+		this.assets = assets;
 	}
 
 }

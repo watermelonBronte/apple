@@ -52,17 +52,17 @@
             </key>
             <one-to-many class="com.mars.vo.AssetTrans" />
         </set>
-        <set name="transBillsesForOutuid" inverse="true">
-            <key>
-                <column name="outuid" />
-            </key>
-            <one-to-many class="com.mars.vo.TransBills" />
-        </set>
         <set name="checkeds" inverse="true">
             <key>
                 <column name="uid" />
             </key>
             <one-to-many class="com.mars.vo.Checked" />
+        </set>
+        <set name="transBillsesForOutuid" inverse="true">
+            <key>
+                <column name="outuid" />
+            </key>
+            <one-to-many class="com.mars.vo.TransBills" />
         </set>
         <set name="assetTransDetails" inverse="true">
             <key>
@@ -88,15 +88,9 @@
             </key>
             <one-to-many class="com.mars.vo.PurchaseNote" />
         </set>
-        <set name="assetsForUid" inverse="true">
+        <set name="assets" inverse="true">
             <key>
-                <column name="uid" />
-            </key>
-            <one-to-many class="com.mars.vo.Asset" />
-        </set>
-        <set name="assetsForUserid" inverse="true">
-            <key>
-                <column name="userid" />
+                <column name="useuid" />
             </key>
             <one-to-many class="com.mars.vo.Asset" />
         </set>
@@ -111,12 +105,6 @@
                 <column name="guid" />
             </key>
             <one-to-many class="com.mars.vo.AssetReturn" />
-        </set>
-        <set name="assetsForFaccountid" inverse="true">
-            <key>
-                <column name="faccountid" />
-            </key>
-            <one-to-many class="com.mars.vo.Asset" />
         </set>
         <set name="scrapsForUid" inverse="true">
             <key>

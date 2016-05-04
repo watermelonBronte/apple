@@ -17,6 +17,7 @@ import com.mars.dao.IAssetCategoryDao;
 import com.mars.tools.Execute;
 import com.mars.tools.IExecute;
 import com.mars.tools.IPage;
+import com.mars.vo.Asset;
 import com.mars.vo.AssetCategory;
 
 /**
@@ -27,9 +28,10 @@ public class AssetCategoryDao extends HibernateDaoSupport implements
 		IAssetCategoryDao {
 
 	/*
-	 * 添加对象
-	 * (non-Javadoc)
-	 * @see com.mars.dao.IAssetCategoryDao#createAssetCategory(com.mars.vo.AssetCategory
+	 * 添加对象 (non-Javadoc)
+	 * 
+	 * @see
+	 * com.mars.dao.IAssetCategoryDao#createAssetCategory(com.mars.vo.AssetCategory
 	 * )
 	 */
 	public void createAssetCategory(AssetCategory assetCategory) {
@@ -37,37 +39,35 @@ public class AssetCategoryDao extends HibernateDaoSupport implements
 
 	}
 
-	/*
-	 * 查找对象
-	 * (non-Javadoc)
-	 * @see com.mars.dao.IAssetCategoryDao#findAssetCategory()
-	 */
-
-	public AssetCategory findAssetCategory() {
-		return (AssetCategory) super.getHibernateTemplate().execute(
+    /**
+     * 
+     * @return
+     */
+	@SuppressWarnings("unchecked")
+	public List<AssetCategory> findAssetCategory() {
+		return (List<AssetCategory>) super.getHibernateTemplate().execute(
 				new HibernateCallback() {
 
 					public Object doInHibernate(Session session)
 							throws HibernateException, SQLException {
-						AssetCategory assetCategory = new AssetCategory();
+						List<AssetCategory> list = new ArrayList<AssetCategory>();
 						try {
 							Criteria criteria = session
 									.createCriteria(AssetCategory.class);
-//							list = (List<AssetCategory>) criteria.list();
-							assetCategory = (AssetCategory) criteria.uniqueResult(); 
+							list = (List<AssetCategory>) criteria.list();
 						} catch (Exception e) {
 							e.printStackTrace();
 						}
 
-						return assetCategory;
+						return list;
 					}
 				});
 	}
-
 	/*
-	 * 更新对象
-	 * (non-Javadoc)
-	 * @see com.mars.dao.IAssetCategoryDao#updateAssetCategory(com.mars.vo.AssetCategory
+	 * 更新对象 (non-Javadoc)
+	 * 
+	 * @see
+	 * com.mars.dao.IAssetCategoryDao#updateAssetCategory(com.mars.vo.AssetCategory
 	 * )
 	 */
 	public void updateAssetCategory(AssetCategory assetCategory) {
@@ -75,9 +75,10 @@ public class AssetCategoryDao extends HibernateDaoSupport implements
 	}
 
 	/*
-	 * 分页查找对象
-	 * (non-Javadoc)
-	 * @see com.mars.dao.IAssetCategoryDao#findAllAssetCategory(com.mars.tools.IPage)
+	 * 分页查找对象 (non-Javadoc)
+	 * 
+	 * @see
+	 * com.mars.dao.IAssetCategoryDao#findAllAssetCategory(com.mars.tools.IPage)
 	 */
 	@SuppressWarnings("unchecked")
 	public List<AssetCategory> findAllAssetCategory(final IPage pageInfo) {
@@ -108,9 +109,10 @@ public class AssetCategoryDao extends HibernateDaoSupport implements
 	}
 
 	/*
-	 * 根据主键删除对象
-	 * (non-Javadoc)
-	 * @see com.mars.dao.IAssetCategoryDao#deleteAssetCategory(java.lang.Integer)
+	 * 根据主键删除对象 (non-Javadoc)
+	 * 
+	 * @see
+	 * com.mars.dao.IAssetCategoryDao#deleteAssetCategory(java.lang.Integer)
 	 */
 	public void deleteAssetCategory(Integer acid) {
 		AssetCategory assetCategory = (AssetCategory) super
@@ -121,9 +123,10 @@ public class AssetCategoryDao extends HibernateDaoSupport implements
 	}
 
 	/*
-	 * 根据主键查找对象并返回对象
-	 * (non-Javadoc)
-	 * @see com.mars.dao.IAssetCategoryDao#findAssetCategoryById(java.lang.Integer)
+	 * 根据主键查找对象并返回对象 (non-Javadoc)
+	 * 
+	 * @see
+	 * com.mars.dao.IAssetCategoryDao#findAssetCategoryById(java.lang.Integer)
 	 */
 	public AssetCategory findAssetCategoryById(Integer acid) {
 		AssetCategory assetCategory = (AssetCategory) super
@@ -132,5 +135,4 @@ public class AssetCategoryDao extends HibernateDaoSupport implements
 		return assetCategory;
 	}
 
-	
 }

@@ -21,25 +21,42 @@
 		<h1>
 			创建资产
 		</h1>
-		<form
-			action="asset/asset_Asset_createAsset.action"
-			method="post">
+		<form action="asset/asset_Asset_createAsset.action" method="post"><!--
 			资产类别
-			<select id="acid" name="acid">
-				<c:forEach items="${assetCategory}" var="ac">
-					<option value="${assetCategory}"
-						<c:if test="${assetCategory.acid==ac.acid}"><c:out value="selected"/></c:if>>
-						${ac.acname}(${ac.accode})
+			--><!--<select name="AssetCategory">
+				<option value="--请选择--"></option>
+				<s:iterator id="ac" value="assetCategoryList" status="st">
+					<option value="${ac.acname}">
+						${ac.accode }
 					</option>
-				</c:forEach>
+				</s:iterator>
 			</select>
-			<!--<select id="acid" name="acid">
-			<s:iterator id="acid" value="pageInfo.result" status="st"></s:iterator></select>
-				--><br />
-			资产类别名称
-			<input type="text" name="acname" value="长江一号" />
+			-->
+			卡片编号
+			<input type="text" name="cid" value="1" />
 			<br />
-			
+			资产类别ID
+			<input type="text" name="acid" value="1" />
+			<br />
+			使用人ID
+			<input type="text" name="useuid" value="1" />
+			<br />
+			使用状态
+			<input type="checkbox" value="1" checked="checked" name="usestate"/>在用
+			<input type="checkbox" value="2" name="usestate"/>不在用
+			<br />
+			保管人ID
+			<input type="text" name="uid" value="1" />
+			<br />
+			财务入账人ID
+			<input type="text" name="fuid" value="1" />
+			<br />
+			保管人ID
+			<input type="text" name="uid" value="1" />
+			<br />
+			财务入账人ID
+			<input type="text" name="fuid" value="1" />
+			<br />
 			<input type="submit" value="创建" />
 		</form>
 

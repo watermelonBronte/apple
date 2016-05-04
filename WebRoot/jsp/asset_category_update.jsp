@@ -22,19 +22,19 @@
 			method="post">
 			
 			资产类别ID
-			<input type="text" name="acid" value="${acid}" readonly="readonly"/>
+			<input type="text" name="acid" value="${assetCategory.acid}" readonly="readonly"/>
 			<br />
 			资产类别编号
-			<input type="text" name="accode" value="${accode}"/>
+			<input type="text" name="accode" value="${assetCategory.accode}"/>
 			<br />
 			资产类别名称
-			<input type="text" name="acname" value="${acname}"/>
+			<input type="text" name="acname" value="${assetCategory.acname}"/>
 			<br />
 			上级资产类别ID
-			<input type="text" name="supacid" value="${supacid}"/>
+			<input type="text" name="supacid" value="${assetCategory.supacid}"/>
 			<br />
 			上级资产类别名称
-			<input type="text" name="supacname" value="${supacname}"/>
+			<input type="text" name="supacname" value="${assetCategory.supacname}"/>
 			<br />
 			<input type="submit" value="更新" />
 		</form>

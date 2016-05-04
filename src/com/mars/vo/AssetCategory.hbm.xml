@@ -24,25 +24,7 @@
         <property name="supacname" type="java.lang.String">
             <column name="supacname" length="50" />
         </property>
-        <set name="assetsForSupacid" inverse="true">
-            <key>
-                <column name="supacid" />
-            </key>
-            <one-to-many class="com.mars.vo.Asset" />
-        </set>
-        <set name="purchaseDetailsForSupacid" inverse="true">
-            <key>
-                <column name="supacid" />
-            </key>
-            <one-to-many class="com.mars.vo.PurchaseDetail" />
-        </set>
-        <set name="purchaseDetailsForAcid" inverse="true">
-            <key>
-                <column name="acid" />
-            </key>
-            <one-to-many class="com.mars.vo.PurchaseDetail" />
-        </set>
-        <set name="assetsForAcid" inverse="true">
+        <set name="assets" inverse="true">
             <key>
                 <column name="acid" />
             </key>

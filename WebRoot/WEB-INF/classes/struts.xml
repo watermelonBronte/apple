@@ -10,7 +10,7 @@
 			<result name="pageAssetCategory">/jsp/asset_category_page.jsp</result>
 			<result name="successAssetCategory">/jsp/asset_category_success.jsp</result>
 			<result name="addAssetCategory">/jsp/asset_category_add.jsp</result>
-		    <result name="home">/index.jsp</result>
+			<result name="home">/index.jsp</result>
 		</action>
 	</package>
 
@@ -25,19 +25,26 @@
 
 	<package name="parameter" extends="struts-default" namespace="/parameter">
 		<action name="test_*_*" class="{1}Action" method="{2}">
-			<result name="findParameterById">/jsp/parameter_update.jsp</result>
+			<result name="findParameterById">/jsp/parameter_detail.jsp</result>
 			<result name="pageParameter">/jsp/parameter_page.jsp</result>
 			<result name="successParameter">/jsp/parameter_success.jsp</result>
 			<result name="addParameter">/jsp/parameter_add.jsp</result>
 		</action>
 	</package>
-	
+
 	<package name="asset" extends="struts-default" namespace="/asset">
 		<action name="asset_*_*" class="{1}Action" method="{2}">
 			<result name="findAssetById">/jsp/asset_update.jsp</result>
 			<result name="pageAsset">/jsp/asset_page.jsp</result>
 			<result name="successAsset">/jsp/asset_success.jsp</result>
 			<result name="addAsset">/jsp/asset_add.jsp</result>
+		</action>
+	</package>
+
+	<package name="select" extends="struts-default" namespace="/select">
+		<action name="select_*_*" class="{1}Action" method="{2}">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="ERROR">/sucess.jsp</result>
 		</action>
 	</package>
 </struts>    

@@ -3,13 +3,16 @@
  */
 package com.mars.action;
 
-import org.aspectj.weaver.patterns.ThisOrTargetAnnotationPointcut;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 
 import com.mars.service.IAssetCategoryService;
 import com.mars.tools.IPage;
 import com.mars.tools.PageInfo;
 import com.mars.vo.AssetCategory;
-import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
@@ -19,7 +22,7 @@ import com.opensymphony.xwork2.ActionSupport;
 public class AssetCategoryAction extends ActionSupport {
 
 	private IAssetCategoryService assetCategoryService;
-
+	
 	protected IPage pageInfo = new PageInfo();
 
 	private Integer acid;
@@ -48,6 +51,8 @@ public class AssetCategoryAction extends ActionSupport {
 			IAssetCategoryService assetCategoryService) {
 		this.assetCategoryService = assetCategoryService;
 	}
+
+	
 
 	public IPage getPageInfo() {
 		return pageInfo;
@@ -187,12 +192,9 @@ public class AssetCategoryAction extends ActionSupport {
 
 		assetCategory = assetCategoryService.findAssetCategoryById(this
 				.getAcid());
-		// System.out.println(assetCategory.getAccode());
 
-		this.setAccode(assetCategory.getAccode());
-		this.setAcname(assetCategory.getAcname());
-		this.setSupacid(assetCategory.getSupacid());
-		this.setSupacname(assetCategory.getSupacname());
+	this.setAssetCategory(assetCategory);
+
 		return "findAssetCategoryById";
 	}
 
@@ -206,5 +208,9 @@ public class AssetCategoryAction extends ActionSupport {
 
 		return "pageAssetCategory";
 	}
+	
+	
+	
+	
 
 }

@@ -22,17 +22,15 @@ public class User implements java.io.Serializable {
 	private Set repairses = new HashSet(0);
 	private Set transBillsesForInuid = new HashSet(0);
 	private Set assetTransesForUid = new HashSet(0);
-	private Set transBillsesForOutuid = new HashSet(0);
 	private Set checkeds = new HashSet(0);
+	private Set transBillsesForOutuid = new HashSet(0);
 	private Set assetTransDetails = new HashSet(0);
 	private Set purchaseDetails = new HashSet(0);
 	private Set assetReturnsForRuid = new HashSet(0);
 	private Set purchaseNotes = new HashSet(0);
-	private Set assetsForUid = new HashSet(0);
-	private Set assetsForUserid = new HashSet(0);
+	private Set assets = new HashSet(0);
 	private Set assetTransesForTid = new HashSet(0);
 	private Set assetReturnsForGuid = new HashSet(0);
-	private Set assetsForFaccountid = new HashSet(0);
 	private Set scrapsForUid = new HashSet(0);
 
 	// Constructors
@@ -44,11 +42,11 @@ public class User implements java.io.Serializable {
 	/** full constructor */
 	public User(Role role, Department department, String uname, String upwd,
 			Integer ustate, Integer usex, Set scrapsForCuid, Set repairses,
-			Set transBillsesForInuid, Set assetTransesForUid,
-			Set transBillsesForOutuid, Set checkeds, Set assetTransDetails,
+			Set transBillsesForInuid, Set assetTransesForUid, Set checkeds,
+			Set transBillsesForOutuid, Set assetTransDetails,
 			Set purchaseDetails, Set assetReturnsForRuid, Set purchaseNotes,
-			Set assetsForUid, Set assetsForUserid, Set assetTransesForTid,
-			Set assetReturnsForGuid, Set assetsForFaccountid, Set scrapsForUid) {
+			Set assets, Set assetTransesForTid, Set assetReturnsForGuid,
+			Set scrapsForUid) {
 		this.role = role;
 		this.department = department;
 		this.uname = uname;
@@ -59,17 +57,15 @@ public class User implements java.io.Serializable {
 		this.repairses = repairses;
 		this.transBillsesForInuid = transBillsesForInuid;
 		this.assetTransesForUid = assetTransesForUid;
-		this.transBillsesForOutuid = transBillsesForOutuid;
 		this.checkeds = checkeds;
+		this.transBillsesForOutuid = transBillsesForOutuid;
 		this.assetTransDetails = assetTransDetails;
 		this.purchaseDetails = purchaseDetails;
 		this.assetReturnsForRuid = assetReturnsForRuid;
 		this.purchaseNotes = purchaseNotes;
-		this.assetsForUid = assetsForUid;
-		this.assetsForUserid = assetsForUserid;
+		this.assets = assets;
 		this.assetTransesForTid = assetTransesForTid;
 		this.assetReturnsForGuid = assetReturnsForGuid;
-		this.assetsForFaccountid = assetsForFaccountid;
 		this.scrapsForUid = scrapsForUid;
 	}
 
@@ -163,20 +159,20 @@ public class User implements java.io.Serializable {
 		this.assetTransesForUid = assetTransesForUid;
 	}
 
-	public Set getTransBillsesForOutuid() {
-		return this.transBillsesForOutuid;
-	}
-
-	public void setTransBillsesForOutuid(Set transBillsesForOutuid) {
-		this.transBillsesForOutuid = transBillsesForOutuid;
-	}
-
 	public Set getCheckeds() {
 		return this.checkeds;
 	}
 
 	public void setCheckeds(Set checkeds) {
 		this.checkeds = checkeds;
+	}
+
+	public Set getTransBillsesForOutuid() {
+		return this.transBillsesForOutuid;
+	}
+
+	public void setTransBillsesForOutuid(Set transBillsesForOutuid) {
+		this.transBillsesForOutuid = transBillsesForOutuid;
 	}
 
 	public Set getAssetTransDetails() {
@@ -211,20 +207,12 @@ public class User implements java.io.Serializable {
 		this.purchaseNotes = purchaseNotes;
 	}
 
-	public Set getAssetsForUid() {
-		return this.assetsForUid;
+	public Set getAssets() {
+		return this.assets;
 	}
 
-	public void setAssetsForUid(Set assetsForUid) {
-		this.assetsForUid = assetsForUid;
-	}
-
-	public Set getAssetsForUserid() {
-		return this.assetsForUserid;
-	}
-
-	public void setAssetsForUserid(Set assetsForUserid) {
-		this.assetsForUserid = assetsForUserid;
+	public void setAssets(Set assets) {
+		this.assets = assets;
 	}
 
 	public Set getAssetTransesForTid() {
@@ -241,14 +229,6 @@ public class User implements java.io.Serializable {
 
 	public void setAssetReturnsForGuid(Set assetReturnsForGuid) {
 		this.assetReturnsForGuid = assetReturnsForGuid;
-	}
-
-	public Set getAssetsForFaccountid() {
-		return this.assetsForFaccountid;
-	}
-
-	public void setAssetsForFaccountid(Set assetsForFaccountid) {
-		this.assetsForFaccountid = assetsForFaccountid;
 	}
 
 	public Set getScrapsForUid() {
