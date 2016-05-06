@@ -13,11 +13,7 @@ public class Department implements java.io.Serializable {
 
 	private Integer did;
 	private String dname;
-	private Set users = new HashSet(0);
-	private Set transBillsesForIndid = new HashSet(0);
-	private Set purchaseNotes = new HashSet(0);
-	private Set transBillsesForOutdid = new HashSet(0);
-
+	
 	// Constructors
 
 	/** default constructor */
@@ -25,14 +21,9 @@ public class Department implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Department(String dname, Set users, Set transBillsesForIndid,
-			Set purchaseNotes, Set transBillsesForOutdid) {
+	public Department(String dname) {
 		this.dname = dname;
-		this.users = users;
-		this.transBillsesForIndid = transBillsesForIndid;
-		this.purchaseNotes = purchaseNotes;
-		this.transBillsesForOutdid = transBillsesForOutdid;
-	}
+		}
 
 	// Property accessors
 
@@ -52,36 +43,6 @@ public class Department implements java.io.Serializable {
 		this.dname = dname;
 	}
 
-	public Set getUsers() {
-		return this.users;
-	}
-
-	public void setUsers(Set users) {
-		this.users = users;
-	}
-
-	public Set getTransBillsesForIndid() {
-		return this.transBillsesForIndid;
-	}
-
-	public void setTransBillsesForIndid(Set transBillsesForIndid) {
-		this.transBillsesForIndid = transBillsesForIndid;
-	}
-
-	public Set getPurchaseNotes() {
-		return this.purchaseNotes;
-	}
-
-	public void setPurchaseNotes(Set purchaseNotes) {
-		this.purchaseNotes = purchaseNotes;
-	}
-
-	public Set getTransBillsesForOutdid() {
-		return this.transBillsesForOutdid;
-	}
-
-	public void setTransBillsesForOutdid(Set transBillsesForOutdid) {
-		this.transBillsesForOutdid = transBillsesForOutdid;
-	}
+	
 
 }

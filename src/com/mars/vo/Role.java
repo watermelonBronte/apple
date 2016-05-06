@@ -13,8 +13,7 @@ public class Role implements java.io.Serializable {
 
 	private Integer rid;
 	private String rname;
-	private Set users = new HashSet(0);
-
+	
 	// Constructors
 
 	/** default constructor */
@@ -22,9 +21,9 @@ public class Role implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Role(String rname, Set users) {
+	public Role(String rname) {
 		this.rname = rname;
-		this.users = users;
+		
 	}
 
 	// Property accessors
@@ -45,12 +44,6 @@ public class Role implements java.io.Serializable {
 		this.rname = rname;
 	}
 
-	public Set getUsers() {
-		return this.users;
-	}
-
-	public void setUsers(Set users) {
-		this.users = users;
-	}
+	
 
 }

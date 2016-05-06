@@ -50,7 +50,8 @@
 		<!-- 参数 -->
 		<a href="parameter/test_Parameter_pageParameter.action">测试参数信息</a>
 		<br>
-	<hr />
+	
 
+	
 	</body>
 </html>

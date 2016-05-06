@@ -28,11 +28,6 @@
         <property name="pnstate" type="java.lang.Integer">
             <column name="pnstate" />
         </property>
-        <set name="assets" inverse="true">
-            <key>
-                <column name="pnid" />
-            </key>
-            <one-to-many class="com.mars.vo.Asset" />
-        </set>
+       
     </class>
 </hibernate-mapping>

@@ -121,8 +121,7 @@ public class UserDao extends HibernateDaoSupport implements
 	 * @see com.mars.dao.IUserDao#findUserById(java.lang.Integer)
 	 */
 	public User findUserById(Integer uid) {
-		User user = (User) super.getHibernateTemplate().get(
-				User.class, new Integer(uid));
+		User user = (User) super.getHibernateTemplate().get(User.class, new Integer(uid));
 		return user;
 	}
 

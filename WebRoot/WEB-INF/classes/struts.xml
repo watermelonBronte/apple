@@ -56,4 +56,6 @@
 			<result name="addFinance">/jsp/finance_add.jsp</result>
 		</action>
 	</package>
+	
+	
 </struts>    

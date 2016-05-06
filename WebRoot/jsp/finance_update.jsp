@@ -33,9 +33,6 @@
 			资产是否入账
 			<input type="text" name="fenter" value="${fenter}" />
 			<br />
-			资产入账时间
-			<input type="text" name="fdate" value="${fdate}" />
-			<br />
 			<input type="submit" value="更新" />
 		</form>
 

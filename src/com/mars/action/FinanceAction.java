@@ -21,7 +21,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 /**
  * @author ye
- * @date 2016/4/19
+ * @date 2016/5/6
  */
 public class FinanceAction extends ActionSupport {
 
@@ -35,6 +35,7 @@ public class FinanceAction extends ActionSupport {
 	private String fcode;
 	private Integer fenter;
 	private Timestamp fdate;
+	
 	private Finance finance = new Finance();
 	private List<Finance> financeList = new ArrayList<Finance>();
 
@@ -144,7 +145,7 @@ public class FinanceAction extends ActionSupport {
 	public String addFinance() {
 		// this.getPageInfo().setResult(financeService.findAll());
 		// this.setFinance(financeService.findFinance());
-		financeService.findFinance();
+//		financeService.findFinance();
 
 		// System.out.println(Finance.getAccode());
 		// this.setFinanceList(financeList);
@@ -162,11 +163,10 @@ public class FinanceAction extends ActionSupport {
 		Date date = new Date();
 		Timestamp nousedate = new Timestamp(date.getTime());
 		finance.setFdate(nousedate);
-		// ////////////////////
-		System.out.println(this.getUser().getUid()+"=====");
-		user = userService.findUserById(this.getUser().getUid());
-		System.out.println(user);
-		finance.setUser(user);
+		////问题还未解决 ////////////////////
+//		System.out.println(this.getUser().getUid()+"=====");
+
+//		finance.setUser(userService.findUserById(user.getUid()));
 
 		finance.setFenter(this.getFenter());
 		financeService.createFinance(finance);
@@ -199,7 +199,7 @@ public class FinanceAction extends ActionSupport {
 		Timestamp nousedate = new Timestamp(date.getTime());
 		finance.setFdate(nousedate);
 		finance.setFenter(getFenter());
-		finance.setUser(userService.findUserById(this.getUser().getUid()));
+//		finance.setUser(userService.findUserById(this.getUser().getUid()));
 		financeService.updateFinance(finance);
 
 		this.setResult("更新");

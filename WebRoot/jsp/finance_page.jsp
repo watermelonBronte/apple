@@ -53,7 +53,7 @@ function submitFrom(formName){
 		<h1>
 			财务入账列表
 		</h1>
-		<!--<a href="finance/finance_Finance_addFinance.action">添加记录</a>-->
+		<a href="finance/finance_Finance_addFinance.action">添加记录</a>
 
 		<form action="" id="_form" method="post">
 			<table width="100%" border="1" cellpadding="0"
@@ -95,13 +95,12 @@ function submitFrom(formName){
 						</td>
 						<td align="center" class="left_txt">
 							${f.fdate}
-						</td>					
+						</td>
 						<td align="center" class="left_txt">
 							<a
 								href="finance/finance_Finance_findFinanceById.action?fid=${fid}">修改</a>
 							|
-							<a
-								href="finance/finance_Finance_deleteFinance.action?fid=${fid}">删除</a>
+							<a href="finance/finance_Finance_deleteFinance.action?fid=${fid}">删除</a>
 
 						</td>
 					</tr>
@@ -135,20 +134,22 @@ function submitFrom(formName){
 			</table>
 		</form>
 		<hr />
-<!--<h1>创建财务入账</h1>
+		<h1>
+			创建财务入账
+		</h1>
 		<form action="finance/finance_Finance_createFinance.action"
 			method="post">
 			财务入账编码
-			<input type="text" name="fcode" value="123"/>
+			<input type="text" name="fcode" value="123" />
 			<br />
 			财务入账人ID
-			<input type="text" name="user.uid" value="1"/>
+			<input type="text" name="user.uid" value="1" />
 			<br />
 			财务是否入账
-			<input type="text" name="fenter" value="123"/>
+			<input type="text" name="fenter" value="123" />
 			<br />
 			<input type="submit" value="创建" />
 		</form>
 
-	--></body>
+	</body>
 </html>

@@ -1,5 +1,5 @@
 /**
- * 测试用户action
+ * 测试用户action(仅供测试使用）
  */
 package com.mars.action;
 
@@ -8,31 +8,43 @@ package com.mars.action;
 import com.mars.service.IUserService;
 import com.mars.tools.IPage;
 import com.mars.tools.PageInfo;
+import com.mars.vo.Role;
 import com.mars.vo.User;
 import com.opensymphony.xwork2.ActionSupport;
 
 
 /**
  * @author ye
- * @date 2016/4/19
+ * @date 2016/5/6
  */
 public class UserAction extends ActionSupport{
 	private IUserService userService;
 
+	private Role role;
 	protected IPage pageInfo = new PageInfo();   
 	
 	private Integer uid;
-	private String dname;
+	
 	private User user = new User();
 	
 	private String result;
 	
-	public String getDname() {
-		return dname;
+
+
+	public Role getRole() {
+		return role;
 	}
 
-	public void setDname(String dname) {
-		this.dname = dname;
+	public void setRole(Role role) {
+		this.role = role;
+	}
+
+	public Integer getUid() {
+		return uid;
+	}
+
+	public void setUid(Integer uid) {
+		this.uid = uid;
 	}
 
 	public User getUser() {
@@ -135,9 +147,9 @@ public class UserAction extends ActionSupport{
 	 */
 	public String findUserById() {
 
-		user = userService.findUserById(this
-				.getDid());
-		
+		user = userService.findUserById(1);
+		this.setRole(user.getRole());
+		System.out.print(this.getRole());
 //		this.setDid(user.getDid());
 //		this.setDname(user.getDname());
 		return "findUserById";

@@ -55,7 +55,7 @@ function submitFrom(formName){
 			<input type="text" name="fcode" value="123"/>
 			<br />
 			财务入账人ID
-			<input type="text" name="user" value="123"/>
+			<input type="text" name="user.uid" value="123"/>
 			<br />
 			财务是否入账
 			<input type="text" name="fenter" value="123"/>
