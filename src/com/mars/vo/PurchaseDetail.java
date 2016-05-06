@@ -19,7 +19,7 @@ public class PurchaseDetail implements java.io.Serializable {
 	private String pdprovider;
 	private String pdunit;
 	private Float pdprice;
-
+	private Set purchaseNotes = new HashSet(0);
 
 	// Constructors
 
@@ -29,7 +29,8 @@ public class PurchaseDetail implements java.io.Serializable {
 
 	/** full constructor */
 	public PurchaseDetail(User user, String atype, Integer pdcount,
-			String pdmarker, String pdprovider, String pdunit, Float pdprice) {
+			String pdmarker, String pdprovider, String pdunit, Float pdprice,
+			Set purchaseNotes) {
 		this.user = user;
 		this.atype = atype;
 		this.pdcount = pdcount;
@@ -37,6 +38,7 @@ public class PurchaseDetail implements java.io.Serializable {
 		this.pdprovider = pdprovider;
 		this.pdunit = pdunit;
 		this.pdprice = pdprice;
+		this.purchaseNotes = purchaseNotes;
 	}
 
 	// Property accessors
@@ -105,6 +107,12 @@ public class PurchaseDetail implements java.io.Serializable {
 		this.pdprice = pdprice;
 	}
 
-	
+	public Set getPurchaseNotes() {
+		return this.purchaseNotes;
+	}
+
+	public void setPurchaseNotes(Set purchaseNotes) {
+		this.purchaseNotes = purchaseNotes;
+	}
 
 }

@@ -5,6 +5,7 @@ package com.mars.service;
 
 import java.util.List;
 
+import com.mars.dao.IDepartmentDao;
 import com.mars.tools.IPage;
 import com.mars.vo.User;
 
@@ -13,6 +14,7 @@ import com.mars.vo.User;
  * @date 2016/4/20
  */
 public interface IUserService {
+
 	/**
 	 * 增加用户
 	 */

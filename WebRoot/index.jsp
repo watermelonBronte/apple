@@ -51,7 +51,8 @@
 		<a href="parameter/test_Parameter_pageParameter.action">测试参数信息</a>
 		<br>
 	
-
+	<!--<a href="user/user_User_pageUser.action">测试参数信息</a>
+		<br>
 	
-	</body>
+	--></body>
 </html>

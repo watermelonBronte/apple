@@ -76,9 +76,14 @@ public class DepartmentDao extends HibernateDaoSupport implements
 	 * @see com.mars.dao.IDepartmentDao#deleteDepartment(java.lang.Integer)
 	 */
 	public void deleteDepartment(Integer did) {
-		Department department = (Department) super.getHibernateTemplate().load(
-				Department.class, new Integer(did));
-		super.getHibernateTemplate().delete(department);
+		try {
+			Department department = (Department) super.getHibernateTemplate().load(
+					Department.class, new Integer(did));
+			super.getHibernateTemplate().delete(department);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
 
 	}
 

@@ -13,6 +13,11 @@
         <property name="rname" type="java.lang.String">
             <column name="rname" length="50" />
         </property>
-      
+        <set name="users" inverse="true">
+            <key>
+                <column name="rid" />
+            </key>
+            <one-to-many class="com.mars.vo.User" />
+        </set>
     </class>
 </hibernate-mapping>

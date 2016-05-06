@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import com.mars.service.IDepartmentService;
 import com.mars.service.IFinanceService;
 import com.mars.service.IUserService;
 import com.mars.tools.IPage;
@@ -18,6 +19,7 @@ import com.mars.vo.Department;
 import com.mars.vo.PurchaseNote;
 import com.mars.vo.User;
 import com.opensymphony.xwork2.ActionSupport;
+import com.sun.org.apache.bcel.internal.generic.NEW;
 
 /**
  * @author ye
@@ -35,7 +37,7 @@ public class FinanceAction extends ActionSupport {
 	private String fcode;
 	private Integer fenter;
 	private Timestamp fdate;
-	
+
 	private Finance finance = new Finance();
 	private List<Finance> financeList = new ArrayList<Finance>();
 
@@ -145,7 +147,7 @@ public class FinanceAction extends ActionSupport {
 	public String addFinance() {
 		// this.getPageInfo().setResult(financeService.findAll());
 		// this.setFinance(financeService.findFinance());
-//		financeService.findFinance();
+		// financeService.findFinance();
 
 		// System.out.println(Finance.getAccode());
 		// this.setFinanceList(financeList);
@@ -163,10 +165,10 @@ public class FinanceAction extends ActionSupport {
 		Date date = new Date();
 		Timestamp nousedate = new Timestamp(date.getTime());
 		finance.setFdate(nousedate);
-		////问题还未解决 ////////////////////
-//		System.out.println(this.getUser().getUid()+"=====");
 
-//		finance.setUser(userService.findUserById(user.getUid()));
+		// System.out.println(this.getUser().getUid()+"=====");
+		// 将方法写入同一个Service
+		finance.setUser(financeService.findUserById(this.getUser().getUid()));
 
 		finance.setFenter(this.getFenter());
 		financeService.createFinance(finance);
@@ -192,20 +194,28 @@ public class FinanceAction extends ActionSupport {
 	 */
 	public String updateFinance() {
 
-		
 		finance.setFid(getFid());
 		finance.setFcode(getFcode());
 		Date date = new Date();
 		Timestamp nousedate = new Timestamp(date.getTime());
 		finance.setFdate(nousedate);
 		finance.setFenter(getFenter());
-//		finance.setUser(userService.findUserById(this.getUser().getUid()));
+		finance.setUser(financeService.findUserById(this.getUser().getUid()));
 		financeService.updateFinance(finance);
 
 		this.setResult("更新");
 		return "successFinance";
 	}
 
+	public String updateEnter() {
+		finance = financeService.findFinanceById(this.getFid());
+//		finance.setFid(getFid());
+	    
+		finance.setFenter(1);
+	
+		financeService.updateFinance(finance);
+		return "successFinance";
+	}
 	/**
 	 * 查找
 	 * 
@@ -224,13 +234,13 @@ public class FinanceAction extends ActionSupport {
 	public String findFinanceById() {
 
 		finance = financeService.findFinanceById(this.getFid());
-	    this.setFcode(finance.getFcode());
-        this.setFdate(finance.getFdate());
-        this.setFenter(finance.getFenter());
-        this.setUser(finance.getUser());
-	
+		this.setFcode(finance.getFcode());
+		this.setFdate(finance.getFdate());
+		this.setFenter(finance.getFenter());
+		this.setUser(finance.getUser());
+
 		return "findFinanceById";
-		
+
 	}
 
 	/**

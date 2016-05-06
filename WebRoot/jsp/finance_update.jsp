@@ -31,7 +31,19 @@
 			<input type="text" name="user.uid" value="${user.uid}" />
 			<br />
 			资产是否入账
-			<input type="text" name="fenter" value="${fenter}" />
+			<!--<input type="text" name="fenter" value="${fenter}" />-->
+			<s:if test="fenter==1">
+			<input type="radio" name="fenter" value="1" checked="checked"/>
+			是
+			<input type="radio" name="fenter" value="2"/>
+			否
+			</s:if>
+			<s:else>
+			<input type="radio" name="fenter" value="1"/>
+			是
+			<input type="radio" name="fenter" value="2" checked="checked"/>
+			否
+			</s:else>
 			<br />
 			<input type="submit" value="更新" />
 		</form>

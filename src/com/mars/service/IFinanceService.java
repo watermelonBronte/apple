@@ -7,6 +7,7 @@ import java.util.List;
 
 import com.mars.tools.IPage;
 import com.mars.vo.Finance;
+import com.mars.vo.User;
 
 /**
  * @author ye
@@ -46,4 +47,11 @@ public interface IFinanceService {
 	 * @return
 	 */
 	public Finance findFinanceById(Integer fid);
+	
+	/**
+	 * 根据ID查找用户
+	 * @param uid
+	 * @return
+	 */
+	public User findUserById(Integer uid);
 }

@@ -30,6 +30,11 @@
         <property name="attype" type="java.lang.Integer">
             <column name="attype" />
         </property>
-      
+        <set name="assetTransDetails" inverse="true">
+            <key>
+                <column name="atid" />
+            </key>
+            <one-to-many class="com.mars.vo.AssetTransDetail" />
+        </set>
     </class>
 </hibernate-mapping>

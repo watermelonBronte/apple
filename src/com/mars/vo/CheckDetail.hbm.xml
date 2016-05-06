@@ -19,6 +19,11 @@
         <property name="cddate" type="java.util.Date">
             <column name="cddate" length="10" />
         </property>
-       
+        <set name="checkeds" inverse="true">
+            <key>
+                <column name="cdid" />
+            </key>
+            <one-to-many class="com.mars.vo.Checked" />
+        </set>
     </class>
 </hibernate-mapping>

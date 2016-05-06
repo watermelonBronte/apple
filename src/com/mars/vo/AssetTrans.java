@@ -19,7 +19,8 @@ public class AssetTrans implements java.io.Serializable {
 	private Date atfdate;
 	private Integer atstate;
 	private Integer attype;
-	
+	private Set assetTransDetails = new HashSet(0);
+
 	// Constructors
 
 	/** default constructor */
@@ -35,7 +36,8 @@ public class AssetTrans implements java.io.Serializable {
 		this.atfdate = atfdate;
 		this.atstate = atstate;
 		this.attype = attype;
-		}
+		this.assetTransDetails = assetTransDetails;
+	}
 
 	// Property accessors
 
@@ -95,6 +97,12 @@ public class AssetTrans implements java.io.Serializable {
 		this.attype = attype;
 	}
 
-	
+	public Set getAssetTransDetails() {
+		return this.assetTransDetails;
+	}
+
+	public void setAssetTransDetails(Set assetTransDetails) {
+		this.assetTransDetails = assetTransDetails;
+	}
 
 }

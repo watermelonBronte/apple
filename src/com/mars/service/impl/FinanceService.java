@@ -6,9 +6,11 @@ package com.mars.service.impl;
 import java.util.List;
 
 import com.mars.dao.IFinanceDao;
+import com.mars.dao.IUserDao;
 import com.mars.service.IFinanceService;
 import com.mars.tools.IPage;
 import com.mars.vo.Finance;
+import com.mars.vo.User;
 
 /**
  * @author ye
@@ -85,6 +87,11 @@ public class FinanceService implements IFinanceService {
 	public Finance findFinanceById(Integer fid) {
 		Finance finance = financeDao.findFinanceById(fid);
 		return finance;
+	}
+
+	public User findUserById(Integer uid) {
+		User user = financeDao.findUserById(uid);
+		return user;
 	}
 
 }

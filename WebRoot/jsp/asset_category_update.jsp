@@ -20,7 +20,6 @@
 	<body>
 		<form action="asset_category/test_AssetCategory_updateAssetCategory.action"
 			method="post">
-			
 			资产类别ID
 			<input type="text" name="acid" value="${assetCategory.acid}" readonly="readonly"/>
 			<br />

@@ -23,7 +23,8 @@
 			
 			
 			-->
-			资产ID<input type="text" name="aid" value="${aid}" readonly="readonly"/>
+			资产ID
+			<input type="text" name="aid" value="${aid}" readonly="readonly"/>
 			<br />
 			卡片编号
 			<input type="text" name="cid" value="${cid}"/>
@@ -36,15 +37,26 @@
 			<br />
 			使用状态
 			<input type="text" name="usestate" value="${usestate}"/>
-			<br /><!--
+			<br />
 			财务编码
+			<input type="text" name="usestate" value="${usestate}"/>
+			<br />
 			制造商
+			<input type="text" name="purchaseNote." value="${usestate}"/>
+			<br />
 			供应商
+			<input type="text" name="usestate" value="${usestate}"/>
+			<br />
 			数量
+			<input type="text" name="usestate" value="${usestate}"/>
+			<br />
 			单位
+			<input type="text" name="usestate" value="${usestate}"/>
+			<br />
 			单价
-				
-			--><!--<input type="submit" value="更新" />
+			<input type="text" name="usestate" value="${usestate}"/>
+			<br />
+			<!--<input type="submit" value="更新" />
 		</form>
 
 

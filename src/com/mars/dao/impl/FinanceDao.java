@@ -18,6 +18,7 @@ import com.mars.tools.Execute;
 import com.mars.tools.IExecute;
 import com.mars.tools.IPage;
 import com.mars.vo.Finance;
+import com.mars.vo.User;
 
 /**
  * @author ye
@@ -123,6 +124,11 @@ public class FinanceDao extends HibernateDaoSupport implements
 		Finance finance = (Finance) super.getHibernateTemplate().get(
 				Finance.class, new Integer(fid));
 		return finance;
+	}
+
+	public User findUserById(Integer uid) {
+		User user = (User) super.getHibernateTemplate().get(User.class, new Integer(uid));
+		return user;
 	}
 
 }

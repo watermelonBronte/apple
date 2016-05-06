@@ -7,7 +7,6 @@ import java.util.List;
 
 import com.mars.dao.IUserDao;
 import com.mars.service.IUserService;
-import com.mars.service.IUserService;
 import com.mars.tools.IPage;
 import com.mars.vo.User;
 
