@@ -52,7 +52,7 @@ function submitFrom(formName){
 		<h1>
 			资产列表
 		</h1>
-		<a href="asset/asset_Asset_addAsset.action">添加资产</a>
+		<!--<a href="asset/asset_Asset_addAsset.action">添加资产</a>-->
 
 		<form action="" id="_form" method="post">
 			<table width="100%" border="1" cellpadding="0"
@@ -71,25 +71,7 @@ function submitFrom(formName){
 						资产编码
 					</td>
 					<td class="left_bt2" align="center" width="10%">
-						制造商
-					</td>
-					<td class="left_bt2" align="center" width="10%">
-						供应商
-					</td>
-					<td class="left_bt2" align="center" width="10%">
 						入库时间
-					</td>
-					<td class="left_bt2" align="center" width="10%">
-						单位
-					</td>
-					<td class="left_bt2" align="center" width="10%">
-						数量
-					</td>
-					<td class="left_bt2" align="center" width="10%">
-						单价
-					</td>
-					<td class="left_bt2" align="center" width="10%">
-						使用状态
 					</td>
 					<td class="left_bt2" align="center" width="10%">
 						操作
@@ -102,34 +84,16 @@ function submitFrom(formName){
 							${a.cid}
 						</td>
 						<td align="center" class="left_txt">
-							${a.fdate}
-						</td>
-						<td align="center" class="left_txt">
-							${a.fcode}
-						</td>
-						<td align="center" class="left_txt">
-							${a.acode}
-						</td>
-						<td align="center" class="left_txt">
-							${a.amaker}
-						</td>
-						<td align="center" class="left_txt">
-							${a.aprovider}
-						</td>
-						<td align="center" class="left_txt">
 							${a.adate}
 						</td>
 						<td align="center" class="left_txt">
-							${a.aunit}
+							${a.finance.fid}
 						</td>
 						<td align="center" class="left_txt">
-							${a.acount}
+							${a.assetCategory.acid}
 						</td>
 						<td align="center" class="left_txt">
-							${a.aprice}
-						</td>
-						<td align="center" class="left_txt">
-							${a.ausestate}
+							${a.adate}
 						</td>
 						<td align="center" class="left_txt">
 							<a href="asset/asset_Asset_findAssetById.action?aid=${aid}">详情</a>

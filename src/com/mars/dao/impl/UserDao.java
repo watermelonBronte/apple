@@ -17,6 +17,7 @@ import com.mars.dao.IUserDao;
 import com.mars.tools.Execute;
 import com.mars.tools.IExecute;
 import com.mars.tools.IPage;
+import com.mars.vo.Department;
 import com.mars.vo.User;
 
 /**

@@ -1,14 +1,14 @@
 /**
- * 测试部门action
+ * 测试用户action
  */
 package com.mars.action;
 
 
 
-import com.mars.service.IDepartmentService;
+import com.mars.service.IUserService;
 import com.mars.tools.IPage;
 import com.mars.tools.PageInfo;
-import com.mars.vo.Department;
+import com.mars.vo.User;
 import com.opensymphony.xwork2.ActionSupport;
 
 
@@ -17,13 +17,13 @@ import com.opensymphony.xwork2.ActionSupport;
  * @date 2016/4/19
  */
 public class UserAction extends ActionSupport{
-	private IDepartmentService departmentService;
+	private IUserService userService;
 
 	protected IPage pageInfo = new PageInfo();   
 	
-	private Integer did;
+	private Integer uid;
 	private String dname;
-	private Department department = new Department();
+	private User user = new User();
 	
 	private String result;
 	
@@ -35,24 +35,24 @@ public class UserAction extends ActionSupport{
 		this.dname = dname;
 	}
 
-	public Department getDepartment() {
-		return department;
+	public User getUser() {
+		return user;
 	}
 
-	public void setDepartment(Department department) {
-		this.department = department;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
-	public void setDid(Integer did) {
-		this.did = did;
+	public void setDid(Integer uid) {
+		this.uid = uid;
 	}
 
-	public IDepartmentService getDepartmentService() {
-		return departmentService;
+	public IUserService getUserService() {
+		return userService;
 	}
 
-	public void setDepartmentService(IDepartmentService departmentService) {
-		this.departmentService = departmentService;
+	public void setUserService(IUserService userService) {
+		this.userService = userService;
 	}
 
 	
@@ -75,57 +75,57 @@ public class UserAction extends ActionSupport{
 	}
 
 	public Integer getDid() {
-		return did;
+		return uid;
 	}
 
 	/**
 	 * 添加界面
 	 * @return
 	 */
-	public String addDepartment()
+	public String addUser()
 	{
-		return "addDepartment";
+		return "addUser";
 	}
 	/**
 	 * 创建
 	 * @return
 	 */
-	public String createDepartment() {
-		department.setDname(this.getDname());
-		departmentService.createDepartment(department);
+	public String createUser() {
+//		user.setDname(this.getDname());
+		userService.createUser(user);
 		this.setResult("创建");
-		return "successDepartment";
+		return "successUser";
 	}
 	
 	/**
 	 * 删除
 	 * @return
 	 */
-	public String deleteDepartment() {
-		departmentService.deleteDepartment(this.getDid());
+	public String deleteUser() {
+		userService.deleteUser(this.getDid());
 		this.setResult("删除");
-		return "successDepartment";
+		return "successUser";
 	}
 	
 	/**
 	 * 更新
 	 * @return
 	 */
-	public String updateDepartment() {
-		department.setDid(this.getDid());
-		department.setDname(this.getDname());
-		departmentService.updateDepartment(department);
+	public String updateUser() {
+//		user.setDid(this.getDid());
+//		user.setDname(this.getDname());
+		userService.updateUser(user);
 		this.setResult("更新");
-		return "successDepartment";
+		return "successUser";
 	}
 	
 	/**
 	 * 查找
 	 * @return
 	 */
-	public String findDepartment() {
-		departmentService.findDepartment();
-		return "findDepartment";
+	public String findUser() {
+		userService.findUser();
+		return "findUser";
 	}
 	
 	/**
@@ -133,14 +133,14 @@ public class UserAction extends ActionSupport{
 	 * 
 	 * @return
 	 */
-	public String findDepartmentById() {
+	public String findUserById() {
 
-		department = departmentService.findDepartmentById(this
+		user = userService.findUserById(this
 				.getDid());
 		
-		this.setDid(department.getDid());
-		this.setDname(department.getDname());
-		return "findDepartmentById";
+//		this.setDid(user.getDid());
+//		this.setDname(user.getDname());
+		return "findUserById";
 	}
 
 	/**
@@ -148,9 +148,9 @@ public class UserAction extends ActionSupport{
 	 * 
 	 * @return
 	 */
-	public String pageDepartment() {
-		this.getPageInfo().setResult((departmentService.findAll(pageInfo)));
+	public String pageUser() {
+		this.getPageInfo().setResult((userService.findAll(pageInfo)));
 
-		return "pageDepartment";
+		return "pageUser";
 	}
 }

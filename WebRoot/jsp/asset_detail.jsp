@@ -18,27 +18,35 @@
 	</head>
 
 	<body>
-		<form action="asset_category/test_AssetCategory_updateAssetCategory.action"
+		<!--<form action="asset_category/test_AssetCategory_updateAssetCategory.action"
 			method="post">
 			
-			资产类别ID
-			<input type="text" name="acid" value="${acid}" readonly="readonly"/>
+			
+			-->
+			资产ID<input type="text" name="aid" value="${aid}" readonly="readonly"/>
 			<br />
-			资产类别编号
-			<input type="text" name="accode" value="${accode}"/>
+			卡片编号
+			<input type="text" name="cid" value="${cid}"/>
 			<br />
 			资产类别名称
-			<input type="text" name="acname" value="${acname}"/>
+			<input type="text" name="assetCategory.acname" value="${assetCategory.acname}"/>
 			<br />
-			上级资产类别ID
-			<input type="text" name="supacid" value="${supacid}"/>
+			使用人名称
+			<input type="text" name="user.uid" value="${user.uid}"/>
 			<br />
-			上级资产类别名称
-			<input type="text" name="supacname" value="${supacname}"/>
-			<br />
-			<input type="submit" value="更新" />
+			使用状态
+			<input type="text" name="usestate" value="${usestate}"/>
+			<br /><!--
+			财务编码
+			制造商
+			供应商
+			数量
+			单位
+			单价
+				
+			--><!--<input type="submit" value="更新" />
 		</form>
 
 
-	</body>
+	--></body>
 </html>

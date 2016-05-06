@@ -30,7 +30,14 @@
   	</form>
    -->
 		<!-- 资源类别 -->
+	<!-- 资产 -->
+		<a href="asset/asset_Asset_pageAsset.action">资产列表</a>
+		<br>
+	<hr />
 
+		<a href="finance/finance_Finance_pageFinance.action">财务入账列表</a>
+		<br>
+			<hr />
 
 		<a href="asset_category/test_AssetCategory_pageAssetCategory.action">测试资源类别</a>
 		<br>
@@ -43,13 +50,7 @@
 		<!-- 参数 -->
 		<a href="parameter/test_Parameter_pageParameter.action">测试参数信息</a>
 		<br>
+	<hr />
 
-	<!-- 资产 -->
-		<a href="asset/asset_Asset_pageAsset.action">资产列表</a>
-		<br>
-
-
-		<a href="finance/finance_Finance_pageFinance.action">财务入账列表</a>
-		<br>
 	</body>
 </html>

@@ -159,13 +159,15 @@ public class FinanceAction extends ActionSupport {
 	public String createFinance() {
 		// Finance.setAccode(getAccode());
 		finance.setFcode(this.getFcode());
-		Date date = new Date();       
+		Date date = new Date();
 		Timestamp nousedate = new Timestamp(date.getTime());
 		finance.setFdate(nousedate);
-		//////////////////////
-		
-		
-		finance.setUser(userService.findUserById(this.getUser().getUid()));
+		// ////////////////////
+		System.out.println(this.getUser().getUid()+"=====");
+		user = userService.findUserById(this.getUser().getUid());
+		System.out.println(user);
+		finance.setUser(user);
+
 		finance.setFenter(this.getFenter());
 		financeService.createFinance(finance);
 		this.setResult("创建");
@@ -190,9 +192,14 @@ public class FinanceAction extends ActionSupport {
 	 */
 	public String updateFinance() {
 
-		// System.out.println(this.getAccode()+this.getAcname()+this.getSupacname()+this.getSupacid()+this.getAcid());
-		// Finance.setAccode(getAccode());
-
+		
+		finance.setFid(getFid());
+		finance.setFcode(getFcode());
+		Date date = new Date();
+		Timestamp nousedate = new Timestamp(date.getTime());
+		finance.setFdate(nousedate);
+		finance.setFenter(getFenter());
+		finance.setUser(userService.findUserById(this.getUser().getUid()));
 		financeService.updateFinance(finance);
 
 		this.setResult("更新");
@@ -217,13 +224,13 @@ public class FinanceAction extends ActionSupport {
 	public String findFinanceById() {
 
 		finance = financeService.findFinanceById(this.getFid());
-		// System.out.println(Finance.getAccode());
-		this.setFinance(finance);
-		// this.setAccode(Finance.getAccode());
-		// this.setAcname(Finance.getAcname());
-		// this.setSupacid(Finance.getSupacid());
-		// this.setSupacname(Finance.getSupacname());
+	    this.setFcode(finance.getFcode());
+        this.setFdate(finance.getFdate());
+        this.setFenter(finance.getFenter());
+        this.setUser(finance.getUser());
+	
 		return "findFinanceById";
+		
 	}
 
 	/**

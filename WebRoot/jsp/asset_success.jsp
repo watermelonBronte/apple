@@ -23,8 +23,8 @@
 	</head>
 
 	<body>
-	资产类别${result}成功~
+	资产${result}成功~
 	<br/>
-	<a href="asset_category/test_AssetCategory_pageAssetCategory.action">返回</a>
+	<a href="asset/asset_Asset_pageAsset.action">返回</a>
 	</body>
 </html>

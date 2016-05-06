@@ -13,6 +13,9 @@
         <many-to-one name="user" class="com.mars.vo.User" fetch="select">
             <column name="uid" />
         </many-to-one>
+        <many-to-one name="checkDetail" class="com.mars.vo.CheckDetail" fetch="select">
+            <column name="cdid" />
+        </many-to-one>
         <property name="cdate" type="java.util.Date">
             <column name="cdate" length="10" />
         </property>
@@ -21,11 +24,5 @@
                 <comment>0-待盘点 1-已盘点</comment>
             </column>
         </property>
-        <set name="checkDetails" inverse="true">
-            <key>
-                <column name="cid" />
-            </key>
-            <one-to-many class="com.mars.vo.CheckDetail" />
-        </set>
     </class>
 </hibernate-mapping>

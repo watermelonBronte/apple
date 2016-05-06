@@ -85,6 +85,7 @@ public class UserService implements IUserService {
 	 */
 	public User findUserById(Integer uid) {
 		User user = userDao.findUserById(uid);
+	
 		return user;
 	}
 

@@ -13,6 +13,9 @@
         <many-to-one name="user" class="com.mars.vo.User" fetch="select">
             <column name="pnagent" />
         </many-to-one>
+        <many-to-one name="purchaseDetail" class="com.mars.vo.PurchaseDetail" fetch="select">
+            <column name="pdid" />
+        </many-to-one>
         <many-to-one name="department" class="com.mars.vo.Department" fetch="select">
             <column name="pndid" />
         </many-to-one>
@@ -30,12 +33,6 @@
                 <column name="pnid" />
             </key>
             <one-to-many class="com.mars.vo.Asset" />
-        </set>
-        <set name="purchaseDetails" inverse="true">
-            <key>
-                <column name="pnid" />
-            </key>
-            <one-to-many class="com.mars.vo.PurchaseDetail" />
         </set>
     </class>
 </hibernate-mapping>

@@ -372,7 +372,8 @@ public class AssetAction extends ActionSupport {
 //		this.getPageInfo().setResult(assetCategoryService.findAll());
 	//	this.setAssetCategory(assetCategoryService.findAssetCategory());
 		assetCategoryService.findAssetCategory();
-		
+		asset.setAnote(this.getAnote());
+	
 		// System.out.println(Asset.getAccode());
 //        this.setAssetCategoryList(assetCategoryList);
 		return "addAsset";
