@@ -62,19 +62,22 @@ function submitFrom(formName){
 						卡片编号
 					</td>
 					<td class="left_bt2" align="center" width="10%">
-						财务入账日期
+						资产类别名称
 					</td>
 					<td class="left_bt2" align="center" width="10%">
-						财务编码
+						上级资产类型名称
 					</td>
 					<td class="left_bt2" align="center" width="10%">
-						资产编码
+						使用人名称
 					</td>
 					<td class="left_bt2" align="center" width="10%">
-						入库时间
+						财务入账人名称
 					</td>
 					<td class="left_bt2" align="center" width="10%">
-						操作
+						采购人名称
+					</td>
+					<td class="left_bt2" align="center" width="10%">
+						使用状态
 					</td>
 				</tr>
 
@@ -111,7 +114,8 @@ function submitFrom(formName){
 						<a href="asset/asset_Asset_outAsset.action?aid=${aid}">导出</a>
 					</td>
 				</tr>
-				--><tr>
+				-->
+				<tr>
 					<td align="center" class="left_txt" colspan="11">
 						<div style="float: right;">
 							<input type="hidden" id="pageInfo.currentPage"
