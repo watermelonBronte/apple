@@ -79,6 +79,9 @@ function submitFrom(formName){
 					<td class="left_bt2" align="center" width="10%">
 						使用状态
 					</td>
+					<td class="left_bt2" align="center" width="10%">
+						操作
+					</td>
 				</tr>
 
 				<s:iterator id="a" value="pageInfo.result" status="st">
@@ -87,13 +90,19 @@ function submitFrom(formName){
 							${a.cid}
 						</td>
 						<td align="center" class="left_txt">
-							${a.adate}
+							${a.assetCategory.acname}
 						</td>
 						<td align="center" class="left_txt">
-							${a.finance.fid}
+							${a.assetCategory.supacname}
 						</td>
 						<td align="center" class="left_txt">
-							${a.assetCategory.acid}
+							${a.user.uid}
+						</td>
+						<td align="center" class="left_txt">
+							${a.finance.user.uname}
+						</td>
+						<td align="center" class="left_txt">
+							${a.purchaseNote.user.uname}
 						</td>
 						<td align="center" class="left_txt">
 							${a.adate}
