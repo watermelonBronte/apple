@@ -88,7 +88,7 @@ function submitFrom(formName){
 							${f.fcode}
 						</td>
 						<td align="center" class="left_txt">
-							${f.user.uid}
+							${f.user.uname}
 						</td>
 						<td align="center" class="left_txt">
 							<s:if test="%{#f.fenter==1}">是</s:if>

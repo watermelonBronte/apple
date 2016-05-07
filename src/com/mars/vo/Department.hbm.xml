@@ -12,7 +12,7 @@
         </id>
         <property name="dname" type="java.lang.String">
             <column name="dname" length="50" />
-        </property>
+        </property><!--
         <set name="users" inverse="true">
             <key>
                 <column name="did" />
@@ -37,5 +37,5 @@
             </key>
             <one-to-many class="com.mars.vo.TransBills" />
         </set>
-    </class>
+    --></class>
 </hibernate-mapping>

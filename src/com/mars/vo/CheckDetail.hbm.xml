@@ -10,7 +10,7 @@
             <column name="cdid" />
             <generator class="identity" />
         </id>
-        <many-to-one name="asset" class="com.mars.vo.Asset" fetch="select">
+        <many-to-one name="asset" class="com.mars.vo.Asset" fetch="select" lazy="false">
             <column name="aid" />
         </many-to-one>
         <property name="cdresult" type="java.lang.Integer">
@@ -19,11 +19,11 @@
         <property name="cddate" type="java.util.Date">
             <column name="cddate" length="10" />
         </property>
-        <set name="checkeds" inverse="true">
+        <!--<set name="checkeds" inverse="true">
             <key>
                 <column name="cdid" />
             </key>
             <one-to-many class="com.mars.vo.Checked" />
         </set>
-    </class>
+    --></class>
 </hibernate-mapping>

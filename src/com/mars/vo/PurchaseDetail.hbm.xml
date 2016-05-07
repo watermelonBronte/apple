@@ -10,7 +10,7 @@
             <column name="pdid" />
             <generator class="identity" />
         </id>
-        <many-to-one name="user" class="com.mars.vo.User" fetch="select">
+        <many-to-one name="user" class="com.mars.vo.User" fetch="select" lazy="false">
             <column name="uid" />
         </many-to-one>
         <property name="atype" type="java.lang.String">
@@ -31,11 +31,11 @@
         <property name="pdprice" type="java.lang.Float">
             <column name="pdprice" precision="12" scale="0" />
         </property>
-        <set name="purchaseNotes" inverse="true">
+        <!--<set name="purchaseNotes" inverse="true">
             <key>
                 <column name="pdid" />
             </key>
             <one-to-many class="com.mars.vo.PurchaseNote" />
         </set>
-    </class>
+    --></class>
 </hibernate-mapping>

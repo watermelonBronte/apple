@@ -10,13 +10,13 @@
             <column name="tdid" />
             <generator class="identity" />
         </id>
-        <many-to-one name="assetTrans" class="com.mars.vo.AssetTrans" fetch="select">
+        <many-to-one name="assetTrans" class="com.mars.vo.AssetTrans" fetch="select" lazy="false">
             <column name="atid" />
         </many-to-one>
-        <many-to-one name="asset" class="com.mars.vo.Asset" fetch="select">
+        <many-to-one name="asset" class="com.mars.vo.Asset" fetch="select" lazy="false">
             <column name="aid" />
         </many-to-one>
-        <many-to-one name="user" class="com.mars.vo.User" fetch="select">
+        <many-to-one name="user" class="com.mars.vo.User" fetch="select" lazy="false">
             <column name="uid" />
         </many-to-one>
         <property name="tdresult" type="java.lang.Integer">

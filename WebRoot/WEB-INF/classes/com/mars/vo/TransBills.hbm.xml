@@ -10,19 +10,19 @@
             <column name="tbid" />
             <generator class="identity" />
         </id>
-        <many-to-one name="departmentByIndid" class="com.mars.vo.Department" fetch="select">
+        <many-to-one name="departmentByIndid" class="com.mars.vo.Department" fetch="select" lazy="false">
             <column name="indid" />
         </many-to-one>
-        <many-to-one name="userByInuid" class="com.mars.vo.User" fetch="select">
+        <many-to-one name="userByInuid" class="com.mars.vo.User" fetch="select" lazy="false">
             <column name="inuid" />
         </many-to-one>
-        <many-to-one name="userByOutuid" class="com.mars.vo.User" fetch="select">
+        <many-to-one name="userByOutuid" class="com.mars.vo.User" fetch="select" lazy="false">
             <column name="outuid" />
         </many-to-one>
-        <many-to-one name="asset" class="com.mars.vo.Asset" fetch="select">
+        <many-to-one name="asset" class="com.mars.vo.Asset" fetch="select" lazy="false">
             <column name="aid" />
         </many-to-one>
-        <many-to-one name="departmentByOutdid" class="com.mars.vo.Department" fetch="select">
+        <many-to-one name="departmentByOutdid" class="com.mars.vo.Department" fetch="select" lazy="false">
             <column name="outdid" />
         </many-to-one>
         <property name="outdate" type="java.util.Date">

@@ -10,13 +10,13 @@
             <column name="scid" />
             <generator class="identity" />
         </id>
-        <many-to-one name="asset" class="com.mars.vo.Asset" fetch="select">
+        <many-to-one name="asset" class="com.mars.vo.Asset" fetch="select" lazy="false">
             <column name="aid" />
         </many-to-one>
-        <many-to-one name="userByUid" class="com.mars.vo.User" fetch="select">
+        <many-to-one name="userByUid" class="com.mars.vo.User" fetch="select" lazy="false">
             <column name="uid" />
         </many-to-one>
-        <many-to-one name="userByCuid" class="com.mars.vo.User" fetch="select">
+        <many-to-one name="userByCuid" class="com.mars.vo.User" fetch="select" lazy="false">
             <column name="cuid" />
         </many-to-one>
         <property name="scdate" type="java.util.Date">

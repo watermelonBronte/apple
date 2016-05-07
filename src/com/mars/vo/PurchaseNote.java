@@ -19,7 +19,7 @@ public class PurchaseNote implements java.io.Serializable {
 	private Date pndate;
 	private String pnuse;
 	private Integer pnstate;
-	private Set assets = new HashSet(0);
+//	private Set assets = new HashSet(0);
 
 	// Constructors
 
@@ -29,15 +29,16 @@ public class PurchaseNote implements java.io.Serializable {
 
 	/** full constructor */
 	public PurchaseNote(User user, PurchaseDetail purchaseDetail,
-			Department department, Date pndate, String pnuse, Integer pnstate,
-			Set assets) {
+			Department department, Date pndate, String pnuse, Integer pnstate
+//			,			Set assets
+			) {
 		this.user = user;
 		this.purchaseDetail = purchaseDetail;
 		this.department = department;
 		this.pndate = pndate;
 		this.pnuse = pnuse;
 		this.pnstate = pnstate;
-		this.assets = assets;
+//		this.assets = assets;
 	}
 
 	// Property accessors
@@ -98,12 +99,12 @@ public class PurchaseNote implements java.io.Serializable {
 		this.pnstate = pnstate;
 	}
 
-	public Set getAssets() {
-		return this.assets;
-	}
-
-	public void setAssets(Set assets) {
-		this.assets = assets;
-	}
+//	public Set getAssets() {
+//		return this.assets;
+//	}
+//
+//	public void setAssets(Set assets) {
+//		this.assets = assets;
+//	}
 
 }

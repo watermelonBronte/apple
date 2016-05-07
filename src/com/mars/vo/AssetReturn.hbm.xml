@@ -10,13 +10,13 @@
             <column name="arid" />
             <generator class="identity" />
         </id>
-        <many-to-one name="userByGuid" class="com.mars.vo.User" fetch="select">
+        <many-to-one name="userByGuid" class="com.mars.vo.User" fetch="select" lazy="false">
             <column name="guid" />
         </many-to-one>
-        <many-to-one name="asset" class="com.mars.vo.Asset" fetch="select">
+        <many-to-one name="asset" class="com.mars.vo.Asset" fetch="select" lazy="false">
             <column name="aid" />
         </many-to-one>
-        <many-to-one name="userByRuid" class="com.mars.vo.User" fetch="select">
+        <many-to-one name="userByRuid" class="com.mars.vo.User" fetch="select" lazy="false">
             <column name="ruid" />
         </many-to-one>
         <property name="argdate" type="java.util.Date">

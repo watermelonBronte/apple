@@ -10,7 +10,7 @@
             <column name="fid" />
             <generator class="identity" />
         </id>
-        <many-to-one name="user" class="com.mars.vo.User" fetch="select">
+        <many-to-one name="user" class="com.mars.vo.User" fetch="select" lazy="false">
             <column name="fuid" />
         </many-to-one>
         <property name="fcode" type="java.lang.String">
@@ -22,11 +22,11 @@
         <property name="fdate" type="java.sql.Timestamp">
             <column name="fdate" length="19" />
         </property>
-        <set name="assets" inverse="true">
+        <!--<set name="assets" inverse="true">
             <key>
                 <column name="fid" />
             </key>
             <one-to-many class="com.mars.vo.Asset" />
         </set>
-    </class>
+    --></class>
 </hibernate-mapping>

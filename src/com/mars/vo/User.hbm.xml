@@ -10,10 +10,10 @@
             <column name="uid" />
             <generator class="identity" />
         </id>
-        <many-to-one name="role" class="com.mars.vo.Role" fetch="select">
+        <many-to-one name="role" class="com.mars.vo.Role" fetch="select" lazy="false">
             <column name="rid" />
         </many-to-one>
-        <many-to-one name="department" class="com.mars.vo.Department" fetch="select">
+        <many-to-one name="department" class="com.mars.vo.Department" fetch="select" lazy="false">
             <column name="did" />
         </many-to-one>
         <property name="uname" type="java.lang.String">
@@ -27,7 +27,7 @@
         </property>
         <property name="usex" type="java.lang.Integer">
             <column name="usex" />
-        </property>
+        </property><!--
         <set name="scrapsForCuid" inverse="true">
             <key>
                 <column name="cuid" />
@@ -118,5 +118,5 @@
             </key>
             <one-to-many class="com.mars.vo.Scrap" />
         </set>
-    </class>
+    --></class>
 </hibernate-mapping>

@@ -10,16 +10,16 @@
             <column name="aid" />
             <generator class="identity" />
         </id>
-        <many-to-one name="user" class="com.mars.vo.User" fetch="select">
+        <many-to-one name="user" class="com.mars.vo.User" fetch="select" lazy="false">
             <column name="useuid" />
         </many-to-one>
-        <many-to-one name="finance" class="com.mars.vo.Finance" fetch="select">
+        <many-to-one name="finance" class="com.mars.vo.Finance" fetch="select" lazy="false">
             <column name="fid" />
         </many-to-one>
-        <many-to-one name="assetCategory" class="com.mars.vo.AssetCategory" fetch="select">
+        <many-to-one name="assetCategory" class="com.mars.vo.AssetCategory" fetch="select" lazy="false">
             <column name="acid" />
         </many-to-one>
-        <many-to-one name="purchaseNote" class="com.mars.vo.PurchaseNote" fetch="select">
+        <many-to-one name="purchaseNote" class="com.mars.vo.PurchaseNote" fetch="select" lazy="false">
             <column name="pnid" />
         </many-to-one>
         <property name="cid" type="java.lang.String">
@@ -51,7 +51,7 @@
         <property name="anote" type="java.lang.String">
             <column name="anote" length="500" />
         </property>
-        <set name="checkDetails" inverse="true">
+        <!--<set name="checkDetails" inverse="true">
             <key>
                 <column name="aid" />
             </key>
@@ -87,5 +87,5 @@
             </key>
             <one-to-many class="com.mars.vo.AssetTransDetail" />
         </set>
-    </class>
+    --></class>
 </hibernate-mapping>

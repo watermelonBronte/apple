@@ -10,10 +10,10 @@
             <column name="atid" />
             <generator class="identity" />
         </id>
-        <many-to-one name="userByUid" class="com.mars.vo.User" fetch="select">
+        <many-to-one name="userByUid" class="com.mars.vo.User" fetch="select" lazy="false">
             <column name="uid" />
         </many-to-one>
-        <many-to-one name="userByTid" class="com.mars.vo.User" fetch="select">
+        <many-to-one name="userByTid" class="com.mars.vo.User" fetch="select" lazy="false">
             <column name="tid" />
         </many-to-one>
         <property name="atrdate" type="java.util.Date">
@@ -30,11 +30,11 @@
         <property name="attype" type="java.lang.Integer">
             <column name="attype" />
         </property>
-        <set name="assetTransDetails" inverse="true">
+        <!--<set name="assetTransDetails" inverse="true">
             <key>
                 <column name="atid" />
             </key>
             <one-to-many class="com.mars.vo.AssetTransDetail" />
         </set>
-    </class>
+    --></class>
 </hibernate-mapping>
