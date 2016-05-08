@@ -177,22 +177,76 @@
 	</bean>
 
 	<!-- 财务入账end -->
-		<!-- 用户start -->
-		<!-- dao -->
+<!-- 杨铮 start-->
+<!-- 3 dao -->
 	<bean id="userDao" class="com.mars.dao.impl.UserDao">
 		<property name="sessionFactory">
 			<ref local="sessionFactory" />
 		</property>
 	</bean>
-	<!-- Service -->
+	<!-- 2 service -->
 	<bean id="userService" class="com.mars.service.impl.UserService">
 		<property name="userDao" ref="userDao" />
 	</bean>
-	<!-- Action -->
-	<bean id="UserAction" class="com.mars.action.UserAction"
-		scope="prototype">
+	<!-- 1 action -->
+	<bean id="UserLoginAction" class="com.mars.action.UserLoginAction" scope="prototype">
 		<property name="userService" ref="userService" />
 	</bean>
+<bean id="UserAction" class="com.mars.action.UserAction" scope="prototype">
+		<property name="userService" ref="userService" />
+	</bean>
+	
+	
+	
+	
+	
+	<!-- 3 dao -->
+	<bean id="roleDao" class="com.mars.dao.impl.RoleDao">
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+	<!-- 2 service -->
+	<bean id="roleService" class="com.mars.service.impl.RoleService">
+		<property name="roleDao" ref="roleDao" />
+	</bean>
+	<!-- 1 action -->
+	<bean id="RoleAction" class="com.mars.action.RoleAction" scope="prototype">
+		<property name="roleService" ref="roleService" />
+	</bean>
+	
+	
+	
+	<!-- 3 dao -->
+	<bean id="purchasedao" class="com.mars.dao.impl.PurchaseDao">
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+	<!-- 2 service -->
+	<bean id="purchaseservice" class="com.mars.service.impl.PurchaseService">
+		<property name="purchasedao" ref="purchasedao" />
+	</bean>
+	<!-- 1 action -->
+	<bean id="PurchaseAction" class="com.mars.action.PurchaseAction" scope="prototype">
+		<property name="purchaseservice" ref="purchaseservice" />
+	</bean>
+	
+	
+	
+		<!-- 3 dao -->
+	<bean id="purdetaildao" class="com.mars.dao.impl.PurDetailDao">
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+	<!-- 2 service -->
+	<bean id="purdetailservice" class="com.mars.service.impl.PurDetailService">
+		<property name="purdetaildao" ref="purdetaildao" />
+	</bean>
+	<!-- 1 action -->
+	<bean id="PurDetailAction" class="com.mars.action.PurDetailAction" scope="prototype">
+		<property name="purdetailservice" ref="purdetailservice" />
+	</bean>
 
-	<!-- 用户end -->
 </beans>

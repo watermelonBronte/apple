@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
-
+<!-- ye -->
 
 	<package name="asset_category" extends="struts-default"
 		namespace="/asset_category">
@@ -57,5 +57,114 @@
 		</action>
 	</package>
 	
+<!-- 杨铮-->
+<constant name="struts.devMode" value="true" ></constant>
+<constant name="struts.ui.theme" value="simple" ></constant>
+<constant name="struts.i18n.encoding" value="utf-8" ></constant>
+<!-- <constant name="struts.objectFactory" value="spring" /> -->
 
+
+	
+	
+	<package name="user"  extends="struts-default"  namespace="/">
+	<action name="userLogin" class="com.mars.action.UserLoginAction" method="execute" >
+	<result name="success"  type="redirect">/userAction.action</result>
+		<result name="fail">/jsp/fail.jsp</result>
+	</action>
+	<action name="userAction" class="com.mars.action.UserAction" method="queryUser">
+	<result name="success" >/jsp/query_user.jsp</result>
+	</action>
+	<action name="createUser"  class="com.mars.action.UserAction" method="createUser">
+	<result name="success" type="redirect" >/userAction.action</result>
+	</action>
+	
+	<action name="deleteUser"  class="com.mars.action.UserAction" method="deleteUser">
+	<result name="success" type="redirect" >/userAction.action</result>
+	</action>
+	<action name="updateUser"  class="com.mars.action.UserAction" method="updateUser">
+	<result name="success" type="redirect" >/userAction.action</result>
+	<!--<result name="input">/jsp/update_user.jsp </result>
+	--></action>
+	<action name="selectUserById"  class="com.mars.action.UserAction" method="selectUserById">
+	<result name="success"  >/jsp/update_user.jsp</result>
+
+	</action>
+	<action name="selectUserId"  class="com.mars.action.UserAction" method="selectUserById">
+	<result name="success"  >/jsp/query_user.jsp</result>
+
+	</action>
+	<!--
+	
+		<action name="pageUser"  class="com.mars.action.UserAction" method="pageUser">
+	<result name="success"  >/jsp/update_user.jsp</result>
+
+	</action>
+	--></package> 
+	
+	<package name="role" extends="struts-default"  namespace="/">
+	<action name="roleQuery"  class="com.mars.action.RoleAction" method="queryRole">
+		<result name="success"  >/jsp/query_role.jsp</result>
+	</action>
+	<action name="selectRoleById"  class="com.mars.action.RoleAction" method="selectRoleById">
+		<result name="success"  >/jsp/update_role.jsp</result>
+	</action>
+	
+	<action name="deleteRole"  class="com.mars.action.RoleAction" method="deleteRole">
+	<result name="success" type="redirect" >/roleQuery.action</result>
+	</action>
+	
+	<action name="createRole"  class="com.mars.action.RoleAction" method="createRole">
+	<result name="success" type="redirect" >/roleQuery.action</result>
+	</action>
+	
+	<action name="updateRole"  class="com.mars.action.RoleAction" method="updateRole">
+	<result name="success" type="redirect" >/roleQuery.action</result>
+	</action>
+	</package>
+	
+	
+	
+	
+	
+	<package name="purchase" extends="struts-default"  namespace="/">
+	<action name="queryPurchase"  class="com.mars.action.PurchaseAction" method="queryPurchase">
+		<result name="success"  >/jsp/query_purchase.jsp</result>
+	</action>
+	<action name="deletePurchase"  class="com.mars.action.PurchaseAction" method="deletePurchase">
+	<result name="success" type="redirect" >/queryPurchase.action</result>
+	</action>
+	
+	<action name="createPurchase"  class="com.mars.action.PurchaseAction" method="createPurchase">
+	<result name="success" type="redirect" >/queryPurchase.action</result>
+	</action>
+	<action name="selectPurchaseById"  class="com.mars.action.PurchaseAction" method="selectPurchaseById">
+		<result name="success"  >/jsp/update_purchase.jsp</result>
+	</action>
+	<action name="updatePurchase"  class="com.mars.action.PurchaseAction" method="updatePurchase">
+	<result name="success" type="redirect" >/queryPurchase.action</result>
+	</action>
+</package>
+
+
+
+
+<package name="purdetail" extends="struts-default"  namespace="/">
+	<action name="queryPurDetail"  class="com.mars.action.PurDetailAction" method="queryPurDetail">
+		<result name="success"  >/jsp/query_purdetail.jsp</result>
+	</action>
+	<action name="deletePurdetail"  class="com.mars.action.PurDetailAction" method="deletePurDetail">
+	<result name="success" type="redirect" >/queryPurDetail.action</result>
+	</action>
+
+	<action name="createPurDetail"  class="com.mars.action.PurDetailAction" method="createPurDetail">
+	<result name="success" type="redirect" >/queryPurDetail.action</result>
+	</action>
+	<action name="selectPurdetailById"  class="com.mars.action.PurDetailAction" method="selectPurdetailById">
+		<result name="success"  >/jsp/update_purdetail.jsp</result>
+	</action>
+	
+	<action name="updatePurDetail"  class="com.mars.action.PurDetailAction" method="updatePurDetail">
+	<result name="success" type="redirect" >/queryPurDetail.action</result>
+	</action>
+</package>
 </struts>    
