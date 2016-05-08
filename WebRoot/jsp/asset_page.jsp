@@ -65,9 +65,6 @@ function submitFrom(formName){
 						资产类别名称
 					</td>
 					<td class="left_bt2" align="center" width="10%">
-						上级资产类型名称
-					</td>
-					<td class="left_bt2" align="center" width="10%">
 						使用人名称
 					</td>
 					<td class="left_bt2" align="center" width="10%">
@@ -77,7 +74,10 @@ function submitFrom(formName){
 						采购人名称
 					</td>
 					<td class="left_bt2" align="center" width="10%">
-						使用状态
+						库存状态
+					</td>
+					<td class="left_bt2" align="center" width="10%">
+						入库时间
 					</td>
 					<td class="left_bt2" align="center" width="10%">
 						操作
@@ -93,16 +93,21 @@ function submitFrom(formName){
 							${a.assetCategory.acname}
 						</td>
 						<td align="center" class="left_txt">
-							${a.assetCategory.supacname}
-						</td>
-						<td align="center" class="left_txt">
-							${a.user.uid}
+							${a.user.uname}
 						</td>
 						<td align="center" class="left_txt">
 							${a.finance.user.uname}
 						</td>
 						<td align="center" class="left_txt">
 							${a.purchaseNote.user.uname}
+						</td>
+						<td align="center" class="left_txt">
+							<!--0 库存 1 在用 2 故障 3 报废 -1 删除-->
+							<s:if test="%{#a.astate==0}">库存</s:if>
+							<s:elseif test="%{#a.astate==1}">在用</s:elseif>
+							<s:elseif test="%{#a.astate==2}">故障</s:elseif>
+							<s:elseif test="%{#a.astate==3}">报废</s:elseif>
+							<s:else>删除</s:else>
 						</td>
 						<td align="center" class="left_txt">
 							${a.adate}

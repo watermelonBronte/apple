@@ -15,6 +15,7 @@ import com.mars.tools.PageInfo;
 import com.mars.vo.Asset;
 import com.mars.vo.AssetCategory;
 import com.mars.vo.Department;
+import com.mars.vo.Finance;
 import com.mars.vo.PurchaseNote;
 import com.mars.vo.User;
 import com.opensymphony.xwork2.ActionSupport;
@@ -34,8 +35,21 @@ public class AssetAction extends ActionSupport {
 
 	private Asset asset = new Asset();
 	private List<AssetCategory> assetCategoryList = new ArrayList<AssetCategory>();
-	
-	
+	private Integer aid;
+	private User user;
+	private Finance finance;
+	private AssetCategory assetCategory;
+	private PurchaseNote purchaseNote;
+	private String cid;
+	private Integer usestate;
+	private Date adate;
+	private Integer astate;
+	private Integer tprint;
+	private String onepath;
+	private String twopath;
+	private String barcode;
+	private String anote;
+
 	public Asset getAsset() {
 		return asset;
 	}
@@ -43,8 +57,6 @@ public class AssetAction extends ActionSupport {
 	public void setAsset(Asset asset) {
 		this.asset = asset;
 	}
-
-	
 
 	public IAssetService getAssetService() {
 		return assetService;
@@ -79,37 +91,6 @@ public class AssetAction extends ActionSupport {
 		this.assetCategoryService = assetCategoryService;
 	}
 
-	private Integer aid;
-	private User userByUserid;
-	private AssetCategory assetCategoryBySupacid;
-	private AssetCategory assetCategoryByAcid;
-	private User userByUid;
-	private PurchaseNote purchaseNote;
-	private User userByFaccountid;
-	private Department department;
-	private String cid;
-	private Integer astate;
-	private Integer fifaccount;
-	private String specificat;
-	private Integer ausestate;
-	private String aname;
-	private Integer pdepartment;
-	private Timestamp fdate;
-	private String fcode;
-	private String acode;
-	private String amaker;
-	private String aprovider;
-	private Date adate;
-	private String aunit;
-	private Integer acount;
-	private String anote;
-	private Float aprice;
-	private Integer tprint;
-	private String onepath;
-	private String twopath;
-	private String barcode;
-	
-	
 	public Integer getAid() {
 		return aid;
 	}
@@ -118,36 +99,28 @@ public class AssetAction extends ActionSupport {
 		this.aid = aid;
 	}
 
-	public User getUserByUserid() {
-		return userByUserid;
+	public User getUser() {
+		return user;
 	}
 
-	public void setUserByUserid(User userByUserid) {
-		this.userByUserid = userByUserid;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
-	public AssetCategory getAssetCategoryBySupacid() {
-		return assetCategoryBySupacid;
+	public Finance getFinance() {
+		return finance;
 	}
 
-	public void setAssetCategoryBySupacid(AssetCategory assetCategoryBySupacid) {
-		this.assetCategoryBySupacid = assetCategoryBySupacid;
+	public void setFinance(Finance finance) {
+		this.finance = finance;
 	}
 
-	public AssetCategory getAssetCategoryByAcid() {
-		return assetCategoryByAcid;
+	public AssetCategory getAssetCategory() {
+		return assetCategory;
 	}
 
-	public void setAssetCategoryByAcid(AssetCategory assetCategoryByAcid) {
-		this.assetCategoryByAcid = assetCategoryByAcid;
-	}
-
-	public User getUserByUid() {
-		return userByUid;
-	}
-
-	public void setUserByUid(User userByUid) {
-		this.userByUid = userByUid;
+	public void setAssetCategory(AssetCategory assetCategory) {
+		this.assetCategory = assetCategory;
 	}
 
 	public PurchaseNote getPurchaseNote() {
@@ -158,22 +131,6 @@ public class AssetAction extends ActionSupport {
 		this.purchaseNote = purchaseNote;
 	}
 
-	public User getUserByFaccountid() {
-		return userByFaccountid;
-	}
-
-	public void setUserByFaccountid(User userByFaccountid) {
-		this.userByFaccountid = userByFaccountid;
-	}
-
-	public Department getDepartment() {
-		return department;
-	}
-
-	public void setDepartment(Department department) {
-		this.department = department;
-	}
-
 	public String getCid() {
 		return cid;
 	}
@@ -182,92 +139,12 @@ public class AssetAction extends ActionSupport {
 		this.cid = cid;
 	}
 
-	public Integer getAstate() {
-		return astate;
+	public Integer getUsestate() {
+		return usestate;
 	}
 
-	public void setAstate(Integer astate) {
-		this.astate = astate;
-	}
-
-	public Integer getFifaccount() {
-		return fifaccount;
-	}
-
-	public void setFifaccount(Integer fifaccount) {
-		this.fifaccount = fifaccount;
-	}
-
-	public String getSpecificat() {
-		return specificat;
-	}
-
-	public void setSpecificat(String specificat) {
-		this.specificat = specificat;
-	}
-
-	public Integer getAusestate() {
-		return ausestate;
-	}
-
-	public void setAusestate(Integer ausestate) {
-		this.ausestate = ausestate;
-	}
-
-	public String getAname() {
-		return aname;
-	}
-
-	public void setAname(String aname) {
-		this.aname = aname;
-	}
-
-	public Integer getPdepartment() {
-		return pdepartment;
-	}
-
-	public void setPdepartment(Integer pdepartment) {
-		this.pdepartment = pdepartment;
-	}
-
-	public Timestamp getFdate() {
-		return fdate;
-	}
-
-	public void setFdate(Timestamp fdate) {
-		this.fdate = fdate;
-	}
-
-	public String getFcode() {
-		return fcode;
-	}
-
-	public void setFcode(String fcode) {
-		this.fcode = fcode;
-	}
-
-	public String getAcode() {
-		return acode;
-	}
-
-	public void setAcode(String acode) {
-		this.acode = acode;
-	}
-
-	public String getAmaker() {
-		return amaker;
-	}
-
-	public void setAmaker(String amaker) {
-		this.amaker = amaker;
-	}
-
-	public String getAprovider() {
-		return aprovider;
-	}
-
-	public void setAprovider(String aprovider) {
-		this.aprovider = aprovider;
+	public void setUsestate(Integer usestate) {
+		this.usestate = usestate;
 	}
 
 	public Date getAdate() {
@@ -278,36 +155,12 @@ public class AssetAction extends ActionSupport {
 		this.adate = adate;
 	}
 
-	public String getAunit() {
-		return aunit;
+	public Integer getAstate() {
+		return astate;
 	}
 
-	public void setAunit(String aunit) {
-		this.aunit = aunit;
-	}
-
-	public Integer getAcount() {
-		return acount;
-	}
-
-	public void setAcount(Integer acount) {
-		this.acount = acount;
-	}
-
-	public String getAnote() {
-		return anote;
-	}
-
-	public void setAnote(String anote) {
-		this.anote = anote;
-	}
-
-	public Float getAprice() {
-		return aprice;
-	}
-
-	public void setAprice(Float aprice) {
-		this.aprice = aprice;
+	public void setAstate(Integer astate) {
+		this.astate = astate;
 	}
 
 	public Integer getTprint() {
@@ -342,6 +195,14 @@ public class AssetAction extends ActionSupport {
 		this.barcode = barcode;
 	}
 
+	public String getAnote() {
+		return anote;
+	}
+
+	public void setAnote(String anote) {
+		this.anote = anote;
+	}
+
 	/**
 	 * 返回主界面
 	 * 
@@ -351,8 +212,6 @@ public class AssetAction extends ActionSupport {
 		return "home";
 	}
 
-	
-	
 	public List<AssetCategory> getAssetCategoryList() {
 		return assetCategoryList;
 	}
@@ -367,15 +226,14 @@ public class AssetAction extends ActionSupport {
 	 * @return
 	 */
 
-	public String addAsset()
-	{
-//		this.getPageInfo().setResult(assetCategoryService.findAll());
-	//	this.setAssetCategory(assetCategoryService.findAssetCategory());
+	public String addAsset() {
+		// this.getPageInfo().setResult(assetCategoryService.findAll());
+		// this.setAssetCategory(assetCategoryService.findAssetCategory());
 		assetCategoryService.findAssetCategory();
 		asset.setAnote(this.getAnote());
-	
+
 		// System.out.println(Asset.getAccode());
-//        this.setAssetCategoryList(assetCategoryList);
+		// this.setAssetCategoryList(assetCategoryList);
 		return "addAsset";
 	}
 
@@ -437,12 +295,19 @@ public class AssetAction extends ActionSupport {
 	public String findAssetById() {
 
 		asset = assetService.findAssetById(this.getAid());
-		// System.out.println(Asset.getAccode());
-        this.setAsset(asset);
-		// this.setAccode(Asset.getAccode());
-		// this.setAcname(Asset.getAcname());
-		// this.setSupacid(Asset.getSupacid());
-		// this.setSupacname(Asset.getSupacname());
+		 this.setAid(asset.getAid());
+		 this.setCid(asset.getCid());
+	     this.setAssetCategory(asset.getAssetCategory());
+	     this.setUser(asset.getUser());
+	     this.setFinance(asset.getFinance());
+	     this.setAdate(asset.getAdate());
+	     this.setAstate(asset.getAstate());
+	     this.setPurchaseNote(asset.getPurchaseNote());
+	     this.setTprint(asset.getTprint());
+	     this.setOnepath(asset.getOnepath());
+	     this.setTwopath(asset.getTwopath());
+	     this.setBarcode(asset.getBarcode());
+	     this.setAnote(asset.getAnote());
 		return "findAssetById";
 	}
 

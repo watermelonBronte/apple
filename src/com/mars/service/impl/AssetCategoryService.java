@@ -9,7 +9,6 @@ import com.mars.dao.IAssetCategoryDao;
 import com.mars.service.IAssetCategoryService;
 import com.mars.tools.IPage;
 import com.mars.vo.AssetCategory;
-import com.mars.vo.Department;
 
 /**
  * @author ye

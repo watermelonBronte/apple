@@ -6,7 +6,6 @@ package com.mars.dao;
 import java.util.List;
 
 import com.mars.tools.IPage;
-import com.mars.vo.Asset;
 import com.mars.vo.AssetCategory;
 
 

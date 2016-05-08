@@ -4,23 +4,16 @@
 package com.mars.action;
 
 import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import com.mars.service.IDepartmentService;
 import com.mars.service.IFinanceService;
-import com.mars.service.IUserService;
 import com.mars.tools.IPage;
 import com.mars.tools.PageInfo;
 import com.mars.vo.Finance;
-import com.mars.vo.Department;
-import com.mars.vo.PurchaseNote;
 import com.mars.vo.User;
 import com.opensymphony.xwork2.ActionSupport;
-import com.sun.org.apache.bcel.internal.generic.NEW;
-
 /**
  * @author ye
  * @date 2016/5/6
@@ -30,7 +23,7 @@ public class FinanceAction extends ActionSupport {
 	private IFinanceService financeService;
 	protected IPage pageInfo = new PageInfo();
 
-	private IUserService userService;
+
 	private String result;
 	private Integer fid;
 	private User user;
@@ -41,13 +34,7 @@ public class FinanceAction extends ActionSupport {
 	private Finance finance = new Finance();
 	private List<Finance> financeList = new ArrayList<Finance>();
 
-	public IUserService getUserService() {
-		return userService;
-	}
-
-	public void setUserService(IUserService userService) {
-		this.userService = userService;
-	}
+	
 
 	public Integer getFid() {
 		return fid;

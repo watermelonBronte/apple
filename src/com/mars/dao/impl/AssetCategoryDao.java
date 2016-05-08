@@ -17,7 +17,6 @@ import com.mars.dao.IAssetCategoryDao;
 import com.mars.tools.Execute;
 import com.mars.tools.IExecute;
 import com.mars.tools.IPage;
-import com.mars.vo.Asset;
 import com.mars.vo.AssetCategory;
 
 /**
