@@ -21,17 +21,7 @@
 		<h1>
 			创建资产
 		</h1>
-		<form action="asset/asset_Asset_createAsset.action" method="post"><!--
-			资产类别
-			--><!--<select name="AssetCategory">
-				<option value="--请选择--"></option>
-				<s:iterator id="ac" value="assetCategoryList" status="st">
-					<option value="${ac.acname}">
-						${ac.accode }
-					</option>
-				</s:iterator>
-			</select>
-			-->
+		<form action="asset/asset_Asset_createAsset.action" method="post">
 			卡片编号
 			<input type="text" name="cid" value="1" />
 			<br />
@@ -41,21 +31,38 @@
 			使用人ID
 			<input type="text" name="useuid" value="1" />
 			<br />
-			使用状态
-			<input type="checkbox" value="1" checked="checked" name="usestate"/>在用
-			<input type="checkbox" value="2" name="usestate"/>不在用
+			财务入账单ID
+			<input type="text" name="fid" value="1" />
 			<br />
-			保管人ID
-			<input type="text" name="uid" value="1" />
+			入库时间
+			<input type="text" name="adate" value="1" />
 			<br />
-			财务入账人ID
-			<input type="text" name="fuid" value="1" />
+			入库状态
+			<input type="radio" name="astate" value="1" />
+			是
+			<input type="radio" name="astate" value="2" checked="checked" />
+			否
 			<br />
-			保管人ID
-			<input type="text" name="uid" value="1" />
+			采购单ID
+			<input type="text" name="pnid" value="1" />
 			<br />
-			财务入账人ID
-			<input type="text" name="fuid" value="1" />
+			是否打印标签
+			<input type="radio" name="tprint" value="1" />
+			是
+			<input type="radio" name="tprint" value="2" checked="checked" />
+			否
+			<br />
+			一维码地址
+			<input type="text" name="onepath" value="1" />
+			<br />
+			二维码地址
+			<input type="text" name="twopath" value="1" />
+			<br />
+			条码
+			<input type="text" name="barcode" value="1" />
+			<br />
+			备注
+			<input type="text" name="anote" value="1" />
 			<br />
 			<input type="submit" value="创建" />
 		</form>

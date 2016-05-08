@@ -23,10 +23,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
+  <a href="asset_category/test_AssetCategory_home.action">主界面</a>
+  
    <h1><s:text name="修改采购信息"></s:text></h1>
   <form action="updatePurDetail.action" method="post">
   
 <table>
+
 <tr><td>资产明细id：</td><td><input type="text"  value="${pdid}" name="pdid"  readonly="readonly"/></td></tr>
 
 

@@ -4,7 +4,8 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
 	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 	<welcome-file-list>
-		<welcome-file>login.jsp</welcome-file>
+		<!--<welcome-file>login.jsp</welcome-file>-->
+		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
 	<!-- struts2 config end-->
 	<filter>
