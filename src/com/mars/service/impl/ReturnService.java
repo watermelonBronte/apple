@@ -14,9 +14,10 @@ import com.mars.vo.AssetReturn;
 import com.mars.vo.PurchaseNote;
 import com.mars.vo.User;
 
+
 /**
- * @author Lab411
- *
+ *@author 杨铮
+ *@data 2016/5/6
  */
 public class ReturnService implements IReturnService {
 private ReturnDao returnDao=new ReturnDao();
