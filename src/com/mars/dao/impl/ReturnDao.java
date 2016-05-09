@@ -35,7 +35,7 @@ public class ReturnDao extends HibernateDaoSupport implements IReturnDao {
 
 	public void deletReturn(int arid) {
 		// TODO Auto-generated method stub
-		//按id删除资产归还
+		//按id删除资产归还信息
 		this.getHibernateTemplate().delete(findReturnById(arid));
 	}
 
