@@ -30,9 +30,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <tr><td>资产id：</td><td><input type="text"  name="asset.aid" /></td></tr>
 <tr><td> 领用人id：</td><td>  <input type="text"    name="userByGuid.uid" /></td></tr>
 <tr><td>归还人id：</td><td> <input type="text"  name="userByRuid.uid" /></td></tr>
-<tr><td>领用时间：</td><td> <input type="text" name="assetReturn.argdate" /></td></tr>
-<tr><td>归还时间 ：</td><td> <input type="text"  name="assetReturn.arrdate" /></td></tr>
-<tr><td> 状态：</td><td> <input type="text" name="assetReturn.arstate" />  </td></tr>
+<tr><td>领用时间：</td><td> <input type="text" name="argdate" /></td></tr>
+<tr><td>归还时间 ：</td><td> <input type="text"  name="arrdate" /></td></tr>
+<tr><td> 状态：</td><td> <input type="text" name="arstate" />  </td></tr>
 <tr><td> <input type="submit" value="提交"/></td><td> <input type="reset" value="重置"/></td></tr>
 
 </table>

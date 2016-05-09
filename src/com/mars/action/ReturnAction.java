@@ -98,14 +98,14 @@ public String deleteReturn(){//删除
 
 public String createRerutn(){//增加信息
 	  AssetReturn a=new AssetReturn();
-	  a.setArgdate(assetReturn.getArgdate());
-	  a.setArid(assetReturn.getArid());
-	  a.setArrdate(assetReturn.getArrdate());
-	  a.setArstate(assetReturn.getArstate());
+	  a.setArgdate(this.getArgdate());
+	  a.setArid(this.getArid());
+	  a.setArrdate(this.getArrdate());
+	  a.setArstate(this.getArstate());
 	 
-	  a.setUserByGuid(returnService.findReturnByGid(assetReturn.getUserByGuid().getUid()));
-	  a.setUserByRuid(returnService.findReturnByRid(assetReturn.getUserByRuid().getUid()));
-	  a.setAsset(returnService.findReturnByAid(assetReturn.getAsset().getAid()));
+	  a.setUserByGuid(returnService.findReturnByGid(this.getUserByGuid().getUid()));
+	  a.setUserByRuid(returnService.findReturnByRid(this.getUserByRuid().getUid()));
+	  a.setAsset(returnService.findReturnByAid(this.getAsset().getAid()));
 returnService.createReturn(a);//保存接收到的数据到数据库中
 	  return "success";
 	  
