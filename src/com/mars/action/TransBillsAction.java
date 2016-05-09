@@ -28,11 +28,11 @@ public class TransBillsAction extends ActionSupport {
 
 	private String result;
 	private Integer tbid;
-	private Department departmentByIndid;
+//	private Department departmentByIndid;
 	private User userByInuid;
 	private User userByOutuid;
 	private Asset asset;
-	private Department departmentByOutdid;
+//	private Department departmentByOutdid;
 	private Date outdate;
 	private String outname;
 	private Integer tbstate;
@@ -43,13 +43,7 @@ public class TransBillsAction extends ActionSupport {
 
 	
 
-	public Integer getFid() {
-		return tbid;
-	}
 
-	public void setFid(Integer tbid) {
-		this.tbid = tbid;
-	}
 
 	
 	public TransBills getTransBills() {
@@ -93,13 +87,13 @@ public class TransBillsAction extends ActionSupport {
 		this.tbid = tbid;
 	}
 
-	public Department getDepartmentByIndid() {
-		return departmentByIndid;
-	}
-
-	public void setDepartmentByIndid(Department departmentByIndid) {
-		this.departmentByIndid = departmentByIndid;
-	}
+//	public Department getDepartmentByIndid() {
+//		return departmentByIndid;
+//	}
+//
+//	public void setDepartmentByIndid(Department departmentByIndid) {
+//		this.departmentByIndid = departmentByIndid;
+//	}
 
 	public User getUserByInuid() {
 		return userByInuid;
@@ -125,13 +119,13 @@ public class TransBillsAction extends ActionSupport {
 		this.asset = asset;
 	}
 
-	public Department getDepartmentByOutdid() {
-		return departmentByOutdid;
-	}
-
-	public void setDepartmentByOutdid(Department departmentByOutdid) {
-		this.departmentByOutdid = departmentByOutdid;
-	}
+//	public Department getDepartmentByOutdid() {
+//		return departmentByOutdid;
+//	}
+//
+//	public void setDepartmentByOutdid(Department departmentByOutdid) {
+//		this.departmentByOutdid = departmentByOutdid;
+//	}
 
 	public Date getOutdate() {
 		return outdate;
@@ -192,24 +186,40 @@ public class TransBillsAction extends ActionSupport {
 	}
 
 	/**
-	 * 创建
 	 * 
+	 * 填写调入单
 	 * @return
 	 */
-	public String createTransBills() {
-		// TransBills.setAccode(getAccode());
-//		transBills.setUserByOutuid(transBills.this.getUserByOutuid().getUid());
+	public String createTransInBills() {
+		transBills.setUserByInuid(transBillsService.findUserById(this.getUserByInuid().getUid()));
+		transBills.setAsset(transBillsService.findAssetById(this.getAsset().getAid()));
+		//状态：1调入2调出
+		transBills.setTbstate(1);
+		Date date = new Date();
+		Timestamp nousedate = new Timestamp(date.getTime());
+		transBills.setIndate(nousedate);
+		
+		transBillsService.createTransBills(transBills);
+		this.setResult("创建调入单");
+		return "successTransBills";
+	}
+	
+	/**
+	 * 填写调出单
+	 * @return
+	 */
+	public String createTransOutBills() {
+		transBills=transBillsService.findTransBillsById(this.getTbid());
+		transBills.setUserByOutuid(transBillsService.findUserById(this.getUserByOutuid().getUid()));
+		transBills.setOutname(this.getOutname());
+		//状态：1调入2调出
+		transBills.setTbstate(2);
 		Date date = new Date();
 		Timestamp nousedate = new Timestamp(date.getTime());
 		transBills.setOutdate(nousedate);
 
-		// System.out.println(this.getUser().getUid()+"=====");
-		// 将方法写入同一个Service
-//		transBills.setUser(transBillsService.findUserById(this.getUser().getUid()));
-
-//		transBills.setFenter(this.getFenter());
 		transBillsService.createTransBills(transBills);
-		this.setResult("创建");
+		this.setResult("创建调出单");
 		return "successTransBills";
 	}
 
@@ -219,40 +229,14 @@ public class TransBillsAction extends ActionSupport {
 	 * @return
 	 */
 	public String deleteTransBills() {
-		transBillsService.deleteTransBills(this.getFid());
+		transBillsService.deleteTransBills(this.getTbid());
 		this.setResult("删除");
 		return "successTransBills";
 	}
 
-	/**
-	 * 更新
-	 * 
-	 * @return
-	 */
-	public String updateTransBills() {
 
-//		transBills.setFid(getFid());
-//		transBills.setFcode(getFcode());
-//		Date date = new Date();
-//		Timestamp nousedate = new Timestamp(date.getTime());
-//		transBills.setFdate(nousedate);
-//		transBills.setFenter(getFenter());
-//		transBills.setUser(transBillsService.findUserById(this.getUser().getUid()));
-		transBillsService.updateTransBills(transBills);
 
-		this.setResult("更新");
-		return "successTransBills";
-	}
-
-	public String updateEnter() {
-		transBills = transBillsService.findTransBillsById(this.getFid());
-//		transBills.setFid(getFid());
-	    
-//		transBills.setFenter(1);
 	
-		transBillsService.updateTransBills(transBills);
-		return "successTransBills";
-	}
 	/**
 	 * 查找
 	 * 
@@ -270,12 +254,15 @@ public class TransBillsAction extends ActionSupport {
 	 */
 	public String findTransBillsById() {
 
-		transBills = transBillsService.findTransBillsById(this.getFid());
+		transBills = transBillsService.findTransBillsById(this.getTbid());
 //		this.setFcode(transBills.getFcode());
 //		this.setFdate(transBills.getFdate());
 //		this.setFenter(transBills.getFenter());
 //		this.setUser(transBills.getUser());
-
+        this.setTbid(transBills.getTbid());
+        this.setOutdate(transBills.getOutdate());
+     
+        //调出还没写完
 		return "findTransBillsById";
 
 	}

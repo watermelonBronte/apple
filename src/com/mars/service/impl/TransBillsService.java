@@ -8,7 +8,9 @@ import java.util.List;
 import com.mars.dao.ITransBillsDao;
 import com.mars.service.ITransBillsService;
 import com.mars.tools.IPage;
+import com.mars.vo.Asset;
 import com.mars.vo.TransBills;
+import com.mars.vo.User;
 
 /**
  * @author ye
@@ -91,6 +93,16 @@ public class TransBillsService implements ITransBillsService {
 	public TransBills findTransBillsById(Integer tbid) {
 		TransBills transBills = transBillsDao.findTransBillsById(tbid);
 		return transBills;
+	}
+
+	public Asset findAssetById(Integer aid) {
+		Asset asset = transBillsDao.findAssetById(aid);
+		return asset;
+	}
+
+	public User findUserById(Integer uid) {
+		User user = transBillsDao.findUserById(uid);
+		return user;
 	}
 
 }

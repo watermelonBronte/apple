@@ -17,7 +17,9 @@ import com.mars.dao.ITransBillsDao;
 import com.mars.tools.Execute;
 import com.mars.tools.IExecute;
 import com.mars.tools.IPage;
+import com.mars.vo.Asset;
 import com.mars.vo.TransBills;
+import com.mars.vo.User;
 
 /**
  * @author ye
@@ -134,6 +136,18 @@ public class TransBillsDao extends HibernateDaoSupport implements
 		TransBills transBills = (TransBills) super.getHibernateTemplate().get(
 				TransBills.class, new Integer(tbid));
 		return transBills;
+	}
+
+	public Asset findAssetById(Integer aid) {
+		Asset asset = (Asset) super.getHibernateTemplate().get(
+				Asset.class, new Integer(aid));
+		return asset;
+	}
+
+	public User findUserById(Integer uid) {
+		User user = (User) super.getHibernateTemplate().get(
+				User.class, new Integer(uid));
+		return user;
 	}
 
 }

@@ -11,11 +11,11 @@ public class TransBills implements java.io.Serializable {
 	// Fields
 
 	private Integer tbid;
-	private Department departmentByIndid;
+	
 	private User userByInuid;
 	private User userByOutuid;
 	private Asset asset;
-	private Department departmentByOutdid;
+
 	private Date outdate;
 	private String outname;
 	private Integer tbstate;
@@ -28,14 +28,14 @@ public class TransBills implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public TransBills(Department departmentByIndid, User userByInuid,
-			User userByOutuid, Asset asset, Department departmentByOutdid,
+	public TransBills( User userByInuid,
+			User userByOutuid, Asset asset,
 			Date outdate, String outname, Integer tbstate, Date indate) {
-		this.departmentByIndid = departmentByIndid;
+		
 		this.userByInuid = userByInuid;
 		this.userByOutuid = userByOutuid;
 		this.asset = asset;
-		this.departmentByOutdid = departmentByOutdid;
+	
 		this.outdate = outdate;
 		this.outname = outname;
 		this.tbstate = tbstate;
@@ -52,13 +52,7 @@ public class TransBills implements java.io.Serializable {
 		this.tbid = tbid;
 	}
 
-	public Department getDepartmentByIndid() {
-		return this.departmentByIndid;
-	}
 
-	public void setDepartmentByIndid(Department departmentByIndid) {
-		this.departmentByIndid = departmentByIndid;
-	}
 
 	public User getUserByInuid() {
 		return this.userByInuid;
@@ -84,13 +78,7 @@ public class TransBills implements java.io.Serializable {
 		this.asset = asset;
 	}
 
-	public Department getDepartmentByOutdid() {
-		return this.departmentByOutdid;
-	}
 
-	public void setDepartmentByOutdid(Department departmentByOutdid) {
-		this.departmentByOutdid = departmentByOutdid;
-	}
 
 	public Date getOutdate() {
 		return this.outdate;

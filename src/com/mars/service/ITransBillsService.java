@@ -6,7 +6,9 @@ package com.mars.service;
 import java.util.List;
 
 import com.mars.tools.IPage;
+import com.mars.vo.Asset;
 import com.mars.vo.TransBills;
+import com.mars.vo.User;
 
 /**
  * @author ye
@@ -46,4 +48,16 @@ public interface ITransBillsService {
 	 * @return
 	 */
 	public TransBills findTransBillsById(Integer tbid);
+	
+	/**
+	 * 根据ID查询用户
+	 * @return
+	 */
+	public User findUserById(Integer uid);
+	
+	/**
+	 * 根据ID查询资产
+	 * @return
+	 */
+	public Asset findAssetById(Integer aid);
 }
