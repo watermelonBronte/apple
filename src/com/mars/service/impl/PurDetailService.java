@@ -53,10 +53,10 @@ public void setPurdetaildao(PurDetailDao purdetaildao) {
 	return purdetaildao.findPurDetailById(pdid);
 	}
 ////按采购id查找
-//public PurchaseNote findPurDetailByPid(int pnid) {
-//		// TODO Auto-generated method stub
-//	return purdetaildao.findPurDetailByPid(pnid);
-//	}
+public PurchaseNote findPurchaseNoteByPid(int pnid) {
+		// TODO Auto-generated method stub
+	return purdetaildao.findPurchaseNoteByPid(pnid);
+	}
 //按保管人id查找
 	public User findPurDetailByUid(int uid) {
 		// TODO Auto-generated method stub
@@ -68,9 +68,9 @@ public void setPurdetaildao(PurDetailDao purdetaildao) {
 		purdetaildao.updatePurDetail(purdetail);
 	}
 
-	public List<PurchaseDetail> findPurDetailByPnid(IPage pageInfo, Integer pnid) {
+	public List<PurchaseDetail> findPurDetailByPnid(IPage pageInfo, PurchaseNote purchaseNote) {
 		
-		return purdetaildao.findPurDetailByPnid(pageInfo,pnid);
+		return purdetaildao.findPurDetailByPnid(pageInfo,purchaseNote);
 	}
 
 

@@ -24,8 +24,15 @@ body {
 -->
 </style>
 
-		<!--<link href="images/skin.css" rel="stylesheet" type="text/css" />-->
-		<script>
+	<script type="text/javascript" src="http://www.js-css.cn/jscode/jquery.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.date_input.pack.js"></script> 
+ <link rel="stylesheet" href="${pageContext.request.contextPath}/css/calendar.css">
+  
+  <script type="text/javascript">
+$(function(){
+	$('.date_picker').date_input();
+	})
+	
 
 //翻页  pageNo:隐藏域控件名  formName：要提交的表单名 pageno:页码
 function goto(pageNo,formName,pageno){
@@ -151,6 +158,9 @@ function submitFrom(formName){
 			<input type="radio" name="fenter" value="2" checked="checked"/>
 			否
 			<br />
+			财务入账时间
+			<input  style="width:240px;background: #fefefe;border: 1px solid #bbb;font-size: 14px;color: #333;padding: 7px;border-radius: 3px;" type="text" class="date_picker" value="${fdate}" name="fdate" />
+			<br/>
 			<input type="submit" value="创建" />
 		</form>
 

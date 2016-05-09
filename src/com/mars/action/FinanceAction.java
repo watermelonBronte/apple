@@ -14,6 +14,7 @@ import com.mars.tools.PageInfo;
 import com.mars.vo.Finance;
 import com.mars.vo.User;
 import com.opensymphony.xwork2.ActionSupport;
+
 /**
  * @author ye
  * @date 2016/5/6
@@ -22,7 +23,6 @@ public class FinanceAction extends ActionSupport {
 
 	private IFinanceService financeService;
 	protected IPage pageInfo = new PageInfo();
-
 
 	private String result;
 	private Integer fid;
@@ -33,8 +33,6 @@ public class FinanceAction extends ActionSupport {
 
 	private Finance finance = new Finance();
 	private List<Finance> financeList = new ArrayList<Finance>();
-
-	
 
 	public Integer getFid() {
 		return fid;
@@ -149,10 +147,10 @@ public class FinanceAction extends ActionSupport {
 	public String createFinance() {
 		// Finance.setAccode(getAccode());
 		finance.setFcode(this.getFcode());
-		Date date = new Date();
-		Timestamp nousedate = new Timestamp(date.getTime());
-		finance.setFdate(nousedate);
-
+		// Date date = new Date();
+		// Timestamp nousedate = new Timestamp(date.getTime());
+		// finance.setFdate(nousedate);
+		finance.setFdate(this.getFdate());
 		// System.out.println(this.getUser().getUid()+"=====");
 		// 将方法写入同一个Service
 		finance.setUser(financeService.findUserById(this.getUser().getUid()));
@@ -183,9 +181,10 @@ public class FinanceAction extends ActionSupport {
 
 		finance.setFid(getFid());
 		finance.setFcode(getFcode());
-		Date date = new Date();
-		Timestamp nousedate = new Timestamp(date.getTime());
-		finance.setFdate(nousedate);
+//		Date date = new Date();
+//		Timestamp nousedate = new Timestamp(date.getTime());
+//		finance.setFdate(nousedate);
+		finance.setFdate(this.getFdate());
 		finance.setFenter(getFenter());
 		finance.setUser(financeService.findUserById(this.getUser().getUid()));
 		financeService.updateFinance(finance);
@@ -196,13 +195,14 @@ public class FinanceAction extends ActionSupport {
 
 	public String updateEnter() {
 		finance = financeService.findFinanceById(this.getFid());
-//		finance.setFid(getFid());
-	    
+		// finance.setFid(getFid());
+
 		finance.setFenter(1);
-	
+
 		financeService.updateFinance(finance);
 		return "successFinance";
 	}
+
 	/**
 	 * 查找
 	 * 

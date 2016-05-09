@@ -42,9 +42,13 @@ function submitFrom(formName){
    		<th>
    		采购单明细id
    		</th>
+   		<th>采购单id
+   		</th>
    			<th>
    		保管人id
    		</th>
+   		<th>
+   		资产名称</th>
    			<th>
 资产型号
    		</th>
@@ -78,7 +82,9 @@ function submitFrom(formName){
    <s:iterator id="purdeinfo" value="pageInfo.result" status="st">
 					 <tr>
        <td>${purdeinfo.pdid}</td>
+       <td>${purdeinfo.purchaseNote.pnid}</td>
          <td>${purdeinfo.user.uname}</td>
+         <td>${purdeinfo.aname}</td>
           <td>${purdeinfo.atype}</td>
          <td>${purdeinfo.pdcount}</td>
           <td>${purdeinfo.pdmarker}</td>
@@ -120,6 +126,7 @@ function submitFrom(formName){
 				 </table>
      </form>
    <br/>
-   <a href="jsp/purdetail/create_purdetail.jsp">添加采购单</a>
+   <a href="jsp/purdetail/create_purdetail.jsp?pnid=${pnid}">添加采购单</a>
+   <!--<a href="addPurDetail.action?pnid=${pnid}">添加采购单</a>-->
   </body>
 </html>
