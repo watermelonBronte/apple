@@ -14,8 +14,8 @@ import com.mars.vo.PurchaseNote;
 import com.mars.vo.User;
 
 /**
- * @author Lab411
- *
+ *@author 杨铮
+ *@data 2016/5/6
  */
 public class ReturnAction {
 	private AssetReturn assetReturn=new AssetReturn();
