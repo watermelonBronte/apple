@@ -2,7 +2,6 @@
  * 测试资产action
  */
 package com.mars.action;
-
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
@@ -22,7 +21,7 @@ import com.mars.vo.PurchaseNote;
 import com.mars.vo.User;
 import com.opensymphony.xwork2.ActionSupport;
 
-/**
+/***
  * @author ye
  * @date 2016/5/6
  */
