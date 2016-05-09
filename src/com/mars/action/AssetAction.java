@@ -19,10 +19,7 @@ import com.mars.vo.Finance;
 import com.mars.vo.PurchaseNote;
 import com.mars.vo.User;
 import com.opensymphony.xwork2.ActionSupport;
-/**
- * @author ye
- * @date 2016/5/6
- */
+
 /**
  * @author ye
  * @date 2016/5/6

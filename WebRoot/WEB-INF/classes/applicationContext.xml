@@ -198,7 +198,20 @@
 	
 	
 	
-	
+	<!-- 3 dao -->
+	<bean id="returnDao" class="com.mars.dao.impl.ReturnDao">
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+	<!-- 2 service -->
+	<bean id="returnService" class="com.mars.service.impl.ReturnService">
+		<property name="returnDao" ref="returnDao" />
+	</bean>
+	<!-- 1 action -->
+	<bean id="ReturnAction" class="com.mars.action.ReturnAction" scope="prototype">
+		<property name="returnService" ref="returnService" />
+	</bean>
 	
 	<!-- 3 dao -->
 	<bean id="roleDao" class="com.mars.dao.impl.RoleDao">
