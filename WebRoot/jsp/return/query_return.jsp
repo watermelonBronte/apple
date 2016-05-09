@@ -8,9 +8,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
   <head>
     <base href="<%=basePath%>">
+        <%@ taglib uri="/struts-tags" prefix="s" %>
+    <title>My JSP 'query_return.jsp' starting page</title>
     
-    <title>My JSP 'query_purdetail.jsp' starting page</title>
-       <%@ taglib uri="/struts-tags" prefix="s" %>
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
@@ -35,33 +35,30 @@ function submitFrom(formName){
   </head>
   
   <body>
-   <h1>采购单明细信息</h1>
+       <h1>采购单信息</h1>
     <form action="" id="_form" method="post">
    <table style="border:1px solid black">
    <tr >
    		<th>
-   		采购单明细id
+   	领用归还id
    		</th>
    			<th>
-   		保管人id
+   	资产id
    		</th>
    			<th>
-资产型号
+   	领用人id
    		</th>
    		<th>
-   数量
+   	归还人id
    		</th>
    		<th>
-   	制造商
+   	领用时间
    		</th>
    		<th>
-  供应商
+   	归还时间
    		</th>
    			<th>
-   	单位
-   		</th>
-   				<th>
-   	单价
+   	状态
    		</th>
    		<th>
    	修改
@@ -75,18 +72,18 @@ function submitFrom(formName){
    
    
    
-   <s:iterator id="purdeinfo" value="pageInfo.result" status="st">
+   <s:iterator id="reinfo" value="pageInfo.result" status="st">
 					 <tr>
-       <td>${purdeinfo.pdid}</td>
-         <td>${purdeinfo.user.uid}</td>
-          <td>${purdeinfo.atype}</td>
-         <td>${purdeinfo.pdcount}</td>
-          <td>${purdeinfo.pdmarker}</td>
-         <td>${purdeinfo.pdprovider}</td>
-          <td>${purdeinfo.pdunit}</td>
-        <td>${purdeinfo.pdprice}</td>
-      <td><a href="selectPurdetailById.action?pdid=${purdeinfo.pdid}">更新</a></td>
-       <td><a href="deletePurdetail.action?pdid=${purdeinfo.pdid}">删除</a></td>
+       <td>${reinfo.arid}</td>
+         <td>${reinfo.asset.aid}</td>
+          <td>${reinfo.userByGuid.uid}</td>
+         <td>${reinfo.userByRuid.uid}</td>
+          <td>${reinfo.argdate}</td>
+         <td>${reinfo.arrdate}</td>
+          <td>${reinfo.arstate}</td>
+      
+      <td><a href="selectReturnById.action?arid=${reinfo.arid}">更新</a></td>
+       <td><a href="deleteReturn.action?arid=${reinfo.arid}">删除</a></td>
        </tr>
 				</s:iterator>
 
@@ -120,6 +117,6 @@ function submitFrom(formName){
 				 </table>
      </form>
    <br/>
-   <a href="jsp/create_purdetail.jsp">添加采购单</a>
+   <a href="jsp/return/create_return.jsp">添加采购单</a>
   </body>
 </html>

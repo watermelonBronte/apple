@@ -118,6 +118,6 @@ function submitFrom(formName){
    </table>
    </form>
    <br/>
-   <a href="jsp/create_user.jsp">添加用户</a>
+   <a href="jsp/user/create_user.jsp">添加用户</a>
   </body>
 </html>

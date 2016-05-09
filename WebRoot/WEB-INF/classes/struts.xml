@@ -6,38 +6,38 @@
 	<package name="asset_category" extends="struts-default"
 		namespace="/asset_category">
 		<action name="test_*_*" class="{1}Action" method="{2}">
-			<result name="findAssetCategoryById">/jsp/asset_category_update.jsp</result>
-			<result name="pageAssetCategory">/jsp/asset_category_page.jsp</result>
-			<result name="successAssetCategory">/jsp/asset_category_success.jsp</result>
-			<result name="addAssetCategory">/jsp/asset_category_add.jsp</result>
+			<result name="findAssetCategoryById">/jsp/assetCategory/asset_category_update.jsp</result>
+			<result name="pageAssetCategory">/jsp/assetCategory/asset_category_page.jsp</result>
+			<result name="successAssetCategory">/jsp/assetCategory/asset_category_success.jsp</result>
+			<result name="addAssetCategory">/jsp/assetCategory/asset_category_add.jsp</result>
 			<result name="home">/index.jsp</result>
 		</action>
 	</package>
 
 	<package name="department" extends="struts-default" namespace="/department">
 		<action name="test_*_*" class="{1}Action" method="{2}">
-			<result name="findDepartmentById">/jsp/department_update.jsp</result>
-			<result name="pageDepartment">/jsp/department_page.jsp</result>
-			<result name="successDepartment">/jsp/department_success.jsp</result>
-			<result name="addDepartment">/jsp/department_add.jsp</result>
+			<result name="findDepartmentById">/jsp/department/department_update.jsp</result>
+			<result name="pageDepartment">/jsp/department/department_page.jsp</result>
+			<result name="successDepartment">/jsp/department/department_success.jsp</result>
+			<result name="addDepartment">/jsp/department/department_add.jsp</result>
 		</action>
 	</package>
 
 	<package name="parameter" extends="struts-default" namespace="/parameter">
 		<action name="test_*_*" class="{1}Action" method="{2}">
-			<result name="findParameterById">/jsp/parameter_detail.jsp</result>
-			<result name="pageParameter">/jsp/parameter_page.jsp</result>
-			<result name="successParameter">/jsp/parameter_success.jsp</result>
-			<result name="addParameter">/jsp/parameter_add.jsp</result>
+			<result name="findParameterById">/jsp/parameter/parameter_detail.jsp</result>
+			<result name="pageParameter">/jsp/parameter/parameter_page.jsp</result>
+			<result name="successParameter">/jsp/parameter/parameter_success.jsp</result>
+			<result name="addParameter">/jsp/parameter/parameter_add.jsp</result>
 		</action>
 	</package>
 
 	<package name="asset" extends="struts-default" namespace="/asset">
 		<action name="asset_*_*" class="{1}Action" method="{2}">
-			<result name="findAssetById">/jsp/asset_detail.jsp</result>
-			<result name="pageAsset">/jsp/asset_page.jsp</result>
-			<result name="successAsset">/jsp/asset_success.jsp</result>
-			<result name="addAsset">/jsp/asset_add.jsp</result>
+			<result name="findAssetById">/jsp/asset/asset_detail.jsp</result>
+			<result name="pageAsset">/jsp/asset/asset_page.jsp</result>
+			<result name="successAsset">/jsp/asset/asset_success.jsp</result>
+			<result name="addAsset">/jsp/asset/asset_add.jsp</result>
 		</action>
 	</package>
 
@@ -50,10 +50,10 @@
 
 	<package name="finance" extends="struts-default" namespace="/finance">
 		<action name="finance_*_*" class="{1}Action" method="{2}">
-			<result name="findFinanceById">/jsp/finance_update.jsp</result>
-			<result name="pageFinance">/jsp/finance_page.jsp</result>
-			<result name="successFinance">/jsp/finance_success.jsp</result>
-			<result name="addFinance">/jsp/finance_add.jsp</result>
+			<result name="findFinanceById">/jsp/finance/finance_update.jsp</result>
+			<result name="pageFinance">/jsp/finance/finance_page.jsp</result>
+			<result name="successFinance">/jsp/finance/finance_success.jsp</result>
+			<result name="addFinance">/jsp/finance/finance_add.jsp</result>
 		</action>
 	</package>
 
@@ -70,11 +70,11 @@
 		<action name="userLogin" class="com.mars.action.UserLoginAction"
 			method="execute">
 			<result name="success" type="redirect">/userAction.action</result>
-			<result name="fail">/jsp/fail.jsp</result>
+			<result name="fail">/jsp/user/fail.jsp</result>
 		</action>
 		<action name="userAction" class="com.mars.action.UserAction"
 			method="queryUser">
-			<result name="success">/jsp/query_user.jsp</result>
+			<result name="success">/jsp/user/query_user.jsp</result>
 		</action>
 		<action name="createUser" class="com.mars.action.UserAction"
 			method="createUser">
@@ -96,15 +96,15 @@
 		</action>
 		<action name="selectUserById" class="com.mars.action.UserAction"
 			method="selectUserById">
-			<result name="success">/jsp/update_user.jsp</result>
+			<result name="success">/jsp/user/update_user.jsp</result>
 
-		</action>
+		</action><!--
 		<action name="selectUserId" class="com.mars.action.UserAction"
 			method="selectUserById">
-			<result name="success">/jsp/query_user.jsp</result>
+			<result name="success">/jsp/user/query_user.jsp</result>
 
 		</action>
-		<!--
+		--><!--
 
 			<action name="pageUser" class="com.mars.action.UserAction"
 			method="pageUser"> <result name="success"
@@ -115,11 +115,11 @@
 	<package name="role" extends="struts-default" namespace="/">
 		<action name="roleQuery" class="com.mars.action.RoleAction"
 			method="queryRole">
-			<result name="success">/jsp/query_role.jsp</result>
+			<result name="success">/jsp/role/query_role.jsp</result>
 		</action>
 		<action name="selectRoleById" class="com.mars.action.RoleAction"
 			method="selectRoleById">
-			<result name="success">/jsp/update_role.jsp</result>
+			<result name="success">/jsp/role/update_role.jsp</result>
 		</action>
 
 		<action name="deleteRole" class="com.mars.action.RoleAction"
@@ -148,7 +148,7 @@
 	<package name="purchase" extends="struts-default" namespace="/">
 		<action name="queryPurchase" class="com.mars.action.PurchaseAction"
 			method="queryPurchase">
-			<result name="success">/jsp/query_purchase.jsp</result>
+			<result name="success">/jsp/purchase/query_purchase.jsp</result>
 		</action>
 		<action name="deletePurchase" class="com.mars.action.PurchaseAction"
 			method="deletePurchase">
@@ -163,7 +163,7 @@
 		</action>
 		<action name="selectPurchaseById" class="com.mars.action.PurchaseAction"
 			method="selectPurchaseById">
-			<result name="success">/jsp/update_purchase.jsp</result>
+			<result name="success">/jsp/purchase/update_purchase.jsp</result>
 		</action>
 		<action name="updatePurchase" class="com.mars.action.PurchaseAction"
 			method="updatePurchase">
@@ -178,7 +178,7 @@
 	<package name="purdetail" extends="struts-default" namespace="/">
 		<action name="queryPurDetail" class="com.mars.action.PurDetailAction"
 			method="queryPurDetail">
-			<result name="success">/jsp/query_purdetail.jsp</result>
+			<result name="success">/jsp/purdetail/query_purdetail.jsp</result>
 		</action>
 		<action name="deletePurdetail" class="com.mars.action.PurDetailAction"
 			method="deletePurDetail">
@@ -193,7 +193,7 @@
 		</action>
 		<action name="selectPurdetailById" class="com.mars.action.PurDetailAction"
 			method="selectPurdetailById">
-			<result name="success">/jsp/update_purdetail.jsp</result>
+			<result name="success">/jsp/purdetail/update_purdetail.jsp</result>
 		</action>
 
 		<action name="updatePurDetail" class="com.mars.action.PurDetailAction"
@@ -207,7 +207,7 @@
 		<package name="return" extends="struts-default" namespace="/">
 			<action name="queryReturn" class="com.mars.action.ReturnAction"
 				method="queryReturn">
-				<result name="success">/jsp/query_return.jsp</result>
+				<result name="success">/jsp/return/query_return.jsp</result>
 			</action>
 			<action name="deleteReturn" class="com.mars.action.ReturnAction"
 				method="deleteReturn">
@@ -222,7 +222,7 @@
 			</action>
 			<action name="selectReturnById" class="com.mars.action.ReturnAction"
 				method="selectReturnById">
-				<result name="success">/jsp/update_return.jsp</result>
+				<result name="success">/jsp/return/update_return.jsp</result>
 			</action>
 
 			<action name="updateRerutn" class="com.mars.action.ReturnAction"

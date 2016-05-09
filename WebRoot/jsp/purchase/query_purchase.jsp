@@ -1,16 +1,15 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-<%@ taglib uri="/struts-tags" prefix="s" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
     <base href="<%=basePath%>">
-    
-    <title>My JSP 'roleQuery.jsp' starting page</title>
+    <%@ taglib uri="/struts-tags" prefix="s" %>
+    <title>My JSP 'query_purchase.jsp' starting page</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -20,9 +19,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-	<script>
+<script>
 
-//翻页  pageNo:隐藏域控件名  formName：要提交的表单名 pageno:页码
 function goto(pageNo,formName,pageno){
 	document.getElementById(pageNo).value=pageno;
 	submitFrom(formName);
@@ -33,24 +31,40 @@ function submitFrom(formName){
 	var _form=document.getElementById(formName);
 	_form.submit();
 }
-
 </script>
   </head>
   
   <body>
-    <h1>角色信息</h1>
+    <h1>采购单信息</h1>
     <form action="" id="_form" method="post">
    <table style="border:1px solid black">
    <tr >
    		<th>
-   		角色ID
+   		采购单id
    		</th>
    			<th>
-   		角色名称
+   		采购部门id
    		</th>
    			<th>
+   	采购单明细id
+   		</th>
+   		<th>
+   	经办人
+   		</th>
+   		<th>
+   	采购日期
+   		</th>
+   		<th>
+   	采购用途
+   		</th>
+   			<th>
+   	状态
+   		</th>
+   		<th>
    	修改
    		</th>
+   		
+   	
    			<th>
    		删除
    		</th>	
@@ -58,13 +72,18 @@ function submitFrom(formName){
    
    
    
-   <s:iterator id="roleinfo" value="pageInfo.result" status="st">
+   <s:iterator id="purinfo" value="pageInfo.result" status="st">
 					 <tr>
-       <td>${roleinfo.rid}</td>
-         <td>${roleinfo.rname}</td>
-         
-      <td><a href="selectRoleById.action?rid=${roleinfo.rid}">更新</a></td>
-       <td><a href="deleteRole.action?rid=${roleinfo.rid}">删除</a></td>
+       <td>${purinfo.pnid}</td>
+         <td>${purinfo.department.did}</td>
+          <td>${purinfo.purchaseDetail.pdid}</td>
+         <td>${purinfo.user.uid}</td>
+          <td>${purinfo.pndate}</td>
+         <td>${purinfo.pnuse}</td>
+          <td>${purinfo.pnstate}</td>
+      
+      <td><a href="selectPurchaseById.action?pnid=${purinfo.pnid}">更新</a></td>
+       <td><a href="deletePurchase.action?pnid=${purinfo.pnid}">删除</a></td>
        </tr>
 				</s:iterator>
 
@@ -95,38 +114,9 @@ function submitFrom(formName){
 						</div>
 					</td>
 				</tr>
-				<!--
-   </table>
-   </form>
-   <br/>
-   <a href="jsp/create_user.jsp">添加用户</a>
-    
-      --><!--<c:forEach items="${roleList}" var="roleinfo">
-   <tr>
-       <td>${roleinfo.rid}</td>
-       <td>${roleinfo.rname}</td>
-      <td><a href="jsp/update_role.jsp?id=${roleinfo.rid}">更新</a></td>
-       <td><a href="deleteRole.action?id=${roleinfo.rid}">删除</a></td>
-</c:forEach>
-   --><!-- 
-   <s:iterator value="#request.roleList" id="roleinfo">
-    <tr height="50px">
-    
-   		<td>
-   		<s:property value="roleinfo.rid"/>
-   		</td>
-   <td>
-   		<s:property value="roleinfo.rname"/>
-   		</td>
-   		
-   		<td><a href="deleteRole.action?id=<s:property value='#roleinfo.rid'/>">删除</a></td>
-   <td><a href="updateRole.jsp?id=<s:property value='##roleinfo.rid'/>">更新</a></td>
-   </tr> -->
-
- <!--  </s:iterator> --> 
-   </table>
+				 </table>
      </form>
    <br/>
-   <a href="jsp/create_role.jsp">添加角色</a>
+   <a href="jsp/purchase/create_purchase.jsp">添加采购单</a>
   </body>
 </html>
