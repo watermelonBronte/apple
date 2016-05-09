@@ -8,8 +8,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import com.mars.dao.ICommonDao;
 import com.mars.service.IAssetCategoryService;
 import com.mars.service.IAssetService;
+import com.mars.service.ICommonService;
 import com.mars.tools.IPage;
 import com.mars.tools.PageInfo;
 import com.mars.vo.Asset;
@@ -25,6 +27,8 @@ import com.opensymphony.xwork2.ActionSupport;
  * @date 2016/5/6
  */
 public class AssetAction extends ActionSupport {
+
+	
 
 	private IAssetService assetService;
 
@@ -241,11 +245,13 @@ public class AssetAction extends ActionSupport {
 	 * 创建
 	 * 
 	 * @return
+	 * @throws Exception 
 	 */
-	public String createAsset() {
+	public String createAsset() throws Exception {
 		// Asset.setAccode(getAccode());
 
 		assetService.createAsset(asset);
+		
 		this.setResult("创建");
 		return "successAsset";
 	}
@@ -254,8 +260,10 @@ public class AssetAction extends ActionSupport {
 	 * 删除
 	 * 
 	 * @return
+	 * @throws Exception 
 	 */
-	public String deleteAsset() {
+	public String deleteAsset() throws Exception {
+		
 		assetService.deleteAsset(this.getAid());
 		this.setResult("删除");
 		return "successAsset";
@@ -318,6 +326,7 @@ public class AssetAction extends ActionSupport {
 	 */
 	public String pageAsset() {
 		this.getPageInfo().setResult((assetService.findAll(pageInfo)));
+	
 		return "pageAsset";
 	}
 
