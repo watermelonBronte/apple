@@ -22,19 +22,14 @@
         <property name="atfdate" type="java.util.Date">
             <column name="atfdate" length="10" />
         </property>
+        <property name="attype" type="java.lang.Integer">
+            <column name="attype" />
+        </property>
         <property name="atstate" type="java.lang.Integer">
             <column name="atstate">
                 <comment>0-待移交 1-移交完毕</comment>
             </column>
         </property>
-        <property name="attype" type="java.lang.Integer">
-            <column name="attype" />
-        </property>
-        <!--<set name="assetTransDetails" inverse="true">
-            <key>
-                <column name="atid" />
-            </key>
-            <one-to-many class="com.mars.vo.AssetTransDetail" />
-        </set>
-    --></class>
+       
+    </class>
 </hibernate-mapping>

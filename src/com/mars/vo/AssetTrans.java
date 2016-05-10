@@ -17,10 +17,9 @@ public class AssetTrans implements java.io.Serializable {
 	private User userByTid;
 	private Date atrdate;
 	private Date atfdate;
-	private Integer atstate;
 	private Integer attype;
-//	private Set assetTransDetails = new HashSet(0);
-
+	private Integer atstate;
+	
 	// Constructors
 
 	/** default constructor */
@@ -29,16 +28,14 @@ public class AssetTrans implements java.io.Serializable {
 
 	/** full constructor */
 	public AssetTrans(User userByUid, User userByTid, Date atrdate,
-			Date atfdate, Integer atstate, Integer attype
-//			, Set assetTransDetails
-			) {
+			Date atfdate, Integer attype, Integer atstate) {
 		this.userByUid = userByUid;
 		this.userByTid = userByTid;
 		this.atrdate = atrdate;
 		this.atfdate = atfdate;
-		this.atstate = atstate;
 		this.attype = attype;
-//		this.assetTransDetails = assetTransDetails;
+		this.atstate = atstate;
+		
 	}
 
 	// Property accessors
@@ -83,14 +80,6 @@ public class AssetTrans implements java.io.Serializable {
 		this.atfdate = atfdate;
 	}
 
-	public Integer getAtstate() {
-		return this.atstate;
-	}
-
-	public void setAtstate(Integer atstate) {
-		this.atstate = atstate;
-	}
-
 	public Integer getAttype() {
 		return this.attype;
 	}
@@ -99,12 +88,14 @@ public class AssetTrans implements java.io.Serializable {
 		this.attype = attype;
 	}
 
-//	public Set getAssetTransDetails() {
-//		return this.assetTransDetails;
-//	}
-//
-//	public void setAssetTransDetails(Set assetTransDetails) {
-//		this.assetTransDetails = assetTransDetails;
-//	}
+	public Integer getAtstate() {
+		return this.atstate;
+	}
+
+	public void setAtstate(Integer atstate) {
+		this.atstate = atstate;
+	}
+
+	
 
 }

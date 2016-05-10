@@ -6,10 +6,14 @@
 	<package name="asset_category" extends="struts-default"
 		namespace="/asset_category">
 		<action name="test_*_*" class="{1}Action" method="{2}">
-			<result name="findAssetCategoryById">/jsp/assetCategory/asset_category_update.jsp</result>
-			<result name="pageAssetCategory">/jsp/assetCategory/asset_category_page.jsp</result>
-			<result name="successAssetCategory">/jsp/assetCategory/asset_category_success.jsp</result>
-			<result name="addAssetCategory">/jsp/assetCategory/asset_category_add.jsp</result>
+			<result name="findAssetCategoryById">/jsp/assetCategory/asset_category_update.jsp
+			</result>
+			<result name="pageAssetCategory">/jsp/assetCategory/asset_category_page.jsp
+			</result>
+			<result name="successAssetCategory">/jsp/assetCategory/asset_category_success.jsp
+			</result>
+			<result name="addAssetCategory">/jsp/assetCategory/asset_category_add.jsp
+			</result>
 			<result name="home">/index.jsp</result>
 		</action>
 	</package>
@@ -98,13 +102,13 @@
 			method="selectUserById">
 			<result name="success">/jsp/user/update_user.jsp</result>
 
-		</action><!--
-		<action name="selectUserId" class="com.mars.action.UserAction"
-			method="selectUserById">
-			<result name="success">/jsp/user/query_user.jsp</result>
-
 		</action>
-		--><!--
+		<!--
+			<action name="selectUserId" class="com.mars.action.UserAction"
+			method="selectUserById"> <result
+			name="success">/jsp/user/query_user.jsp</result> </action>
+		-->
+		<!--
 
 			<action name="pageUser" class="com.mars.action.UserAction"
 			method="pageUser"> <result name="success"
@@ -201,35 +205,62 @@
 			<result name="success" type="redirect">/queryPurDetail.action
 			</result>
 		</action>
-			</package>
-			
-			
-		<package name="return" extends="struts-default" namespace="/">
-			<action name="queryReturn" class="com.mars.action.ReturnAction"
-				method="queryReturn">
-				<result name="success">/jsp/return/query_return.jsp</result>
-			</action>
-			<action name="deleteReturn" class="com.mars.action.ReturnAction"
-				method="deleteReturn">
-				<result name="success" type="redirect">/queryReturn.action
-				</result>
-			</action>
+	</package>
 
-			<action name="createRerutn" class="com.mars.action.ReturnAction"
-				method="createRerutn">
-				<result name="success" type="redirect">/queryReturn.action
-				</result>
-			</action>
-			<action name="selectReturnById" class="com.mars.action.ReturnAction"
-				method="selectReturnById">
-				<result name="success">/jsp/return/update_return.jsp</result>
-			</action>
 
-			<action name="updateRerutn" class="com.mars.action.ReturnAction"
-				method="updateRerutn">
-				<result name="success" type="redirect">/queryReturn.action
+	<package name="return" extends="struts-default" namespace="/">
+		<action name="queryReturn" class="com.mars.action.ReturnAction"
+			method="queryReturn">
+			<result name="success">/jsp/return/query_return.jsp</result>
+		</action>
+		<action name="deleteReturn" class="com.mars.action.ReturnAction"
+			method="deleteReturn">
+			<result name="success" type="redirect">/queryReturn.action
 				</result>
-			</action>
-		</package>
+		</action>
+
+		<action name="createRerutn" class="com.mars.action.ReturnAction"
+			method="createRerutn">
+			<result name="success" type="redirect">/queryReturn.action
+				</result>
+		</action>
+		<action name="selectReturnById" class="com.mars.action.ReturnAction"
+			method="selectReturnById">
+			<result name="success">/jsp/return/update_return.jsp</result>
+		</action>
+
+		<action name="updateRerutn" class="com.mars.action.ReturnAction"
+			method="updateRerutn">
+			<result name="success" type="redirect">/queryReturn.action
+				</result>
+		</action>
+	</package>
+
+	<package name="transBills" extends="struts-default" namespace="/transBills">
+		<action name="transBills_*_*" class="{1}Action" method="{2}">
+			<result name="findTransBillsById">/jsp/transBills/trans_bills_verify.jsp</result>
+			<result name="pageTransBills">/jsp/transBills/trans_bills_page.jsp</result>
+			<result name="successTransBills">/jsp/transBills/trans_bills_success.jsp</result>
+			
+		</action>
+	</package>
+
+	<package name="repairs" extends="struts-default" namespace="/repairs">
+		<action name="repairs_*_*" class="{1}Action" method="{2}">
+			<result name="findRepairsById">/jsp/repairs/repairs_detail.jsp</result>
+			<result name="pageRepairs">/jsp/repairs/repairs_page.jsp</result>
+			<result name="successRepairs">/jsp/repairs/repairs_success.jsp</result>
+
+		</action>
+	</package>
+
+	<package name="scrap" extends="struts-default" namespace="/scrap">
+		<action name="scrap_*_*" class="{1}Action" method="{2}">
+			<result name="pageScrap">/jsp/scrap/scrap_page.jsp</result>
+			<result name="successScrap">/jsp/scrap/scrap_success.jsp</result>
+			<result name="findScrapById">/jsp/scrap/scrap_examine.jsp</result>
+
+		</action>
+	</package>
 
 </struts>    

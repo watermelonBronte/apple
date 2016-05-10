@@ -16,8 +16,7 @@ public class CheckDetail implements java.io.Serializable {
 	private Asset asset;
 	private Integer cdresult;
 	private Date cddate;
-//	private Set checkeds = new HashSet(0);
-
+	
 	// Constructors
 
 	/** default constructor */
@@ -25,13 +24,11 @@ public class CheckDetail implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public CheckDetail(Asset asset, Integer cdresult, Date cddate
-//			, Set checkeds
-			) {
+	public CheckDetail(Asset asset, Integer cdresult, Date cddate) {
 		this.asset = asset;
 		this.cdresult = cdresult;
 		this.cddate = cddate;
-//		this.checkeds = checkeds;
+	
 	}
 
 	// Property accessors
@@ -68,12 +65,6 @@ public class CheckDetail implements java.io.Serializable {
 		this.cddate = cddate;
 	}
 
-//	public Set getCheckeds() {
-//		return this.checkeds;
-//	}
-//
-//	public void setCheckeds(Set checkeds) {
-//		this.checkeds = checkeds;
-//	}
+	
 
 }

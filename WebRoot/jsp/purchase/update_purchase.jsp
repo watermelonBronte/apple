@@ -27,7 +27,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <form action="updatePurchase.action" method="post">
   
 <table><tr><td>采购单id：</td><td><input type="text"  value="${pnid}" name=pnid readonly="readonly"/></td></tr>
-<tr><td>采购部门id：</td><td><input type="text" value='${purchase.department.did}' name="department.did" /></td></tr>
 <tr><td> 经办人：</td><td>  <input type="text"  value="${purchase.user.uid}"  name="user.uid" /></td></tr>
 <tr><td>采购日期：</td><td> <input type="text" value="${pndate}" name="pndate" /></td></tr>
 <tr><td>采购用途：</td><td> <input type="text" value="${pnuse}" name="pnuse" /></td></tr>

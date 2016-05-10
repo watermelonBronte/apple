@@ -51,8 +51,16 @@
 		<a href="parameter/test_Parameter_pageParameter.action">测试参数信息</a>
 		<br>
 	
-	<!--<a href="user/user_User_pageUser.action">测试参数信息</a>
+
+
+	
+	
+		<a href="repairs/repairs_Repairs_pageRepairs.action">维修</a>
+		<br>
+	<a href="scrap/scrap_Scrap_pageScrap.action">报废</a>
+		<br>
+	<a href="transBills/transBills_TransBills_pageTransBills.action">调拨</a>
 		<br>
 	
-	--></body>
+	</body>
 </html>

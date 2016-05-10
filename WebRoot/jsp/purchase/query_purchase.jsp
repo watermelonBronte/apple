@@ -42,10 +42,7 @@ function submitFrom(formName){
    		<th>
    		采购单id
    		</th>
-   			<th>
-   		采购部门id
-   		</th>
-   			<th>
+   	 			<th>
    	采购单明细id
    		</th>
    		<th>
@@ -75,8 +72,7 @@ function submitFrom(formName){
    <s:iterator id="purinfo" value="pageInfo.result" status="st">
 					 <tr>
        <td>${purinfo.pnid}</td>
-         <td>${purinfo.department.did}</td>
-          <td>${purinfo.purchaseDetail.pdid}</td>
+              <td>${purinfo.purchaseDetail.pdid}</td>
          <td>${purinfo.user.uid}</td>
           <td>${purinfo.pndate}</td>
          <td>${purinfo.pnuse}</td>
