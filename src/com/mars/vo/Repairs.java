@@ -14,7 +14,6 @@ public class Repairs implements java.io.Serializable {
 	private String recondition;
 	private Float reprice;
 	private Integer restate;
-	private Integer beforestate;
 
 	// Constructors
 
@@ -24,13 +23,12 @@ public class Repairs implements java.io.Serializable {
 
 	/** full constructor */
 	public Repairs(Asset asset, User user, String recondition, Float reprice,
-			Integer restate, Integer beforestate) {
+			Integer restate) {
 		this.asset = asset;
 		this.user = user;
 		this.recondition = recondition;
 		this.reprice = reprice;
 		this.restate = restate;
-		this.beforestate = beforestate;
 	}
 
 	// Property accessors
@@ -81,14 +79,6 @@ public class Repairs implements java.io.Serializable {
 
 	public void setRestate(Integer restate) {
 		this.restate = restate;
-	}
-
-	public Integer getBeforestate() {
-		return this.beforestate;
-	}
-
-	public void setBeforestate(Integer beforestate) {
-		this.beforestate = beforestate;
 	}
 
 }

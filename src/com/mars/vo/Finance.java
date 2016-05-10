@@ -17,8 +17,7 @@ public class Finance implements java.io.Serializable {
 	private String fcode;
 	private Integer fenter;
 	private Timestamp fdate;
-//	private Set assets = new HashSet(0);
-
+	
 	// Constructors
 
 	/** default constructor */
@@ -26,14 +25,12 @@ public class Finance implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Finance(User user, String fcode, Integer fenter, Timestamp fdate
-//			,Set assets
-			) {
+	public Finance(User user, String fcode, Integer fenter, Timestamp fdate) {
 		this.user = user;
 		this.fcode = fcode;
 		this.fenter = fenter;
 		this.fdate = fdate;
-//		this.assets = assets;
+		
 	}
 
 	// Property accessors
@@ -78,12 +75,6 @@ public class Finance implements java.io.Serializable {
 		this.fdate = fdate;
 	}
 
-//	public Set getAssets() {
-//		return this.assets;
-//	}
-//
-//	public void setAssets(Set assets) {
-//		this.assets = assets;
-//	}
+	
 
 }

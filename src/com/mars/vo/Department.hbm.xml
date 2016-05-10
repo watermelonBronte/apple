@@ -12,30 +12,7 @@
         </id>
         <property name="dname" type="java.lang.String">
             <column name="dname" length="50" />
-        </property><!--
-        <set name="users" inverse="true">
-            <key>
-                <column name="did" />
-            </key>
-            <one-to-many class="com.mars.vo.User" />
-        </set>
-        <set name="transBillsesForIndid" inverse="true">
-            <key>
-                <column name="indid" />
-            </key>
-            <one-to-many class="com.mars.vo.TransBills" />
-        </set>
-        <set name="purchaseNotes" inverse="true">
-            <key>
-                <column name="pndid" />
-            </key>
-            <one-to-many class="com.mars.vo.PurchaseNote" />
-        </set>
-        <set name="transBillsesForOutdid" inverse="true">
-            <key>
-                <column name="outdid" />
-            </key>
-            <one-to-many class="com.mars.vo.TransBills" />
-        </set>
-    --></class>
+        </property>
+        
+    </class>
 </hibernate-mapping>

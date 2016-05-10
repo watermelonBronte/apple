@@ -27,8 +27,5 @@
                 <comment>0-维修中 1-维修完成</comment>
             </column>
         </property>
-        <property name="beforestate" type="java.lang.Integer">
-            <column name="beforestate" />
-        </property>
     </class>
 </hibernate-mapping>

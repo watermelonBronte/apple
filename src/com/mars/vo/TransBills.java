@@ -11,15 +11,13 @@ public class TransBills implements java.io.Serializable {
 	// Fields
 
 	private Integer tbid;
-	
 	private User userByInuid;
 	private User userByOutuid;
 	private Asset asset;
-
+	private Date indate;
 	private Date outdate;
 	private String outname;
 	private Integer tbstate;
-	private Date indate;
 
 	// Constructors
 
@@ -28,18 +26,15 @@ public class TransBills implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public TransBills( User userByInuid,
-			User userByOutuid, Asset asset,
-			Date outdate, String outname, Integer tbstate, Date indate) {
-		
+	public TransBills(User userByInuid, User userByOutuid, Asset asset,
+			Date indate, Date outdate, String outname, Integer tbstate) {
 		this.userByInuid = userByInuid;
 		this.userByOutuid = userByOutuid;
 		this.asset = asset;
-	
+		this.indate = indate;
 		this.outdate = outdate;
 		this.outname = outname;
 		this.tbstate = tbstate;
-		this.indate = indate;
 	}
 
 	// Property accessors
@@ -51,8 +46,6 @@ public class TransBills implements java.io.Serializable {
 	public void setTbid(Integer tbid) {
 		this.tbid = tbid;
 	}
-
-
 
 	public User getUserByInuid() {
 		return this.userByInuid;
@@ -78,7 +71,13 @@ public class TransBills implements java.io.Serializable {
 		this.asset = asset;
 	}
 
+	public Date getIndate() {
+		return this.indate;
+	}
 
+	public void setIndate(Date indate) {
+		this.indate = indate;
+	}
 
 	public Date getOutdate() {
 		return this.outdate;
@@ -102,14 +101,6 @@ public class TransBills implements java.io.Serializable {
 
 	public void setTbstate(Integer tbstate) {
 		this.tbstate = tbstate;
-	}
-
-	public Date getIndate() {
-		return this.indate;
-	}
-
-	public void setIndate(Date indate) {
-		this.indate = indate;
 	}
 
 }

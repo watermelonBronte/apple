@@ -115,8 +115,7 @@ public String createPurchase(){//增加信息
   p.setPnid(purchase.getPnid());
   p.setPnstate(purchase.getPnstate());
 	  p.setPnuse(purchase.getPnuse());
-  p.setDepartment(purchaseservice.findPurchaseByDid(purchase.getDepartment().getDid()));  
-	 p.setUser(purchaseservice.findPurchaseByPid(purchase.getUser().getUid()));
+ 	 p.setUser(purchaseservice.findPurchaseByPid(purchase.getUser().getUid()));
 	
 p.setPurchaseDetail(purchaseservice.findPurchaseByDeid(purchase.getPurchaseDetail().getPdid()));
 	 purchaseservice.createPurchase(p);//保存接收到的数据到数据库中
@@ -133,7 +132,6 @@ this.setPndate(purchase.getPndate());
 this.setPnuse(purchase.getPnuse());
 this.setPnstate(purchase.getPnstate());
 
-this.setDepartment(purchase.getDepartment());
 this.setUser(purchase.getUser());
 
 
@@ -145,7 +143,6 @@ return SUCCESS;
 
 public String updatePurchase(){//更新用户
 	purchase.setPnid(this.getPnid());
-	purchase.setDepartment(purchaseservice.findPurchaseByDid(this.getDepartment().getDid()));
 	purchase.setPndate(this.getPndate());
 	purchase.setPnstate(this.getPnstate());
 	purchase.setPnuse(this.getPnuse());
