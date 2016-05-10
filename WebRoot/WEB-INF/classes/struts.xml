@@ -61,7 +61,34 @@
 		</action>
 	</package>
 
-	<!-- 杨铮-->
+	
+	<package name="transBills" extends="struts-default" namespace="/transBills">
+		<action name="transBills_*_*" class="{1}Action" method="{2}">
+			<result name="findTransBillsById">/jsp/transBills/trans_bills_verify.jsp</result>
+			<result name="pageTransBills">/jsp/transBills/trans_bills_page.jsp</result>
+			<result name="successTransBills">/jsp/transBills/trans_bills_success.jsp</result>
+			
+		</action>
+	</package>
+
+	<package name="repairs" extends="struts-default" namespace="/repairs">
+		<action name="repairs_*_*" class="{1}Action" method="{2}">
+			<result name="findRepairsById">/jsp/repairs/repairs_detail.jsp</result>
+			<result name="pageRepairs">/jsp/repairs/repairs_page.jsp</result>
+			<result name="successRepairs">/jsp/repairs/repairs_success.jsp</result>
+
+		</action>
+	</package>
+
+	<package name="scrap" extends="struts-default" namespace="/scrap">
+		<action name="scrap_*_*" class="{1}Action" method="{2}">
+			<result name="pageScrap">/jsp/scrap/scrap_page.jsp</result>
+			<result name="successScrap">/jsp/scrap/scrap_success.jsp</result>
+			<result name="findScrapById">/jsp/scrap/scrap_examine.jsp</result>
+
+		</action>
+	</package>
+<!-- 杨铮-->
 	<constant name="struts.devMode" value="true"></constant>
 	<constant name="struts.ui.theme" value="simple"></constant>
 	<constant name="struts.i18n.encoding" value="utf-8"></constant>
@@ -233,33 +260,6 @@
 			method="updateRerutn">
 			<result name="success" type="redirect">/queryReturn.action
 				</result>
-		</action>
-	</package>
-
-	<package name="transBills" extends="struts-default" namespace="/transBills">
-		<action name="transBills_*_*" class="{1}Action" method="{2}">
-			<result name="findTransBillsById">/jsp/transBills/trans_bills_verify.jsp</result>
-			<result name="pageTransBills">/jsp/transBills/trans_bills_page.jsp</result>
-			<result name="successTransBills">/jsp/transBills/trans_bills_success.jsp</result>
-			
-		</action>
-	</package>
-
-	<package name="repairs" extends="struts-default" namespace="/repairs">
-		<action name="repairs_*_*" class="{1}Action" method="{2}">
-			<result name="findRepairsById">/jsp/repairs/repairs_detail.jsp</result>
-			<result name="pageRepairs">/jsp/repairs/repairs_page.jsp</result>
-			<result name="successRepairs">/jsp/repairs/repairs_success.jsp</result>
-
-		</action>
-	</package>
-
-	<package name="scrap" extends="struts-default" namespace="/scrap">
-		<action name="scrap_*_*" class="{1}Action" method="{2}">
-			<result name="pageScrap">/jsp/scrap/scrap_page.jsp</result>
-			<result name="successScrap">/jsp/scrap/scrap_success.jsp</result>
-			<result name="findScrapById">/jsp/scrap/scrap_examine.jsp</result>
-
 		</action>
 	</package>
 
