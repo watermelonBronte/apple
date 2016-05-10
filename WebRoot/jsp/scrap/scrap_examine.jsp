@@ -37,9 +37,7 @@
 				value="${userByUid.department.dname}" readonly="readonly" />
 			<br />
 			报废时间
-			<!-- 时间控件 -->
-			<input type="text" name="scdate" value="${scdate}"
-				readonly="readonly" />
+			<input type="text" name="scdate" value="${scdate}"	readonly="readonly" />
 			<br />
 			<hr />
 			审核人ID
