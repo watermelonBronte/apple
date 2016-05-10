@@ -7,9 +7,11 @@ import java.util.Iterator;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 import com.mars.service.impl.UserService;
 import com.mars.vo.User;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
@@ -42,6 +44,10 @@ public class UserLoginAction extends ActionSupport {
 		while(it.hasNext()){
 			user=(User)it.next();
 			if(uname.trim().equals(user.getUname())&&upwd.trim().equals(user.getUpwd())){
+				this.setUname(user.getUname());
+				ActionContext ctx = ActionContext.getContext();
+				ctx.getSession().put("user", uname);
+				//用session保存用户名
 				return "success";
 			}
 			

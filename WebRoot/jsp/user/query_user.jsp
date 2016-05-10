@@ -40,7 +40,7 @@ function submitFrom(formName){
 </script>
   </head>
   
-  <body>
+  <body><div style="width:700px"> 
    <h1>用户信息</h1>
    <form action="" id="_form" method="post"><!--alert(parseInt(userinfor.value)) -->
   根据用户id查询：<input id="userinfor" type="text"  value="" name="user.uid" />
@@ -119,5 +119,6 @@ function submitFrom(formName){
    </form>
    <br/>
    <a href="jsp/user/create_user.jsp">添加用户</a>
+   </div>
   </body>
 </html>

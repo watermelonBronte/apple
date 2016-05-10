@@ -69,7 +69,7 @@
 	<package name="user" extends="struts-default" namespace="/">
 		<action name="userLogin" class="com.mars.action.UserLoginAction"
 			method="execute">
-			<result name="success" type="redirect">/userAction.action</result>
+			<result name="success" type="redirect">/jsp/main/main.jsp</result>
 			<result name="fail">/jsp/user/fail.jsp</result>
 		</action>
 		<action name="userAction" class="com.mars.action.UserAction"
