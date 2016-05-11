@@ -151,7 +151,12 @@ function submitFrom(formName){
 	<s:else>男</s:else>
 	</td> 
   
-      <td>${userinfo.ustate}</td>
+      <td>
+          <s:if test="%{#userinfo.ustate==1}">正常</s:if>
+	<s:else>禁用</s:else>
+    
+      
+      </td>
       
        <td>
           <a href="selectUserById.action?uid=${userinfo.uid}"><i class="fa fa-pencil"></i></a>
