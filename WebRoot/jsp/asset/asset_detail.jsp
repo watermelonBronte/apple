@@ -120,7 +120,7 @@
 		</h3>
 		采购部门
 		<input type="text" name="purchaseNote.department.did"
-			value="${purchaseNote.department.did}" />
+			value="${purchaseNote.user.department.dname}" />
 		<br />
 		采购人名称
 		<input type="text" name="purchaseNote.user.uname"
