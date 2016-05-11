@@ -145,7 +145,12 @@ function submitFrom(formName){
          <td>${userinfo.department.dname}</td>  
        <td>${userinfo.uname}</td><!--  
       <td>${userinfo.upwd}</td> 
-      --><td>${userinfo.usex}</td>  
+      -->
+      <td>
+      <s:if test="%{#userinfo.usex==1}">女</s:if>
+	<s:else>男</s:else>
+	</td> 
+  
       <td>${userinfo.ustate}</td>
       
        <td>
