@@ -2,7 +2,10 @@ package com.mars.vo;
 
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+
+import com.mars.tools.IPage;
 
 /**
  * Asset entity. @author MyEclipse Persistence Tools

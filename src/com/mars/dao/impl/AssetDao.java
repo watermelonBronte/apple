@@ -10,6 +10,7 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate3.HibernateCallback;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
@@ -18,6 +19,10 @@ import com.mars.tools.Execute;
 import com.mars.tools.IExecute;
 import com.mars.tools.IPage;
 import com.mars.vo.Asset;
+import com.mars.vo.AssetCategory;
+import com.mars.vo.Finance;
+import com.mars.vo.PurchaseNote;
+import com.mars.vo.User;
 
 /**
  * @author ye
@@ -131,5 +136,212 @@ public class AssetDao extends HibernateDaoSupport implements
 		return asset;
 	}
 
+	/*
+	 * 根据资产类别分页查询
+	 * (non-Javadoc)
+	 * @see com.mars.dao.IAssetDao#findAllAssetByAttr(com.mars.tools.IPage, java.lang.String)
+	 */
+	@SuppressWarnings("unchecked")
+	public List<Asset> findAllAssetByAc(final IPage pageInfo, Integer acid) {
+		return (List<Asset>) super.getHibernateTemplate().execute(
+				new HibernateCallback() {
+
+					public Object doInHibernate(Session session)
+							throws HibernateException, SQLException {
+
+						IPage pages = null;
+						List<Asset> list = new ArrayList<Asset>();
+						try {
+							Criteria criteria = session
+									.createCriteria(Asset.class).add(Restrictions.eq("acid","acid")) ;
+							IExecute exc = new Execute(pageInfo);
+							pages = exc.excute(criteria);
+							if (pages != null) {
+								list = pages.getResult();
+							}
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+
+						return list;
+
+					}
+				});
+	}
+
+	/*
+	 * 根据用户ID分页查询
+	 * (non-Javadoc)
+	 * @see com.mars.dao.IAssetDao#findAllAssetByAttr(com.mars.tools.IPage, java.lang.String)
+	 */
+	@SuppressWarnings("unchecked")
+	public List<Asset> findAllAssetByUser(final IPage pageInfo, Integer uid) {
+		return (List<Asset>) super.getHibernateTemplate().execute(
+				new HibernateCallback() {
+
+					public Object doInHibernate(Session session)
+							throws HibernateException, SQLException {
+
+						IPage pages = null;
+						List<Asset> list = new ArrayList<Asset>();
+						try {
+							Criteria criteria = session
+									.createCriteria(Asset.class).add(Restrictions.eq("uid","uid")) ;
+							IExecute exc = new Execute(pageInfo);
+							pages = exc.excute(criteria);
+							if (pages != null) {
+								list = pages.getResult();
+							}
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+
+						return list;
+
+					}
+				});
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Asset> findAllAssetByAC(final IPage pageInfo, final AssetCategory ac) {
+		return (List<Asset>) super.getHibernateTemplate().execute(
+				new HibernateCallback() {
+
+					public Object doInHibernate(Session session)
+							throws HibernateException, SQLException {
+
+						IPage pages = null;
+						List<Asset> list = new ArrayList<Asset>();
+						try {
+							Criteria criteria = session
+									.createCriteria(Asset.class).add(Restrictions.eq("assetCategory",ac)) ;
+							IExecute exc = new Execute(pageInfo);
+							pages = exc.excute(criteria);
+							if (pages != null) {
+								list = pages.getResult();
+							}
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+
+						return list;
+
+					}
+				});
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * @see com.mars.dao.IAssetDao#findAssetCategoryById(java.lang.Integer)
+	 */
+	public AssetCategory findAssetCategoryById(Integer acid) {
+		AssetCategory assetCategory = (AssetCategory) super
+		.getHibernateTemplate().get(AssetCategory.class,
+				new Integer(acid));
+         return assetCategory;
+	}
+
 	
+	public User findUserById(Integer uid) {
+		User user = (User) super
+		.getHibernateTemplate().get(User.class,
+				new Integer(uid));
+         return user;
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Asset> findAllAssetByUser(final IPage pageInfo, final User u) {
+		return (List<Asset>) super.getHibernateTemplate().execute(
+				new HibernateCallback() {
+
+					public Object doInHibernate(Session session)
+							throws HibernateException, SQLException {
+
+						IPage pages = null;
+						List<Asset> list = new ArrayList<Asset>();
+						try {
+							Criteria criteria = session
+									.createCriteria(Asset.class).add(Restrictions.eq("user",u)) ;
+							IExecute exc = new Execute(pageInfo);
+							pages = exc.excute(criteria);
+							if (pages != null) {
+								list = pages.getResult();
+							}
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+
+						return list;
+
+					}
+				});
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Asset> findAllAssetByPurchaseNote(final IPage pageInfo, final PurchaseNote pn) {
+		return (List<Asset>) super.getHibernateTemplate().execute(
+				new HibernateCallback() {
+
+					public Object doInHibernate(Session session)
+							throws HibernateException, SQLException {
+
+						IPage pages = null;
+						List<Asset> list = new ArrayList<Asset>();
+						try {
+							Criteria criteria = session
+									.createCriteria(Asset.class).add(Restrictions.eq("purchaseNote",pn)) ;
+							IExecute exc = new Execute(pageInfo);
+							pages = exc.excute(criteria);
+							if (pages != null) {
+								list = pages.getResult();
+							}
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+
+						return list;
+
+					}
+				});
+	}
+	@SuppressWarnings("unchecked")
+	public List<Asset> findAllAssetByFinance(final IPage pageInfo, final Finance f) {
+		return (List<Asset>) super.getHibernateTemplate().execute(
+				new HibernateCallback() {
+
+					public Object doInHibernate(Session session)
+							throws HibernateException, SQLException {
+
+						IPage pages = null;
+						List<Asset> list = new ArrayList<Asset>();
+						try {
+							Criteria criteria = session
+									.createCriteria(Asset.class).add(Restrictions.eq("finance",f)) ;
+							IExecute exc = new Execute(pageInfo);
+							pages = exc.excute(criteria);
+							if (pages != null) {
+								list = pages.getResult();
+							}
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+
+						return list;
+
+					}
+				});
+	}
+	
+	public Finance findFinanceById(Integer fid) {
+		Finance finance = (Finance) super
+		.getHibernateTemplate().get(Finance.class,
+				new Integer(fid));
+         return finance;
+	}
+	public PurchaseNote findPurchaseNoteById(Integer pnid) {
+		PurchaseNote purchaseNote = (PurchaseNote) super
+		.getHibernateTemplate().get(PurchaseNote.class,
+				new Integer(pnid));
+         return purchaseNote;
+	}
 }

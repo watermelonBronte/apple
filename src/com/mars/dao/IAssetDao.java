@@ -7,6 +7,10 @@ import java.util.List;
 
 import com.mars.tools.IPage;
 import com.mars.vo.Asset;
+import com.mars.vo.AssetCategory;
+import com.mars.vo.Finance;
+import com.mars.vo.PurchaseNote;
+import com.mars.vo.User;
 
 
 
@@ -47,9 +51,57 @@ public interface IAssetDao {
 	public List<Asset> findAllAsset(IPage pageInfo);
 	
 	/**
+	 * 根据资产类别分页查询资产
+	 * @return
+	 */
+	public List<Asset> findAllAssetByAC(IPage pageInfo,AssetCategory ac);
+	
+	/**
+	 * 根据使用人/入账人分页查询资产
+	 * @return
+	 */
+	public List<Asset> findAllAssetByUser(IPage pageInfo,User u);
+	
+
+	/**
 	 * 根据ID查询资产
 	 * @return
 	 */
 	public Asset findAssetById(Integer acid);
+	
+	/**
+	 * 根据ID查询用户
+	 * @return
+	 */
+	public User findUserById(Integer uid);
+	/**
+	 * 根据ID查询资产类别
+	 * @return
+	 */
+	public AssetCategory findAssetCategoryById(Integer acid);
+	
+	/**
+	 * 根据ID查询财务入账
+	 * @return
+	 */
+	public Finance findFinanceById(Integer fid);
+	/**
+	 * 
+	 * @return
+	 */
+	public List<Asset> findAllAssetByFinance(IPage pageInfo,Finance f);
+	
+	/**
+	 * 根据ID查询采购单
+	 * @return
+	 */
+	public PurchaseNote findPurchaseNoteById(Integer pnid);
+	/**
+	 * 
+	 * @return
+	 */
+	public List<Asset> findAllAssetByPurchaseNote(IPage pageInfo,PurchaseNote pn);
+	
+	
 	
 }

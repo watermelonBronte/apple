@@ -39,6 +39,15 @@ function submitFrom(formName){
 	_form.submit();
 }
 
+
+			function listAll(){
+				var flag=confirm("全部导出可能花费您一分钟左右，确定全部导出吗？");
+				if(flag){
+					location="allToExcel.action";
+				}
+			}
+	
+
 </script>
 
 
@@ -52,6 +61,28 @@ function submitFrom(formName){
 		<h1>
 			资产列表
 		</h1>
+			<input type="button" value="导出全部" onclick="listAll()"/>
+		<form action="asset/asset_Asset_SearchAsset.action" method="post">
+			根据
+			<select id="select" name="attr">
+				<option value="ac" selected>
+					资产类别ID
+				</option>
+				<option value="u">
+					使用人ID
+				</option>
+				<option value="f">
+					财务入账ID
+				</option>
+				<option value="pn">
+					采购ID
+				</option>
+			</select>
+			<input type="text" name="value" />
+
+			<input type="submit" value="查找" />
+			<br />
+		</form>
 		<!--<a href="asset/asset_Asset_addAsset.action">添加资产</a>-->
 
 		<form action="" id="_form" method="post">
@@ -159,6 +190,53 @@ function submitFrom(formName){
 
 		</form>
 
-
+		<h1>
+			创建资产
+		</h1>
+		<form action="asset/asset_Asset_createAsset.action" method="post">
+			卡片编号
+			<input type="text" name="cid" value="1" />
+			<br />
+			资产类别ID
+			<input type="text" name="assetCategory.acid" value="1" />
+			<br />
+			使用人ID
+			<input type="text" name="user.uid" value="1" />
+			<br />
+			财务入账单ID
+			<input type="text" name="finance.fid" value="1" />
+			<br />
+			入库时间
+			<!--<input type="text" name="adate" value="1" />-->
+			<br />
+			入库状态
+			<input type="radio" name="astate" value="1" />
+			是
+			<input type="radio" name="astate" value="2" checked="checked" />
+			否
+			<br />
+			采购单ID
+			<input type="text" name="purchaseNote.pnid" value="1" />
+			<br />
+			是否打印标签
+			<input type="radio" name="tprint" value="1" />
+			是
+			<input type="radio" name="tprint" value="2" checked="checked" />
+			否
+			<br />
+			一维码地址
+			<input type="text" name="onepath" value="1" />
+			<br />
+			二维码地址
+			<input type="text" name="twopath" value="1" />
+			<br />
+			条码
+			<input type="text" name="barcode" value="1" />
+			<br />
+			备注
+			<input type="text" name="anote" value="1" />
+			<br />
+			<input type="submit" value="创建" />
+		</form>
 	</body>
 </html>
