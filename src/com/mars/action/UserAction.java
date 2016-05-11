@@ -26,6 +26,14 @@ import org.hibernate.HibernateException;
  */
 public class UserAction extends ActionSupport {
 	private UserService userService;// 设置业务逻辑组件
+private String sex;
+	public String getSex() {
+	return sex;
+}
+
+public void setSex(String sex) {
+	this.sex = sex;
+}
 
 	protected IPage pageInfo = new PageInfo();
 
@@ -151,6 +159,7 @@ public class UserAction extends ActionSupport {
 
 		this.getPageInfo().setResult((userService.findAll(pageInfo)));// 分页
 
+		
 		return SUCCESS;
 	}
 
@@ -202,7 +211,9 @@ public class UserAction extends ActionSupport {
 		this.setRole(user.getRole());
 
 		if (user.getUsex() != null) {
-			this.setUsex(user.getUsex());
+		
+			
+		this.setUsex(user.getUsex());
 		}
 		if (user.getUstate() != null) {
 			this.setUstate(user.getUstate());
@@ -210,7 +221,7 @@ public class UserAction extends ActionSupport {
 
 		this.setUid(user.getUid());
 		this.setUpwd(user.getUpwd());
-		// System.out.print(did);
+	// System.out.print("dfdf");
 		return SUCCESS;
 	}
 

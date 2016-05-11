@@ -38,7 +38,7 @@ function submitFrom(formName){
   </head>
   
   <body>
-    <h1>角色信息</h1>
+  
     <form action="" id="_form" method="post">
    <table style="border:1px solid black">
    <tr >

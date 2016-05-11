@@ -50,9 +50,7 @@ function submitFrom(formName){
 		<a href="asset_category/test_AssetCategory_home.action">主界面</a>
 		
 		<br />
-		<h1>
-			部门列表
-		</h1>
+		
 		<a href="department/test_Department_addDepartment.action">添加记录</a>
 
 		<form action="" id="_form" method="post">

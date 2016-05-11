@@ -44,28 +44,30 @@
             
         });
 
-function changeSrc( he)
+function changeSrc(href,tex)
 { 
 //alert(he);
 //var user=document.getElementById('user');
-	
-document.getElementById("myframe").src=he;
+	var oDiv=document.getElementById('header');
+	oDiv.innerHTML=tex;
+document.getElementById("myframe").src=href;
 }
 
         
     </script>
-    <style type="text/css">
+    <style type="text/css"><!--
         #line-chart {
             height:300px;
             width:800px;
             margin: 0px auto;
             margin-top: 1em;
         }
-  
+     
+  #user li a:hover{color:#000093; font-size:15px;background-color:#F0F0F0;}
         .navbar-default .navbar-brand, .navbar-default .navbar-brand:hover { 
             color: #fff;
         }
-    </style>
+    --></style>
 
     <script type="text/javascript">
         $(function() {
@@ -109,14 +111,12 @@ document.getElementById("myframe").src=he;
                 </a>
 
               <ul class="dropdown-menu" id="user">
-            <!--  <li><a href="./">My Account</a></li>-->
-               <!-- <li class="divider"></li>-->
                 <li class="dropdown-header"></li>
-                <li><a href="./">个人信息</a></li>
-                <li><a href="./">修改密码</a></li>
+                <li><a  href="./">个人信息</a></li>
+                <li><a  href="./">修改密码</a></li>
             
-                <li class="divider">he</li>
-                <li><a tabindex="-1" href="../../login.jsp">退出</a></li>
+                <li class="divider"></li>
+                <li><a  tabindex="-1" href="../../login.jsp">退出</a></li>
               </ul>
             </li>
           </ul>
@@ -157,29 +157,46 @@ document.getElementById("myframe").src=he;
 
         <li><a href="#" data-target=".legal-menu" class="nav-header collapsed" data-toggle="collapse"><i class="fa fa-fw fa-legal"></i> 系统管理<i class="fa fa-collapse"></i></a></li>
         <li><ul class="legal-menu nav nav-list collapse">
-            <li ><a href="javascript:void(0);" onclick="changeSrc('../../roleQuery.action')"><span class="fa fa-caret-right"></span> 角色管理</a></li>
-            <li ><a href="javascript:void(0);" onclick="changeSrc('../../department/test_Department_pageDepartment.action')"><span class="fa fa-caret-right"></span> 部门管理</a></li>
-            <li ><a href="javascript:void(0);" onclick="changeSrc('../../asset_category/test_AssetCategory_pageAssetCategory.action')"><span class="fa fa-caret-right"></span> 资产类别管理</a></li>
+            <li ><a href="javascript:void(0);" onclick="changeSrc('../../roleQuery.action','角色信息')"><span class="fa fa-caret-right"></span> 角色管理</a></li>
+            <li ><a href="javascript:void(0);" onclick="changeSrc('../../department/test_Department_pageDepartment.action','部门信息')"><span class="fa fa-caret-right"></span> 部门管理</a></li>
+            <li ><a href="javascript:void(0);" onclick="changeSrc('../../asset_category/test_AssetCategory_pageAssetCategory.action','资产类别列表')"><span class="fa fa-caret-right"></span> 资产类别管理</a></li>
 
-   <li ><a href="javascript:void(0);" onclick="changeSrc('../../parameter/test_Parameter_pageParameter.action')"><span class="fa fa-caret-right"></span> 参数配置</a></li>
+   <li ><a href="javascript:void(0);" onclick="changeSrc('../../parameter/test_Parameter_pageParameter.action','参数配置列表')"><span class="fa fa-caret-right"></span> 参数配置</a></li>
   
     </ul></li>
 
-        <li><a id="user"  href="javascript:void(0);" onclick="changeSrc('../../userAction.action')"  class="nav-header glyphicon glyphicon-user padding-right-small"><span style="padding-left:8px;">人员管理</span></a></li>
+        <li><a id="user"  href="javascript:void(0);" onclick="changeSrc('../../userAction.action','用户信息')"  class="nav-header glyphicon glyphicon-user padding-right-small"><span style="padding-left:8px;">人员管理</span></a></li>
           
             </ul>
     </div>
 
 <div class="content">
-        <div class="header">
-头部
-    </div>
-    <div style=" ">
-     <iframe frameborder="0" src="welcome.jsp" id="myframe" style="width:800px;height:600px"></iframe>
+        <div class="header " >
+
+
+
+
+ 
+            <h1 class="page-title" id="header" ></h1><!--
+                    <ul class="breadcrumb">
+            <li><a href="welcome.jsp">Home</a> </li>
+            <li class="active">Users</li>
+        </ul>
+        
+        
+    --></div>
+    
+   
+    
+    
+    
+   <div style=" ">
+     <iframe frameborder="0" src="welcome.jsp" id="myframe" style="width:993px;height:600px;margin-left:-7px;margin-top:-22px;"></iframe>
     </div>
    
 </div>
-            <footer>
+  <hr>
+            <!--<footer>
                 <hr>
 
                
@@ -187,7 +204,7 @@ document.getElementById("myframe").src=he;
             </footer>
 
 
-    <script src="../../lib/bootstrap/js/bootstrap.js"></script>
+    --><script src="../../lib/bootstrap/js/bootstrap.js"></script>
     <script type="text/javascript">
         $("[rel=tooltip]").tooltip();
         $(function() {
