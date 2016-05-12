@@ -29,7 +29,7 @@
 
 	<package name="parameter" extends="struts-default" namespace="/parameter">
 		<action name="test_*_*" class="{1}Action" method="{2}">
-			<result name="findParameterById">/jsp/parameter/parameter_detail.jsp</result>
+			<result name="findParameterById">/jsp/parameter/parameter_update.jsp</result>
 			<result name="pageParameter">/jsp/parameter/parameter_page.jsp</result>
 			<result name="successParameter">/jsp/parameter/parameter_success.jsp</result>
 			<result name="addParameter">/jsp/parameter/parameter_add.jsp</result>

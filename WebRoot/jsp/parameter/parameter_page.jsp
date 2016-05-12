@@ -12,19 +12,23 @@
 <html>
 	<base href="<%=basePath%>">
 	<head>
-		<style type="text/css">
-<!--
-body {
-	margin-left: 0px;
-	margin-top: 0px;
-	margin-right: 0px;
-	margin-bottom: 0px;
-	background-color: #F8F9FA;
-}
--->
-</style>
+		<link href='http://fonts.useso.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/lib/font-awesome/css/font-awesome.css">
 
-		<!--<link href="images/skin.css" rel="stylesheet" type="text/css" />-->
+    <script src="${pageContext.request.contextPath}/lib/jquery-1.11.1.min.js" type="text/javascript"></script>
+
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/theme.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/premium.css">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+
+		 <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+
+		
 		<script>
 
 //翻页  pageNo:隐藏域控件名  formName：要提交的表单名 pageno:页码
@@ -45,67 +49,104 @@ function submitFrom(formName){
 
 	</head>
 
-	<body>
-		<br />
-		<a href="asset_category/test_AssetCategory_home.action">主界面</a>
-		<br />
-		<br />
-		<h1>
-			参数信息列表
-		</h1>
-		<a href="parameter/test_Parameter_addParameter.action">添加记录</a>
+	<body class=" theme-blue" style="width:993px">
+	<script type="text/javascript">
+        $(function() {
+            var match = document.cookie.match(new RegExp('color=([^;]+)'));
+            if(match) var color = match[1];
+            if(color) {
+                $('body').removeClass(function (index, css) {
+                    return (css.match (/\btheme-\S+/g) || []).join(' ')
+                })
+                $('body').addClass('theme-' + color);
+            }
 
+            $('[data-popover="true"]').popover({html: true});
+            
+        });
+    </script>
+    <style type="text/css">
+        #line-chart {
+            height:300px;
+            width:1000px;
+            margin: 0px auto;
+            margin-top: 1em;
+        }
+        th{text-align:center}
+        .navbar-default .navbar-brand, .navbar-default .navbar-brand:hover { 
+            color: #fff;
+        }
+    </style>
+
+    <script type="text/javascript">
+        $(function() {
+            var uls = $('.sidebar-nav > ul > *').clone();
+            uls.addClass('visible-xs');
+            $('#main-menu').append(uls.clone());
+        });
+    </script>
+   <div class="main-content" style="width:993px">
+       
+<div class="btn-toolbar list-toolbar">
+    <br/>
+   <a href="parameter/test_Parameter_addParameter.action" class="btn btn-primary"><i class="fa fa-plus"></i> 添加参数信息</a>
+   <button class="btn btn-default">导入</button>
+    <button class="btn btn-default">导出</button>
+  <div class="btn-group">
+  </div>
+</div>
+		
 		<form action="" id="_form" method="post">
-			<table width="100%" border="1" cellpadding="0"
-				style="margin-top: 5px;" cellspacing="0">
-				<tr class="datalist_head">
-					<td class="left_bt2" align="center" width="10%">
+			<table class="table" style="text-align:center">
+				
+				 <thead>
+				 <tr >
+					<th >
 						参数信息ID
-					</td>
-					<td class="left_bt2" align="center" width="10%">
+					</th>
+					<th >
 						参数信息名称
-					</td>
-					<td class="left_bt2" align="center" width="10%">
+					</th>
+					<th>
 						参数信息值
-					</td>
-					<td class="left_bt2" align="center" width="10%">
+					</th>
+					<th >
 						参数信息类型ID
-					</td>
-					<td class="left_bt2" align="center" width="10%">
+					</th>
+					<th >
 						参数信息类型名称
-					</td>
-					<td class="left_bt2" align="center" width="10%">
+					</th>
+					 <th style="width: 3.5em;"></th>
+					<!--
+					<th >
 						操作
-					</td>
+					</th>
 
-				</tr>
-
+				--></tr>
+ </thead>
 				<s:iterator id="p" value="pageInfo.result" status="st">
-					<tr align=center>
-						<td align="center" class="left_txt">
+					<tr >
+						<td >
 							${p.pid}
 						</td>
-						<td align="center" class="left_txt">
+						<td>
 							${p.pname}
 						</td>
-						<td align="center" class="left_txt">
+						<td >
 							${p.pnum}
 						</td>
-						<td align="center" class="left_txt">
+						<td >
 							${p.ptypeid}
 						</td>
-						<td align="center" class="left_txt">
+						<td >
 							${p.ptypename}
 						</td>
-						<td align="center" class="left_txt">
-							<a
-								href="parameter/test_Parameter_findParameterById.action?pid=${pid}">修改</a>
-							|
-							<a
-								href="parameter/test_Parameter_deleteParameter.action?pid=${pid}">删除</a>
-
-						</td>
-					</tr>
+						<td>
+          <a href="parameter/test_Parameter_findParameterById.action?pid=${pid}"><i class="fa fa-pencil"></i></a>
+          <a href="#myModal" role="button" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
+      </td>
+						</tr>
+					
 				</s:iterator>
 
 				<tr>
@@ -135,9 +176,32 @@ function submitFrom(formName){
 				</tr>
 			</table>
 
-
+<div class="modal small fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="myModalLabel">删除确认</h3>
+        </div>
+        <div class="modal-body">
+            <p class="error-text"><i class="fa fa-warning modal-icon"></i>确定删除参数信息?</p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">取消</button>
+           <button class="btn btn-danger" data-dismiss="modal"  onclick="window.location='parameter/test_Parameter_deleteParameter.action?pid=${pid}'" > 删除</button>
+        </div>
+      </div>
+    </div>
+</div>
 		</form>
 
-
+</div>
+<script src="${pageContext.request.contextPath}/lib/bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript">
+        $("[rel=tooltip]").tooltip();
+        $(function() {
+            $('.demo-cancel-click').click(function(){return false;});
+        });
+    </script>
 	</body>
 </html>

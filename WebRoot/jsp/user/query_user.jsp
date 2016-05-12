@@ -10,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'queryUser.jsp' starting page</title>
+    <title>用户管理</title>
       <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="pragma" content="no-cache">
@@ -24,8 +24,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <link rel="stylesheet" href="${pageContext.request.contextPath}/lib/font-awesome/css/font-awesome.css">
 
     <script src="${pageContext.request.contextPath}/lib/jquery-1.11.1.min.js" type="text/javascript"></script>
-
-    
 
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/theme.css">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/premium.css">

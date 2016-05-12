@@ -23,7 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-  <h1><s:text name="修改用户信息"></s:text></h1>
+  <h3>修改角色信息</h3>
   <form action="updateRole.action" method="post">
   
 
