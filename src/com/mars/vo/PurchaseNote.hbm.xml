@@ -13,9 +13,6 @@
         <many-to-one name="user" class="com.mars.vo.User" fetch="select" lazy="false">
             <column name="pnagent" />
         </many-to-one>
-        <many-to-one name="purchaseDetail" class="com.mars.vo.PurchaseDetail" fetch="select" lazy="false">
-            <column name="pdid" />
-        </many-to-one>
         <property name="pndate" type="java.util.Date">
             <column name="pndate" length="10" />
         </property>
@@ -25,6 +22,17 @@
         <property name="pnstate" type="java.lang.Integer">
             <column name="pnstate" />
         </property>
-        
+        <set name="purchaseDetails" inverse="true">
+            <key>
+                <column name="pnid" />
+            </key>
+            <one-to-many class="com.mars.vo.PurchaseDetail" />
+        </set>
+        <set name="assets" inverse="true">
+            <key>
+                <column name="pnid" />
+            </key>
+            <one-to-many class="com.mars.vo.Asset" />
+        </set>
     </class>
 </hibernate-mapping>

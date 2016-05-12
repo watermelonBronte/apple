@@ -7,6 +7,7 @@ import com.mars.service.impl.PurDetailService;
 import com.mars.tools.IPage;
 import com.mars.tools.PageInfo;
 import com.mars.vo.PurchaseDetail;
+import com.mars.vo.PurchaseNote;
 import com.mars.vo.User;
 
 /**
@@ -21,8 +22,12 @@ public class PurDetailAction {
 	public void setPageInfo(IPage pageInfo) {
 		this.pageInfo = pageInfo;
 	}
+
 	private Integer pdid;
 	private User user;
+	private PurchaseNote purchaseNote;
+	private Integer pnid;
+	
 	private String atype;
 	private Integer pdcount;
 	private String pdmarker;
@@ -88,10 +93,30 @@ public class PurDetailAction {
 	public void setPurDetail(PurchaseDetail purDetail) {
 		this.purDetail = purDetail;
 	}
+	
+	public PurchaseNote getPurchaseNote() {
+		return purchaseNote;
+	}
+	public void setPurchaseNote(PurchaseNote purchaseNote) {
+		this.purchaseNote = purchaseNote;
+	}
 	private Float pdprice;
 	private PurDetailService purdetailservice;
 	private PurchaseDetail purDetail=new PurchaseDetail();
 
+	public Integer getPnid() {
+		return pnid;
+	}
+	public void setPnid(Integer pnid) {
+		this.pnid = pnid;
+	}
+	public String searchPurDetail(){//根据采购单查找
+		 
+		this.getPageInfo().setResult(purdetailservice.findPurDetailByPnid(pageInfo,this.getPnid()));//分页
+
+			  return "success";
+		 }
+	
 	public String queryPurDetail(){//显示所有信息
 		 
 		this.getPageInfo().setResult(purdetailservice.findPurDetail(pageInfo));//分页

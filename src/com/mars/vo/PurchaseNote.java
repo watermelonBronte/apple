@@ -14,11 +14,12 @@ public class PurchaseNote implements java.io.Serializable {
 
 	private Integer pnid;
 	private User user;
-	private PurchaseDetail purchaseDetail;
 	private Date pndate;
 	private String pnuse;
 	private Integer pnstate;
-	
+	private Set purchaseDetails = new HashSet(0);
+	private Set assets = new HashSet(0);
+
 	// Constructors
 
 	/** default constructor */
@@ -26,14 +27,14 @@ public class PurchaseNote implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public PurchaseNote(User user, PurchaseDetail purchaseDetail, Date pndate,
-			String pnuse, Integer pnstate) {
+	public PurchaseNote(User user, Date pndate, String pnuse, Integer pnstate,
+			Set purchaseDetails, Set assets) {
 		this.user = user;
-		this.purchaseDetail = purchaseDetail;
 		this.pndate = pndate;
 		this.pnuse = pnuse;
 		this.pnstate = pnstate;
-	
+		this.purchaseDetails = purchaseDetails;
+		this.assets = assets;
 	}
 
 	// Property accessors
@@ -52,14 +53,6 @@ public class PurchaseNote implements java.io.Serializable {
 
 	public void setUser(User user) {
 		this.user = user;
-	}
-
-	public PurchaseDetail getPurchaseDetail() {
-		return this.purchaseDetail;
-	}
-
-	public void setPurchaseDetail(PurchaseDetail purchaseDetail) {
-		this.purchaseDetail = purchaseDetail;
 	}
 
 	public Date getPndate() {
@@ -86,6 +79,20 @@ public class PurchaseNote implements java.io.Serializable {
 		this.pnstate = pnstate;
 	}
 
-	
+	public Set getPurchaseDetails() {
+		return this.purchaseDetails;
+	}
+
+	public void setPurchaseDetails(Set purchaseDetails) {
+		this.purchaseDetails = purchaseDetails;
+	}
+
+	public Set getAssets() {
+		return this.assets;
+	}
+
+	public void setAssets(Set assets) {
+		this.assets = assets;
+	}
 
 }

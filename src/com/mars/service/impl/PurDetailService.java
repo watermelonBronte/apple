@@ -68,6 +68,11 @@ public void setPurdetaildao(PurDetailDao purdetaildao) {
 		purdetaildao.updatePurDetail(purdetail);
 	}
 
+	public List<PurchaseDetail> findPurDetailByPnid(IPage pageInfo, Integer pnid) {
+		
+		return purdetaildao.findPurDetailByPnid(pageInfo,pnid);
+	}
+
 
 
 }

@@ -24,7 +24,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
     <form action="createPurchase.action" method="post">
-采购单明细id：<input type="text" name="purchase.purchaseDetail.pdid" />
 经办人：<input type="text" name="purchase.user.uid"  />
 采购日期：<input type="text" name="purchase.pndate"  />
 状态：<input type="text" name="purchase.pnstate"  />

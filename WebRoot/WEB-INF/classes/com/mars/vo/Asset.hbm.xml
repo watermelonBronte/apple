@@ -48,6 +48,41 @@
         <property name="anote" type="java.lang.String">
             <column name="anote" length="500" />
         </property>
-      
+        <set name="checkDetails" inverse="true">
+            <key>
+                <column name="aid" />
+            </key>
+            <one-to-many class="com.mars.vo.CheckDetail" />
+        </set>
+        <set name="assetReturns" inverse="true">
+            <key>
+                <column name="aid" />
+            </key>
+            <one-to-many class="com.mars.vo.AssetReturn" />
+        </set>
+        <set name="repairses" inverse="true">
+            <key>
+                <column name="aid" />
+            </key>
+            <one-to-many class="com.mars.vo.Repairs" />
+        </set>
+        <set name="transBillses" inverse="true">
+            <key>
+                <column name="aid" />
+            </key>
+            <one-to-many class="com.mars.vo.TransBills" />
+        </set>
+        <set name="scraps" inverse="true">
+            <key>
+                <column name="aid" />
+            </key>
+            <one-to-many class="com.mars.vo.Scrap" />
+        </set>
+        <set name="assetTransDetails" inverse="true">
+            <key>
+                <column name="aid" />
+            </key>
+            <one-to-many class="com.mars.vo.AssetTransDetail" />
+        </set>
     </class>
 </hibernate-mapping>

@@ -10,6 +10,7 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate3.HibernateCallback;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
@@ -86,6 +87,32 @@ public class PurDetailDao extends HibernateDaoSupport implements IPurDetailDao {
 	public void updatePurDetail(PurchaseDetail purdetail) {
 		// TODO Auto-generated method stub
 		this.getHibernateTemplate().update(purdetail);
+	}
+	@SuppressWarnings("unchecked")
+	public List<PurchaseDetail> findPurDetailByPnid(final IPage pageInfo, Integer pnid) {
+		return (List<PurchaseDetail>) super.getHibernateTemplate().execute(
+				new HibernateCallback() {
+
+					public Object doInHibernate(Session session)
+							throws HibernateException, SQLException {
+
+						IPage pages = null;
+						List<PurchaseDetail> list = new ArrayList<PurchaseDetail>();
+						try {
+				      Criteria criteria = session.createCriteria(PurchaseDetail.class).add(Restrictions.eq("pnid","pnid")) ;;
+							IExecute exc = new Execute(pageInfo);
+							pages = exc.excute(criteria);
+							if (pages != null) {
+								list = pages.getResult();
+							}
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+
+						return list;
+
+					}
+				});
 	}
 
 }

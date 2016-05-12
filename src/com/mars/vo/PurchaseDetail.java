@@ -1,8 +1,5 @@
 package com.mars.vo;
 
-import java.util.HashSet;
-import java.util.Set;
-
 /**
  * PurchaseDetail entity. @author MyEclipse Persistence Tools
  */
@@ -13,13 +10,13 @@ public class PurchaseDetail implements java.io.Serializable {
 
 	private Integer pdid;
 	private User user;
+	private PurchaseNote purchaseNote;
 	private String atype;
 	private Integer pdcount;
 	private String pdmarker;
 	private String pdprovider;
 	private String pdunit;
 	private Float pdprice;
-	
 
 	// Constructors
 
@@ -28,9 +25,11 @@ public class PurchaseDetail implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public PurchaseDetail(User user, String atype, Integer pdcount,
-			String pdmarker, String pdprovider, String pdunit, Float pdprice) {
+	public PurchaseDetail(User user, PurchaseNote purchaseNote, String atype,
+			Integer pdcount, String pdmarker, String pdprovider, String pdunit,
+			Float pdprice) {
 		this.user = user;
+		this.purchaseNote = purchaseNote;
 		this.atype = atype;
 		this.pdcount = pdcount;
 		this.pdmarker = pdmarker;
@@ -55,6 +54,14 @@ public class PurchaseDetail implements java.io.Serializable {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	public PurchaseNote getPurchaseNote() {
+		return this.purchaseNote;
+	}
+
+	public void setPurchaseNote(PurchaseNote purchaseNote) {
+		this.purchaseNote = purchaseNote;
 	}
 
 	public String getAtype() {
@@ -104,7 +111,5 @@ public class PurchaseDetail implements java.io.Serializable {
 	public void setPdprice(Float pdprice) {
 		this.pdprice = pdprice;
 	}
-
-
 
 }

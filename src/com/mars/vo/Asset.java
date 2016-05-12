@@ -2,10 +2,7 @@ package com.mars.vo;
 
 import java.util.Date;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
-
-import com.mars.tools.IPage;
 
 /**
  * Asset entity. @author MyEclipse Persistence Tools
@@ -28,7 +25,12 @@ public class Asset implements java.io.Serializable {
 	private String twopath;
 	private String barcode;
 	private String anote;
-	
+	private Set checkDetails = new HashSet(0);
+	private Set assetReturns = new HashSet(0);
+	private Set repairses = new HashSet(0);
+	private Set transBillses = new HashSet(0);
+	private Set scraps = new HashSet(0);
+	private Set assetTransDetails = new HashSet(0);
 
 	// Constructors
 
@@ -40,7 +42,8 @@ public class Asset implements java.io.Serializable {
 	public Asset(User user, Finance finance, AssetCategory assetCategory,
 			PurchaseNote purchaseNote, String cid, Date adate, Integer astate,
 			Integer tprint, String onepath, String twopath, String barcode,
-			String anote) {
+			String anote, Set checkDetails, Set assetReturns, Set repairses,
+			Set transBillses, Set scraps, Set assetTransDetails) {
 		this.user = user;
 		this.finance = finance;
 		this.assetCategory = assetCategory;
@@ -53,7 +56,12 @@ public class Asset implements java.io.Serializable {
 		this.twopath = twopath;
 		this.barcode = barcode;
 		this.anote = anote;
-		
+		this.checkDetails = checkDetails;
+		this.assetReturns = assetReturns;
+		this.repairses = repairses;
+		this.transBillses = transBillses;
+		this.scraps = scraps;
+		this.assetTransDetails = assetTransDetails;
 	}
 
 	// Property accessors
@@ -162,5 +170,52 @@ public class Asset implements java.io.Serializable {
 		this.anote = anote;
 	}
 
-	
+	public Set getCheckDetails() {
+		return this.checkDetails;
+	}
+
+	public void setCheckDetails(Set checkDetails) {
+		this.checkDetails = checkDetails;
+	}
+
+	public Set getAssetReturns() {
+		return this.assetReturns;
+	}
+
+	public void setAssetReturns(Set assetReturns) {
+		this.assetReturns = assetReturns;
+	}
+
+	public Set getRepairses() {
+		return this.repairses;
+	}
+
+	public void setRepairses(Set repairses) {
+		this.repairses = repairses;
+	}
+
+	public Set getTransBillses() {
+		return this.transBillses;
+	}
+
+	public void setTransBillses(Set transBillses) {
+		this.transBillses = transBillses;
+	}
+
+	public Set getScraps() {
+		return this.scraps;
+	}
+
+	public void setScraps(Set scraps) {
+		this.scraps = scraps;
+	}
+
+	public Set getAssetTransDetails() {
+		return this.assetTransDetails;
+	}
+
+	public void setAssetTransDetails(Set assetTransDetails) {
+		this.assetTransDetails = assetTransDetails;
+	}
+
 }

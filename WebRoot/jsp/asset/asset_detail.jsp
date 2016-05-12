@@ -138,7 +138,7 @@
 		<input type="text" name="purchaseNote.pnstate"
 			value="${purchaseNote.pnstate}" />
 		<br />
-		<a href="selectPurdetailById.action?pdid=${purchaseNote.purchaseDetail.pdid}">采购明细单</a>
+		<a href="searchPurDetail.action?pnid=${purchaseNote.pnid}">采购明细单</a>
 							
 		<!--<input type="submit" value="更新" />
 		</form>

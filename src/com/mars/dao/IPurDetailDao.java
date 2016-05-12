@@ -58,4 +58,6 @@ public interface IPurDetailDao {
 	 */
 	
 	public List<PurchaseDetail> findPurDetail(IPage pageInfo);//分页
+	
+	public List<PurchaseDetail> findPurDetailByPnid(IPage pageInfo,Integer pnid);//分页
 }

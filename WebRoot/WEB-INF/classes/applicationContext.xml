@@ -320,4 +320,41 @@
 	</bean>
 
 	<!-- 调拨end -->
+		<!-- 盘点start -->
+	<!-- dao -->
+	<bean id="checkedDao" class="com.mars.dao.impl.CheckedDao">
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+	<!-- Service -->
+	<bean id="checkedService" class="com.mars.service.impl.CheckedService">
+		<property name="checkedDao" ref="checkedDao" />
+	</bean>
+	<!-- Action -->
+	<bean id="CheckedAction" class="com.mars.action.CheckedAction"
+		scope="prototype">
+		<property name="checkedService" ref="checkedService" />
+	</bean>
+
+	<!-- 盘点end -->
+		<!-- 移交start -->
+	<!-- dao --><!--
+	<bean id="assetTransDao" class="com.mars.dao.impl.AssetTransDao">
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+	 Service 
+	<bean id="assetTransService" class="com.mars.service.impl.AssetTransService">
+		<property name="assetTransDao" ref="assetTransDao" />
+	</bean>
+	 Action 
+	<bean id="AssetTransAction" class="com.mars.action.AssetTransAction"
+		scope="prototype">
+		<property name="assetTransService" ref="assetTransService" />
+	</bean>
+
+	--><!-- 移交end -->
+	
 </beans>

@@ -13,6 +13,11 @@
         <property name="dname" type="java.lang.String">
             <column name="dname" length="50" />
         </property>
-        
+        <set name="users" inverse="true">
+            <key>
+                <column name="did" />
+            </key>
+            <one-to-many class="com.mars.vo.User" />
+        </set>
     </class>
 </hibernate-mapping>

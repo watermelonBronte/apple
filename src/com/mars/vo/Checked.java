@@ -1,6 +1,8 @@
 package com.mars.vo;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Checked entity. @author MyEclipse Persistence Tools
@@ -12,9 +14,9 @@ public class Checked implements java.io.Serializable {
 
 	private Integer cid;
 	private User user;
-	private CheckDetail checkDetail;
 	private Date cdate;
 	private Integer cstate;
+	private Set checkDetails = new HashSet(0);
 
 	// Constructors
 
@@ -23,12 +25,11 @@ public class Checked implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Checked(User user, CheckDetail checkDetail, Date cdate,
-			Integer cstate) {
+	public Checked(User user, Date cdate, Integer cstate, Set checkDetails) {
 		this.user = user;
-		this.checkDetail = checkDetail;
 		this.cdate = cdate;
 		this.cstate = cstate;
+		this.checkDetails = checkDetails;
 	}
 
 	// Property accessors
@@ -49,14 +50,6 @@ public class Checked implements java.io.Serializable {
 		this.user = user;
 	}
 
-	public CheckDetail getCheckDetail() {
-		return this.checkDetail;
-	}
-
-	public void setCheckDetail(CheckDetail checkDetail) {
-		this.checkDetail = checkDetail;
-	}
-
 	public Date getCdate() {
 		return this.cdate;
 	}
@@ -71,6 +64,14 @@ public class Checked implements java.io.Serializable {
 
 	public void setCstate(Integer cstate) {
 		this.cstate = cstate;
+	}
+
+	public Set getCheckDetails() {
+		return this.checkDetails;
+	}
+
+	public void setCheckDetails(Set checkDetails) {
+		this.checkDetails = checkDetails;
 	}
 
 }

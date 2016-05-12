@@ -7,7 +7,6 @@ import java.util.List;
 
 import com.mars.tools.IPage;
 import com.mars.vo.PurchaseDetail;
-import com.mars.vo.PurchaseNote;
 import com.mars.vo.User;
 
 /**
@@ -56,4 +55,11 @@ public interface IPurDetailService {
 	 */
 	
 	public List<PurchaseDetail> findPurDetail(IPage pageInfo);//分页
+	
+	/**
+	 * 根据PNID查找采购单明细，分页方式
+	 *@return 
+	 */
+	
+	public List<PurchaseDetail> findPurDetailByPnid(IPage pageInfo,Integer pnid);//分页
 }

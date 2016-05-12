@@ -87,15 +87,9 @@ private Department department;
 private Date pndate;
 private String pnuse;
 private int pnstate;
-private PurchaseDetail purchaseDetail;
 
 
-public PurchaseDetail getPurchaseDetail() {
-	return purchaseDetail;
-}
-public void setPurchaseDetail(PurchaseDetail purchaseDetail) {
-	this.purchaseDetail = purchaseDetail;
-}
+
 public String queryPurchase(){//显示所有信息
 		 
 this.getPageInfo().setResult(purchaseservice.findPurchase(pageInfo));//分页
@@ -117,9 +111,7 @@ public String createPurchase(){//增加信息
 	  p.setPnuse(purchase.getPnuse());
  	 p.setUser(purchaseservice.findPurchaseByPid(purchase.getUser().getUid()));
 	
-p.setPurchaseDetail(purchaseservice.findPurchaseByDeid(purchase.getPurchaseDetail().getPdid()));
 	 purchaseservice.createPurchase(p);//保存接收到的数据到数据库中
-	  System.out.print("dadf"+ p.getPurchaseDetail());
 	  return SUCCESS;
 	  
 }
@@ -135,8 +127,6 @@ this.setPnstate(purchase.getPnstate());
 this.setUser(purchase.getUser());
 
 
-this.setPurchaseDetail(purchase.getPurchaseDetail());
-
 return SUCCESS;
 }
 
@@ -147,8 +137,7 @@ public String updatePurchase(){//更新用户
 	purchase.setPnstate(this.getPnstate());
 	purchase.setPnuse(this.getPnuse());
 	purchase.setUser(purchaseservice.findPurchaseByPid(this.getUser().getUid()));
-	purchase.setPurchaseDetail(purchaseservice.findPurchaseByDeid(this.getPurchaseDetail().getPdid()));
-    //不允许为空
+	  //不允许为空
 	
 	purchaseservice.updatePurchase(purchase);
 	  

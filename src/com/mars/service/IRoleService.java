@@ -7,7 +7,6 @@ import java.util.List;
 
 import com.mars.tools.IPage;
 import com.mars.vo.Role;
-import com.mars.vo.User;
 
 /**
  *@author 杨铮

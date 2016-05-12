@@ -13,7 +13,8 @@ public class Department implements java.io.Serializable {
 
 	private Integer did;
 	private String dname;
-	
+	private Set users = new HashSet(0);
+
 	// Constructors
 
 	/** default constructor */
@@ -21,9 +22,9 @@ public class Department implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Department(String dname) {
+	public Department(String dname, Set users) {
 		this.dname = dname;
-		
+		this.users = users;
 	}
 
 	// Property accessors
@@ -44,5 +45,12 @@ public class Department implements java.io.Serializable {
 		this.dname = dname;
 	}
 
-	
+	public Set getUsers() {
+		return this.users;
+	}
+
+	public void setUsers(Set users) {
+		this.users = users;
+	}
+
 }

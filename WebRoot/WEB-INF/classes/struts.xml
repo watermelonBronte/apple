@@ -211,6 +211,10 @@
 			method="queryPurDetail">
 			<result name="success">/jsp/purdetail/query_purdetail.jsp</result>
 		</action>
+		<action name="searchPurDetail" class="com.mars.action.PurDetailAction"
+			method="queryPurDetail">
+			<result name="success">/jsp/purdetail/search_purdetail.jsp</result>
+		</action>
 		<action name="deletePurdetail" class="com.mars.action.PurDetailAction"
 			method="deletePurDetail">
 			<result name="success" type="redirect">/queryPurDetail.action

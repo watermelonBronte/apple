@@ -61,7 +61,7 @@ function submitFrom(formName){
 		<h1>
 			资产列表
 		</h1>
-			<input type="button" value="导出全部" onclick="listAll()"/>
+			<!--<input type="button" value="导出全部" onclick="listAll()"/>-->
 		<form action="asset/asset_Asset_SearchAsset.action" method="post">
 			根据
 			<select id="select" name="attr">

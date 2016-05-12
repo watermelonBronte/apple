@@ -10,6 +10,9 @@
             <column name="cdid" />
             <generator class="identity" />
         </id>
+        <many-to-one name="checked" class="com.mars.vo.Checked" fetch="select" lazy="false">
+            <column name="cid" />
+        </many-to-one>
         <many-to-one name="asset" class="com.mars.vo.Asset" fetch="select" lazy="false">
             <column name="aid" />
         </many-to-one>
@@ -19,6 +22,5 @@
         <property name="cddate" type="java.util.Date">
             <column name="cddate" length="10" />
         </property>
-       
     </class>
 </hibernate-mapping>

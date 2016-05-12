@@ -30,6 +30,11 @@
                 <comment>0-待移交 1-移交完毕</comment>
             </column>
         </property>
-       
+        <set name="assetTransDetails" inverse="true">
+            <key>
+                <column name="atid" />
+            </key>
+            <one-to-many class="com.mars.vo.AssetTransDetail" />
+        </set>
     </class>
 </hibernate-mapping>

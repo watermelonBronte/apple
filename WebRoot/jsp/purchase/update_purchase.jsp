@@ -31,7 +31,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <tr><td>采购日期：</td><td> <input type="text" value="${pndate}" name="pndate" /></td></tr>
 <tr><td>采购用途：</td><td> <input type="text" value="${pnuse}" name="pnuse" /></td></tr>
 <tr><td>  状态 ：</td><td> <input type="text" value="${pnstate}" name="pnstate" /></td></tr>
-<tr><td> 采购单明细id：</td><td> <input type="text" value="${purchaseDetail.pdid}" name="purchaseDetail.pdid" />  </td></tr>
+
 <tr><td> <input type="submit" value="提交"/></td><td> <input type="reset" value="重置"/></td></tr>
 
 </table>

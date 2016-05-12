@@ -22,6 +22,11 @@
         <property name="fdate" type="java.sql.Timestamp">
             <column name="fdate" length="19" />
         </property>
-       
+        <set name="assets" inverse="true">
+            <key>
+                <column name="fid" />
+            </key>
+            <one-to-many class="com.mars.vo.Asset" />
+        </set>
     </class>
 </hibernate-mapping>

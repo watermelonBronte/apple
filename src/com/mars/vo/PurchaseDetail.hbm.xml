@@ -13,6 +13,9 @@
         <many-to-one name="user" class="com.mars.vo.User" fetch="select" lazy="false">
             <column name="uid" />
         </many-to-one>
+        <many-to-one name="purchaseNote" class="com.mars.vo.PurchaseNote" fetch="select" lazy="false">
+            <column name="pnid" />
+        </many-to-one>
         <property name="atype" type="java.lang.String">
             <column name="atype" length="200" />
         </property>
@@ -31,6 +34,5 @@
         <property name="pdprice" type="java.lang.Float">
             <column name="pdprice" precision="12" scale="0" />
         </property>
-      
     </class>
 </hibernate-mapping>
