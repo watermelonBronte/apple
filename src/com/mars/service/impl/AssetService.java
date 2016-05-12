@@ -3,12 +3,20 @@
  */
 package com.mars.service.impl;
 
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
 
 import com.mars.dao.IAssetDao;
 import com.mars.service.IAssetService;
 import com.mars.tools.IPage;
 import com.mars.vo.Asset;
+import com.mars.vo.AssetCategory;
+import com.mars.vo.Finance;
+import com.mars.vo.PurchaseNote;
+import com.mars.vo.User;
 
 /**
  * @author ye
@@ -87,4 +95,49 @@ public class AssetService implements IAssetService {
 
 	}
 
+	public List<Asset> findAllAssetByAC(IPage pageInfo,AssetCategory ac) {
+		List<Asset> list = assetDao.findAllAssetByAC(pageInfo,ac);
+		return list;
+	}
+
+	public AssetCategory findAssetCategoryById(Integer acid) {
+		AssetCategory assetCategory = assetDao.findAssetCategoryById(acid);
+		return assetCategory;
+	}
+
+	public List<Asset> findAllAssetByUser(IPage pageInfo, User u) {
+		List<Asset> list = assetDao.findAllAssetByUser(pageInfo,u);
+		return list;
+	}
+
+	public User findUserById(Integer uid) {
+		User user = assetDao.findUserById(uid);
+		return user;
+	}
+
+	public List<Asset> findAllAssetByFinance(IPage pageInfo, Finance f) {
+		List<Asset> list = assetDao.findAllAssetByFinance(pageInfo,f);
+		return list;
+	}
+
+	public Finance findFinanceById(Integer fid) {
+		Finance finance = assetDao.findFinanceById(fid);
+		return finance;
+	}
+	public List<Asset> findAllAssetByPurchaseNote(IPage pageInfo, PurchaseNote pn) {
+		List<Asset> list = assetDao.findAllAssetByPurchaseNote(pageInfo,pn);
+		return list;
+	}
+
+	public PurchaseNote findPurchaseNoteById(Integer pnid) {
+		PurchaseNote purchaseNote = assetDao.findPurchaseNoteById(pnid);
+		return purchaseNote;
+	}
+	
+	
+
+
+	/**
+	 * excel
+	 */
 }

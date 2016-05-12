@@ -5,8 +5,14 @@ package com.mars.service;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
+
 import com.mars.tools.IPage;
 import com.mars.vo.Asset;
+import com.mars.vo.AssetCategory;
+import com.mars.vo.Finance;
+import com.mars.vo.PurchaseNote;
+import com.mars.vo.User;
 
 /**
  * @author ye
@@ -47,4 +53,65 @@ public interface IAssetService {
 	 * @return
 	 */
 	public Asset findAssetById(Integer aid);
+	
+	public List<Asset> findAllAssetByAC(IPage pageInfo,AssetCategory ac);
+	
+	/**
+	 * 根据ID查找资产类别
+	 * @param acid
+	 * @return
+	 */
+	public AssetCategory findAssetCategoryById(Integer acid);
+	
+	/**
+	 * 用户
+	 * @param pageInfo
+	 * @param u
+	 * @return
+	 */
+	public List<Asset> findAllAssetByUser(IPage pageInfo,User u);
+	
+	/**
+	 * 根据ID查找用户
+	 * @param acid
+	 * @return
+	 */
+	public User findUserById(Integer uid);
+	
+	/**
+	 * 财务入账
+	 * @param pageInfo
+	 * @param f
+	 * @return
+	 */
+	public List<Asset> findAllAssetByFinance(IPage pageInfo,Finance f);
+	
+	/**
+	 * 
+	 * @param fid
+	 * @return
+	 */
+	public Finance findFinanceById(Integer fid);
+	
+	/**
+	 * 采购单
+	 * @param pageInfo
+	 * @param pn
+	 * @return
+	 */
+	public List<Asset> findAllAssetByPurchaseNote(IPage pageInfo,PurchaseNote pn);
+	
+	/**
+	 * 
+	 * @param pnid
+	 * @return
+	 */
+	public PurchaseNote findPurchaseNoteById(Integer pnid);
+	
+	/**
+	 * excel
+	 */
+	
+	
+	
 }

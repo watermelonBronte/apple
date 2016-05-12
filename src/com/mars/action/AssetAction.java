@@ -2,6 +2,7 @@
  * 测试资产action
  */
 package com.mars.action;
+
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
@@ -20,6 +21,7 @@ import com.mars.vo.Finance;
 import com.mars.vo.PurchaseNote;
 import com.mars.vo.User;
 import com.opensymphony.xwork2.ActionSupport;
+import com.sun.org.apache.bcel.internal.generic.NEW;
 
 /***
  * @author ye
@@ -27,17 +29,32 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 public class AssetAction extends ActionSupport {
 
-	
-
 	private IAssetService assetService;
 
-	private IAssetCategoryService assetCategoryService;
 	protected IPage pageInfo = new PageInfo();
+	protected String attr;
+	protected Integer value;
+
+	public String getAttr() {
+		return attr;
+	}
+
+	public void setAttr(String attr) {
+		this.attr = attr;
+	}
+
+	public Integer getValue() {
+		return value;
+	}
+
+	public void setValue(Integer value) {
+		this.value = value;
+	}
 
 	private String result;
 
 	private Asset asset = new Asset();
-	private List<AssetCategory> assetCategoryList = new ArrayList<AssetCategory>();
+
 	private Integer aid;
 	private User user;
 	private Finance finance;
@@ -83,15 +100,6 @@ public class AssetAction extends ActionSupport {
 
 	public void setResult(String result) {
 		this.result = result;
-	}
-
-	public IAssetCategoryService getAssetCategoryService() {
-		return assetCategoryService;
-	}
-
-	public void setAssetCategoryService(
-			IAssetCategoryService assetCategoryService) {
-		this.assetCategoryService = assetCategoryService;
 	}
 
 	public Integer getAid() {
@@ -215,13 +223,42 @@ public class AssetAction extends ActionSupport {
 		return "home";
 	}
 
-	public List<AssetCategory> getAssetCategoryList() {
-		return assetCategoryList;
+	/**
+	 * 根据属性查找
+	 * @return
+	 */
+	public String SearchAsset() {
+		if(this.getAttr().equals("ac"))
+		{
+		assetCategory = assetService.findAssetCategoryById(this.getValue());
+		this.getPageInfo().setResult(
+				(assetService.findAllAssetByAC(pageInfo, assetCategory)));
+		}
+		else if(this.getAttr().equals("u")){
+			user = assetService.findUserById(this.getValue());
+			this.getPageInfo().setResult(
+					(assetService.findAllAssetByUser(pageInfo, user)));
+
+			return "pageAsset";
+		}
+		else if(this.getAttr().equals("f")){
+			finance = assetService.findFinanceById(this.getValue());
+			this.getPageInfo().setResult(
+					(assetService.findAllAssetByFinance(pageInfo, finance)));
+
+			return "pageAsset";
+		}
+		else {
+			purchaseNote = assetService.findPurchaseNoteById(this.getValue());
+			this.getPageInfo().setResult(
+					(assetService.findAllAssetByPurchaseNote(pageInfo, purchaseNote)));
+
+			return "pageAsset";
+		}
+		return "pageAsset";
 	}
 
-	public void setAssetCategoryList(List<AssetCategory> assetCategoryList) {
-		this.assetCategoryList = assetCategoryList;
-	}
+	
 
 	/**
 	 * 添加界面
@@ -230,27 +267,38 @@ public class AssetAction extends ActionSupport {
 	 */
 
 	public String addAsset() {
-		// this.getPageInfo().setResult(assetCategoryService.findAll());
-		// this.setAssetCategory(assetCategoryService.findAssetCategory());
-		assetCategoryService.findAssetCategory();
-		asset.setAnote(this.getAnote());
-
-		// System.out.println(Asset.getAccode());
-		// this.setAssetCategoryList(assetCategoryList);
+		
 		return "addAsset";
 	}
 
+
+	
 	/**
 	 * 创建
 	 * 
 	 * @return
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	public String createAsset() throws Exception {
 		// Asset.setAccode(getAccode());
 
-		assetService.createAsset(asset);
+		asset.setCid(getCid());
+		asset.setAssetCategory(assetService.findAssetCategoryById(this.getAssetCategory().getAcid()));
+		asset.setUser(assetService.findUserById(this.getUser().getUid()));
+		asset.setFinance(assetService.findFinanceById(this.getFinance().getFid()));
+		asset.setAstate(this.getAstate());
+		Date date = new Date();
+		Timestamp nousedate = new Timestamp(date.getTime());
+		asset.setAdate(nousedate);
+		asset.setPurchaseNote(assetService.findPurchaseNoteById(this.getPurchaseNote().getPnid()));
+		asset.setTprint(this.getTprint());
+		asset.setOnepath(this.getOnepath());
+		asset.setTwopath(this.getTwopath());
+		asset.setBarcode(this.getBarcode());
+		asset.setAnote(this.getAnote());
 		
+		assetService.createAsset(asset);
+
 		this.setResult("创建");
 		return "successAsset";
 	}
@@ -259,10 +307,10 @@ public class AssetAction extends ActionSupport {
 	 * 删除
 	 * 
 	 * @return
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	public String deleteAsset() throws Exception {
-		
+
 		assetService.deleteAsset(this.getAid());
 		this.setResult("删除");
 		return "successAsset";
@@ -275,9 +323,23 @@ public class AssetAction extends ActionSupport {
 	 */
 	public String updateAsset() {
 
-		// System.out.println(this.getAccode()+this.getAcname()+this.getSupacname()+this.getSupacid()+this.getAcid());
-		// Asset.setAccode(getAccode());
-
+	
+        asset = assetService.findAssetById(this.getAid());
+        asset.setCid(getCid());
+		asset.setAssetCategory(assetService.findAssetCategoryById(this.getAssetCategory().getAcid()));
+		asset.setUser(assetService.findUserById(this.getUser().getUid()));
+		asset.setFinance(assetService.findFinanceById(this.getFinance().getFid()));
+		asset.setAstate(this.getAstate());
+		Date date = new Date();
+		Timestamp nousedate = new Timestamp(date.getTime());
+		asset.setAdate(nousedate);
+		asset.setPurchaseNote(assetService.findPurchaseNoteById(this.getPurchaseNote().getPnid()));
+		asset.setTprint(this.getTprint());
+		asset.setOnepath(this.getOnepath());
+		asset.setTwopath(this.getTwopath());
+		asset.setBarcode(this.getBarcode());
+		asset.setAnote(this.getAnote());
+		
 		assetService.updateAsset(asset);
 
 		this.setResult("更新");
@@ -302,19 +364,19 @@ public class AssetAction extends ActionSupport {
 	public String findAssetById() {
 
 		asset = assetService.findAssetById(this.getAid());
-		 this.setAid(asset.getAid());
-		 this.setCid(asset.getCid());
-	     this.setAssetCategory(asset.getAssetCategory());
-	     this.setUser(asset.getUser());
-	     this.setFinance(asset.getFinance());
-	     this.setAdate(asset.getAdate());
-	     this.setAstate(asset.getAstate());
-	     this.setPurchaseNote(asset.getPurchaseNote());
-	     this.setTprint(asset.getTprint());
-	     this.setOnepath(asset.getOnepath());
-	     this.setTwopath(asset.getTwopath());
-	     this.setBarcode(asset.getBarcode());
-	     this.setAnote(asset.getAnote());
+		this.setAid(asset.getAid());
+		this.setCid(asset.getCid());
+		this.setAssetCategory(asset.getAssetCategory());
+		this.setUser(asset.getUser());
+		this.setFinance(asset.getFinance());
+		this.setAdate(asset.getAdate());
+		this.setAstate(asset.getAstate());
+		this.setPurchaseNote(asset.getPurchaseNote());
+		this.setTprint(asset.getTprint());
+		this.setOnepath(asset.getOnepath());
+		this.setTwopath(asset.getTwopath());
+		this.setBarcode(asset.getBarcode());
+		this.setAnote(asset.getAnote());
 		return "findAssetById";
 	}
 
@@ -325,8 +387,10 @@ public class AssetAction extends ActionSupport {
 	 */
 	public String pageAsset() {
 		this.getPageInfo().setResult((assetService.findAll(pageInfo)));
-	
+
 		return "pageAsset";
 	}
 
+	
+	//excel
 }
