@@ -19,7 +19,6 @@ import com.mars.tools.IExecute;
 import com.mars.tools.IPage;
 import com.mars.vo.Asset;
 import com.mars.vo.CheckDetail;
-import com.mars.vo.CheckDetail;
 import com.mars.vo.Checked;
 import com.mars.vo.User;
 
@@ -36,8 +35,8 @@ public class CheckDetailDao extends HibernateDaoSupport implements
 	 * 
 	 * @see com.mars.dao.ICheckDetailDao#createCheckDetail(com.mars.vo.CheckDetail)
 	 */
-	public void createCheckDetail(CheckDetail checked) {
-		super.getHibernateTemplate().save(checked);
+	public void createCheckDetail(CheckDetail checkDetail) {
+		super.getHibernateTemplate().save(checkDetail);
 	}
 
 	/*查找
@@ -45,6 +44,7 @@ public class CheckDetailDao extends HibernateDaoSupport implements
 	 * 
 	 * @see com.mars.dao.ICheckDetailDao#findCheckDetail()
 	 */
+
 	@SuppressWarnings("unchecked")
 	public List<CheckDetail> findCheckDetail() {
 		return (List<CheckDetail>) super.getHibernateTemplate().execute(
@@ -71,8 +71,8 @@ public class CheckDetailDao extends HibernateDaoSupport implements
 	 * 
 	 * @see com.mars.dao.ICheckDetailDao#updateCheckDetail(com.mars.vo.CheckDetail)
 	 */
-	public void updateCheckDetail(CheckDetail checked) {
-		super.getHibernateTemplate().update(checked);
+	public void updateCheckDetail(CheckDetail checkDetail) {
+		super.getHibernateTemplate().update(checkDetail);
 	}
 
 	/*删除
@@ -80,10 +80,10 @@ public class CheckDetailDao extends HibernateDaoSupport implements
 	 * 
 	 * @see com.mars.dao.ICheckDetailDao#deleteCheckDetail(java.lang.Integer)
 	 */
-	public void deleteCheckDetail(Integer cid) {
-		CheckDetail checked = (CheckDetail) super.getHibernateTemplate().load(
-				CheckDetail.class, new Integer(cid));
-		super.getHibernateTemplate().delete(checked);
+	public void deleteCheckDetail(Integer cdid) {
+		CheckDetail checkDetail = (CheckDetail) super.getHibernateTemplate().get(
+				CheckDetail.class, new Integer(cdid));
+		super.getHibernateTemplate().delete(checkDetail);
 
 	}
 
@@ -92,6 +92,7 @@ public class CheckDetailDao extends HibernateDaoSupport implements
 	 * 
 	 * @see com.mars.dao.ICheckDetailDao#findAllCheckDetail(com.mars.tools.IPage)
 	 */
+	
 	@SuppressWarnings("unchecked")
 	public List<CheckDetail> findAllCheckDetail(final IPage pageInfo) {
 		return (List<CheckDetail>) super.getHibernateTemplate().execute(
@@ -125,9 +126,9 @@ public class CheckDetailDao extends HibernateDaoSupport implements
 	 * @see com.mars.dao.ICheckDetailDao#findCheckDetailById(java.lang.Integer)
 	 */
 	public Checked findCheckedById(Integer cid) {
-		Checked checked = (Checked) super.getHibernateTemplate().get(
+		Checked check = (Checked) super.getHibernateTemplate().get(
 				Checked.class, new Integer(cid));
-		return checked;
+		return check;
 	}
 
 	/*
