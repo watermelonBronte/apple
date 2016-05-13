@@ -36,7 +36,6 @@
 				<value>com/mars/vo/AssetCategory.hbm.xml</value>
 				<value>com/mars/vo/PurchaseDetail.hbm.xml</value>
 				<value>com/mars/vo/AssetReturn.hbm.xml</value>
-				<value>com/mars/vo/AssetTransDetail.hbm.xml</value>
 				<value>com/mars/vo/CheckDetail.hbm.xml</value>
 				<value>com/mars/vo/Repairs.hbm.xml</value>
 				<value>com/mars/vo/AssetTrans.hbm.xml</value>
@@ -339,41 +338,22 @@
 
 	<!-- 盘点end -->
 		<!-- 移交start -->
-		<!--	 dao -->
+	<!-- dao --><!--
 	<bean id="assetTransDao" class="com.mars.dao.impl.AssetTransDao">
 		<property name="sessionFactory">
 			<ref local="sessionFactory" />
 		</property>
 	</bean>
-	<!--	 Service 	-->
+	 Service 
 	<bean id="assetTransService" class="com.mars.service.impl.AssetTransService">
 		<property name="assetTransDao" ref="assetTransDao" />
 	</bean>
-	<!--	 Action 	-->
+	 Action 
 	<bean id="AssetTransAction" class="com.mars.action.AssetTransAction"
 		scope="prototype">
 		<property name="assetTransService" ref="assetTransService" />
 	</bean>
 
-	<!--  移交end -->
-	
-			<!-- 盘点详情start -->
-	<!-- dao -->
-	<bean id="checkDetailDao" class="com.mars.dao.impl.CheckDetailDao">
-		<property name="sessionFactory">
-			<ref local="sessionFactory" />
-		</property>
-	</bean>
-	<!-- Service -->
-	<bean id="checkDetailService" class="com.mars.service.impl.CheckDetailService">
-		<property name="checkDetailDao" ref="checkDetailDao" />
-	</bean>
-	<!-- Action -->
-	<bean id="CheckDetailAction" class="com.mars.action.CheckDetailAction"
-		scope="prototype">
-		<property name="checkDetailService" ref="checkDetailService" />
-	</bean>
-
-	<!-- 盘点详情end -->
+	--><!-- 移交end -->
 	
 </beans>

@@ -1,8 +1,6 @@
 package com.mars.vo;
 
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * AssetTrans entity. @author MyEclipse Persistence Tools
@@ -13,13 +11,15 @@ public class AssetTrans implements java.io.Serializable {
 	// Fields
 
 	private Integer atid;
+	private Asset asset;
 	private User userByUid;
 	private User userByTid;
 	private Date atrdate;
 	private Date atfdate;
 	private Integer attype;
+	private Integer tdresult;
 	private Integer atstate;
-	private Set assetTransDetails = new HashSet(0);
+	private Date tddate;
 
 	// Constructors
 
@@ -28,15 +28,18 @@ public class AssetTrans implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public AssetTrans(User userByUid, User userByTid, Date atrdate,
-			Date atfdate, Integer attype, Integer atstate, Set assetTransDetails) {
+	public AssetTrans(Asset asset, User userByUid, User userByTid,
+			Date atrdate, Date atfdate, Integer attype, Integer tdresult,
+			Integer atstate, Date tddate) {
+		this.asset = asset;
 		this.userByUid = userByUid;
 		this.userByTid = userByTid;
 		this.atrdate = atrdate;
 		this.atfdate = atfdate;
 		this.attype = attype;
+		this.tdresult = tdresult;
 		this.atstate = atstate;
-		this.assetTransDetails = assetTransDetails;
+		this.tddate = tddate;
 	}
 
 	// Property accessors
@@ -47,6 +50,14 @@ public class AssetTrans implements java.io.Serializable {
 
 	public void setAtid(Integer atid) {
 		this.atid = atid;
+	}
+
+	public Asset getAsset() {
+		return this.asset;
+	}
+
+	public void setAsset(Asset asset) {
+		this.asset = asset;
 	}
 
 	public User getUserByUid() {
@@ -89,6 +100,14 @@ public class AssetTrans implements java.io.Serializable {
 		this.attype = attype;
 	}
 
+	public Integer getTdresult() {
+		return this.tdresult;
+	}
+
+	public void setTdresult(Integer tdresult) {
+		this.tdresult = tdresult;
+	}
+
 	public Integer getAtstate() {
 		return this.atstate;
 	}
@@ -97,12 +116,12 @@ public class AssetTrans implements java.io.Serializable {
 		this.atstate = atstate;
 	}
 
-	public Set getAssetTransDetails() {
-		return this.assetTransDetails;
+	public Date getTddate() {
+		return this.tddate;
 	}
 
-	public void setAssetTransDetails(Set assetTransDetails) {
-		this.assetTransDetails = assetTransDetails;
+	public void setTddate(Date tddate) {
+		this.tddate = tddate;
 	}
 
 }

@@ -11,6 +11,7 @@ public class PurchaseDetail implements java.io.Serializable {
 	private Integer pdid;
 	private User user;
 	private PurchaseNote purchaseNote;
+	private String aname;
 	private String atype;
 	private Integer pdcount;
 	private String pdmarker;
@@ -25,11 +26,12 @@ public class PurchaseDetail implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public PurchaseDetail(User user, PurchaseNote purchaseNote, String atype,
-			Integer pdcount, String pdmarker, String pdprovider, String pdunit,
-			Float pdprice) {
+	public PurchaseDetail(User user, PurchaseNote purchaseNote, String aname,
+			String atype, Integer pdcount, String pdmarker, String pdprovider,
+			String pdunit, Float pdprice) {
 		this.user = user;
 		this.purchaseNote = purchaseNote;
+		this.aname = aname;
 		this.atype = atype;
 		this.pdcount = pdcount;
 		this.pdmarker = pdmarker;
@@ -62,6 +64,14 @@ public class PurchaseDetail implements java.io.Serializable {
 
 	public void setPurchaseNote(PurchaseNote purchaseNote) {
 		this.purchaseNote = purchaseNote;
+	}
+
+	public String getAname() {
+		return this.aname;
+	}
+
+	public void setAname(String aname) {
+		this.aname = aname;
 	}
 
 	public String getAtype() {

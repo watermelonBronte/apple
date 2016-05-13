@@ -78,11 +78,11 @@
             </key>
             <one-to-many class="com.mars.vo.Scrap" />
         </set>
-        <set name="assetTransDetails" inverse="true">
+        <set name="assetTranses" inverse="true">
             <key>
                 <column name="aid" />
             </key>
-            <one-to-many class="com.mars.vo.AssetTransDetail" />
+            <one-to-many class="com.mars.vo.AssetTrans" />
         </set>
     </class>
 </hibernate-mapping>

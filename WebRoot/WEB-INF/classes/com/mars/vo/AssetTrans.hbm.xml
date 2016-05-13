@@ -10,6 +10,9 @@
             <column name="atid" />
             <generator class="identity" />
         </id>
+        <many-to-one name="asset" class="com.mars.vo.Asset" fetch="select" lazy="false">
+            <column name="aid" />
+        </many-to-one>
         <many-to-one name="userByUid" class="com.mars.vo.User" fetch="select" lazy="false">
             <column name="uid" />
         </many-to-one>
@@ -25,16 +28,18 @@
         <property name="attype" type="java.lang.Integer">
             <column name="attype" />
         </property>
+        <property name="tdresult" type="java.lang.Integer">
+            <column name="tdresult">
+                <comment>0-接收 1-不接收</comment>
+            </column>
+        </property>
         <property name="atstate" type="java.lang.Integer">
             <column name="atstate">
                 <comment>0-待移交 1-移交完毕</comment>
             </column>
         </property>
-        <set name="assetTransDetails" inverse="true">
-            <key>
-                <column name="atid" />
-            </key>
-            <one-to-many class="com.mars.vo.AssetTransDetail" />
-        </set>
+        <property name="tddate" type="java.util.Date">
+            <column name="tddate" length="10" />
+        </property>
     </class>
 </hibernate-mapping>

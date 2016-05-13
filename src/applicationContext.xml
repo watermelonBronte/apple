@@ -36,7 +36,6 @@
 				<value>com/mars/vo/AssetCategory.hbm.xml</value>
 				<value>com/mars/vo/PurchaseDetail.hbm.xml</value>
 				<value>com/mars/vo/AssetReturn.hbm.xml</value>
-				<value>com/mars/vo/AssetTransDetail.hbm.xml</value>
 				<value>com/mars/vo/CheckDetail.hbm.xml</value>
 				<value>com/mars/vo/Repairs.hbm.xml</value>
 				<value>com/mars/vo/AssetTrans.hbm.xml</value>

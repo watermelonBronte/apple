@@ -83,7 +83,7 @@ public class TransBillsDao extends HibernateDaoSupport implements
 	 */
 	public void deleteTransBills(Integer tbid) {
 		try {
-			TransBills transBills = (TransBills) super.getHibernateTemplate().load(
+			TransBills transBills = (TransBills) super.getHibernateTemplate().get(
 					TransBills.class, new Integer(tbid));
 			super.getHibernateTemplate().delete(transBills);
 		} catch (Exception e) {

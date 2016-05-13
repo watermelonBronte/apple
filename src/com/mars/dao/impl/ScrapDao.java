@@ -82,7 +82,7 @@ public class ScrapDao extends HibernateDaoSupport implements
 	 * @see com.mars.dao.IScrapDao#deleteScrap(java.lang.Integer)
 	 */
 	public void deleteScrap(Integer scid) {
-		Scrap scrap = (Scrap) super.getHibernateTemplate().load(
+		Scrap scrap = (Scrap) super.getHibernateTemplate().get(
 				Scrap.class, new Integer(scid));
 		super.getHibernateTemplate().delete(scrap);
 

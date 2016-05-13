@@ -149,7 +149,7 @@ public class AssetTransAction extends ActionSupport {
 	public String createAssetTrans() {
 
 
-		assetTrans.setUser(assetTransService.findUserById(this.getUser().getUid()));
+//		assetTrans.setUser(assetTransService.findUserById(this.getUser().getUid()));
 		Date date = new Date();
 		Timestamp nousedate = new Timestamp(date.getTime());
 		assetTrans.setAtrdate(nousedate);
@@ -211,7 +211,7 @@ public class AssetTransAction extends ActionSupport {
 	public String findAssetTransById() {
 
 		assetTrans = assetTransService.findAssetTransById(this.getAtid());
-		this.setUser(assetTrans.getUser());
+//		this.setUser(assetTrans.getUser());
 		this.setAtrdate(this.getAtrdate());
 		this.setAtfdate(this.getAtfdate());
 		this.setAttype(this.getAttype());

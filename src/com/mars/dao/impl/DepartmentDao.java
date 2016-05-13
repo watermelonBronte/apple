@@ -77,7 +77,7 @@ public class DepartmentDao extends HibernateDaoSupport implements
 	 */
 	public void deleteDepartment(Integer did) {
 		try {
-			Department department = (Department) super.getHibernateTemplate().load(
+			Department department = (Department) super.getHibernateTemplate().get(
 					Department.class, new Integer(did));
 			super.getHibernateTemplate().delete(department);
 		} catch (Exception e) {
