@@ -64,7 +64,7 @@ public class AssetCategoryService implements IAssetCategoryService {
 	public List<AssetCategory> findAll(IPage pageInfo) {
 		List<AssetCategory> list = assetCategoryDao
 				.findAllAssetCategory(pageInfo);
-		System.out.println(pageInfo);
+//		System.out.println(pageInfo);
 		return list;
 	}
 

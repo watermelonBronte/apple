@@ -46,12 +46,13 @@ function submitFrom(formName){
 	</head>
 
 	<body>
-		<br />
-		<a href="asset_category/test_AssetCategory_home.action">主界面</a>
+	
+	<h3>资产类别</h3>
 		<br />
 	
-		<!--<a href="asset_category/test_AssetCategory_addAssetCategory.action">添加记录</a>-->
-						
+		<a href="asset_category/test_AssetCategory_addAssetCategory.action">添加记录</a>
+				<br />
+				
 		<form action="" id="_form" method="post">
 			<table width="100%" border="1" cellpadding="0"
 				style="margin-top: 5px;" cellspacing="0">

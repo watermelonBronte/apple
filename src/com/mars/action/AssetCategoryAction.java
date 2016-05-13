@@ -137,7 +137,7 @@ public class AssetCategoryAction extends ActionSupport {
 		assetCategory.setAcname(getAcname());
 		assetCategory.setSupacid(getSupacid());
 		assetCategory.setSupacname(getSupacname());
-		assetCategory.setAcid(getAcid());
+	
 		assetCategoryService.createAssetCategory(assetCategory);
 		this.setResult("创建");
 		return "successAssetCategory";
