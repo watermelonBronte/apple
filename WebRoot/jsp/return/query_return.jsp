@@ -34,9 +34,9 @@ function submitFrom(formName){
 </script>
   </head>
   
-  <body>
-       <h1>采购单信息</h1>
-    <form action="" id="_form" method="post">
+  <body><!--
+       <h1>领用归还表信息</h1>
+    --><form action="" id="_form" method="post">
    <table style="border:1px solid black">
    <tr >
    		<th>
@@ -117,6 +117,6 @@ function submitFrom(formName){
 				 </table>
      </form>
    <br/>
-   <a href="jsp/return/create_return.jsp">添加采购单</a>
+   <a href="jsp/return/create_return.jsp">添加领用归还信息</a>
   </body>
 </html>

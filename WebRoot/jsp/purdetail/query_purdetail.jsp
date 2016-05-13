@@ -78,7 +78,7 @@ function submitFrom(formName){
    <s:iterator id="purdeinfo" value="pageInfo.result" status="st">
 					 <tr>
        <td>${purdeinfo.pdid}</td>
-         <td>${purdeinfo.user.uid}</td>
+         <td>${purdeinfo.user.uname}</td>
           <td>${purdeinfo.atype}</td>
          <td>${purdeinfo.pdcount}</td>
           <td>${purdeinfo.pdmarker}</td>

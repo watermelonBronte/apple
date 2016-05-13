@@ -55,7 +55,7 @@ document.getElementById("myframe").src=href;
 
         
     </script>
-    <style type="text/css"><!--
+    <style type="text/css">
         #line-chart {
             height:300px;
             width:800px;
@@ -67,7 +67,7 @@ document.getElementById("myframe").src=href;
         .navbar-default .navbar-brand, .navbar-default .navbar-brand:hover { 
             color: #fff;
         }
-    --></style>
+   </style>
 
     <script type="text/javascript">
         $(function() {
@@ -128,9 +128,11 @@ document.getElementById("myframe").src=href;
    <!-- <li><a href="#" data-target=".dashboard-menu" class="nav-header" data-toggle="collapse"><i class="fa fa-fw fa-dashboard"></i> 资产管理<i class="fa fa-collapse"></i></a></li>-->
      <li><a href="#" data-target=".accounts-menu" class="nav-header" data-toggle="collapse"><i class="fa fa-fw fa-briefcase"></i> 资产管理 <i class="fa fa-collapse"></i></a></li>
     <li><ul class="accounts-menu nav nav-list collapse">
-          
+               <li ><a href="javascript:void(0);" onclick="changeSrc('../../queryPurchase.action','验收登记')"><span class="fa fa-caret-right"></span> 验收登记</a></li>  
+       
+        <li ><a href="javascript:void(0);" onclick="changeSrc('../../finance/finance_Finance_pageFinance.action','财务入账')"><span class="fa fa-caret-right"></span> 财务入账</a></li>  
       <li><a href="javascript:void(0);" onclick="changeSrc('../../asset/asset_Asset_pageAsset.action','资产列表')"><span class="fa fa-caret-right"></span> 资产列表</a></li>      
- <li ><a href="javascript:void(0);" onclick="changeSrc('../../finance/finance_Finance_pageFinance.action','财务入账')"><span class="fa fa-caret-right"></span> 财务入账</a></li>
+ 
 
             
 

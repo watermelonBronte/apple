@@ -3,6 +3,7 @@
  */
 package com.mars.action;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import com.mars.service.impl.PurchaseService;
@@ -19,6 +20,14 @@ import com.opensymphony.xwork2.ActionSupport;
  *
  */
 public class PurchaseAction extends ActionSupport {
+	private String sdate;
+
+public String getSdate() {
+		return sdate;
+	}
+	public void setSdate(String sdate) {
+		this.sdate = sdate;
+	}
 private PurchaseService purchaseservice;
 protected IPage pageInfo = new PageInfo();
 public IPage getPageInfo() {
@@ -94,6 +103,7 @@ public String queryPurchase(){//显示所有信息
 		 
 this.getPageInfo().setResult(purchaseservice.findPurchase(pageInfo));//分页
 
+
 	  return SUCCESS;
  }
 public String deletePurchase(){//删除
@@ -117,10 +127,18 @@ public String createPurchase(){//增加信息
 }
 
 
-public String selectPurchaseById(){//显示当前用户		
+public String selectPurchaseById(){//显示当前	
+
 	purchase = purchaseservice.findPurchaseById(this.getPnid());
 this.setPnid(purchase.getPnid());
 this.setPndate(purchase.getPndate());
+
+
+SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+sdate=sdf.format(pndate);
+//System.out.println(sdate);
+
+
 this.setPnuse(purchase.getPnuse());
 this.setPnstate(purchase.getPnstate());
 

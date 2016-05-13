@@ -145,7 +145,7 @@ public String createPurDetail(){//增加信息
 			  return "success";
 			  
 		}
-public String selectPurdetailById(){//显示当前用户		
+public String selectPurdetailById(){//显示当前	
 	purDetail = purdetailservice.findPurDetailById(this.getPdid());
 	this.setAtype(purDetail.getAtype());
 	this.setPdcount(purDetail.getPdcount());
@@ -160,7 +160,7 @@ public String selectPurdetailById(){//显示当前用户
 return "success";
 }
 
-public String updatePurDetail(){//更新用户
+public String updatePurDetail(){//更新
 	
 	
 	purDetail.setPdid(this.getPdid());

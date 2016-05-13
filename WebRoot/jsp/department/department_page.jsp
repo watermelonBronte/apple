@@ -165,7 +165,7 @@ function submitFrom(formName){
             <h3 id="myModalLabel">删除确认</h3>
         </div>
         <div class="modal-body">
-            <p class="error-text"><i class="fa fa-warning modal-icon"></i>确定删除用户?</p>
+            <p class="error-text"><i class="fa fa-warning modal-icon"></i>确定删除部门信息?</p>
         </div>
         <div class="modal-footer">
             <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">取消</button>
