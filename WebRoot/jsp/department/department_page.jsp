@@ -47,11 +47,11 @@ function submitFrom(formName){
 
 	</head>
 
-	<body class=" theme-blue" style="width:993px"><!--
+	<body class=" theme-blue" style="width:993px">
 	
 		<a href="asset_category/test_AssetCategory_home.action">主界面</a>
 		
-		-->
+		
 		<script type="text/javascript">
         $(function() {
             var match = document.cookie.match(new RegExp('color=([^;]+)'));
