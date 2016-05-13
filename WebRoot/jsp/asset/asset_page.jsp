@@ -207,10 +207,16 @@ function submitFrom(formName){
 			<!--<input type="text" name="adate" value="1" />-->
 			<br />
 			入库状态
-			<input type="radio" name="astate" value="1" />
-			是
-			<input type="radio" name="astate" value="2" checked="checked" />
-			否
+			<input type="radio" name="astate" value="0"  checked="checked" />
+			库存
+			<input type="radio" name="astate" value="1"/>
+			在用
+			<input type="radio" name="astate" value="2"/>
+			故障
+			<input type="radio" name="astate" value="3"/>
+			报废
+			<input type="radio" name="astate" value="-1"/>
+			删除
 			<br />
 			采购单ID
 			<input type="text" name="purchaseNote.pnid" value="1" />
