@@ -129,18 +129,18 @@ document.getElementById("myframe").src=href;
      <li><a href="#" data-target=".accounts-menu" class="nav-header" data-toggle="collapse"><i class="fa fa-fw fa-briefcase"></i> 资产管理 <i class="fa fa-collapse"></i></a></li>
     <li><ul class="accounts-menu nav nav-list collapse">
           
-      <li><a href="#"><span class="fa fa-caret-right"></span> 资产列表</a></li>      
- <li ><a href="#"><span class="fa fa-caret-right"></span> 财务入账</a></li>
+      <li><a href="javascript:void(0);" onclick="changeSrc('../../asset/asset_Asset_pageAsset.action','资产列表')"><span class="fa fa-caret-right"></span> 资产列表</a></li>      
+ <li ><a href="javascript:void(0);" onclick="changeSrc('../../finance/finance_Finance_pageFinance.action','财务入账')"><span class="fa fa-caret-right"></span> 财务入账</a></li>
 
             
 
                
-                    <li ><a href="#"><span class="fa fa-caret-right"></span> 资产调拨</a></li>
-                      <li ><a href="#"><span class="fa fa-caret-right"></span> 资产报废</a></li>
-                        <li ><a href="#"><span class="fa fa-caret-right"></span> 资产维修</a></li>
-                        <li ><a href="#"><span class="fa fa-caret-right"></span> 资产移交</a></li>
-                        <li ><a href="#"><span class="fa fa-caret-right"></span> 资产盘点</a></li>
-                         <li ><a href="#"><span class="fa fa-caret-right"></span> 领用归还</a></li>
+                    <li ><a href="javascript:void(0);" onclick="changeSrc('../../transBills/transBills_TransBills_pageTransBills.action','资产调拨')"><span class="fa fa-caret-right"></span> 资产调拨</a></li>
+                      <li ><a href="javascript:void(0);" onclick="changeSrc('../../scrap/scrap_Scrap_pageScrap.action','资产报废')"><span class="fa fa-caret-right"></span> 资产报废</a></li>
+                        <li ><a href="javascript:void(0);" onclick="changeSrc('../../repairs/repairs_Repairs_pageRepairs.action','资产维修')"><span class="fa fa-caret-right"></span> 资产维修</a></li>
+                        <!--<li ><a href="javascript:void(0);" onclick="changeSrc('../../finance/finance_Finance_pageFinance.action','财务入账')"><span class="fa fa-caret-right"></span> 资产移交</a></li>
+                        <li ><a href="javascript:void(0);" onclick="changeSrc('../../finance/finance_Finance_pageFinance.action','财务入账')"><span class="fa fa-caret-right"></span> 资产盘点</a></li>-->
+                         <li ><a href="javascript:void(0);" onclick="changeSrc('../../queryReturn.action','领用归还')"><span class="fa fa-caret-right"></span> 领用归还</a></li>
     </ul></li>
 
     <li  ><a href="#" data-target=".premium-menu" class="nav-header collapsed" data-toggle="collapse"><i class="fa fa-fw fa-fighter-jet"></i> 统计报表<i class="fa fa-collapse"></i></a></li>

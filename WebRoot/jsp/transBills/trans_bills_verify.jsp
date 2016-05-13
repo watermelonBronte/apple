@@ -44,10 +44,10 @@
 			<br />
 			调入人ID
 			<input type="text" name="userByInuid.uid" />
-			<br />
+			<br /><!--
 			调入时间
-			<!--<input type="text" name="outdate" value="123" />-->
-			<br />
+			--><!--<input type="text" name="outdate" value="123" />-->
+			<!--<br />-->
 			状态
 			<s:if test="tbstate==0">
 				<input type="radio" name="tbstate" value="0" checked="checked" />

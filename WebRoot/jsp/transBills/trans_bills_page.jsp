@@ -46,10 +46,7 @@ function submitFrom(formName){
 	</head>
 
 	<body>
-		<br />
-		<a href="asset_category/test_AssetCategory_home.action">主界面</a>
-
-		<br />
+	
 		<h1>
 			调拨单列表
 		</h1>
@@ -150,10 +147,10 @@ function submitFrom(formName){
 			<br />
 			调出人ID
 			<input type="text" name="userByOutuid.uid" value="1" />
-			<br />
+			<br /><!--
 			调出时间
-			<!--<input type="text" name="outdate" value="123" />-->
-			<br/>
+			--><!--<input type="text" name="outdate" value="123" />-->
+			<!--<br/>-->
 			调出事由
 			<input type="text" name="outname" value="1" />
 			<br />

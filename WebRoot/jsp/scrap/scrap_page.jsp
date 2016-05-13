@@ -46,10 +46,7 @@ function submitFrom(formName){
 	</head>
 
 	<body>
-		<br />
-		<a href="asset_category/test_AssetCategory_home.action">主界面</a>
-
-		<br />
+		
 		<h1>
 			报废单列表
 		</h1>

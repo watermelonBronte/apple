@@ -47,12 +47,15 @@ function submitFrom(formName){
 
 	</head>
 
-	<body class=" theme-blue" style="width:993px">
+	<body class=" theme-blue" style="width:993px"><!--
+<<<<<<< HEAD
 	
 		<a href="asset_category/test_AssetCategory_home.action">主界面</a>
 		
 		
-		<script type="text/javascript">
+=======
+>>>>>>> 31a60e2501c2f6410404d183870dc4f7e462e58d
+		--><script type="text/javascript">
         $(function() {
             var match = document.cookie.match(new RegExp('color=([^;]+)'));
             if(match) var color = match[1];
