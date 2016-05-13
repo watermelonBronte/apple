@@ -21,6 +21,7 @@ import com.mars.tools.IPage;
 import com.mars.vo.Asset;
 import com.mars.vo.AssetCategory;
 import com.mars.vo.Finance;
+import com.mars.vo.PurchaseDetail;
 import com.mars.vo.PurchaseNote;
 import com.mars.vo.User;
 
@@ -278,7 +279,7 @@ public class AssetDao extends HibernateDaoSupport implements
 	}
 	
 	@SuppressWarnings("unchecked")
-	public List<Asset> findAllAssetByPurchaseNote(final IPage pageInfo, final PurchaseNote pn) {
+	public List<Asset> findAllAssetByPurchaseDetail(final IPage pageInfo, final PurchaseDetail pd) {
 		return (List<Asset>) super.getHibernateTemplate().execute(
 				new HibernateCallback() {
 
@@ -289,7 +290,7 @@ public class AssetDao extends HibernateDaoSupport implements
 						List<Asset> list = new ArrayList<Asset>();
 						try {
 							Criteria criteria = session
-									.createCriteria(Asset.class).add(Restrictions.eq("purchaseNote",pn)) ;
+									.createCriteria(Asset.class).add(Restrictions.eq("purchaseDetail",pd)) ;
 							IExecute exc = new Execute(pageInfo);
 							pages = exc.excute(criteria);
 							if (pages != null) {
@@ -338,10 +339,10 @@ public class AssetDao extends HibernateDaoSupport implements
 				new Integer(fid));
          return finance;
 	}
-	public PurchaseNote findPurchaseNoteById(Integer pnid) {
-		PurchaseNote purchaseNote = (PurchaseNote) super
-		.getHibernateTemplate().get(PurchaseNote.class,
-				new Integer(pnid));
-         return purchaseNote;
+	public PurchaseDetail findPurchaseDetailById(Integer pdid) {
+		PurchaseDetail pd = (PurchaseDetail) super
+		.getHibernateTemplate().get(PurchaseDetail.class,
+				new Integer(pdid));
+         return pd;
 	}
 }

@@ -37,5 +37,11 @@
         <property name="pdprice" type="java.lang.Float">
             <column name="pdprice" precision="12" scale="0" />
         </property>
+        <set name="assets" inverse="true">
+            <key>
+                <column name="pdid" />
+            </key>
+            <one-to-many class="com.mars.vo.Asset" />
+        </set>
     </class>
 </hibernate-mapping>

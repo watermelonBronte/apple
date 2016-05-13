@@ -98,9 +98,7 @@ function submitFrom(formName){
 					<td class="left_bt2" align="center" width="10%">
 						财务入账人名称
 					</td>
-					<td class="left_bt2" align="center" width="10%">
-						采购人名称
-					</td>
+					
 					<td class="left_bt2" align="center" width="10%">
 						库存状态
 					</td>
@@ -126,9 +124,7 @@ function submitFrom(formName){
 						<td align="center" class="left_txt">
 							${a.finance.user.uname}
 						</td>
-						<td align="center" class="left_txt">
-							${a.purchaseNote.user.uname}
-						</td>
+						
 						<td align="center" class="left_txt">
 							<!--0 库存 1 在用 2 故障 3 报废 -1 删除-->
 							<s:if test="%{#a.astate==0}">库存</s:if>
@@ -218,8 +214,8 @@ function submitFrom(formName){
 			<input type="radio" name="astate" value="-1"/>
 			删除
 			<br />
-			采购单ID
-			<input type="text" name="purchaseNote.pnid" value="1" />
+			采购清单ID
+			<input type="text" name="purchaseDetail.pdid" value="1" />
 			<br />
 			是否打印标签
 			<input type="radio" name="tprint" value="1" />

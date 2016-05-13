@@ -1,5 +1,8 @@
 package com.mars.vo;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * PurchaseDetail entity. @author MyEclipse Persistence Tools
  */
@@ -18,6 +21,7 @@ public class PurchaseDetail implements java.io.Serializable {
 	private String pdprovider;
 	private String pdunit;
 	private Float pdprice;
+	private Set assets = new HashSet(0);
 
 	// Constructors
 
@@ -28,7 +32,7 @@ public class PurchaseDetail implements java.io.Serializable {
 	/** full constructor */
 	public PurchaseDetail(User user, PurchaseNote purchaseNote, String aname,
 			String atype, Integer pdcount, String pdmarker, String pdprovider,
-			String pdunit, Float pdprice) {
+			String pdunit, Float pdprice, Set assets) {
 		this.user = user;
 		this.purchaseNote = purchaseNote;
 		this.aname = aname;
@@ -38,6 +42,7 @@ public class PurchaseDetail implements java.io.Serializable {
 		this.pdprovider = pdprovider;
 		this.pdunit = pdunit;
 		this.pdprice = pdprice;
+		this.assets = assets;
 	}
 
 	// Property accessors
@@ -120,6 +125,14 @@ public class PurchaseDetail implements java.io.Serializable {
 
 	public void setPdprice(Float pdprice) {
 		this.pdprice = pdprice;
+	}
+
+	public Set getAssets() {
+		return this.assets;
+	}
+
+	public void setAssets(Set assets) {
+		this.assets = assets;
 	}
 
 }

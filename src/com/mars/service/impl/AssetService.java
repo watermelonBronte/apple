@@ -15,6 +15,7 @@ import com.mars.tools.IPage;
 import com.mars.vo.Asset;
 import com.mars.vo.AssetCategory;
 import com.mars.vo.Finance;
+import com.mars.vo.PurchaseDetail;
 import com.mars.vo.PurchaseNote;
 import com.mars.vo.User;
 
@@ -124,14 +125,14 @@ public class AssetService implements IAssetService {
 		Finance finance = assetDao.findFinanceById(fid);
 		return finance;
 	}
-	public List<Asset> findAllAssetByPurchaseNote(IPage pageInfo, PurchaseNote pn) {
-		List<Asset> list = assetDao.findAllAssetByPurchaseNote(pageInfo,pn);
+	public List<Asset> findAllAssetByPurchaseDetail(IPage pageInfo, PurchaseDetail pd) {
+		List<Asset> list = assetDao.findAllAssetByPurchaseDetail(pageInfo,pd);
 		return list;
 	}
 
-	public PurchaseNote findPurchaseNoteById(Integer pnid) {
-		PurchaseNote purchaseNote = assetDao.findPurchaseNoteById(pnid);
-		return purchaseNote;
+	public PurchaseDetail findPurchaseDetailById(Integer pdid) {
+		PurchaseDetail pd = assetDao.findPurchaseDetailById(pdid);
+		return pd;
 	}
 	
 	

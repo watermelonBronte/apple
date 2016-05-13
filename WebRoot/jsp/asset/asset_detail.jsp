@@ -116,30 +116,38 @@
 		<br />
 		<hr />
 		<h3>
-			采购单
+			采购清单
 		</h3>
-		采购部门
-		<input type="text" name="purchaseNote.department.did"
-			value="${purchaseNote.user.department.dname}" />
+		资产名称
+		<input type="text" name="purchaseDetail.aname"
+			value="${purchaseDetail.aname}" />
 		<br />
-		采购人名称
-		<input type="text" name="purchaseNote.user.uname"
-			value="${purchaseNote.user.uname}" />
+		资产型号
+		<input type="text" name="purchaseDetail.atype"
+			value="${purchaseDetail.atype}" />
 		<br />
-		采购时间
-		<input type="text" name="purchaseNote.pndate"
-			value="${purchaseNote.pndate}" />
+		数量
+		<input type="text" name="purchaseDetail.pdcount"
+			value="${purchaseDetail.pdcount}" />
 		<br />
-		采购用途
-		<input type="text" name="purchaseNote.pnuse"
-			value="${purchaseNote.pnuse}" />
+		单位
+		<input type="text" name="purchaseDetail.pdunit"
+			value="${purchaseDetail.pdunit}" />
 		<br />
-		采购状态
-		<input type="text" name="purchaseNote.pnstate"
-			value="${purchaseNote.pnstate}" />
+		单价
+		<input type="text" name="purchaseDetail.pdprice"
+			value="${purchaseDetail.pdprice}" />
 		<br />
-		<a href="searchPurDetail.action?pnid=${purchaseNote.pnid}">采购明细单</a>
-							
+		制造商
+		<input type="text" name="purchaseDetail.pdmarker"
+			value="${purchaseDetail.pdmarker}" />
+		<br />
+		提供商
+		<input type="text" name="purchaseDetail.pdprovider"
+			value="${purchaseDetail.pdprovider}" />
+		<br />		
+		
+		<a href="asset/asset_Asset_pageAsset.action">返回</a>			
 		<!--<input type="submit" value="更新" />
 		</form>
 

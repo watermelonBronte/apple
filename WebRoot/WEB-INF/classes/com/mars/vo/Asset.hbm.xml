@@ -19,8 +19,8 @@
         <many-to-one name="assetCategory" class="com.mars.vo.AssetCategory" fetch="select" lazy="false">
             <column name="acid" />
         </many-to-one>
-        <many-to-one name="purchaseNote" class="com.mars.vo.PurchaseNote" fetch="select" lazy="false">
-            <column name="pnid" />
+        <many-to-one name="purchaseDetail" class="com.mars.vo.PurchaseDetail" fetch="select" lazy="false">
+            <column name="pdid" />
         </many-to-one>
         <property name="cid" type="java.lang.String">
             <column name="cid" length="50" />
