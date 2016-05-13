@@ -16,7 +16,7 @@ public class Asset implements java.io.Serializable {
 	private User user;
 	private Finance finance;
 	private AssetCategory assetCategory;
-	private PurchaseNote purchaseNote;
+	private PurchaseDetail purchaseDetail;
 	private String cid;
 	private Date adate;
 	private Integer astate;
@@ -30,7 +30,7 @@ public class Asset implements java.io.Serializable {
 	private Set repairses = new HashSet(0);
 	private Set transBillses = new HashSet(0);
 	private Set scraps = new HashSet(0);
-	private Set assetTransDetails = new HashSet(0);
+	private Set assetTranses = new HashSet(0);
 
 	// Constructors
 
@@ -40,14 +40,14 @@ public class Asset implements java.io.Serializable {
 
 	/** full constructor */
 	public Asset(User user, Finance finance, AssetCategory assetCategory,
-			PurchaseNote purchaseNote, String cid, Date adate, Integer astate,
-			Integer tprint, String onepath, String twopath, String barcode,
-			String anote, Set checkDetails, Set assetReturns, Set repairses,
-			Set transBillses, Set scraps, Set assetTransDetails) {
+			PurchaseDetail purchaseDetail, String cid, Date adate,
+			Integer astate, Integer tprint, String onepath, String twopath,
+			String barcode, String anote, Set checkDetails, Set assetReturns,
+			Set repairses, Set transBillses, Set scraps, Set assetTranses) {
 		this.user = user;
 		this.finance = finance;
 		this.assetCategory = assetCategory;
-		this.purchaseNote = purchaseNote;
+		this.purchaseDetail = purchaseDetail;
 		this.cid = cid;
 		this.adate = adate;
 		this.astate = astate;
@@ -61,7 +61,7 @@ public class Asset implements java.io.Serializable {
 		this.repairses = repairses;
 		this.transBillses = transBillses;
 		this.scraps = scraps;
-		this.assetTransDetails = assetTransDetails;
+		this.assetTranses = assetTranses;
 	}
 
 	// Property accessors
@@ -98,12 +98,12 @@ public class Asset implements java.io.Serializable {
 		this.assetCategory = assetCategory;
 	}
 
-	public PurchaseNote getPurchaseNote() {
-		return this.purchaseNote;
+	public PurchaseDetail getPurchaseDetail() {
+		return this.purchaseDetail;
 	}
 
-	public void setPurchaseNote(PurchaseNote purchaseNote) {
-		this.purchaseNote = purchaseNote;
+	public void setPurchaseDetail(PurchaseDetail purchaseDetail) {
+		this.purchaseDetail = purchaseDetail;
 	}
 
 	public String getCid() {
@@ -210,12 +210,12 @@ public class Asset implements java.io.Serializable {
 		this.scraps = scraps;
 	}
 
-	public Set getAssetTransDetails() {
-		return this.assetTransDetails;
+	public Set getAssetTranses() {
+		return this.assetTranses;
 	}
 
-	public void setAssetTransDetails(Set assetTransDetails) {
-		this.assetTransDetails = assetTransDetails;
+	public void setAssetTranses(Set assetTranses) {
+		this.assetTranses = assetTranses;
 	}
 
 }

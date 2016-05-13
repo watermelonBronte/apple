@@ -16,6 +16,9 @@
         <many-to-one name="purchaseNote" class="com.mars.vo.PurchaseNote" fetch="select" lazy="false">
             <column name="pnid" />
         </many-to-one>
+        <property name="aname" type="java.lang.String">
+            <column name="aname" length="500" />
+        </property>
         <property name="atype" type="java.lang.String">
             <column name="atype" length="200" />
         </property>
@@ -34,5 +37,11 @@
         <property name="pdprice" type="java.lang.Float">
             <column name="pdprice" precision="12" scale="0" />
         </property>
+        <set name="assets" inverse="true">
+            <key>
+                <column name="pdid" />
+            </key>
+            <one-to-many class="com.mars.vo.Asset" />
+        </set>
     </class>
 </hibernate-mapping>

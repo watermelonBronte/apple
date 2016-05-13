@@ -80,7 +80,7 @@ public class CheckedDao extends HibernateDaoSupport implements
 	 * @see com.mars.dao.ICheckedDao#deleteChecked(java.lang.Integer)
 	 */
 	public void deleteChecked(Integer cid) {
-		Checked checked = (Checked) super.getHibernateTemplate().load(
+		Checked checked = (Checked) super.getHibernateTemplate().get(
 				Checked.class, new Integer(cid));
 		super.getHibernateTemplate().delete(checked);
 

@@ -41,7 +41,7 @@ public class ParameterDao extends HibernateDaoSupport implements IParameterDao {
 	 * @see com.mars.dao.IParameterDao#deleteParameter(com.mars.vo.Parameter)
 	 */
 	public void deleteParameter(Integer pid) {
-		Parameter parameter = (Parameter) super.getHibernateTemplate().load(
+		Parameter parameter = (Parameter) super.getHibernateTemplate().get(
 				Parameter.class, new Integer(pid));
 		super.getHibernateTemplate().delete(parameter);
 	}

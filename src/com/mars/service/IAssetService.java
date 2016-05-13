@@ -10,6 +10,7 @@ import com.mars.tools.IPage;
 import com.mars.vo.Asset;
 import com.mars.vo.AssetCategory;
 import com.mars.vo.Finance;
+import com.mars.vo.PurchaseDetail;
 import com.mars.vo.PurchaseNote;
 import com.mars.vo.User;
 
@@ -98,14 +99,14 @@ public interface IAssetService {
 	 * @param pn
 	 * @return
 	 */
-	public List<Asset> findAllAssetByPurchaseNote(IPage pageInfo,PurchaseNote pn);
+	public List<Asset> findAllAssetByPurchaseDetail(IPage pageInfo,PurchaseDetail pd);
 	
 	/**
 	 * 
 	 * @param pnid
 	 * @return
 	 */
-	public PurchaseNote findPurchaseNoteById(Integer pnid);
+	public PurchaseDetail findPurchaseDetailById(Integer pdid);
 	
 	/**
 	 * excel

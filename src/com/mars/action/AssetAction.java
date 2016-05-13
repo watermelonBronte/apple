@@ -18,7 +18,7 @@ import com.mars.vo.Asset;
 import com.mars.vo.AssetCategory;
 import com.mars.vo.Department;
 import com.mars.vo.Finance;
-import com.mars.vo.PurchaseNote;
+import com.mars.vo.PurchaseDetail;
 import com.mars.vo.User;
 import com.opensymphony.xwork2.ActionSupport;
 import com.sun.org.apache.bcel.internal.generic.NEW;
@@ -59,7 +59,7 @@ public class AssetAction extends ActionSupport {
 	private User user;
 	private Finance finance;
 	private AssetCategory assetCategory;
-	private PurchaseNote purchaseNote;
+	private PurchaseDetail purchaseDetail;
 	private String cid;
 	private Integer usestate;
 	private Date adate;
@@ -134,12 +134,14 @@ public class AssetAction extends ActionSupport {
 		this.assetCategory = assetCategory;
 	}
 
-	public PurchaseNote getPurchaseNote() {
-		return purchaseNote;
+	
+
+	public PurchaseDetail getPurchaseDetail() {
+		return purchaseDetail;
 	}
 
-	public void setPurchaseNote(PurchaseNote purchaseNote) {
-		this.purchaseNote = purchaseNote;
+	public void setPurchaseDetail(PurchaseDetail purchaseDetail) {
+		this.purchaseDetail = purchaseDetail;
 	}
 
 	public String getCid() {
@@ -249,9 +251,9 @@ public class AssetAction extends ActionSupport {
 			return "pageAsset";
 		}
 		else {
-			purchaseNote = assetService.findPurchaseNoteById(this.getValue());
+			purchaseDetail = assetService.findPurchaseDetailById(this.getValue());
 			this.getPageInfo().setResult(
-					(assetService.findAllAssetByPurchaseNote(pageInfo, purchaseNote)));
+					(assetService.findAllAssetByPurchaseDetail(pageInfo, purchaseDetail)));
 
 			return "pageAsset";
 		}
@@ -290,7 +292,7 @@ public class AssetAction extends ActionSupport {
 		Date date = new Date();
 		Timestamp nousedate = new Timestamp(date.getTime());
 		asset.setAdate(nousedate);
-		asset.setPurchaseNote(assetService.findPurchaseNoteById(this.getPurchaseNote().getPnid()));
+		asset.setPurchaseDetail(assetService.findPurchaseDetailById(this.getPurchaseDetail().getPdid()));
 		asset.setTprint(this.getTprint());
 		asset.setOnepath(this.getOnepath());
 		asset.setTwopath(this.getTwopath());
@@ -333,7 +335,7 @@ public class AssetAction extends ActionSupport {
 		Date date = new Date();
 		Timestamp nousedate = new Timestamp(date.getTime());
 		asset.setAdate(nousedate);
-		asset.setPurchaseNote(assetService.findPurchaseNoteById(this.getPurchaseNote().getPnid()));
+		asset.setPurchaseDetail(assetService.findPurchaseDetailById(this.getPurchaseDetail().getPdid()));
 		asset.setTprint(this.getTprint());
 		asset.setOnepath(this.getOnepath());
 		asset.setTwopath(this.getTwopath());
@@ -371,7 +373,7 @@ public class AssetAction extends ActionSupport {
 		this.setFinance(asset.getFinance());
 		this.setAdate(asset.getAdate());
 		this.setAstate(asset.getAstate());
-		this.setPurchaseNote(asset.getPurchaseNote());
+		this.setPurchaseDetail(asset.getPurchaseDetail());
 		this.setTprint(asset.getTprint());
 		this.setOnepath(asset.getOnepath());
 		this.setTwopath(asset.getTwopath());

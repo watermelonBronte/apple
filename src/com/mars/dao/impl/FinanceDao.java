@@ -77,7 +77,7 @@ public class FinanceDao extends HibernateDaoSupport implements
 	 * @see com.mars.dao.IFinanceDao#deleteFinance(java.lang.Integer)
 	 */
 	public void deleteFinance(Integer fid) {
-		Finance finance = (Finance) super.getHibernateTemplate().load(
+		Finance finance = (Finance) super.getHibernateTemplate().get(
 				Finance.class, new Integer(fid));
 		super.getHibernateTemplate().delete(finance);
 

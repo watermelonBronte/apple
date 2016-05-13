@@ -64,11 +64,11 @@
             </key>
             <one-to-many class="com.mars.vo.Checked" />
         </set>
-        <set name="assetTransDetails" inverse="true">
+        <set name="assetTransesForUid_1" inverse="true">
             <key>
                 <column name="uid" />
             </key>
-            <one-to-many class="com.mars.vo.AssetTransDetail" />
+            <one-to-many class="com.mars.vo.AssetTrans" />
         </set>
         <set name="purchaseDetails" inverse="true">
             <key>

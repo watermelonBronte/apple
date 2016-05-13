@@ -28,11 +28,5 @@
             </key>
             <one-to-many class="com.mars.vo.PurchaseDetail" />
         </set>
-        <set name="assets" inverse="true">
-            <key>
-                <column name="pnid" />
-            </key>
-            <one-to-many class="com.mars.vo.Asset" />
-        </set>
     </class>
 </hibernate-mapping>

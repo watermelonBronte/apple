@@ -78,7 +78,7 @@ public class RepairsDao extends HibernateDaoSupport implements
 	 * @see com.mars.dao.IRepairsDao#deleteRepairs(java.lang.Integer)
 	 */
 	public void deleteRepairs(Integer reid) {
-		Repairs repairs = (Repairs) super.getHibernateTemplate().load(
+		Repairs repairs = (Repairs) super.getHibernateTemplate().get(
 				Repairs.class, new Integer(reid));
 		super.getHibernateTemplate().delete(repairs);
 

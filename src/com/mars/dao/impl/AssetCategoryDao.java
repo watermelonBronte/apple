@@ -115,7 +115,7 @@ public class AssetCategoryDao extends HibernateDaoSupport implements
 	 */
 	public void deleteAssetCategory(Integer acid) {
 		AssetCategory assetCategory = (AssetCategory) super
-				.getHibernateTemplate().load(AssetCategory.class,
+				.getHibernateTemplate().get(AssetCategory.class,
 						new Integer(acid));
 		super.getHibernateTemplate().delete(assetCategory);
 

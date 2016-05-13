@@ -1,5 +1,8 @@
 package com.mars.vo;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * PurchaseDetail entity. @author MyEclipse Persistence Tools
  */
@@ -11,12 +14,14 @@ public class PurchaseDetail implements java.io.Serializable {
 	private Integer pdid;
 	private User user;
 	private PurchaseNote purchaseNote;
+	private String aname;
 	private String atype;
 	private Integer pdcount;
 	private String pdmarker;
 	private String pdprovider;
 	private String pdunit;
 	private Float pdprice;
+	private Set assets = new HashSet(0);
 
 	// Constructors
 
@@ -25,17 +30,19 @@ public class PurchaseDetail implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public PurchaseDetail(User user, PurchaseNote purchaseNote, String atype,
-			Integer pdcount, String pdmarker, String pdprovider, String pdunit,
-			Float pdprice) {
+	public PurchaseDetail(User user, PurchaseNote purchaseNote, String aname,
+			String atype, Integer pdcount, String pdmarker, String pdprovider,
+			String pdunit, Float pdprice, Set assets) {
 		this.user = user;
 		this.purchaseNote = purchaseNote;
+		this.aname = aname;
 		this.atype = atype;
 		this.pdcount = pdcount;
 		this.pdmarker = pdmarker;
 		this.pdprovider = pdprovider;
 		this.pdunit = pdunit;
 		this.pdprice = pdprice;
+		this.assets = assets;
 	}
 
 	// Property accessors
@@ -62,6 +69,14 @@ public class PurchaseDetail implements java.io.Serializable {
 
 	public void setPurchaseNote(PurchaseNote purchaseNote) {
 		this.purchaseNote = purchaseNote;
+	}
+
+	public String getAname() {
+		return this.aname;
+	}
+
+	public void setAname(String aname) {
+		this.aname = aname;
 	}
 
 	public String getAtype() {
@@ -110,6 +125,14 @@ public class PurchaseDetail implements java.io.Serializable {
 
 	public void setPdprice(Float pdprice) {
 		this.pdprice = pdprice;
+	}
+
+	public Set getAssets() {
+		return this.assets;
+	}
+
+	public void setAssets(Set assets) {
+		this.assets = assets;
 	}
 
 }
