@@ -23,17 +23,17 @@ public class FinanceAction extends ActionSupport {
 
 	private IFinanceService financeService;
 	protected IPage pageInfo = new PageInfo();
-
+	private List<User> userList = new ArrayList<User>();
+	
 	private String result;
 	private Integer fid;
 	private User user;
 	private String fcode;
 	private Integer fenter;
-	private Timestamp fdate;
+	private Date fdate;
 
 	private Finance finance = new Finance();
-	private List<Finance> financeList = new ArrayList<Finance>();
-
+	
 	public Integer getFid() {
 		return fid;
 	}
@@ -66,11 +66,11 @@ public class FinanceAction extends ActionSupport {
 		this.fenter = fenter;
 	}
 
-	public Timestamp getFdate() {
+	public Date getFdate() {
 		return fdate;
 	}
 
-	public void setFdate(Timestamp fdate) {
+	public void setFdate(Date fdate) {
 		this.fdate = fdate;
 	}
 
@@ -106,21 +106,16 @@ public class FinanceAction extends ActionSupport {
 		this.financeService = financeService;
 	}
 
-	/**
-	 * 返回主界面
-	 * 
-	 * @return
-	 */
-	public String home() {
-		return "home";
+
+
+	
+
+	public List<User> getUserList() {
+		return userList;
 	}
 
-	public List<Finance> getFinanceList() {
-		return financeList;
-	}
-
-	public void setFinanceList(List<Finance> financeList) {
-		this.financeList = financeList;
+	public void setUserList(List<User> userList) {
+		this.userList = userList;
 	}
 
 	/**
@@ -130,12 +125,7 @@ public class FinanceAction extends ActionSupport {
 	 */
 
 	public String addFinance() {
-		// this.getPageInfo().setResult(financeService.findAll());
-		// this.setFinance(financeService.findFinance());
-		// financeService.findFinance();
-
-		// System.out.println(Finance.getAccode());
-		// this.setFinanceList(financeList);
+		userList = financeService.findUser();
 		return "addFinance";
 	}
 
@@ -145,17 +135,12 @@ public class FinanceAction extends ActionSupport {
 	 * @return
 	 */
 	public String createFinance() {
-		// Finance.setAccode(getAccode());
+		
 		finance.setFcode(this.getFcode());
-		// Date date = new Date();
-		// Timestamp nousedate = new Timestamp(date.getTime());
-		// finance.setFdate(nousedate);
-		finance.setFdate(this.getFdate());
-		// System.out.println(this.getUser().getUid()+"=====");
 		// 将方法写入同一个Service
 		finance.setUser(financeService.findUserById(this.getUser().getUid()));
-
 		finance.setFenter(this.getFenter());
+		finance.setFdate(this.getFdate());
 		financeService.createFinance(finance);
 		this.setResult("创建");
 		return "successFinance";

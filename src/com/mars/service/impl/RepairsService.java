@@ -107,4 +107,12 @@ public class RepairsService implements IRepairsService {
 		return asset;
 	}
 
+	public List<Asset> findAsset() {
+		return repairsDao.findAsset();
+	}
+
+	public List<User> findUser() {
+		return repairsDao.findUser();
+	}
+
 }

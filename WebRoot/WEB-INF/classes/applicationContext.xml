@@ -45,7 +45,7 @@
 				<value>com/mars/vo/TransBills.hbm.xml</value>
 				<value>com/mars/vo/PurchaseNote.hbm.xml</value>
 				<value>com/mars/vo/Finance.hbm.xml</value>
-			</list>
+				<value>com/mars/vo/AssetTransDetail.hbm.xml</value></list>
 		</property>
 	</bean>
 	<!-- task manager -->
@@ -338,7 +338,7 @@
 
 	<!-- 盘点end -->
 		<!-- 移交start -->
-	<!-- dao --><!--
+	<!-- dao -->
 	<bean id="assetTransDao" class="com.mars.dao.impl.AssetTransDao">
 		<property name="sessionFactory">
 			<ref local="sessionFactory" />
@@ -354,6 +354,43 @@
 		<property name="assetTransService" ref="assetTransService" />
 	</bean>
 
-	--><!-- 移交end -->
+	<!-- 移交end -->
+		<!-- 移交清单start -->
+	<!-- dao -->
+	<bean id="assetTransDetailDao" class="com.mars.dao.impl.AssetTransDetailDao">
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+	 Service 
+	<bean id="assetTransDetailService" class="com.mars.service.impl.AssetTransDetailService">
+		<property name="assetTransDetailDao" ref="assetTransDetailDao" />
+	</bean>
+	 Action 
+	<bean id="AssetTransDetailAction" class="com.mars.action.AssetTransDetailAction"
+		scope="prototype">
+		<property name="assetTransDetailService" ref="assetTransDetailService" />
+	</bean>
+
+	<!-- 移交清单end -->
+	
+		<!-- 盘点清单start -->
+	<!-- dao -->
+	<bean id="checkDetailDao" class="com.mars.dao.impl.CheckDetailDao">
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+	<!-- Service -->
+	<bean id="checkDetailService" class="com.mars.service.impl.CheckDetailService">
+		<property name="checkDetailDao" ref="checkDetailDao" />
+	</bean>
+	<!-- Action -->
+	<bean id="CheckDetailAction" class="com.mars.action.CheckDetailAction"
+		scope="prototype">
+		<property name="checkDetailService" ref="checkDetailService" />
+	</bean>
+
+	<!-- 盘点清单end -->
 	
 </beans>

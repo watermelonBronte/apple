@@ -24,6 +24,8 @@ public class TransBillsAction extends ActionSupport {
 
 	private ITransBillsService transBillsService;
 	protected IPage pageInfo = new PageInfo();
+	private List<User> userList = new ArrayList<User>();
+	private List<Asset> assetList =new ArrayList<Asset>();
 
 
 	private String result;
@@ -67,6 +69,22 @@ public class TransBillsAction extends ActionSupport {
 
 	public void setResult(String result) {
 		this.result = result;
+	}
+
+	public List<User> getUserList() {
+		return userList;
+	}
+
+	public void setUserList(List<User> userList) {
+		this.userList = userList;
+	}
+
+	public List<Asset> getAssetList() {
+		return assetList;
+	}
+
+	public void setAssetList(List<Asset> assetList) {
+		this.assetList = assetList;
 	}
 
 	public Integer getTbid() {
@@ -156,6 +174,8 @@ public class TransBillsAction extends ActionSupport {
 	 */
 
 	public String addTransBills() {
+		userList = transBillsService.findUser();
+		assetList = transBillsService.findAsset();
 		return "addTransBills";
 	}
 
@@ -229,6 +249,7 @@ public class TransBillsAction extends ActionSupport {
 	 */
 	public String findTransBillsById() {
 
+		userList = transBillsService.findUser();
 		transBills = transBillsService.findTransBillsById(this.getTbid());
 
 		this.setAsset(transBills.getAsset());

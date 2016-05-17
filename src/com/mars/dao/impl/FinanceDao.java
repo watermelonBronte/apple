@@ -131,4 +131,10 @@ public class FinanceDao extends HibernateDaoSupport implements
 		return user;
 	}
 
+	@SuppressWarnings("unchecked")
+	public List<User> findUser() {
+		return (List<User>)getHibernateTemplate().find("from User");
+		
+	}
+
 }

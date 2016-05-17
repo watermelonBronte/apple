@@ -108,10 +108,17 @@ public interface IAssetService {
 	 */
 	public PurchaseDetail findPurchaseDetailById(Integer pdid);
 	
+	
+	/**
+	 * select查找
+	 * @return
+	 */
+	public List<Finance> findFinance() ;
+	public List<PurchaseDetail> findPurchaseDetail() ;
+	public List<User> findUser() ;
+	public List<AssetCategory> findAssetCategory() ;
+	
 	/**
 	 * excel
 	 */
-	
-	
-	
 }

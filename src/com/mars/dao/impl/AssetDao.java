@@ -22,7 +22,6 @@ import com.mars.vo.Asset;
 import com.mars.vo.AssetCategory;
 import com.mars.vo.Finance;
 import com.mars.vo.PurchaseDetail;
-import com.mars.vo.PurchaseNote;
 import com.mars.vo.User;
 
 /**
@@ -344,5 +343,30 @@ public class AssetDao extends HibernateDaoSupport implements
 		.getHibernateTemplate().get(PurchaseDetail.class,
 				new Integer(pdid));
          return pd;
+	}
+	
+	/**
+	 * select
+	 */
+	@SuppressWarnings("unchecked")
+	public List<AssetCategory> findAssetCategory() {
+         return (List<AssetCategory>)getHibernateTemplate().find("from AssetCategory");
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Finance> findFinance() {
+		 return (List<Finance>)getHibernateTemplate().find("from Finance");
+			
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<PurchaseDetail> findPurchaseDetail() {
+		return (List<PurchaseDetail>)getHibernateTemplate().find("from PurchaseDetail");
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<User> findUser() {
+		return (List<User>)getHibernateTemplate().find("from User");
+		
 	}
 }

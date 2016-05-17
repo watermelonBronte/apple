@@ -31,9 +31,46 @@ public class AssetAction extends ActionSupport {
 
 	private IAssetService assetService;
 
+	private List<User> userList = new ArrayList<User>();
+	private List<AssetCategory> assetCategoryList =new ArrayList<AssetCategory>();
+	private List<Finance> financeList = new ArrayList<Finance>();
+	private List<PurchaseDetail> purchaseDetailList = new ArrayList<PurchaseDetail>();
+	
 	protected IPage pageInfo = new PageInfo();
 	protected String attr;
 	protected Integer value;
+
+	public List<AssetCategory> getAssetCategoryList() {
+		return assetCategoryList;
+	}
+
+	public void setAssetCategoryList(List<AssetCategory> assetCategoryList) {
+		this.assetCategoryList = assetCategoryList;
+	}
+
+	public List<User> getUserList() {
+		return userList;
+	}
+
+	public void setUserList(List<User> userList) {
+		this.userList = userList;
+	}
+
+	public List<Finance> getFinanceList() {
+		return financeList;
+	}
+
+	public void setFinanceList(List<Finance> financeList) {
+		this.financeList = financeList;
+	}
+
+	public List<PurchaseDetail> getPurchaseDetailList() {
+		return purchaseDetailList;
+	}
+
+	public void setPurchaseDetailList(List<PurchaseDetail> purchaseDetailList) {
+		this.purchaseDetailList = purchaseDetailList;
+	}
 
 	public String getAttr() {
 		return attr;
@@ -216,14 +253,6 @@ public class AssetAction extends ActionSupport {
 		this.anote = anote;
 	}
 
-	/**
-	 * 返回主界面
-	 * 
-	 * @return
-	 */
-	public String home() {
-		return "home";
-	}
 
 	/**
 	 * 根据属性查找
@@ -270,6 +299,10 @@ public class AssetAction extends ActionSupport {
 
 	public String addAsset() {
 		
+		assetCategoryList = assetService.findAssetCategory();
+		financeList = assetService.findFinance();
+		userList = assetService.findUser();
+		purchaseDetailList = assetService.findPurchaseDetail();
 		return "addAsset";
 	}
 
@@ -391,6 +424,7 @@ public class AssetAction extends ActionSupport {
 	 */
 	public String pageAsset() {
 		this.getPageInfo().setResult((assetService.findAll(pageInfo)));
+          
 
 		return "pageAsset";
 	}

@@ -12,6 +12,7 @@ import com.mars.service.IRepairsService;
 import com.mars.tools.IPage;
 import com.mars.tools.PageInfo;
 import com.mars.vo.Asset;
+import com.mars.vo.AssetCategory;
 import com.mars.vo.Repairs;
 import com.mars.vo.User;
 import com.opensymphony.xwork2.ActionSupport;
@@ -26,8 +27,9 @@ public class RepairsAction extends ActionSupport {
 	protected IPage pageInfo = new PageInfo();
 
 	private Repairs repairs = new Repairs();
-	private List<Repairs> repairsList = new ArrayList<Repairs>();
-
+	private List<User> userList = new ArrayList<User>();
+	private List<Asset> assetList =new ArrayList<Asset>();
+	
 	private String result;
 	private Integer reid;
 	private Asset asset;
@@ -35,6 +37,22 @@ public class RepairsAction extends ActionSupport {
 	private String recondition;
 	private Float reprice;
 	private Integer restate;
+
+	public List<User> getUserList() {
+		return userList;
+	}
+
+	public void setUserList(List<User> userList) {
+		this.userList = userList;
+	}
+
+	public List<Asset> getAssetList() {
+		return assetList;
+	}
+
+	public void setAssetList(List<Asset> assetList) {
+		this.assetList = assetList;
+	}
 
 	public Integer getReid() {
 		return reid;
@@ -116,22 +134,8 @@ public class RepairsAction extends ActionSupport {
 		this.repairsService = repairsService;
 	}
 
-	/**
-	 * 返回主界面
-	 * 
-	 * @return
-	 */
-	public String home() {
-		return "home";
-	}
 
-	public List<Repairs> getRepairsList() {
-		return repairsList;
-	}
-
-	public void setRepairsList(List<Repairs> repairsList) {
-		this.repairsList = repairsList;
-	}
+	
 
 	/**
 	 * 添加界面
@@ -141,6 +145,8 @@ public class RepairsAction extends ActionSupport {
 
 	public String addRepairs() {
 
+		userList = repairsService.findUser();
+		assetList = repairsService.findAsset();
 		return "addRepairs";
 	}
 

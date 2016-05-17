@@ -54,4 +54,11 @@ public interface IFinanceService {
 	 * @return
 	 */
 	public User findUserById(Integer uid);
+	/**
+	 * select查找
+	 * @return
+	 */
+
+	public List<User> findUser() ;
 }
+

@@ -105,4 +105,12 @@ public class TransBillsService implements ITransBillsService {
 		return user;
 	}
 
+	public List<Asset> findAsset() {
+		return transBillsDao.findAsset();
+	}
+
+	public List<User> findUser() {
+		return transBillsDao.findUser();
+	}
+
 }

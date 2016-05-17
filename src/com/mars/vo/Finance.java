@@ -1,6 +1,6 @@
 package com.mars.vo;
 
-import java.sql.Timestamp;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -16,7 +16,7 @@ public class Finance implements java.io.Serializable {
 	private User user;
 	private String fcode;
 	private Integer fenter;
-	private Timestamp fdate;
+	private Date fdate;
 	private Set assets = new HashSet(0);
 
 	// Constructors
@@ -26,7 +26,7 @@ public class Finance implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Finance(User user, String fcode, Integer fenter, Timestamp fdate,
+	public Finance(User user, String fcode, Integer fenter, Date fdate,
 			Set assets) {
 		this.user = user;
 		this.fcode = fcode;
@@ -69,11 +69,11 @@ public class Finance implements java.io.Serializable {
 		this.fenter = fenter;
 	}
 
-	public Timestamp getFdate() {
+	public Date getFdate() {
 		return this.fdate;
 	}
 
-	public void setFdate(Timestamp fdate) {
+	public void setFdate(Date fdate) {
 		this.fdate = fdate;
 	}
 

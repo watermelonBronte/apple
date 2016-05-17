@@ -62,4 +62,11 @@ public interface IAssetTransService {
 	 * @return
 	 */
 	public Asset findAssetById(Integer aid);
+	
+	/**
+	 * select查找
+	 * @return
+	 */
+
+	public List<User> findUser() ;
 }

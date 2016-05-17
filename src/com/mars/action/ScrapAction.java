@@ -35,11 +35,28 @@ public class ScrapAction extends ActionSupport {
 	private Integer scstate;
 	private Scrap scrap = new Scrap();
 	
-	
+	private List<User> userList = new ArrayList<User>();
+	private List<Asset> assetList =new ArrayList<Asset>();
 
 
 
 	
+
+	public List<User> getUserList() {
+		return userList;
+	}
+
+	public void setUserList(List<User> userList) {
+		this.userList = userList;
+	}
+
+	public List<Asset> getAssetList() {
+		return assetList;
+	}
+
+	public void setAssetList(List<Asset> assetList) {
+		this.assetList = assetList;
+	}
 
 	public Integer getScid() {
 		return scid;
@@ -140,6 +157,8 @@ public class ScrapAction extends ActionSupport {
 
 	public String addScrap() {
 
+		userList = scrapService.findUser();
+		assetList = scrapService.findAsset();
 		return "addScrap";
 	}
 
@@ -210,11 +229,13 @@ public class ScrapAction extends ActionSupport {
 	 */
 	public String findScrapById() {
 
+		userList = scrapService.findUser();
+		
 		scrap = scrapService.findScrapById(this.getScid());
 		this.setAsset(scrap.getAsset());
 		this.setUserByUid(scrap.getUserByUid());
-		this.setScdate(this.getScdate());
-		this.setScstate(this.getScstate());
+		this.setScdate(scrap.getScdate());
+		this.setScstate(scrap.getScstate());
 
 
 		return "findScrapById";

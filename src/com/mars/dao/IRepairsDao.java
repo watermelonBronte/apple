@@ -7,6 +7,7 @@ import java.util.List;
 
 import com.mars.tools.IPage;
 import com.mars.vo.Asset;
+import com.mars.vo.AssetCategory;
 import com.mars.vo.Repairs;
 import com.mars.vo.User;
 
@@ -68,4 +69,10 @@ public interface IRepairsDao {
 	 * @return
 	 */
 	public Asset findAssetById(Integer aid);
+	
+	/**
+	 * select
+	 */
+	public List<User> findUser() ;
+	public List<Asset> findAsset() ;
 }

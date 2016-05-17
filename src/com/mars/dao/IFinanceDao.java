@@ -7,6 +7,7 @@ import java.util.List;
 
 import com.mars.tools.IPage;
 import com.mars.vo.Finance;
+import com.mars.vo.PurchaseDetail;
 import com.mars.vo.User;
 
 
@@ -61,4 +62,11 @@ public interface IFinanceDao {
 	 * @return
 	 */
 	public User findUserById(Integer uid);
+	
+	/**
+	 * select查找
+	 * @return
+	 */
+
+	public List<User> findUser() ;
 }

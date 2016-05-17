@@ -107,4 +107,12 @@ public class ScrapService implements IScrapService {
 		return asset;
 	}
 
+	public List<Asset> findAsset() {
+		return scrapDao.findAsset();
+	}
+
+	public List<User> findUser() {
+		return scrapDao.findUser();
+	}
+
 }
