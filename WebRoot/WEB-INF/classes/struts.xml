@@ -269,4 +269,40 @@
 		</action>
 	</package>
 
+
+<package name="checked" extends="struts-default" namespace="/checked">
+		<action name="checked_*_*" class="{1}Action" method="{2}">
+			<result name="pageChecked">/jsp/checked/checked_page.jsp</result>
+			<!--<result name="successChecked">/jsp/checked/checked_success.jsp</result>-->
+			<result name="addChecked">/jsp/checked/checked_add.jsp</result>
+		</action>
+	</package>
+	
+	<package name="checkDetail" extends="struts-default" namespace="/checkDetail">
+		<action name="checkDetail_*_*" class="{1}Action" method="{2}">
+			<result name="pageCheckDetailByCid">/jsp/checked/check_detail_page.jsp</result>
+			<!--<result name="successCheckDetail">/jsp/checkDetail/checkDetail_success.jsp</result>-->
+			<result name="addCheckDetail">/jsp/checked/check_detail_add.jsp</result>
+		<!--<result name="success" type="redirect">/checkDetail/checkDetail_CheckDetail_pageCheckDetail.action
+				</result>
+		--></action>
+	</package>
+	
+	<package name="assetTrans" extends="struts-default" namespace="/assetTrans">
+		<action name="assetTrans_*_*" class="{1}Action" method="{2}">
+			<result name="pageAssetTrans">/jsp/assetTrans/asset_trans_page.jsp</result>
+			<!--<result name="successAssetTrans">/jsp/assetTrans/assetTrans_success.jsp</result>-->
+			<result name="addAssetTrans">/jsp/assetTrans/asset_trans_add.jsp</result>
+		</action>
+	</package>
+		<package name="assetTrans" extends="struts-default" namespace="/assetTrans">
+		<action name="assetTrans_*_*" class="{1}Action" method="{2}">
+			<result name="pageAssetTransByCid">/jsp/assetTrans/asset_trans_detail_page.jsp</result>
+			<!--<result name="successAssetTrans">/jsp/assetTrans/assetTrans_success.jsp</result>-->
+			<result name="addAssetTrans">/jsp/assetTrans/asset_trans_detail_add.jsp</result>
+		<!--<result name="success" type="redirect">/assetTrans/assetTrans_AssetTrans_pageAssetTrans.action
+				</result>
+		--></action>
+	</package>
+	
 </struts>    

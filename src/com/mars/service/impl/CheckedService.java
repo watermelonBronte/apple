@@ -118,4 +118,8 @@ public class CheckedService implements ICheckedService {
 		return cd;
 	}
 
+	public List<User> findUser() {
+		return checkedDao.findUser();
+	}
+
 }

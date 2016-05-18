@@ -9,6 +9,8 @@ import com.mars.tools.IPage;
 import com.mars.vo.Asset;
 import com.mars.vo.CheckDetail;
 import com.mars.vo.Checked;
+import com.mars.vo.Finance;
+import com.mars.vo.PurchaseDetail;
 import com.mars.vo.User;
 
 
@@ -75,4 +77,11 @@ public interface ICheckedDao {
 	 * @return
 	 */
 	public CheckDetail findCheDetailById(Integer cdid);
+	
+	/**
+	 * select查找
+	 * @return
+	 */
+
+	public List<User> findUser() ;
 }

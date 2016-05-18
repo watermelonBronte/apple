@@ -99,7 +99,7 @@ public class PurDetailDao extends HibernateDaoSupport implements IPurDetailDao {
 						IPage pages = null;
 						List<PurchaseDetail> list = new ArrayList<PurchaseDetail>();
 						try {
-				      Criteria criteria = session.createCriteria(PurchaseDetail.class).add(Restrictions.eq("purchaseNote",purchaseNote)) ;;
+				      Criteria criteria = session.createCriteria(PurchaseDetail.class).add(Restrictions.eq("purchaseNote",purchaseNote));
 							IExecute exc = new Execute(pageInfo);
 							pages = exc.excute(criteria);
 							if (pages != null) {

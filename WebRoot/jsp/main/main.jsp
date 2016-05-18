@@ -140,8 +140,8 @@ document.getElementById("myframe").src=href;
                     <li ><a href="javascript:void(0);" onclick="changeSrc('../../transBills/transBills_TransBills_pageTransBills.action','资产调拨')"><span class="fa fa-caret-right"></span> 资产调拨</a></li>
                       <li ><a href="javascript:void(0);" onclick="changeSrc('../../scrap/scrap_Scrap_pageScrap.action','资产报废')"><span class="fa fa-caret-right"></span> 资产报废</a></li>
                         <li ><a href="javascript:void(0);" onclick="changeSrc('../../repairs/repairs_Repairs_pageRepairs.action','资产维修')"><span class="fa fa-caret-right"></span> 资产维修</a></li>
-                        <!--<li ><a href="javascript:void(0);" onclick="changeSrc('../../finance/finance_Finance_pageFinance.action','财务入账')"><span class="fa fa-caret-right"></span> 资产移交</a></li>
-                        <li ><a href="javascript:void(0);" onclick="changeSrc('../../finance/finance_Finance_pageFinance.action','财务入账')"><span class="fa fa-caret-right"></span> 资产盘点</a></li>-->
+                        <li ><a href="javascript:void(0);" onclick="changeSrc('../../assetTrans/assetTrans_AssetTrans_pageAssetTrans.action','资产移交')"><span class="fa fa-caret-right"></span> 资产移交</a></li>
+                        <li ><a href="javascript:void(0);" onclick="changeSrc('../../checked/checked_Checked_pageChecked.action','资产盘点')"><span class="fa fa-caret-right"></span> 资产盘点</a></li>
                          <li ><a href="javascript:void(0);" onclick="changeSrc('../../queryReturn.action','领用归还')"><span class="fa fa-caret-right"></span> 领用归还</a></li>
     </ul></li>
 

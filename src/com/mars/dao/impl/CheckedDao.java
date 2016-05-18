@@ -159,4 +159,9 @@ public class CheckedDao extends HibernateDaoSupport implements
 		return cd;
 	}
 
+	@SuppressWarnings("unchecked")
+	public List<User> findUser() {
+		return (List<User>)getHibernateTemplate().find("from User");
+	}
+
 }
