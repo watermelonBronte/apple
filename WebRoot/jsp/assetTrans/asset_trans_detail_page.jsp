@@ -14,7 +14,7 @@
 
 
 		<base href="<%=basePath%>">
-		<title>盘点清单列表</title>
+		<title>移交清单列表</title>
 		<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="pragma" content="no-cache">
@@ -111,8 +111,8 @@ th {
 
 			<div class="btn-toolbar list-toolbar">
 				<br />
-				<a href="checkDetail/checkDetail_CheckDetail_addCheckDetail.action"
-					class="btn btn-primary"><i class="fa fa-plus"></i> 添加盘点清单</a>
+				<a href="assetTransDetail/assetTransDetail_AssetTransDetail_addAssetTransDetail.action"
+					class="btn btn-primary"><i class="fa fa-plus"></i> 添加移交清单</a>
 				<button class="btn btn-default">
 					导入
 				</button>
@@ -124,7 +124,7 @@ th {
 			</div>
 
 			<h1>
-				盘点单ID${cid}清单列表
+				盘点单ID${atid}清单列表
 			</h1>
 
 			<form action="" id="_form" method="post">
@@ -132,43 +132,46 @@ th {
 
 					<tr class="datalist_head">
 						<td class="left_bt2" align="center" width="10%">
-							盘点清单ID
+							移交清单ID
 						</td>
 						<td class="left_bt2" align="center" width="10%">
 							资产ID
 						</td>
 						<td class="left_bt2" align="center" width="10%">
-							盘点结果
+							接收人
 						</td>
 						<td class="left_bt2" align="center" width="10%">
-							盘点时间
+							接收结果
+						</td>
+							<td class="left_bt2" align="center" width="10%">
+							接收时间
 						</td>
 						<td class="left_bt2" align="center" width="10%">
 							操作
 						</td>
 					</tr>
 
-					<s:iterator id="cd" value="pageInfo.result" status="st">
+					<s:iterator id="ad" value="pageInfo.result" status="st">
 						<tr align=center>
 							<td align="center" class="left_txt">
-								${cd.cdid}
+								${ad.tdid}
 							</td>
 							<td align="center" class="left_txt">
-								${cd.asset.aid}
+								${ad.assetCategory.aid}
 							</td>
 							<td align="center" class="left_txt">
-								<!--
-								${cd.cdresult}
-								-->
-								<s:if test="%{#cd.cdresult==0}">帐物不符</s:if>
-								<s:else>帐物相符</s:else>
+								${ad.user.uname}
 							</td>
 							<td align="center" class="left_txt">
-								${cd.cddate}
+								<s:if test="%{#ad.tdresult==0}">接收</s:if>
+								<s:else>不接收</s:else>
+							</td>
+							<td align="center" class="left_txt">
+								${ad.tddate}
 							</td>
 							<td align="center" class="left_txt">
 								<a
-									href="checkDetail/checkDetail_CheckDetail_deleteCheckDetail.action?cdid=${cdid}">删除</a>
+									href="assetTransDetail/assetTransDetail_AssetTransDetail_deleteAssetTransDetail.action?tdid=${tdid}&&atid=${atid}">删除</a>
 							</td>
 						</tr>
 					</s:iterator>

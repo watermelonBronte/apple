@@ -118,6 +118,8 @@ public interface IAssetService {
 	public List<User> findUser() ;
 	public List<AssetCategory> findAssetCategory() ;
 	
+	
+	public List<Asset> findAllAssetByAttr(IPage pageInfo,Finance finance,AssetCategory assetCategory,User user,PurchaseDetail purchaseDetail);
 	/**
 	 * excel
 	 */

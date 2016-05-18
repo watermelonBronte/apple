@@ -295,12 +295,12 @@
 			<result name="addAssetTrans">/jsp/assetTrans/asset_trans_add.jsp</result>
 		</action>
 	</package>
-		<package name="assetTrans" extends="struts-default" namespace="/assetTrans">
-		<action name="assetTrans_*_*" class="{1}Action" method="{2}">
-			<result name="pageAssetTransByCid">/jsp/assetTrans/asset_trans_detail_page.jsp</result>
-			<!--<result name="successAssetTrans">/jsp/assetTrans/assetTrans_success.jsp</result>-->
-			<result name="addAssetTrans">/jsp/assetTrans/asset_trans_detail_add.jsp</result>
-		<!--<result name="success" type="redirect">/assetTrans/assetTrans_AssetTrans_pageAssetTrans.action
+		<package name="assetTransDetail" extends="struts-default" namespace="/assetTransDetail">
+		<action name="assetTransDetail_*_*" class="{1}Action" method="{2}">
+			<result name="pageAssetTransDetailByCid">/jsp/assetTransDetail/asset_trans_detail_page.jsp</result>
+			<!--<result name="successAssetTransDetail">/jsp/assetTransDetail/assetTransDetail_success.jsp</result>-->
+			<result name="addAssetTransDetail">/jsp/assetTransDetail/asset_trans_detail_add.jsp</result>
+		<!--<result name="success" type="redirect">/assetTransDetail/assetTransDetail_AssetTransDetail_pageAssetTransDetail.action
 				</result>
 		--></action>
 	</package>

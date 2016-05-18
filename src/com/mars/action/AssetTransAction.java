@@ -162,8 +162,10 @@ public class AssetTransAction extends ActionSupport {
 		assetTrans.setAtstate(this.getAtstate());
 
 		assetTransService.createAssetTrans(assetTrans);
-		this.setResult("创建");
-		return "successAssetTrans";
+//		this.setResult("创建");
+//		return "successAssetTrans";
+		pageAssetTrans();
+		return "pageAssetTrans";
 	}
 
 	/**
@@ -174,8 +176,8 @@ public class AssetTransAction extends ActionSupport {
 	public String deleteAssetTrans() {
 		assetTransService.deleteAssetTrans(this.getAtid());
 
-		this.setResult("删除");
-		return "successAssetTrans";
+		pageAssetTrans();
+		return "pageAssetTrans";
 	}
 
 	/**
@@ -188,23 +190,15 @@ public class AssetTransAction extends ActionSupport {
 		Date date = new Date();
 		Timestamp nousedate = new Timestamp(date.getTime());
 		assetTrans.setAtfdate(nousedate);
-		assetTrans.setAtstate(this.getAtstate());
+		assetTrans.setAtstate(1);
 
 		assetTransService.updateAssetTrans(assetTrans);
 
-		this.setResult("移交完成");
-		return "successAssetTrans";
+		pageAssetTrans();
+		return "pageAssetTrans";
 	}
 
-	/**
-	 * 查找
-	 * 
-	 * @return
-	 */
-	public String findAssetTrans() {
-		assetTransService.findAssetTrans();
-		return "findAssetTrans";
-	}
+	
 
 	/**
 	 * 根据ID查找

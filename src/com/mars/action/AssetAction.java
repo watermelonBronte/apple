@@ -107,6 +107,44 @@ public class AssetAction extends ActionSupport {
 	private String barcode;
 	private String anote;
 
+	private Integer acid;
+	private Integer uid;
+	private Integer pdid;
+	private Integer fid;
+	
+	
+	public Integer getAcid() {
+		return acid;
+	}
+
+	public void setAcid(Integer acid) {
+		this.acid = acid;
+	}
+
+	public Integer getUid() {
+		return uid;
+	}
+
+	public void setUid(Integer uid) {
+		this.uid = uid;
+	}
+
+	public Integer getPdid() {
+		return pdid;
+	}
+
+	public void setPdid(Integer pdid) {
+		this.pdid = pdid;
+	}
+
+	public Integer getFid() {
+		return fid;
+	}
+
+	public void setFid(Integer fid) {
+		this.fid = fid;
+	}
+
 	public Asset getAsset() {
 		return asset;
 	}
@@ -259,33 +297,42 @@ public class AssetAction extends ActionSupport {
 	 * @return
 	 */
 	public String SearchAsset() {
-		if(this.getAttr().equals("ac"))
-		{
-		assetCategory = assetService.findAssetCategoryById(this.getValue());
-		this.getPageInfo().setResult(
-				(assetService.findAllAssetByAC(pageInfo, assetCategory)));
-		}
-		else if(this.getAttr().equals("u")){
-			user = assetService.findUserById(this.getValue());
-			this.getPageInfo().setResult(
-					(assetService.findAllAssetByUser(pageInfo, user)));
-
-			return "pageAsset";
-		}
-		else if(this.getAttr().equals("f")){
-			finance = assetService.findFinanceById(this.getValue());
-			this.getPageInfo().setResult(
-					(assetService.findAllAssetByFinance(pageInfo, finance)));
-
-			return "pageAsset";
-		}
-		else {
-			purchaseDetail = assetService.findPurchaseDetailById(this.getValue());
-			this.getPageInfo().setResult(
-					(assetService.findAllAssetByPurchaseDetail(pageInfo, purchaseDetail)));
-
-			return "pageAsset";
-		}
+//		if(this.getAttr().equals("ac"))
+//		{
+//		assetCategory = assetService.findAssetCategoryById(this.getValue());
+//		this.getPageInfo().setResult(
+//				(assetService.findAllAssetByAC(pageInfo, assetCategory)));
+//		}
+//		else if(this.getAttr().equals("u")){
+//			user = assetService.findUserById(this.getValue());
+//			this.getPageInfo().setResult(
+//					(assetService.findAllAssetByUser(pageInfo, user)));
+//
+//			return "pageAsset";
+//		}
+//		else if(this.getAttr().equals("f")){
+//			finance = assetService.findFinanceById(this.getValue());
+//			this.getPageInfo().setResult(
+//					(assetService.findAllAssetByFinance(pageInfo, finance)));
+//
+//			return "pageAsset";
+//		}
+//		else {
+//			purchaseDetail = assetService.findPurchaseDetailById(this.getValue());
+//			this.getPageInfo().setResult(
+//					(assetService.findAllAssetByPurchaseDetail(pageInfo, purchaseDetail)));
+//
+//			return "pageAsset";
+//		}
+		if(this.getAcid()!= null)
+	    	assetCategory = assetService.findAssetCategoryById(this.getAcid());
+		if(this.getUid()!= null)
+    		user = assetService.findUserById(this.getUid());
+		if(this.getFid()!=null)
+	    	finance = assetService.findFinanceById(this.getFid());
+		if(this.getPdid()!=null)
+	    	purchaseDetail = assetService.findPurchaseDetailById(this.getPdid());
+		assetService.findAllAssetByAttr(pageInfo,finance,assetCategory,user,purchaseDetail);
 		return "pageAsset";
 	}
 

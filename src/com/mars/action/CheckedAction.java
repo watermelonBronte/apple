@@ -149,7 +149,7 @@ public class CheckedAction extends ActionSupport {
 	 */
 	public String deleteChecked() {
 		checkedService.deleteChecked(this.getCid());
-		this.setResult("删除");
+//		this.setResult("删除");
 		pageChecked();
 		return "pageChecked";
 	}

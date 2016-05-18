@@ -12,7 +12,7 @@
 <html>
 
 	<head>
-		<title>添加盘点清单</title>
+		<title>添加移交清单</title>
 		<base href="<%=basePath%>">
 		<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -64,24 +64,28 @@
 	<body>
 
 		<h1>
-			填写盘点单ID${cid}的清单
+			填写移交单ID${atid}的清单
 		</h1>
-		<form action="checkDetail/checkDetail_CheckDetail_createCheckDetail.action?cid=${cid}"
+		<form action="assetTransDetail/assetTransDetail_AssetTransDetail_createAssetTransDetail.action?atid=${atid}"
 			method="post">
 			资产ID
 			<s:select list="assetList" listKey="aid" listValue="aid"
 				name="asset.aid" />
 			<br />
-			盘点时间
+			接收人
+			<s:select list="userList" listKey="uid" listValue="uname"
+				name="user.uid" />
+			接收时间
 			<input
 				style="width: 240px; background: #fefefe; border: 1px solid #bbb; font-size: 14px; color: #333; padding: 7px; border-radius: 3px;"
-				type="text" class="date_picker" value="${cddate}" name="cddate" />
+				type="text" class="date_picker" value="${tddate}" name="tddate" />
 			<br />
-			盘点结果
-			<input type="radio" name="cdresult" value="0" checked="checked" />
-			帐物不符
-			<input type="radio" name="cdresult" value="1" />
-			帐物相符
+			接收结果
+			<!--0-接收 1-不接收
+			--><input type="radio" name="tdresult" value="0" checked="checked" />
+			接收
+			<input type="radio" name="tdresult" value="1" />
+			不接收
 			<br />
 			<input type="submit" value="创建" />
 		</form>

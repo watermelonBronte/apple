@@ -168,7 +168,7 @@ th {
 							</td>
 							<td align="center" class="left_txt">
 								<a
-									href="checkDetail/checkDetail_CheckDetail_deleteCheckDetail.action?cdid=${cdid}">删除</a>
+									href="checkDetail/checkDetail_CheckDetail_deleteCheckDetail.action?cdid=${cdid}&&cid=${cid}">删除</a>
 							</td>
 						</tr>
 					</s:iterator>

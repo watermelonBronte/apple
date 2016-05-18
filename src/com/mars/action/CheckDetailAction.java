@@ -3,12 +3,11 @@
  */
 package com.mars.action;
 
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import org.aspectj.weaver.patterns.ThisOrTargetAnnotationPointcut;
+
 
 import com.mars.service.ICheckDetailService;
 import com.mars.tools.IPage;
@@ -16,9 +15,9 @@ import com.mars.tools.PageInfo;
 import com.mars.vo.Asset;
 import com.mars.vo.CheckDetail;
 import com.mars.vo.Checked;
-import com.mars.vo.User;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+
 
 /**
  * @author ye
@@ -154,6 +153,7 @@ public class CheckDetailAction extends ActionSupport {
 	 */
 	public String createCheckDetail() {
 
+//		System.out.println(cid);
 		checkDetail.setAsset(checkDetailService.findAssetById(this.getAsset().getAid()));
 		checkDetail.setChecked(checkDetailService.findCheckedById(this.getCid()));
 		checkDetail.setCdresult(this.getCdresult());
@@ -172,6 +172,7 @@ public class CheckDetailAction extends ActionSupport {
 	 * @return
 	 */
 	public String deleteCheckDetail() {
+//		System.out.println(cid);
 		checkDetailService.deleteCheckDetail(this.getCdid());
 //		this.setResult("删除");
 		pageCheckDetailByCid();

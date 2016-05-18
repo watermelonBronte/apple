@@ -369,4 +369,42 @@ public class AssetDao extends HibernateDaoSupport implements
 		return (List<User>)getHibernateTemplate().find("from User");
 		
 	}
+	
+	
+	@SuppressWarnings("unchecked")
+	public List<Asset> findAllAssetByAttr(final IPage pageInfo, final Finance finance,final AssetCategory assetCategory,final User user,final PurchaseDetail purchaseDetail) {
+		return (List<Asset>) super.getHibernateTemplate().execute(
+				new HibernateCallback() {
+
+					public Object doInHibernate(Session session)
+							throws HibernateException, SQLException {
+
+						IPage pages = null;
+						List<Asset> list = new ArrayList<Asset>();
+						try {
+							Criteria criteria = session
+							.createCriteria(Asset.class);
+							if(finance!=null)
+								criteria.add(Restrictions.eq("finance",finance));
+							if(assetCategory!=null)
+								criteria.add(Restrictions.eq("assetCategory",assetCategory));
+							if(user!=null)
+								criteria.add(Restrictions.eq("user",user));
+							if(purchaseDetail!=null)
+								criteria.add(Restrictions.eq("purchaseDetail",purchaseDetail));
+							IExecute exc = new Execute(pageInfo);
+							pages = exc.excute(criteria);
+							if (pages != null) {
+								list = pages.getResult();
+							}
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+
+						return list;
+
+					}
+				});
+	}
+	
 }

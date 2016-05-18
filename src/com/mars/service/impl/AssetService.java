@@ -151,6 +151,12 @@ public class AssetService implements IAssetService {
 	public List<User> findUser() {
 		return assetDao.findUser();
 	}
+
+	public List<Asset> findAllAssetByAttr(IPage pageInfo, Finance finance,
+			AssetCategory assetCategory, User user,
+			PurchaseDetail purchaseDetail) {
+		return assetDao.findAllAssetByAttr(pageInfo, finance, assetCategory, user, purchaseDetail);
+	}
 	
 	
 

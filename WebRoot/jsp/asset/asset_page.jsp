@@ -135,7 +135,7 @@ th {
 			</h1>
 			<form action="asset/asset_Asset_SearchAsset.action" method="post">
 				根据
-				<select id="select" name="attr">
+				<!--<select id="select" name="attr">
 					<option value="ac" selected>
 						资产类别ID
 					</option>
@@ -149,7 +149,17 @@ th {
 						采购ID
 					</option>
 				</select>
-				<input type="text" name="value" />
+				
+				-->
+				资产类型ID
+				<input type="text" name="acid"  />
+				使用人ID
+				<input type="text" name="uid" />
+				财务入账ID
+				<input type="text" name="fid"  />
+				采购单ID
+				<input type="text" name="pdid" />
+				<!--<input type="text" name="value" />-->
 
 				<input type="submit" value="查找" />
 				<br />
