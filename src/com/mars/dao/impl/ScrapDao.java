@@ -153,4 +153,13 @@ public class ScrapDao extends HibernateDaoSupport implements
 		return asset;
 	}
 
+	@SuppressWarnings("unchecked")
+	public List<Asset> findAsset() {
+		return (List<Asset>)getHibernateTemplate().find("from Asset");
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<User> findUser() {
+		return (List<User>)getHibernateTemplate().find("from User");
+	}
 }

@@ -103,6 +103,16 @@ public interface IAssetDao {
 	 */
 	public List<Asset> findAllAssetByPurchaseDetail(IPage pageInfo,PurchaseDetail pd);
 	
+	/**
+	 * select查找
+	 * @return
+	 */
+	public List<Finance> findFinance() ;
+	public List<PurchaseDetail> findPurchaseDetail() ;
+	public List<User> findUser() ;
+	public List<AssetCategory> findAssetCategory() ;
+	
+	public List<Asset> findAllAssetByAttr(IPage pageInfo,Finance finance,AssetCategory assetCategory,User user,PurchaseDetail purchaseDetail);
 	
 	
 }

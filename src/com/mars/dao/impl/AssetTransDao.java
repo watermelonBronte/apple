@@ -148,4 +148,9 @@ public class AssetTransDao extends HibernateDaoSupport implements
 		return asset;
 	}
 
+	@SuppressWarnings("unchecked")
+	public List<User> findUser() {
+		return (List<User>)getHibernateTemplate().find("from User");
+	}
+
 }

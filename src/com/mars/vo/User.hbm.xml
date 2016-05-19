@@ -28,6 +28,9 @@
         <property name="usex" type="java.lang.Integer">
             <column name="usex" />
         </property>
+        <property name="uemail" type="java.lang.String">
+            <column name="uemail" length="50" />
+        </property>
         <set name="scrapsForCuid" inverse="true">
             <key>
                 <column name="cuid" />
@@ -46,11 +49,11 @@
             </key>
             <one-to-many class="com.mars.vo.TransBills" />
         </set>
-        <set name="assetTransesForUid" inverse="true">
+        <set name="checkeds" inverse="true">
             <key>
                 <column name="uid" />
             </key>
-            <one-to-many class="com.mars.vo.AssetTrans" />
+            <one-to-many class="com.mars.vo.Checked" />
         </set>
         <set name="transBillsesForOutuid" inverse="true">
             <key>
@@ -58,17 +61,11 @@
             </key>
             <one-to-many class="com.mars.vo.TransBills" />
         </set>
-        <set name="checkeds" inverse="true">
+        <set name="assetTransDetails" inverse="true">
             <key>
                 <column name="uid" />
             </key>
-            <one-to-many class="com.mars.vo.Checked" />
-        </set>
-        <set name="assetTransesForUid_1" inverse="true">
-            <key>
-                <column name="uid" />
-            </key>
-            <one-to-many class="com.mars.vo.AssetTrans" />
+            <one-to-many class="com.mars.vo.AssetTransDetail" />
         </set>
         <set name="purchaseDetails" inverse="true">
             <key>
@@ -100,7 +97,7 @@
             </key>
             <one-to-many class="com.mars.vo.Finance" />
         </set>
-        <set name="assetTransesForTid" inverse="true">
+        <set name="assetTranses" inverse="true">
             <key>
                 <column name="tid" />
             </key>

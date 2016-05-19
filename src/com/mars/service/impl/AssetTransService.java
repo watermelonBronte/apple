@@ -107,4 +107,8 @@ public class AssetTransService implements IAssetTransService {
 		return asset;
 	}
 
+	public List<User> findUser() {
+		return assetTransDao.findUser();
+	}
+
 }

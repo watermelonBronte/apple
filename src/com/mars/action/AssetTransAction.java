@@ -30,17 +30,24 @@ public class AssetTransAction extends ActionSupport {
 	private List<AssetTrans> assetTransList = new ArrayList<AssetTrans>();
 
 	private String result;
-	
-	
-	
+
+	private List<User> userList = new ArrayList<User>();
+
 	private Integer atid;
 	private User user;
 	private Date atrdate;
 	private Date atfdate;
 	private Integer attype;
 	private Integer atstate;
-	
-	
+
+	public List<User> getUserList() {
+		return userList;
+	}
+
+	public void setUserList(List<User> userList) {
+		this.userList = userList;
+	}
+
 	public Integer getAtid() {
 		return atid;
 	}
@@ -121,7 +128,6 @@ public class AssetTransAction extends ActionSupport {
 		this.assetTransService = assetTransService;
 	}
 
-
 	public List<AssetTrans> getAssetTransList() {
 		return assetTransList;
 	}
@@ -138,6 +144,7 @@ public class AssetTransAction extends ActionSupport {
 
 	public String addAssetTrans() {
 
+		userList = assetTransService.findUser();
 		return "addAssetTrans";
 	}
 
@@ -148,17 +155,17 @@ public class AssetTransAction extends ActionSupport {
 	 */
 	public String createAssetTrans() {
 
-
-//		assetTrans.setUser(assetTransService.findUserById(this.getUser().getUid()));
-		Date date = new Date();
-		Timestamp nousedate = new Timestamp(date.getTime());
-		assetTrans.setAtrdate(nousedate);
+		assetTrans.setUser(assetTransService.findUserById(this.getUser()
+				.getUid()));
+		assetTrans.setAtrdate(this.getAtrdate());
 		assetTrans.setAttype(this.getAttype());
 		assetTrans.setAtstate(this.getAtstate());
-		
+
 		assetTransService.createAssetTrans(assetTrans);
-		this.setResult("创建");
-		return "successAssetTrans";
+//		this.setResult("创建");
+//		return "successAssetTrans";
+		pageAssetTrans();
+		return "pageAssetTrans";
 	}
 
 	/**
@@ -168,9 +175,9 @@ public class AssetTransAction extends ActionSupport {
 	 */
 	public String deleteAssetTrans() {
 		assetTransService.deleteAssetTrans(this.getAtid());
-		
-		this.setResult("删除");
-		return "successAssetTrans";
+
+		pageAssetTrans();
+		return "pageAssetTrans";
 	}
 
 	/**
@@ -183,25 +190,15 @@ public class AssetTransAction extends ActionSupport {
 		Date date = new Date();
 		Timestamp nousedate = new Timestamp(date.getTime());
 		assetTrans.setAtfdate(nousedate);
-		assetTrans.setAtstate(this.getAtstate());
-		
+		assetTrans.setAtstate(1);
+
 		assetTransService.updateAssetTrans(assetTrans);
 
-		this.setResult("移交完成");
-		return "successAssetTrans";
+		pageAssetTrans();
+		return "pageAssetTrans";
 	}
-	
-	
 
-	/**
-	 * 查找
-	 * 
-	 * @return
-	 */
-	public String findAssetTrans() {
-		assetTransService.findAssetTrans();
-		return "findAssetTrans";
-	}
+	
 
 	/**
 	 * 根据ID查找
@@ -211,11 +208,11 @@ public class AssetTransAction extends ActionSupport {
 	public String findAssetTransById() {
 
 		assetTrans = assetTransService.findAssetTransById(this.getAtid());
-//		this.setUser(assetTrans.getUser());
-		this.setAtrdate(this.getAtrdate());
-		this.setAtfdate(this.getAtfdate());
-		this.setAttype(this.getAttype());
-		this.setAtstate(this.getAtstate());
+		this.setUser(assetTrans.getUser());
+		this.setAtrdate(assetTrans.getAtrdate());
+		this.setAtfdate(assetTrans.getAtfdate());
+		this.setAttype(assetTrans.getAttype());
+		this.setAtstate(assetTrans.getAtstate());
 		return "findAssetTransById";
 
 	}

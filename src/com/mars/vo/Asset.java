@@ -30,7 +30,7 @@ public class Asset implements java.io.Serializable {
 	private Set repairses = new HashSet(0);
 	private Set transBillses = new HashSet(0);
 	private Set scraps = new HashSet(0);
-	private Set assetTranses = new HashSet(0);
+	private Set assetTransDetails = new HashSet(0);
 
 	// Constructors
 
@@ -43,7 +43,7 @@ public class Asset implements java.io.Serializable {
 			PurchaseDetail purchaseDetail, String cid, Date adate,
 			Integer astate, Integer tprint, String onepath, String twopath,
 			String barcode, String anote, Set checkDetails, Set assetReturns,
-			Set repairses, Set transBillses, Set scraps, Set assetTranses) {
+			Set repairses, Set transBillses, Set scraps, Set assetTransDetails) {
 		this.user = user;
 		this.finance = finance;
 		this.assetCategory = assetCategory;
@@ -61,7 +61,7 @@ public class Asset implements java.io.Serializable {
 		this.repairses = repairses;
 		this.transBillses = transBillses;
 		this.scraps = scraps;
-		this.assetTranses = assetTranses;
+		this.assetTransDetails = assetTransDetails;
 	}
 
 	// Property accessors
@@ -210,12 +210,12 @@ public class Asset implements java.io.Serializable {
 		this.scraps = scraps;
 	}
 
-	public Set getAssetTranses() {
-		return this.assetTranses;
+	public Set getAssetTransDetails() {
+		return this.assetTransDetails;
 	}
 
-	public void setAssetTranses(Set assetTranses) {
-		this.assetTranses = assetTranses;
+	public void setAssetTransDetails(Set assetTransDetails) {
+		this.assetTransDetails = assetTransDetails;
 	}
 
 }

@@ -31,9 +31,46 @@ public class AssetAction extends ActionSupport {
 
 	private IAssetService assetService;
 
+	private List<User> userList = new ArrayList<User>();
+	private List<AssetCategory> assetCategoryList =new ArrayList<AssetCategory>();
+	private List<Finance> financeList = new ArrayList<Finance>();
+	private List<PurchaseDetail> purchaseDetailList = new ArrayList<PurchaseDetail>();
+	
 	protected IPage pageInfo = new PageInfo();
 	protected String attr;
 	protected Integer value;
+
+	public List<AssetCategory> getAssetCategoryList() {
+		return assetCategoryList;
+	}
+
+	public void setAssetCategoryList(List<AssetCategory> assetCategoryList) {
+		this.assetCategoryList = assetCategoryList;
+	}
+
+	public List<User> getUserList() {
+		return userList;
+	}
+
+	public void setUserList(List<User> userList) {
+		this.userList = userList;
+	}
+
+	public List<Finance> getFinanceList() {
+		return financeList;
+	}
+
+	public void setFinanceList(List<Finance> financeList) {
+		this.financeList = financeList;
+	}
+
+	public List<PurchaseDetail> getPurchaseDetailList() {
+		return purchaseDetailList;
+	}
+
+	public void setPurchaseDetailList(List<PurchaseDetail> purchaseDetailList) {
+		this.purchaseDetailList = purchaseDetailList;
+	}
 
 	public String getAttr() {
 		return attr;
@@ -69,6 +106,44 @@ public class AssetAction extends ActionSupport {
 	private String twopath;
 	private String barcode;
 	private String anote;
+
+	private Integer acid;
+	private Integer uid;
+	private Integer pdid;
+	private Integer fid;
+	
+	
+	public Integer getAcid() {
+		return acid;
+	}
+
+	public void setAcid(Integer acid) {
+		this.acid = acid;
+	}
+
+	public Integer getUid() {
+		return uid;
+	}
+
+	public void setUid(Integer uid) {
+		this.uid = uid;
+	}
+
+	public Integer getPdid() {
+		return pdid;
+	}
+
+	public void setPdid(Integer pdid) {
+		this.pdid = pdid;
+	}
+
+	public Integer getFid() {
+		return fid;
+	}
+
+	public void setFid(Integer fid) {
+		this.fid = fid;
+	}
 
 	public Asset getAsset() {
 		return asset;
@@ -216,47 +291,48 @@ public class AssetAction extends ActionSupport {
 		this.anote = anote;
 	}
 
-	/**
-	 * 返回主界面
-	 * 
-	 * @return
-	 */
-	public String home() {
-		return "home";
-	}
 
 	/**
 	 * 根据属性查找
 	 * @return
 	 */
 	public String SearchAsset() {
-		if(this.getAttr().equals("ac"))
-		{
-		assetCategory = assetService.findAssetCategoryById(this.getValue());
-		this.getPageInfo().setResult(
-				(assetService.findAllAssetByAC(pageInfo, assetCategory)));
-		}
-		else if(this.getAttr().equals("u")){
-			user = assetService.findUserById(this.getValue());
-			this.getPageInfo().setResult(
-					(assetService.findAllAssetByUser(pageInfo, user)));
-
-			return "pageAsset";
-		}
-		else if(this.getAttr().equals("f")){
-			finance = assetService.findFinanceById(this.getValue());
-			this.getPageInfo().setResult(
-					(assetService.findAllAssetByFinance(pageInfo, finance)));
-
-			return "pageAsset";
-		}
-		else {
-			purchaseDetail = assetService.findPurchaseDetailById(this.getValue());
-			this.getPageInfo().setResult(
-					(assetService.findAllAssetByPurchaseDetail(pageInfo, purchaseDetail)));
-
-			return "pageAsset";
-		}
+//		if(this.getAttr().equals("ac"))
+//		{
+//		assetCategory = assetService.findAssetCategoryById(this.getValue());
+//		this.getPageInfo().setResult(
+//				(assetService.findAllAssetByAC(pageInfo, assetCategory)));
+//		}
+//		else if(this.getAttr().equals("u")){
+//			user = assetService.findUserById(this.getValue());
+//			this.getPageInfo().setResult(
+//					(assetService.findAllAssetByUser(pageInfo, user)));
+//
+//			return "pageAsset";
+//		}
+//		else if(this.getAttr().equals("f")){
+//			finance = assetService.findFinanceById(this.getValue());
+//			this.getPageInfo().setResult(
+//					(assetService.findAllAssetByFinance(pageInfo, finance)));
+//
+//			return "pageAsset";
+//		}
+//		else {
+//			purchaseDetail = assetService.findPurchaseDetailById(this.getValue());
+//			this.getPageInfo().setResult(
+//					(assetService.findAllAssetByPurchaseDetail(pageInfo, purchaseDetail)));
+//
+//			return "pageAsset";
+//		}
+		if(this.getAcid()!= null)
+	    	assetCategory = assetService.findAssetCategoryById(this.getAcid());
+		if(this.getUid()!= null)
+    		user = assetService.findUserById(this.getUid());
+		if(this.getFid()!=null)
+	    	finance = assetService.findFinanceById(this.getFid());
+		if(this.getPdid()!=null)
+	    	purchaseDetail = assetService.findPurchaseDetailById(this.getPdid());
+		assetService.findAllAssetByAttr(pageInfo,finance,assetCategory,user,purchaseDetail);
 		return "pageAsset";
 	}
 
@@ -270,6 +346,10 @@ public class AssetAction extends ActionSupport {
 
 	public String addAsset() {
 		
+		assetCategoryList = assetService.findAssetCategory();
+		financeList = assetService.findFinance();
+		userList = assetService.findUser();
+		purchaseDetailList = assetService.findPurchaseDetail();
 		return "addAsset";
 	}
 
@@ -289,9 +369,10 @@ public class AssetAction extends ActionSupport {
 		asset.setUser(assetService.findUserById(this.getUser().getUid()));
 		asset.setFinance(assetService.findFinanceById(this.getFinance().getFid()));
 		asset.setAstate(this.getAstate());
-		Date date = new Date();
-		Timestamp nousedate = new Timestamp(date.getTime());
-		asset.setAdate(nousedate);
+//		Date date = new Date();
+//		Timestamp nousedate = new Timestamp(date.getTime());
+//		asset.setAdate(nousedate);
+		asset.setAdate(this.getAdate());
 		asset.setPurchaseDetail(assetService.findPurchaseDetailById(this.getPurchaseDetail().getPdid()));
 		asset.setTprint(this.getTprint());
 		asset.setOnepath(this.getOnepath());
@@ -332,9 +413,10 @@ public class AssetAction extends ActionSupport {
 		asset.setUser(assetService.findUserById(this.getUser().getUid()));
 		asset.setFinance(assetService.findFinanceById(this.getFinance().getFid()));
 		asset.setAstate(this.getAstate());
-		Date date = new Date();
-		Timestamp nousedate = new Timestamp(date.getTime());
-		asset.setAdate(nousedate);
+//		Date date = new Date();
+//		Timestamp nousedate = new Timestamp(date.getTime());
+//		asset.setAdate(nousedate);
+		asset.setAdate(this.getAdate());
 		asset.setPurchaseDetail(assetService.findPurchaseDetailById(this.getPurchaseDetail().getPdid()));
 		asset.setTprint(this.getTprint());
 		asset.setOnepath(this.getOnepath());
@@ -389,6 +471,7 @@ public class AssetAction extends ActionSupport {
 	 */
 	public String pageAsset() {
 		this.getPageInfo().setResult((assetService.findAll(pageInfo)));
+          
 
 		return "pageAsset";
 	}

@@ -23,17 +23,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-  <a href="asset_category/test_AssetCategory_home.action">主界面</a>
+  <!--<a href="asset_category/test_AssetCategory_home.action">主界面</a>-->
   
    <h1><s:text name="修改采购信息"></s:text></h1>
   <form action="updatePurDetail.action" method="post">
   
 <table>
 
-<tr><td>资产明细id：</td><td><input type="text"  value="${pdid}" name="pdid"  readonly="readonly"/></td></tr>
+<tr><td>采购清单id：</td><td><input type="text"  value="${pdid}" name="pdid"  readonly="readonly"/></td></tr>
 
+<tr><td>采购单id：</td><td><input type="text"  value="${purchaseNote.pnid}" name="purchaseNote.pnid"  readonly="readonly"/></td></tr>
 
-<tr><td>保管人id：</td><td><input type="text"  value="${purDetail.user.uid}" name="purDetail.user.uid" /></td></tr>
+<tr><td>保管人id：</td><td><input type="text"  value="${user.uid}" name="user.uid" /></td></tr>
+<tr><td>资产名称</td><td><input type="text" value='${aname}' name="aname" /></td></tr>
 <tr><td>资产型号</td><td><input type="text" value='${atype}' name="atype" /></td></tr>
 <tr><td>数量：</td><td>  <input type="text"  value="${pdcount}"  name="pdcount" /></td></tr>
 <tr><td>制造商：</td><td> <input type="text" value="${pdmarker}" name="pdmarker" /></td></tr>

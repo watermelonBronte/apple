@@ -70,4 +70,11 @@ public interface ICheckedService {
 	 * @return
 	 */
 	public CheckDetail findCheDetailById(Integer cdid);
+	
+	/**
+	 * select查找
+	 * @return
+	 */
+
+	public List<User> findUser() ;
 }

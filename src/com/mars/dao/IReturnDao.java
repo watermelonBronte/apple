@@ -67,4 +67,6 @@ public interface IReturnDao {
 	
 	public List<AssetReturn> findAllReturn();
 	public List<AssetReturn> findReturn(IPage pageInfo);//分页
+	
+
 }

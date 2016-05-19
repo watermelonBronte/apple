@@ -4,11 +4,13 @@
 package com.mars.action;
 
 import com.mars.service.impl.PurDetailService;
+import com.mars.service.impl.PurchaseService;
 import com.mars.tools.IPage;
 import com.mars.tools.PageInfo;
 import com.mars.vo.PurchaseDetail;
 import com.mars.vo.PurchaseNote;
 import com.mars.vo.User;
+import com.opensymphony.xwork2.ActionContext;
 
 /**
  * @author Lab411
@@ -23,16 +25,33 @@ public class PurDetailAction {
 		this.pageInfo = pageInfo;
 	}
 
+		
+	private PurDetailService purdetailservice;
+	private PurchaseDetail purDetail=new PurchaseDetail();
 	private Integer pdid;
 	private User user;
 	private PurchaseNote purchaseNote;
-	private Integer pnid;
-	
+	private String aname;
 	private String atype;
 	private Integer pdcount;
 	private String pdmarker;
 	private String pdprovider;
 	private String pdunit;
+	private Float pdprice;
+	
+	
+	public PurDetailService getPurdetailservice() {
+		return purdetailservice;
+	}
+	public void setPurdetailservice(PurDetailService purdetailservice) {
+		this.purdetailservice = purdetailservice;
+	}
+	public PurchaseDetail getPurDetail() {
+		return purDetail;
+	}
+	public void setPurDetail(PurchaseDetail purDetail) {
+		this.purDetail = purDetail;
+	}
 	public Integer getPdid() {
 		return pdid;
 	}
@@ -44,6 +63,18 @@ public class PurDetailAction {
 	}
 	public void setUser(User user) {
 		this.user = user;
+	}
+	public PurchaseNote getPurchaseNote() {
+		return purchaseNote;
+	}
+	public void setPurchaseNote(PurchaseNote purchaseNote) {
+		this.purchaseNote = purchaseNote;
+	}
+	public String getAname() {
+		return aname;
+	}
+	public void setAname(String aname) {
+		this.aname = aname;
 	}
 	public String getAtype() {
 		return atype;
@@ -81,45 +112,32 @@ public class PurDetailAction {
 	public void setPdprice(Float pdprice) {
 		this.pdprice = pdprice;
 	}
-	public PurDetailService getPurdetailservice() {
-		return purdetailservice;
-	}
-	public void setPurdetailservice(PurDetailService purdetailservice) {
-		this.purdetailservice = purdetailservice;
-	}
-	public PurchaseDetail getPurDetail() {
-		return purDetail;
-	}
-	public void setPurDetail(PurchaseDetail purDetail) {
-		this.purDetail = purDetail;
-	}
+//	public String searchPurDetail(){//根据采购单查找
+//		 
+//		this.getPageInfo().setResult(purdetailservice.findPurDetailByPnid(pageInfo,this.getPnid()));//分页
+//
+//			  return "success";
+//		 }
+	private Integer pnid;
 	
-	public PurchaseNote getPurchaseNote() {
-		return purchaseNote;
-	}
-	public void setPurchaseNote(PurchaseNote purchaseNote) {
-		this.purchaseNote = purchaseNote;
-	}
-	private Float pdprice;
-	private PurDetailService purdetailservice;
-	private PurchaseDetail purDetail=new PurchaseDetail();
-
 	public Integer getPnid() {
 		return pnid;
 	}
 	public void setPnid(Integer pnid) {
 		this.pnid = pnid;
 	}
-	public String searchPurDetail(){//根据采购单查找
+	public String queryPurDetail(){//显示所有信息
 		 
-		this.getPageInfo().setResult(purdetailservice.findPurDetailByPnid(pageInfo,this.getPnid()));//分页
+		this.getPageInfo().setResult(purdetailservice.findPurDetail(pageInfo));//分页
 
 			  return "success";
 		 }
 	
-	public String queryPurDetail(){//显示所有信息
-		 
-		this.getPageInfo().setResult(purdetailservice.findPurDetail(pageInfo));//分页
+	public String queryPurDetailByPnid(){//显示所有信息
+		 this.setPurchaseNote(purdetailservice.findPurchaseNoteByPid(pnid));
+		 ActionContext ctx = ActionContext.getContext();
+			ctx.getSession().put("pnid", pnid);
+		this.getPageInfo().setResult(purdetailservice.findPurDetailByPnid(pageInfo, purchaseNote));//分页
 
 			  return "success";
 		 }
@@ -129,12 +147,21 @@ public class PurDetailAction {
 				  return "success";
 			  }
 
-
+//public String addPurDetail()
+//{
+//	this.setPnid(pnid);
+//	return "addPurDetail";
+//	
+//}
 public String createPurDetail(){//增加信息
+	System.out.println(pnid);
 			PurchaseDetail p=new PurchaseDetail();
+			p.setAname(purDetail.getAname());
 			p.setAtype(purDetail.getAtype());
 			p.setPdcount(purDetail.getPdcount());
 			p.setPdid(purDetail.getPdid());
+//			p.setPurchaseNote(purdetailservice.findPurchaseNoteByPid(getPurchaseNote().getPnid()));
+	        p.setPurchaseNote(purdetailservice.findPurchaseNoteByPid(pnid));
 			p.setPdmarker(purDetail.getPdmarker());
 			p.setPdprice(purDetail.getPdprice());
 			p.setPdprovider(purDetail.getPdprovider());
@@ -150,12 +177,14 @@ public String selectPurdetailById(){//显示当前
 	this.setAtype(purDetail.getAtype());
 	this.setPdcount(purDetail.getPdcount());
 	this.setPdid(purDetail.getPdid());
+//	this.setPnid(this.getPnid());
 	this.setPdmarker(purDetail.getPdmarker());
 	this.setPdprice(purDetail.getPdprice());
 	this.setPdprovider(purDetail.getPdprovider());
 	this.setPdunit(purDetail.getPdunit());
 	this.setUser(purDetail.getUser());
-	
+this.setAname(purDetail.getAname());
+this.setPurchaseNote(purDetail.getPurchaseNote());
 
 return "success";
 }
@@ -171,7 +200,9 @@ public String updatePurDetail(){//更新
 	purDetail.setPdprice(this.getPdprice());
 	purDetail.setPdprovider(this.getPdprovider());
 	purDetail.setPdunit(this.getPdunit());
-	purDetail.setUser(purdetailservice.findPurDetailByUid(purDetail.getUser().getUid()));
+	purDetail.setAname(this.getAname());
+	purDetail.setPurchaseNote(purdetailservice.findPurchaseNoteByPid(this.getPurchaseNote().getPnid()));
+	purDetail.setUser(purdetailservice.findPurDetailByUid(this.getUser().getUid()));
 	  //不允许为空
 	
 //	purDetail.setPnid(this.getPnid());

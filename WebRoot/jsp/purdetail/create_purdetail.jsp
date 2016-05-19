@@ -24,7 +24,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
     <form action="createPurDetail.action" method="post">
+      采购单id：<input type="text" name="pnid" value="${pnid}" />
 保管人id：<input type="text" name="purDetail.user.uid"  />
+
+资产名称<input type="text" name="purDetail.aname"  />
 资产型号<input type="text" name="purDetail.atype"  />
    数量：<input type="text" name="purDetail.pdcount" />
   	制造商：<input type="text" name="purDetail.pdmarker"/>  

@@ -1,6 +1,8 @@
 package com.mars.vo;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * AssetTrans entity. @author MyEclipse Persistence Tools
@@ -11,15 +13,12 @@ public class AssetTrans implements java.io.Serializable {
 	// Fields
 
 	private Integer atid;
-	private Asset asset;
-	private User userByUid;
-	private User userByTid;
+	private User user;
 	private Date atrdate;
 	private Date atfdate;
 	private Integer attype;
-	private Integer tdresult;
 	private Integer atstate;
-	private Date tddate;
+	private Set assetTransDetails = new HashSet(0);
 
 	// Constructors
 
@@ -28,18 +27,14 @@ public class AssetTrans implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public AssetTrans(Asset asset, User userByUid, User userByTid,
-			Date atrdate, Date atfdate, Integer attype, Integer tdresult,
-			Integer atstate, Date tddate) {
-		this.asset = asset;
-		this.userByUid = userByUid;
-		this.userByTid = userByTid;
+	public AssetTrans(User user, Date atrdate, Date atfdate, Integer attype,
+			Integer atstate, Set assetTransDetails) {
+		this.user = user;
 		this.atrdate = atrdate;
 		this.atfdate = atfdate;
 		this.attype = attype;
-		this.tdresult = tdresult;
 		this.atstate = atstate;
-		this.tddate = tddate;
+		this.assetTransDetails = assetTransDetails;
 	}
 
 	// Property accessors
@@ -52,28 +47,12 @@ public class AssetTrans implements java.io.Serializable {
 		this.atid = atid;
 	}
 
-	public Asset getAsset() {
-		return this.asset;
+	public User getUser() {
+		return this.user;
 	}
 
-	public void setAsset(Asset asset) {
-		this.asset = asset;
-	}
-
-	public User getUserByUid() {
-		return this.userByUid;
-	}
-
-	public void setUserByUid(User userByUid) {
-		this.userByUid = userByUid;
-	}
-
-	public User getUserByTid() {
-		return this.userByTid;
-	}
-
-	public void setUserByTid(User userByTid) {
-		this.userByTid = userByTid;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public Date getAtrdate() {
@@ -100,14 +79,6 @@ public class AssetTrans implements java.io.Serializable {
 		this.attype = attype;
 	}
 
-	public Integer getTdresult() {
-		return this.tdresult;
-	}
-
-	public void setTdresult(Integer tdresult) {
-		this.tdresult = tdresult;
-	}
-
 	public Integer getAtstate() {
 		return this.atstate;
 	}
@@ -116,12 +87,12 @@ public class AssetTrans implements java.io.Serializable {
 		this.atstate = atstate;
 	}
 
-	public Date getTddate() {
-		return this.tddate;
+	public Set getAssetTransDetails() {
+		return this.assetTransDetails;
 	}
 
-	public void setTddate(Date tddate) {
-		this.tddate = tddate;
+	public void setAssetTransDetails(Set assetTransDetails) {
+		this.assetTransDetails = assetTransDetails;
 	}
 
 }

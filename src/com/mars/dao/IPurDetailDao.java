@@ -38,7 +38,7 @@ public interface IPurDetailDao {
 //	 * 根据采购单id查询
 //	 *@param pnid 采购单id
 //	 */
-//	public PurchaseNote findPurDetailByPid(int pnid);
+	public PurchaseNote findPurchaseNoteByPid(int pnid);
 //	
 	/**
 	 * 根据保管人id查询
@@ -59,5 +59,5 @@ public interface IPurDetailDao {
 	
 	public List<PurchaseDetail> findPurDetail(IPage pageInfo);//分页
 	
-	public List<PurchaseDetail> findPurDetailByPnid(IPage pageInfo,Integer pnid);//分页
+	public List<PurchaseDetail> findPurDetailByPnid(IPage pageInfo,PurchaseNote purchaseNote);//分页
 }

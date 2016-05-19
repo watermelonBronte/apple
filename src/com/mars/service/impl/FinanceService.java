@@ -93,4 +93,8 @@ public class FinanceService implements IFinanceService {
 		return user;
 	}
 
+	public List<User> findUser() {
+		return financeDao.findUser();
+	}
+
 }

@@ -45,6 +45,7 @@
 				<value>com/mars/vo/TransBills.hbm.xml</value>
 				<value>com/mars/vo/PurchaseNote.hbm.xml</value>
 				<value>com/mars/vo/Finance.hbm.xml</value>
+				<value>com/mars/vo/AssetTransDetail.hbm.xml</value>
 			</list>
 		</property>
 	</bean>
@@ -80,8 +81,8 @@
 
 
 
-<!-- 杨铮 start-->
-<!-- 3 dao -->
+	<!-- 杨铮 start-->
+	<!-- 3 dao -->
 	<bean id="userDao" class="com.mars.dao.impl.UserDao">
 		<property name="sessionFactory">
 			<ref local="sessionFactory" />
@@ -92,15 +93,16 @@
 		<property name="userDao" ref="userDao" />
 	</bean>
 	<!-- 1 action -->
-	<bean id="UserLoginAction" class="com.mars.action.UserLoginAction" scope="prototype">
+	<bean id="UserLoginAction" class="com.mars.action.UserLoginAction"
+		scope="prototype">
 		<property name="userService" ref="userService" />
 	</bean>
-<bean id="UserAction" class="com.mars.action.UserAction" scope="prototype">
+	<bean id="UserAction" class="com.mars.action.UserAction" scope="prototype">
 		<property name="userService" ref="userService" />
 	</bean>
-	
-	
-	
+
+
+
 	<!-- 3 dao -->
 	<bean id="returnDao" class="com.mars.dao.impl.ReturnDao">
 		<property name="sessionFactory">
@@ -112,10 +114,11 @@
 		<property name="returnDao" ref="returnDao" />
 	</bean>
 	<!-- 1 action -->
-	<bean id="ReturnAction" class="com.mars.action.ReturnAction" scope="prototype">
+	<bean id="ReturnAction" class="com.mars.action.ReturnAction"
+		scope="prototype">
 		<property name="returnService" ref="returnService" />
 	</bean>
-	
+
 	<!-- 3 dao -->
 	<bean id="roleDao" class="com.mars.dao.impl.RoleDao">
 		<property name="sessionFactory">
@@ -130,9 +133,9 @@
 	<bean id="RoleAction" class="com.mars.action.RoleAction" scope="prototype">
 		<property name="roleService" ref="roleService" />
 	</bean>
-	
-	
-	
+
+
+
 	<!-- 3 dao -->
 	<bean id="purchasedao" class="com.mars.dao.impl.PurchaseDao">
 		<property name="sessionFactory">
@@ -144,13 +147,14 @@
 		<property name="purchasedao" ref="purchasedao" />
 	</bean>
 	<!-- 1 action -->
-	<bean id="PurchaseAction" class="com.mars.action.PurchaseAction" scope="prototype">
+	<bean id="PurchaseAction" class="com.mars.action.PurchaseAction"
+		scope="prototype">
 		<property name="purchaseservice" ref="purchaseservice" />
 	</bean>
-	
-	
-	
-		<!-- 3 dao -->
+
+
+
+	<!-- 3 dao -->
 	<bean id="purdetaildao" class="com.mars.dao.impl.PurDetailDao">
 		<property name="sessionFactory">
 			<ref local="sessionFactory" />
@@ -161,11 +165,12 @@
 		<property name="purdetaildao" ref="purdetaildao" />
 	</bean>
 	<!-- 1 action -->
-	<bean id="PurDetailAction" class="com.mars.action.PurDetailAction" scope="prototype">
+	<bean id="PurDetailAction" class="com.mars.action.PurDetailAction"
+		scope="prototype">
 		<property name="purdetailservice" ref="purdetailservice" />
 	</bean>
 
-<!-- ye -->
+	<!-- ye -->
 	<!-- 资产类别 start -->
 
 	<!-- dao -->
@@ -262,7 +267,7 @@
 	</bean>
 
 	<!-- 财务入账end -->
-	
+
 	<!-- 维修start -->
 	<!-- dao -->
 	<bean id="repairsDao" class="com.mars.dao.impl.RepairsDao">
@@ -281,7 +286,7 @@
 	</bean>
 
 	<!-- 维修end -->
-	
+
 	<!-- 报废start -->
 	<!-- dao -->
 	<bean id="scrapDao" class="com.mars.dao.impl.ScrapDao">
@@ -294,14 +299,13 @@
 		<property name="scrapDao" ref="scrapDao" />
 	</bean>
 	<!-- Action -->
-	<bean id="ScrapAction" class="com.mars.action.ScrapAction"
-		scope="prototype">
+	<bean id="ScrapAction" class="com.mars.action.ScrapAction" scope="prototype">
 		<property name="scrapService" ref="scrapService" />
 	</bean>
 
 	<!-- 报废end -->
-	
-		<!-- 调拨start -->
+
+	<!-- 调拨start -->
 	<!-- dao -->
 	<bean id="transBillsDao" class="com.mars.dao.impl.TransBillsDao">
 		<property name="sessionFactory">
@@ -319,7 +323,7 @@
 	</bean>
 
 	<!-- 调拨end -->
-		<!-- 盘点start -->
+	<!-- 盘点start -->
 	<!-- dao -->
 	<bean id="checkedDao" class="com.mars.dao.impl.CheckedDao">
 		<property name="sessionFactory">
@@ -337,23 +341,64 @@
 	</bean>
 
 	<!-- 盘点end -->
-		<!-- 移交start -->
-	<!-- dao --><!--
+	<!-- 移交start -->
+	<!-- dao -->
 	<bean id="assetTransDao" class="com.mars.dao.impl.AssetTransDao">
 		<property name="sessionFactory">
 			<ref local="sessionFactory" />
 		</property>
-	</bean>
-	 Service 
+	</bean><!--
+	Service
+	-->
 	<bean id="assetTransService" class="com.mars.service.impl.AssetTransService">
 		<property name="assetTransDao" ref="assetTransDao" />
-	</bean>
-	 Action 
+	</bean><!--
+	Action
+	-->
 	<bean id="AssetTransAction" class="com.mars.action.AssetTransAction"
 		scope="prototype">
 		<property name="assetTransService" ref="assetTransService" />
 	</bean>
 
-	--><!-- 移交end -->
-	
+	<!-- 移交end -->
+	<!-- 移交清单start -->
+	<!-- dao -->
+	<bean id="assetTransDetailDao" class="com.mars.dao.impl.AssetTransDetailDao">
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean><!--
+	 Service 
+	-->
+	<bean id="assetTransDetailService" class="com.mars.service.impl.AssetTransDetailService">
+		<property name="assetTransDetailDao" ref="assetTransDetailDao" />
+	</bean><!--
+	 Action 
+	-->
+	<bean id="AssetTransDetailAction" class="com.mars.action.AssetTransDetailAction"
+		scope="prototype">
+		<property name="assetTransDetailService" ref="assetTransDetailService" />
+	</bean>
+
+	<!-- 移交清单end -->
+
+	<!-- 盘点清单start -->
+	<!-- dao -->
+	<bean id="checkDetailDao" class="com.mars.dao.impl.CheckDetailDao">
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+	<!-- Service -->
+	<bean id="checkDetailService" class="com.mars.service.impl.CheckDetailService">
+		<property name="checkDetailDao" ref="checkDetailDao" />
+	</bean>
+	<!-- Action -->
+	<bean id="CheckDetailAction" class="com.mars.action.CheckDetailAction"
+		scope="prototype">
+		<property name="checkDetailService" ref="checkDetailService" />
+	</bean>
+
+	<!-- 盘点清单end -->
+
 </beans>

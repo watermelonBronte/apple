@@ -10,21 +10,44 @@
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
-	<base href="<%=basePath%>">
-	<head>
-		<style type="text/css">
-<!--
-body {
-	margin-left: 0px;
-	margin-top: 0px;
-	margin-right: 0px;
-	margin-bottom: 0px;
-	background-color: #F8F9FA;
-}
--->
-</style>
 
-		<!--<link href="images/skin.css" rel="stylesheet" type="text/css" />-->
+	<head>
+		<base href="<%=basePath%>">
+		<title>调拨单列表</title>
+		<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="cache-control" content="no-cache">
+		<meta http-equiv="expires" content="0">
+		<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+		<meta http-equiv="description" content="This is my page">
+		<link href='http://fonts.useso.com/css?family=Open+Sans:400,700'
+			rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" type="text/css"
+			href="${pageContext.request.contextPath}/lib/bootstrap/css/bootstrap.css">
+		<link rel="stylesheet"
+			href="${pageContext.request.contextPath}/lib/font-awesome/css/font-awesome.css">
+
+		<script
+			src="${pageContext.request.contextPath}/lib/jquery-1.11.1.min.js"
+			type="text/javascript"></script>
+
+		<link rel="stylesheet" type="text/css"
+			href="${pageContext.request.contextPath}/css/theme.css">
+		<link rel="stylesheet" type="text/css"
+			href="${pageContext.request.contextPath}/css/premium.css">
+		<link rel="apple-touch-icon-precomposed" sizes="144x144"
+			href="../assets/ico/apple-touch-icon-144-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="114x114"
+			href="../assets/ico/apple-touch-icon-114-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="72x72"
+			href="../assets/ico/apple-touch-icon-72-precomposed.png">
+		<link rel="apple-touch-icon-precomposed"
+			href="../assets/ico/apple-touch-icon-57-precomposed.png">
+
+
+		<script type="text/javascript"
+			src="http://www.js-css.cn/jscode/jquery.min.js"></script>
 		<script>
 
 //翻页  pageNo:隐藏域控件名  formName：要提交的表单名 pageno:页码
@@ -39,22 +62,75 @@ function submitFrom(formName){
 	_form.submit();
 }
 
+     $(function() {
+            var match = document.cookie.match(new RegExp('color=([^;]+)'));
+            if(match) var color = match[1];
+            if(color) {
+                $('body').removeClass(function (index, css) {
+                    return (css.match (/\btheme-\S+/g) || []).join(' ')
+                })
+                $('body').addClass('theme-' + color);
+            }
+
+            $('[data-popover="true"]').popover({html: true});
+            
+        });
+   
+        $(function() {
+            var uls = $('.sidebar-nav > ul > *').clone();
+            uls.addClass('visible-xs');
+            $('#main-menu').append(uls.clone());
+        });
+    
 </script>
+
+		<style type="text/css">
+#line-chart {
+	height: 300px;
+	width: 1000px;
+	margin: 0px auto;
+	margin-top: 1em;
+}
+
+th {
+	text-align: center
+}
+
+.navbar-default .navbar-brand,.navbar-default .navbar-brand:hover {
+	color: #fff;
+}
+</style>
 
 
 
 	</head>
 
-	<body>
-	
+		<body class=" theme-blue" style="width: 993px">
+
+		<div class="main-content" style="width: 993px">
+
+			<div class="btn-toolbar list-toolbar">
+				<br />
+				<a href="transBills/transBills_TransBills_addTransBills.action"
+					class="btn btn-primary"><i class="fa fa-plus"></i> 添加调拨单</a>
+				<button class="btn btn-default">
+					导入
+				</button>
+				<button class="btn btn-default">
+					导出
+				</button>
+				<div class="btn-group">
+				</div>
+			</div>
+
+
 		<h1>
 			调拨单列表
 		</h1>
-		<!--<a href="finance/finance_Finance_addFinance.action">添加记录</a>-->
 
 		<form action="" id="_form" method="post">
-			<table width="100%" border="1" cellpadding="0"
-				style="margin-top: 5px;" cellspacing="0">
+			<table class="table" style="text-align: center">
+
 				<tr class="datalist_head">
 					<td class="left_bt2" align="center" width="10%">
 						资产调拨单ID
@@ -101,9 +177,11 @@ function submitFrom(formName){
 							<s:else>确认调入</s:else>
 						</td>
 						<td align="center" class="left_txt">
-							<a href="transBills/transBills_TransBills_findTransBillsById.action?tbid=${tbid}">确认调入</a>
+							<a
+								href="transBills/transBills_TransBills_findTransBillsById.action?tbid=${tbid}">确认调入</a>
 							|
-							<a href="transBills/transBills_TransBills_deleteTransBills.action?tbid=${tbid}">删除</a>
+							<a
+								href="transBills/transBills_TransBills_deleteTransBills.action?tbid=${tbid}">删除</a>
 
 						</td>
 					</tr>
@@ -136,32 +214,37 @@ function submitFrom(formName){
 				</tr>
 			</table>
 		</form>
-		<hr />
+		</div>
+		
+		<!--<hr />
 		<h1>
 			创建调拨申请
 		</h1>
-		<form action="transBills/transBills_TransBills_createTransBills.action"
+		<form
+			action="transBills/transBills_TransBills_createTransBills.action"
 			method="post">
 			资产ID
-			<input type="text" name="asset.aid" value="1" />
+			<input type="text" name="asset.aid" value="2" />
 			<br />
 			调出人ID
 			<input type="text" name="userByOutuid.uid" value="1" />
-			<br /><!--
+			<br />
+			
 			调出时间
-			--><!--<input type="text" name="outdate" value="123" />-->
-			<!--<br/>-->
+			
+			<input type="text" name="outdate" value="123" />
+			<br/>
 			调出事由
 			<input type="text" name="outname" value="1" />
 			<br />
 			状态
-			<input type="radio" name="tbstate" value="0" checked="checked"/>
+			<input type="radio" name="tbstate" value="0" checked="checked" />
 			调拨中
-			<input type="radio" name="tbstate" value="1"/>
+			<input type="radio" name="tbstate" value="1" />
 			确认调入
 			<br />
 			<input type="submit" value="创建" />
 		</form>
 
-	</body>
+	--></body>
 </html>

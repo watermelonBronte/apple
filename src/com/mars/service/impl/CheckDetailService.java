@@ -120,6 +120,15 @@ public class CheckDetailService implements ICheckDetailService {
 		return cd;
 	}
 
+	public List<Asset> findAsset() {
+		return checkDetailDao.findAsset();
+	}
+
+	public List<CheckDetail> findCheckDetailByCid(IPage pageInfo,
+			Checked checked) {
+		return checkDetailDao.findCheckDetailByCid(pageInfo,checked);
+	}
+
 	
 
 }

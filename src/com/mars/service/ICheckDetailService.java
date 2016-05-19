@@ -72,4 +72,13 @@ public interface ICheckDetailService {
 	 * @return
 	 */
 	public CheckDetail findCheckDetailById(Integer cdid);
+	
+	/**
+	 * select查找
+	 * @return
+	 */
+
+	public List<Asset> findAsset() ;
+
+	public List<CheckDetail> findCheckDetailByCid(IPage pageInfo, Checked checked);
 }

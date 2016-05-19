@@ -10,6 +10,7 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate3.HibernateCallback;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
@@ -159,6 +160,40 @@ public class CheckDetailDao extends HibernateDaoSupport implements
 	public CheckDetail findCheckDetailById(Integer cdid) {
 		CheckDetail cd = (CheckDetail) super.getHibernateTemplate().get(CheckDetail.class, new Integer(cdid));
 		return cd;
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Asset> findAsset() {
+		return (List<Asset>)getHibernateTemplate().find("from Asset");
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<CheckDetail> findCheckDetailByCid(final IPage pageInfo,
+			final Checked checked) {
+		return (List<CheckDetail>) super.getHibernateTemplate().execute(
+				new HibernateCallback() {
+
+					public Object doInHibernate(Session session)
+							throws HibernateException, SQLException {
+
+						IPage pages = null;
+						List<CheckDetail> list = new ArrayList<CheckDetail>();
+						try {
+							Criteria criteria = session
+									.createCriteria(CheckDetail.class).add(Restrictions.eq("checked",checked));
+							IExecute exc = new Execute(pageInfo);
+							pages = exc.excute(criteria);
+							if (pages != null) {
+								list = pages.getResult();
+							}
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+
+						return list;
+
+					}
+				});
 	}
 
 }

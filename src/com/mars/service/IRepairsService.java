@@ -62,4 +62,10 @@ public interface IRepairsService {
 	 * @return
 	 */
 	public Asset findAssetById(Integer aid);
+	
+	/**
+	 * select
+	 */
+	public List<User> findUser() ;
+	public List<Asset> findAsset() ;
 }

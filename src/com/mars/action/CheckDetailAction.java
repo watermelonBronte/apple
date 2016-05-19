@@ -3,10 +3,11 @@
  */
 package com.mars.action;
 
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+
 
 import com.mars.service.ICheckDetailService;
 import com.mars.tools.IPage;
@@ -14,8 +15,9 @@ import com.mars.tools.PageInfo;
 import com.mars.vo.Asset;
 import com.mars.vo.CheckDetail;
 import com.mars.vo.Checked;
-import com.mars.vo.User;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+
 
 /**
  * @author ye
@@ -27,19 +29,35 @@ public class CheckDetailAction extends ActionSupport {
 	protected IPage pageInfo = new PageInfo();
 
 	private CheckDetail checkDetail = new CheckDetail();
-	private List<CheckDetail> checkDetailList = new ArrayList<CheckDetail>();
+	private List<Asset> assetList = new ArrayList<Asset>();
 
 	private String result;
 	
 	
+	private Integer cid;
 	
-
 	private Integer cdid;
 	private Checked checked;
 	private Asset asset;
 	private Integer cdresult;
 	private Date cddate;
 	
+
+	public List<Asset> getAssetList() {
+		return assetList;
+	}
+
+	public void setAssetList(List<Asset> assetList) {
+		this.assetList = assetList;
+	}
+
+	public Integer getCid() {
+		return cid;
+	}
+
+	public void setCid(Integer cid) {
+		this.cid = cid;
+	}
 
 	public Integer getCdid() {
 		return cdid;
@@ -115,14 +133,7 @@ public class CheckDetailAction extends ActionSupport {
 
 	
 
-	public List<CheckDetail> getCheckDetailList() {
-		return checkDetailList;
-	}
-
-	public void setCheckDetailList(List<CheckDetail> checkDetailList) {
-		this.checkDetailList = checkDetailList;
-	}
-
+	
 	/**
 	 * 添加界面
 	 * 
@@ -131,7 +142,8 @@ public class CheckDetailAction extends ActionSupport {
 
 	public String addCheckDetail() {
 
-		return "addCheckDetail";
+		assetList = checkDetailService.findAsset();
+		 return "addCheckDetail";
 	}
 
 	/**
@@ -141,17 +153,17 @@ public class CheckDetailAction extends ActionSupport {
 	 */
 	public String createCheckDetail() {
 
+//		System.out.println(cid);
 		checkDetail.setAsset(checkDetailService.findAssetById(this.getAsset().getAid()));
-		checkDetail.setChecked(checkDetailService.findCheckedById(this.getChecked().getCid()));
+		checkDetail.setChecked(checkDetailService.findCheckedById(this.getCid()));
 		checkDetail.setCdresult(this.getCdresult());
 		
 	
-		Date date = new Date();
-		Timestamp nousedate = new Timestamp(date.getTime());
-		checkDetail.setCddate(nousedate);
+		checkDetail.setCddate(this.getCddate());
 		checkDetailService.createCheckDetail(checkDetail);
-		this.setResult("创建");
-		return "successCheckDetail";
+//		this.setResult("创建");
+		pageCheckDetailByCid();
+		 return "pageCheckDetailByCid";
 	}
 
 	/**
@@ -160,9 +172,11 @@ public class CheckDetailAction extends ActionSupport {
 	 * @return
 	 */
 	public String deleteCheckDetail() {
+//		System.out.println(cid);
 		checkDetailService.deleteCheckDetail(this.getCdid());
-		this.setResult("删除");
-		return "successCheckDetail";
+//		this.setResult("删除");
+		pageCheckDetailByCid();
+		 return "pageCheckDetailByCid";
 	}
 
 	/**
@@ -179,31 +193,25 @@ public class CheckDetailAction extends ActionSupport {
 //		return "successCheckDetail";
 //	}
 
-	/**
-	 * 查找
-	 * 
-	 * @return
-	 */
-	public String findCheckDetail() {
-		checkDetailService.findCheckDetail();
-		return "findCheckDetail";
-	}
+
 
 	/**
 	 * 根据ID查找
 	 * 
 	 * @return
 	 */
-	public String findCheckDetailById() {
-
-		checkDetail = checkDetailService.findCheckDetailById(this.getCdid());
-		this.setAsset(checkDetail.getAsset());
-		this.setCdresult(checkDetail.getCdresult());
-		this.setCddate(checkDetail.getCddate());
-		this.setChecked(checkDetail.getChecked());
-		return "findCheckDetailById";
-
-	}
+//	public String findCheckDetailById() {
+//
+//		 
+//			
+//		checkDetail = checkDetailService.findCheckDetailById(this.getCdid());
+//		this.setAsset(checkDetail.getAsset());
+//		this.setCdresult(checkDetail.getCdresult());
+//		this.setCddate(checkDetail.getCddate());
+//		this.setChecked(checkDetail.getChecked());
+//		return "findCheckDetailById";
+//
+//	}
 
 	/**
 	 * 分页查找
@@ -211,8 +219,21 @@ public class CheckDetailAction extends ActionSupport {
 	 * @return
 	 */
 	public String pageCheckDetail() {
+		
 		this.getPageInfo().setResult((checkDetailService.findAll(pageInfo)));
 		return "pageCheckDetail";
 	}
 
+	/**
+	 * 根据CID查找清单
+	 */
+	public String pageCheckDetailByCid()
+	{
+		 this.setChecked(checkDetailService.findCheckedById(this.getCid()));
+		 ActionContext ctx = ActionContext.getContext();
+			ctx.getSession().put("cid",this.getCid());
+		this.getPageInfo().setResult(checkDetailService.findCheckDetailByCid(pageInfo, checked));//分页
+
+			  return "pageCheckDetailByCid";
+	}
 }

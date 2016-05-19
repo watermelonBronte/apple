@@ -72,11 +72,11 @@ public class PurDetailDao extends HibernateDaoSupport implements IPurDetailDao {
 		return purdetail;
 	}
 //	//按采购单id查询
-//	public PurchaseNote findPurDetailByPid(int pnid) {
-//		// TODO Auto-generated method stub
-//		PurchaseNote purnote=(PurchaseNote)this.getHibernateTemplate().get(PurchaseNote.class, pnid);
-//		return purnote;
-//	}
+	public PurchaseNote findPurchaseNoteByPid(int pnid) {
+		// TODO Auto-generated method stub
+		PurchaseNote purnote=(PurchaseNote)this.getHibernateTemplate().get(PurchaseNote.class, pnid);
+		return purnote;
+	}
 	//按保管人id查询
 	public User findPurDetailByUid(int uid) {
 		// TODO Auto-generated method stub
@@ -89,7 +89,7 @@ public class PurDetailDao extends HibernateDaoSupport implements IPurDetailDao {
 		this.getHibernateTemplate().update(purdetail);
 	}
 	@SuppressWarnings("unchecked")
-	public List<PurchaseDetail> findPurDetailByPnid(final IPage pageInfo, Integer pnid) {
+	public List<PurchaseDetail> findPurDetailByPnid(final IPage pageInfo, final PurchaseNote purchaseNote) {
 		return (List<PurchaseDetail>) super.getHibernateTemplate().execute(
 				new HibernateCallback() {
 
@@ -99,7 +99,7 @@ public class PurDetailDao extends HibernateDaoSupport implements IPurDetailDao {
 						IPage pages = null;
 						List<PurchaseDetail> list = new ArrayList<PurchaseDetail>();
 						try {
-				      Criteria criteria = session.createCriteria(PurchaseDetail.class).add(Restrictions.eq("pnid","pnid")) ;;
+				      Criteria criteria = session.createCriteria(PurchaseDetail.class).add(Restrictions.eq("purchaseNote",purchaseNote));
 							IExecute exc = new Execute(pageInfo);
 							pages = exc.excute(criteria);
 							if (pages != null) {

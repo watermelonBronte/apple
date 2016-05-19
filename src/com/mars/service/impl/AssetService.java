@@ -134,6 +134,29 @@ public class AssetService implements IAssetService {
 		PurchaseDetail pd = assetDao.findPurchaseDetailById(pdid);
 		return pd;
 	}
+
+	public List<AssetCategory> findAssetCategory() {
+		
+		return assetDao.findAssetCategory();
+	}
+
+	public List<Finance> findFinance() {
+		return assetDao.findFinance();
+	}
+
+	public List<PurchaseDetail> findPurchaseDetail() {
+		return assetDao.findPurchaseDetail();
+	}
+
+	public List<User> findUser() {
+		return assetDao.findUser();
+	}
+
+	public List<Asset> findAllAssetByAttr(IPage pageInfo, Finance finance,
+			AssetCategory assetCategory, User user,
+			PurchaseDetail purchaseDetail) {
+		return assetDao.findAllAssetByAttr(pageInfo, finance, assetCategory, user, purchaseDetail);
+	}
 	
 	
 
