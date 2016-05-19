@@ -93,6 +93,12 @@ public class UserService implements IUserService {
 			return list;
 		}
 
+
+	public List<User> findUserByAttr(IPage pageInfo, User u) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 
 }

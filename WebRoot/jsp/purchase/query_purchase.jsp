@@ -121,7 +121,7 @@ function submitFrom(formName){
    		删除
    		</th>	
    			--><th>
-   		详情
+   		清单
    		</th>	
    		 <th style="width: 3.5em;"></th>
    </tr>
@@ -140,7 +140,7 @@ function submitFrom(formName){
       
       <td><a href="selectPurchaseById.action?pnid=${purinfo.pnid}">更新</a></td>
        <td><a href="deletePurchase.action?pnid=${purinfo.pnid}">删除</a></td>
-        --><td><a href="queryPurDetail.action?pnid=${purinfo.pnid}">详情</a></td>
+        --><td><a href="queryPurDetail.action?pnid=${purinfo.pnid}">清单</a></td>
         <td>
           <a href="selectPurchaseById.action?pnid=${purinfo.pnid}"><i class="fa fa-pencil"></i></a>
           <a href="#myModal" role="button" data-toggle="modal"><i class="fa fa-trash-o"></i></a>

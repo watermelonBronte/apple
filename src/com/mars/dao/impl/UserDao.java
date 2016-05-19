@@ -7,15 +7,18 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.dbutils.QueryRunner;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate3.HibernateCallback;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import com.mars.dao.IUserDao;
 import com.mars.tools.IPage;
+import com.mars.vo.Asset;
 import com.mars.vo.Department;
 import com.mars.vo.Role;
 import com.mars.vo.User;
@@ -27,7 +30,10 @@ import com.mars.tools.IPage;
  *@data 2016/4/21
  */
 public class UserDao extends HibernateDaoSupport implements IUserDao {
-//添加用户
+//	QueryRunner qr = new QueryRunner();
+	
+	
+	//添加用户
 	public void createUser(User user){
 			this.getHibernateTemplate().save(user);
 	}
@@ -122,6 +128,8 @@ public class UserDao extends HibernateDaoSupport implements IUserDao {
 						List<User> list = new ArrayList<User>();
 						try {
 				      Criteria criteria = session.createCriteria(User.class);
+				      
+				      
 							IExecute exc = new Execute(pageInfo);
 							pages = exc.excute(criteria);
 							if (pages != null) {
@@ -136,10 +144,18 @@ public class UserDao extends HibernateDaoSupport implements IUserDao {
 					}
 				});
 	}
+
+	public List<User> findUserByAttr(IPage pageInfo, User u) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	}
 	
 	
 	
 
 	
 	
-}
+

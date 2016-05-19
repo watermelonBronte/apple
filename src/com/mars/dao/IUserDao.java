@@ -35,6 +35,10 @@ public interface IUserDao {
 	 *@param uid 用户id
 	 */
 	public User findUserById(int uid);
+	
+	
+
+	
 	/**
 	 * 根据部门id查询
 	 *@param did部门 id
@@ -59,9 +63,18 @@ public interface IUserDao {
 	
 	public List<User> findAllUser();
 	
+	
+///**
+//	 * 根据条件查询用户
+//	 *@return 
+//	 */
+//	public List<User> query(User u);
+	
 	/**
 	 * 分页查询资产类别
 	 * @return
 	 */
 	public List<User> findUser(IPage pageInfo);
+	public List<User> findUserByAttr(final IPage pageInfo, final User u) ;
+	
 }

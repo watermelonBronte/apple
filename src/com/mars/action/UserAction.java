@@ -3,13 +3,17 @@
  */
 package com.mars.action;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.apache.struts2.ServletActionContext;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+
 
 import com.mars.service.impl.UserService;
 import com.mars.tools.IPage;
@@ -25,6 +29,8 @@ import org.hibernate.HibernateException;
  *@data 2016/4/21
  */
 public class UserAction extends ActionSupport {
+
+	
 	private UserService userService;// 设置业务逻辑组件
 private String sex;
 	public String getSex() {
@@ -239,4 +245,8 @@ public void setSex(String sex) {
 	// //将所有用户放在request范围内
 	// return "success";
 	// }
-}
+	
+
+	
+		
+	}
