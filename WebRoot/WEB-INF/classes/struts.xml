@@ -297,9 +297,9 @@
 	</package>
 		<package name="assetTransDetail" extends="struts-default" namespace="/assetTransDetail">
 		<action name="assetTransDetail_*_*" class="{1}Action" method="{2}">
-			<result name="pageAssetTransDetailByCid">/jsp/assetTransDetail/asset_trans_detail_page.jsp</result>
+			<result name="pageAssetTransDetailByAtid">/jsp/assetTrans/asset_trans_detail_page.jsp</result>
 			<!--<result name="successAssetTransDetail">/jsp/assetTransDetail/assetTransDetail_success.jsp</result>-->
-			<result name="addAssetTransDetail">/jsp/assetTransDetail/asset_trans_detail_add.jsp</result>
+			<result name="addAssetTransDetail">/jsp/assetTrans/asset_trans_detail_add.jsp</result>
 		<!--<result name="success" type="redirect">/assetTransDetail/assetTransDetail_AssetTransDetail_pageAssetTransDetail.action
 				</result>
 		--></action>

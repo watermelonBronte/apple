@@ -85,4 +85,6 @@ public interface IAssetTransDetailDao {
 	public List<AssetTrans> findAssetTrans() ;
 	public List<User> findUser() ;
 	public List<Asset> findAsset() ;
+
+	public List<AssetTransDetail> findAssetTransDetailByAtid(IPage pageInfo, AssetTrans assetTrans);
 }

@@ -1,5 +1,5 @@
 /**
- * 移交action
+ * 移交清单action
  */
 package com.mars.action;
 
@@ -17,6 +17,7 @@ import com.mars.vo.AssetTrans;
 import com.mars.vo.CheckDetail;
 import com.mars.vo.AssetTransDetail;
 import com.mars.vo.User;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
@@ -45,8 +46,17 @@ public class AssetTransDetailAction extends ActionSupport {
 	private Integer tdresult;
 	private Date tddate;
 	
+	private Integer atid;
 	
 	
+
+	public Integer getAtid() {
+		return atid;
+	}
+
+	public void setAtid(Integer atid) {
+		this.atid = atid;
+	}
 
 	public Integer getTdid() {
 		return tdid;
@@ -179,13 +189,15 @@ public class AssetTransDetailAction extends ActionSupport {
 	
 		assetTransDetail.setAsset(assetTransDetailService.findAssetById(this.getAsset().getAid()));
 		assetTransDetail.setUser(assetTransDetailService.findUserById(this.getUser().getUid()));
-//		assetTransDetail.setAssetTrans(assetTransDetailService.);
+		assetTransDetail.setAssetTrans(assetTransDetailService.findAssetTransById(this.getAtid()));
 		assetTransDetail.setTdresult(this.getTdresult());
 		assetTransDetail.setTddate(this.getTddate());
 		
 		assetTransDetailService.createAssetTransDetail(assetTransDetail);
-		this.setResult("创建");
-		return "successAssetTransDetail";
+//		this.setResult("创建");
+//		return "successAssetTransDetail";
+		pageAssetTransDetailByAtid();
+		return "pageAssetTransDetailByAtid";
 	}
 
 	/**
@@ -196,59 +208,50 @@ public class AssetTransDetailAction extends ActionSupport {
 	public String deleteAssetTransDetail() {
 		assetTransDetailService.deleteAssetTransDetail(this.getTdid());
 		
-		this.setResult("删除");
-		return "successAssetTransDetail";
+		pageAssetTransDetailByAtid();
+		return "pageAssetTransDetailByAtid";
 	}
 
 	/**
-	 * 移交
+	 * 移交清单(接收）
 	 * 
 	 * @return
 	 */
-	public String updateAssetTransDetail() {
-		assetTransDetail = assetTransDetailService.findAssetTransDetailById(this.getTdid());
-		assetTransDetail.setAsset(assetTransDetailService.findAssetById(this.getAsset().getAid()));
-		assetTransDetail.setUser(assetTransDetailService.findUserById(this.getUser().getUid()));
-		assetTransDetail.setAssetTrans(assetTransDetailService.findAssetTransById(this.getAssetTrans().getAtid()));
-		assetTransDetail.setTdresult(this.getTdresult());
-		assetTransDetail.setTddate(this.getTddate());
-		
-		assetTransDetailService.createAssetTransDetail(assetTransDetail);
-		
-		assetTransDetailService.updateAssetTransDetail(assetTransDetail);
-
-		this.setResult("修改移交");
-		return "successAssetTransDetail";
-	}
+//	public String updateState() {
+//		assetTransDetail = assetTransDetailService.findAssetTransDetailById(this.getTdid());
+//		assetTransDetail.setAsset(assetTransDetailService.findAssetById(this.getAsset().getAid()));
+//		assetTransDetail.setUser(assetTransDetailService.findUserById(this.getUser().getUid()));
+//		assetTransDetail.setAssetTrans(assetTransDetailService.findAssetTransById(this.getAssetTrans().getAtid()));
+//		assetTransDetail.setTdresult(this.getTdresult());
+//		assetTransDetail.setTddate(this.getTddate());
+//		
+//		
+//		assetTransDetailService.updateAssetTransDetail(assetTransDetail);
+//
+////		this.setResult("修改移交清单");
+//		pageAssetTransDetailByAtid();
+//		return "pageAssetTransDetailByAtid";
+//	}
 	
 	
 
-	/**
-	 * 查找
-	 * 
-	 * @return
-	 */
-	public String findAssetTransDetail() {
-		assetTransDetailService.findAssetTransDetail();
-		return "findAssetTransDetail";
-	}
 
 	/**
 	 * 根据ID查找
 	 * 
 	 * @return
 	 */
-	public String findAssetTransDetailById() {
-
-		assetTransDetail = assetTransDetailService.findAssetTransDetailById(this.getTdid());
-		this.setUser(assetTransDetail.getUser());
-		this.setAsset(assetTransDetail.getAsset());
-		this.setAssetTrans(assetTransDetail.getAssetTrans());
-		this.setTdresult(assetTransDetail.getTdresult());
-		this.setTddate(assetTransDetail.getTddate());
-		return "findAssetTransDetailById";
-
-	}
+//	public String findAssetTransDetailById() {
+//
+//		assetTransDetail = assetTransDetailService.findAssetTransDetailById(this.getTdid());
+//		this.setUser(assetTransDetail.getUser());
+//		this.setAsset(assetTransDetail.getAsset());
+//		this.setAssetTrans(assetTransDetail.getAssetTrans());
+//		this.setTdresult(assetTransDetail.getTdresult());
+//		this.setTddate(assetTransDetail.getTddate());
+//		return "findAssetTransDetailById";
+//
+//	}
 
 	/**
 	 * 分页查找
@@ -258,6 +261,19 @@ public class AssetTransDetailAction extends ActionSupport {
 	public String pageAssetTransDetail() {
 		this.getPageInfo().setResult((assetTransDetailService.findAll(pageInfo)));
 		return "pageAssetTransDetail";
+	}
+	
+	/**
+	 * 根据ATID分页查找
+	 * 
+	 * @return
+	 */
+	public String pageAssetTransDetailByAtid() {
+		this.setAssetTrans(assetTransDetailService.findAssetTransById(this.getAtid()));
+		ActionContext ctx = ActionContext.getContext();
+		ctx.getSession().put("atid",this.getAtid());
+		this.getPageInfo().setResult((assetTransDetailService.findAssetTransDetailByAtid(pageInfo,assetTrans)));
+		return "pageAssetTransDetailByAtid";
 	}
 
 }

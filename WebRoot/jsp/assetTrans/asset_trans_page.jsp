@@ -179,7 +179,7 @@ th {
 							</td>
 							<td align="center" class="left_txt">
 								<a
-									href="assetTransDetail/assetTransDetail_AssetTransDetail_pageAssetTransByAtid.action?atid=${atid}">移交清单</a>
+									href="assetTransDetail/assetTransDetail_AssetTransDetail_pageAssetTransDetailByAtid.action?atid=${atid}">移交清单</a>
 								|
 								<a
 									href="assetTrans/assetTrans_AssetTrans_deleteAssetTrans.action?atid=${atid}">删除</a>

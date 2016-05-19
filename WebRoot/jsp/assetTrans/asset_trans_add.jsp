@@ -66,7 +66,7 @@ $(function(){
 		<h1>
 			填写移交单
 		</h1>
-		<form action="checked/checked_Checked_createChecked.action"
+		<form action="assetTrans/assetTrans_AssetTrans_createAssetTrans.action"
 			method="post">
 			移交人
 			<s:select list="userList" listKey="uid" listValue="uname"
@@ -80,16 +80,16 @@ $(function(){
 			<br />
 			移交类型
 			<!--0- 1--->
-			<input type="radio" name="cstate" value="0" checked="checked" />
+			<input type="radio" name="attype" value="0" checked="checked" />
 			第一种类型
-			<input type="radio" name="cstate" value="1" />
+			<input type="radio" name="attype" value="1" />
 			第二种类型
 			<br />
 			移交状态
 			<!--0-待移交 1-移交完毕-->
-			<input type="radio" name="cstate" value="0" checked="checked" />
+			<input type="radio" name="atstate" value="0" checked="checked" />
 			待移交
-			<input type="radio" name="cstate" value="1" />
+			<input type="radio" name="atstate" value="1" />
 			移交完毕
 			<br />
 			<input type="submit" value="创建" />

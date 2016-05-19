@@ -157,7 +157,7 @@ th {
 								${ad.tdid}
 							</td>
 							<td align="center" class="left_txt">
-								${ad.assetCategory.aid}
+								${ad.asset.aid}
 							</td>
 							<td align="center" class="left_txt">
 								${ad.user.uname}

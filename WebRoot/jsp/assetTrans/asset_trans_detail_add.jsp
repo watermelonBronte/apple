@@ -66,7 +66,8 @@
 		<h1>
 			填写移交单ID${atid}的清单
 		</h1>
-		<form action="assetTransDetail/assetTransDetail_AssetTransDetail_createAssetTransDetail.action?atid=${atid}"
+		<form
+			action="assetTransDetail/assetTransDetail_AssetTransDetail_createAssetTransDetail.action?atid=${atid}"
 			method="post">
 			资产ID
 			<s:select list="assetList" listKey="aid" listValue="aid"
@@ -75,6 +76,7 @@
 			接收人
 			<s:select list="userList" listKey="uid" listValue="uname"
 				name="user.uid" />
+			<br />
 			接收时间
 			<input
 				style="width: 240px; background: #fefefe; border: 1px solid #bbb; font-size: 14px; color: #333; padding: 7px; border-radius: 3px;"
@@ -82,7 +84,8 @@
 			<br />
 			接收结果
 			<!--0-接收 1-不接收
-			--><input type="radio" name="tdresult" value="0" checked="checked" />
+			-->
+			<input type="radio" name="tdresult" value="0" checked="checked" />
 			接收
 			<input type="radio" name="tdresult" value="1" />
 			不接收

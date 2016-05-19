@@ -124,4 +124,8 @@ public class AssetTransDetailService implements IAssetTransDetailService {
 		return assetTransDetailDao.findAssetTransById(atid);
 	}
 
+	public List<AssetTransDetail> findAssetTransDetailByAtid(IPage pageInfo, AssetTrans assetTrans) {
+		return assetTransDetailDao.findAssetTransDetailByAtid(pageInfo,assetTrans);
+	}
+
 }

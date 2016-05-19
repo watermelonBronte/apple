@@ -10,6 +10,7 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate3.HibernateCallback;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
@@ -169,6 +170,35 @@ public class AssetTransDetailDao extends HibernateDaoSupport implements
 		AssetTrans assetTrans = (AssetTrans) super.getHibernateTemplate().get(
 				AssetTrans.class, new Integer(atid));
 		return assetTrans;
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<AssetTransDetail> findAssetTransDetailByAtid(final IPage pageInfo,
+			final AssetTrans assetTrans) {
+		return (List<AssetTransDetail>) super.getHibernateTemplate().execute(
+				new HibernateCallback() {
+
+					public Object doInHibernate(Session session)
+							throws HibernateException, SQLException {
+
+						IPage pages = null;
+						List<AssetTransDetail> list = new ArrayList<AssetTransDetail>();
+						try {
+							Criteria criteria = session
+									.createCriteria(AssetTransDetail.class).add(Restrictions.eq("assetTrans",assetTrans));
+							IExecute exc = new Execute(pageInfo);
+							pages = exc.excute(criteria);
+							if (pages != null) {
+								list = pages.getResult();
+							}
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+
+						return list;
+
+					}
+				});
 	}
 
 }
