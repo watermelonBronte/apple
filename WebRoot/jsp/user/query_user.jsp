@@ -33,7 +33,52 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
  
 		<script>
+window.onload=function(){
 
+	var oDiv=document.getElementById('charcolor');
+	var aTd=oDiv.getElementsByTagName('tr');
+	for( var i=1;i<aTd.length-1;i++){
+	
+		if(i%2!=0){
+		
+		aTd[i].style.background='#F7F7F7';
+			aTd[i].onmouseover=function(){
+			
+			this.style.background='#E3E3E3';
+		
+		}
+	
+		aTd[i].onmouseout=function(){
+			
+			this.style.background='#F7F7F7';
+
+		}
+		
+		}
+		else
+		{
+		aTd[i].onmouseover=function(){
+			
+			this.style.background='#E3E3E3';
+		
+		}
+	
+		aTd[i].onmouseout=function(){
+			
+			this.style.background='#fff';
+
+		}
+		
+		}
+	
+			
+		
+	
+	}
+	
+//	#E0EEE0 #EEE5DE #FAF0E6
+	
+}
 //翻页  pageNo:隐藏域控件名  formName：要提交的表单名 pageno:页码
 function goto(pageNo,formName,pageno){
 	document.getElementById(pageNo).value=pageno;
@@ -101,7 +146,7 @@ function submitFrom(formName){
    <form action="" id="_form" method="post"><!--alert(parseInt(userinfor.value)) -->
   根据用户id查询：<input id="userinfor" type="text"  value="" name="user.uid" />
   <a href="selectUserId.action?id=3"> 查询</a>
-   <table class="table" style="text-align:center">
+   <table id="charcolor" class="table" style="text-align:center">
   <thead  >
     <tr>
    		<th >

@@ -30,7 +30,52 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
 <script>
+window.onload=function(){
 
+	var oDiv=document.getElementById('charcolor');
+	var aTd=oDiv.getElementsByTagName('tr');
+	for( var i=1;i<aTd.length-1;i++){
+	
+		if(i%2!=0){
+		
+		aTd[i].style.background='#F7F7F7';
+			aTd[i].onmouseover=function(){
+			
+			this.style.background='#E3E3E3';
+		
+		}
+	
+		aTd[i].onmouseout=function(){
+			
+			this.style.background='#F7F7F7';
+
+		}
+		
+		}
+		else
+		{
+		aTd[i].onmouseover=function(){
+			
+			this.style.background='#E3E3E3';
+		
+		}
+	
+		aTd[i].onmouseout=function(){
+			
+			this.style.background='#fff';
+
+		}
+		
+		}
+	
+			
+		
+	
+	}
+	
+//	#E0EEE0 #EEE5DE #FAF0E6
+	
+}
 function goto(pageNo,formName,pageno){
 	document.getElementById(pageNo).value=pageno;
 	submitFrom(formName);
@@ -93,7 +138,7 @@ function submitFrom(formName){
 </div>
   
     <form action="" id="_form" method="post">
-   <table  class="table" style="text-align:center">
+   <table id="charcolor" class="table" style="text-align:center">
      <thead  >
    <tr >
    		<th>

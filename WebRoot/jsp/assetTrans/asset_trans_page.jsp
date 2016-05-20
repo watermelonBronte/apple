@@ -7,7 +7,7 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
-
+  <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 	<head>
@@ -50,7 +50,53 @@
 		<script type="text/javascript"
 			src="http://www.js-css.cn/jscode/jquery.min.js"></script>
 		<script>
+	
+window.onload=function(){
 
+	var oDiv=document.getElementById('charcolor');
+	var aTd=oDiv.getElementsByTagName('tr');
+	for( var i=1;i<aTd.length-1;i++){
+	
+		if(i%2!=0){
+		
+		aTd[i].style.background='#F7F7F7';
+			aTd[i].onmouseover=function(){
+			
+			this.style.background='#E3E3E3';
+		
+		}
+	
+		aTd[i].onmouseout=function(){
+			
+			this.style.background='#F7F7F7';
+
+		}
+		
+		}
+		else
+		{
+		aTd[i].onmouseover=function(){
+			
+			this.style.background='#E3E3E3';
+		
+		}
+	
+		aTd[i].onmouseout=function(){
+			
+			this.style.background='#fff';
+
+		}
+		
+		}
+	
+			
+		
+	
+	}
+	
+//	#E0EEE0 #EEE5DE #FAF0E6
+	
+}
 //翻页  pageNo:隐藏域控件名  formName：要提交的表单名 pageno:页码
 function goto(pageNo,formName,pageno){
 	document.getElementById(pageNo).value=pageno;
@@ -106,7 +152,9 @@ th {
 	</head>
 
 	<body class=" theme-blue" style="width: 993px">
-
+	<h3>
+				移交单列表
+			</h3>
 		<div class="main-content" style="width: 993px">
 
 			<div class="btn-toolbar list-toolbar">
@@ -123,71 +171,78 @@ th {
 				</div>
 			</div>
 
-			<h1>
-				移交单列表
-			</h1>
+		
 
 			<form action="" id="_form" method="post">
-				<table class="table" style="text-align: center">
-
-					<tr class="datalist_head">
-						<td class="left_bt2" align="center" width="10%">
+				<table class="table" style="text-align: center" id="charcolor">
+<thead>
+					<tr >
+						<th >
 							移交单ID
-						</td>
-						<td class="left_bt2" align="center" width="10%">
+						</th>
+						<th >
 							移交人
-						</td>
-						<td class="left_bt2" align="center" width="10%">
+						</th>
+						<th>
 							移交发起日期
-						</td>
-						<td class="left_bt2" align="center" width="10%">
+						</th>
+						<th >
 							移交完成日期
-						</td>
-						<td class="left_bt2" align="center" width="10%">
+						</th>
+						<th >
 							移交类型
-						</td>
-						<td class="left_bt2" align="center" width="10%">
+						</th>
+						<th >
 							移交状态
-						</td>
-						<td class="left_bt2" align="center" width="10%">
+						</th>
+						<th>清单</th>
+						<th >
 							操作
-						</td>
+						</th>
+						 <th style="width: 3.5em;"></th>
 					</tr>
-
+</thead>
 					<s:iterator id="at" value="pageInfo.result" status="st">
 						<tr align=center>
-							<td align="center" class="left_txt">
+							<td>
 								${at.atid}
 							</td>
-							<td align="center" class="left_txt">
+							<td >
 								${at.user.uname}
 							</td>
-							<td align="center" class="left_txt">
-								${at.atrdate}
+							<td >
+								<fmt:formatDate value="${at.atrdate}" pattern="yyyy-MM-dd"/>
+								
 							</td>
-							<td align="center" class="left_txt">
-								${at.atfdate}
+							<td >
+							<fmt:formatDate value="${at.atfdate}" pattern="yyyy-MM-dd"/>
+								
 							</td>
-							<td align="center" class="left_txt"><!--
+							<td ><!--
 							0- 1-
 								--><s:if test="%{#at.attype==0}">第一种类型</s:if>
 								<s:else>第二种类型</s:else>
 							</td>
-							<td align="center" class="left_txt">
+							<td >
 							<s:if test="%{#at.atstate==0}">待移交</s:if>
 								<s:else>移交完毕</s:else>
 							</td>
-							<td align="center" class="left_txt">
+							<td >
 								<a
-									href="assetTransDetail/assetTransDetail_AssetTransDetail_pageAssetTransDetailByAtid.action?atid=${atid}">移交清单</a>
+									href="assetTransDetail/assetTransDetail_AssetTransDetail_pageAssetTransDetailByAtid.action?atid=${atid}">清单</a>
+									</td>
+									<td>
+									
+									<!--
 								|
 								<a
 									href="assetTrans/assetTrans_AssetTrans_deleteAssetTrans.action?atid=${atid}">删除</a>
-								|
+								-->
 								<a
-									href="assetTrans/assetTrans_AssetTrans_updateState.action?atid=${atid}">移交完成</a>
+									href="assetTrans/assetTrans_AssetTrans_updateState.action?atid=${atid}">确认移交</a>
 
 							</td>
+							<td>    <a href="#myModal" role="button" data-toggle="modal"><i class="fa fa-trash-o"></i></a></td>
 						</tr>
 					</s:iterator>
 
@@ -217,9 +272,33 @@ th {
 						</td>
 					</tr>
 				</table>
-
+			 
+  <div class="modal small fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="myModalLabel">删除确认</h3>
+        </div>
+        <div class="modal-body">
+            <p class="error-text"><i class="fa fa-warning modal-icon"></i>确定删除?</p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">取消</button>
+           <button class="btn btn-danger" data-dismiss="modal"  onclick="window.location='assetTrans/assetTrans_AssetTrans_deleteAssetTrans.action?atid=${at.atid}'" > 删除</button>
+        </div>
+      </div>
+    </div>
+</div>
 			</form>
 		</div>
-		
+					
+<script src="${pageContext.request.contextPath}/lib/bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript">
+        $("[rel=tooltip]").tooltip();
+        $(function() {
+            $('.demo-cancel-click').click(function(){return false;});
+        });
+    </script> 
 	</body>
 </html>

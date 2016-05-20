@@ -7,7 +7,7 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
-
+  <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 
@@ -50,7 +50,52 @@
 			src="http://www.js-css.cn/jscode/jquery.min.js"></script>
 		<script>
 
+window.onload=function(){
 
+	var oDiv=document.getElementById('charcolor');
+	var aTd=oDiv.getElementsByTagName('tr');
+	for( var i=1;i<aTd.length-1;i++){
+	
+		if(i%2!=0){
+		
+		aTd[i].style.background='#F7F7F7';
+			aTd[i].onmouseover=function(){
+			
+			this.style.background='#E3E3E3';
+		
+		}
+	
+		aTd[i].onmouseout=function(){
+			
+			this.style.background='#F7F7F7';
+
+		}
+		
+		}
+		else
+		{
+		aTd[i].onmouseover=function(){
+			
+			this.style.background='#E3E3E3';
+		
+		}
+	
+		aTd[i].onmouseout=function(){
+			
+			this.style.background='#fff';
+
+		}
+		
+		}
+	
+			
+		
+	
+	}
+	
+//	#E0EEE0 #EEE5DE #FAF0E6
+	
+}
 //翻页  pageNo:隐藏域控件名  formName：要提交的表单名 pageno:页码
 function goto(pageNo,formName,pageno){
 	document.getElementById(pageNo).value=pageno;
@@ -110,6 +155,9 @@ th {
 	<body class=" theme-blue" style="width: 993px">
 
 		<div class="main-content" style="width: 993px">
+<h3>
+				列表
+			</h3>
 
 			<div class="btn-toolbar list-toolbar">
 				<br />
@@ -125,59 +173,59 @@ th {
 				</div>
 			</div>
 
-			<h1>
-				报废单列表
-			</h1>
-
+			
 			<form action="" id="_form" method="post">
-				<table class="table" style="text-align: center">
-
-					<tr class="datalist_head">
-						<td class="left_bt2" align="center" width="10%">
+				<table id="charcolor" class="table" style="text-align: center">
+  <thead>
+					<tr >
+						<th >
 							报废单ID
-						</td>
-						<td class="left_bt2" align="center" width="10%">
+						</th>
+						<th >
 							资产ID
-						</td>
-						<td class="left_bt2" align="center" width="10%">
+						</th>
+						<th >
 							报废人ID
-						</td>
-						<td class="left_bt2" align="center" width="10%">
+						</th>
+						<th >
 							报废时间
-						</td>
-						<td class="left_bt2" align="center" width="10%">
+						</th>
+						<th >
 							审核人ID
-						</td>
-						<td class="left_bt2" align="center" width="10%">
+						</th>
+						<th>
 							审核时间
-						</td>
-						<td class="left_bt2" align="center" width="10%">
+						</th>
+						<th>
 							状态
-						</td>
-						<td class="left_bt2" align="center" width="10%">
+						</th>
+						<th>
 							操作
-						</td>
+						</th>
+						 <th style="width: 3.5em;"></th>
 					</tr>
-
+</thead>
 					<s:iterator id="sc" value="pageInfo.result" status="st">
-						<tr align=center>
-							<td align="center" class="left_txt">
+						<tr>
+							<td>
 								${sc.scid}
 							</td>
-							<td align="center" class="left_txt">
+							<td>
 								${sc.asset.aid}
 							</td>
-							<td align="center" class="left_txt">
+							<td>
 								${sc.userByUid.uname}
 							</td>
-							<td align="center" class="left_txt">
-								${sc.scdate}
+							<td>
+							<fmt:formatDate value="${sc.scdate}" pattern="yyyy-MM-dd"/>
+								
 							</td>
-							<td align="center" class="left_txt">
+							<td >
 								${sc.userByCuid.uname}
 							</td>
-							<td align="center" class="left_txt">
-								${sc.cdate}
+							<td >
+							<fmt:formatDate value="${sc.cdate}" pattern="yyyy-MM-dd"/>
+								
 							</td>
 							<!--
 						0-报废 1-维修
@@ -187,10 +235,14 @@ th {
 								<s:else>维修</s:else>
 							</td>
 							<td align="center" class="left_txt">
-								<a href="scrap/scrap_Scrap_findScrapById.action?scid=${scid}">审核</a>
+								<a href="scrap/scrap_Scrap_findScrapById.action?scid=${scid}">审核</a><!--
 								|
 								<a href="scrap/scrap_Scrap_deleteScrap.action?scid=${scid}">删除</a>
-							</td>
+							--></td>
+							<td>
+						
+						  <a href="#myModal" role="button" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
+						</td>
 						</tr>
 					</s:iterator>
 
@@ -220,31 +272,32 @@ th {
 						</td>
 					</tr>
 				</table>
+				<div class="modal small fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="myModalLabel">删除确认</h3>
+        </div>
+        <div class="modal-body">
+            <p class="error-text"><i class="fa fa-warning modal-icon"></i>确定删除?</p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">取消</button>
+           <button class="btn btn-danger" data-dismiss="modal"  onclick="window.location='scrap/scrap_Scrap_deleteScrap.action?scid=${sc.scid}'" > 删除</button>
+        </div>
+      </div>
+    </div>
+</div>
 			</form>
-			</div><!--
+			</div>
 			
-			<hr />
-			<h1>
-				创建报废单
-			</h1>
-			<form action="scrap/scrap_Scrap_createScrap.action" method="post">
-				资产ID
-				<input type="text" name="asset.aid" value="2" />
-				<br />
-				报废人ID
-				<input type="text" name="userByUid.uid" value="1" />
-				<br />
-				报废时间
-				 时间控件 
-				<input type="text" name="scdate" value="123" />
-				<br />
-				状态
-				<input type="radio" name="scstate" value="0" checked="checked" />
-				报废
-				<input type="radio" name="scstate" value="1" />
-				维修
-				<br />
-				<input type="submit" value="创建" />
-			</form>
-	--></body>
+			<script src="${pageContext.request.contextPath}/lib/bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript">
+        $("[rel=tooltip]").tooltip();
+        $(function() {
+            $('.demo-cancel-click').click(function(){return false;});
+        });
+    </script>
+			</body>
 </html>

@@ -7,7 +7,7 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
-
+   <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 
@@ -50,6 +50,52 @@
 			src="http://www.js-css.cn/jscode/jquery.min.js"></script>
 
 		<script type="text/javascript">
+		window.onload=function(){
+
+	var oDiv=document.getElementById('charcolor');
+	var aTd=oDiv.getElementsByTagName('tr');
+	for( var i=1;i<aTd.length-1;i++){
+	
+		if(i%2!=0){
+		
+		aTd[i].style.background='#F7F7F7';
+			aTd[i].onmouseover=function(){
+			
+			this.style.background='#E3E3E3';
+		
+		}
+	
+		aTd[i].onmouseout=function(){
+			
+			this.style.background='#F7F7F7';
+
+		}
+		
+		}
+		else
+		{
+		aTd[i].onmouseover=function(){
+			
+			this.style.background='#E3E3E3';
+		
+		}
+	
+		aTd[i].onmouseout=function(){
+			
+			this.style.background='#fff';
+
+		}
+		
+		}
+	
+			
+		
+	
+	}
+	
+//	#E0EEE0 #EEE5DE #FAF0E6
+	
+}
 $(function(){
 	$('.date_picker').date_input();
 	})
@@ -112,7 +158,7 @@ th {
 	<body class=" theme-blue" style="width: 993px">
 
 		<div class="main-content" style="width: 993px">
-
+ <h3>列表</h3>
 			<div class="btn-toolbar list-toolbar">
 				<br />
 				<a href="finance/finance_Finance_addFinance.action"
@@ -126,54 +172,62 @@ th {
 				<div class="btn-group">
 				</div>
 			</div>
-			<h1>
-				财务入账列表
-			</h1>
+		
 
 			<form action="" id="_form" method="post">
-				<table class="table" style="text-align: center">
-
+				<table id="charcolor" class="table" style="text-align: center">
+  <thead  >
 					<tr class="datalist_head">
-						<td class="left_bt2" align="center" width="10%">
+						<th>
 							财务入账ID
-						</td>
-						<td class="left_bt2" align="center" width="10%">
+						</th>
+						<th >
 							财务入账编码
-						</td>
-						<td class="left_bt2" align="center" width="10%">
+						</th>
+						<th>
 							财务入账人名称
-						</td>
-						<td class="left_bt2" align="center" width="10%">
+						</th>
+						<th>
 							财务是否入账
-						</td>
-						<td class="left_bt2" align="center" width="10%">
+						</th>
+						<th>
 							财务入账时间
-						</td>
-						<td class="left_bt2" align="center" width="10%">
+						</th>
+						<th>
+						操作
+						</th>
+						<!--<th >
 							操作
-						</td>
+						</th>
+					-->
+					 <th style="width: 3.5em;"></th>
 					</tr>
-
+ </thead>
 					<s:iterator id="f" value="pageInfo.result" status="st">
-						<tr align=center>
-							<td align="center" class="left_txt">
+						<tr >
+							<td >
 								${f.fid}
 							</td>
-							<td align="center" class="left_txt">
+							<td >
 								${f.fcode}
 							</td>
-							<td align="center" class="left_txt">
+							<td>
 								${f.user.uname}
 							</td>
-							<td align="center" class="left_txt">
+							<td>
 								<s:if test="%{#f.fenter==1}">是</s:if>
 								<s:else>否</s:else>
 							</td>
-							<td align="center" class="left_txt">
+							
+							 <td> <fmt:formatDate value="${f.fdate}" pattern="yyyy-MM-dd"/></td><!--
+							<td>
 								${f.fdate}
 							</td>
-							<td align="center" class="left_txt">
+							--><td >
 								<a href="finance/finance_Finance_updateEnter.action?fid=${fid}">确认入账</a>
+								</td><td>
+								
+								<!--
 								|
 								<a
 									href="finance/finance_Finance_findFinanceById.action?fid=${fid}">修改</a>
@@ -181,6 +235,9 @@ th {
 								<a
 									href="finance/finance_Finance_deleteFinance.action?fid=${fid}">删除</a>
 
+
+ --><a href="finance/finance_Finance_findFinanceById.action?fid=${fid}"><i class="fa fa-pencil"></i></a>
+          <a href="#myModal" role="button" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
 							</td>
 						</tr>
 					</s:iterator>
@@ -211,8 +268,36 @@ th {
 						</td>
 					</tr>
 				</table>
+				 
+  <div class="modal small fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="myModalLabel">删除确认</h3>
+        </div>
+        <div class="modal-body">
+            <p class="error-text"><i class="fa fa-warning modal-icon"></i>确定删除?</p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">取消</button>
+           <button class="btn btn-danger" data-dismiss="modal"  onclick="window.location='finance/finance_Finance_deleteFinance.action?fid=${fid}'" > 删除</button>
+        </div>
+      </div>
+    </div>
+</div>
 			</form>
-			</div><!--
+			</div>
+			
+<script src="${pageContext.request.contextPath}/lib/bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript">
+        $("[rel=tooltip]").tooltip();
+        $(function() {
+            $('.demo-cancel-click').click(function(){return false;});
+        });
+    </script> 
+   
+			<!--
 			
 		<hr />
 		<h1>

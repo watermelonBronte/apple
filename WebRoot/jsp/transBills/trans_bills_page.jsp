@@ -7,7 +7,7 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
-
+  <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 
@@ -49,7 +49,52 @@
 		<script type="text/javascript"
 			src="http://www.js-css.cn/jscode/jquery.min.js"></script>
 		<script>
+window.onload=function(){
 
+	var oDiv=document.getElementById('charcolor');
+	var aTd=oDiv.getElementsByTagName('tr');
+	for( var i=1;i<aTd.length-1;i++){
+	
+		if(i%2!=0){
+		
+		aTd[i].style.background='#F7F7F7';
+			aTd[i].onmouseover=function(){
+			
+			this.style.background='#E3E3E3';
+		
+		}
+	
+		aTd[i].onmouseout=function(){
+			
+			this.style.background='#F7F7F7';
+
+		}
+		
+		}
+		else
+		{
+		aTd[i].onmouseover=function(){
+			
+			this.style.background='#E3E3E3';
+		
+		}
+	
+		aTd[i].onmouseout=function(){
+			
+			this.style.background='#fff';
+
+		}
+		
+		}
+	
+			
+		
+	
+	}
+	
+//	#E0EEE0 #EEE5DE #FAF0E6
+	
+}
 //翻页  pageNo:隐藏域控件名  formName：要提交的表单名 pageno:页码
 function goto(pageNo,formName,pageno){
 	document.getElementById(pageNo).value=pageno;
@@ -106,7 +151,7 @@ th {
 	</head>
 
 		<body class=" theme-blue" style="width: 993px">
-
+<h3>列表</h3>
 		<div class="main-content" style="width: 993px">
 
 			<div class="btn-toolbar list-toolbar">
@@ -124,65 +169,69 @@ th {
 			</div>
 
 
-		<h1>
-			调拨单列表
-		</h1>
+	
 
 		<form action="" id="_form" method="post">
-			<table class="table" style="text-align: center">
-
-				<tr class="datalist_head">
-					<td class="left_bt2" align="center" width="10%">
+			<table id="charcolor" class="table" style="text-align: center">
+   <thead>
+				<tr >
+					<th>
 						资产调拨单ID
-					</td>
-					<td class="left_bt2" align="center" width="10%">
+					</th>
+					<th >
 						资产ID
-					</td>
-					<td class="left_bt2" align="center" width="10%">
+					</th>
+					<th >
 						调出人名称
-					</td>
-					<td class="left_bt2" align="center" width="10%">
+					</th>
+					<th >
 						调出时间
-					</td>
-					<td class="left_bt2" align="center" width="10%">
+					</th>
+					<th >
 						调出事由
-					</td>
-					<td class="left_bt2" align="center" width="10%">
+					</th>
+					<th >
 						状态
-					</td>
-					<td class="left_bt2" align="center" width="10%">
+					</th>
+					<th>
 						操作
-					</td>
+					</th>
+					 <th style="width: 3.5em;"></th>
 				</tr>
-
+</thead>
 				<s:iterator id="tb" value="pageInfo.result" status="st">
-					<tr align=center>
-						<td align="center" class="left_txt">
+					<tr >
+						<td >
 							${tb.tbid}
 						</td>
-						<td align="center" class="left_txt">
+						<td >
 							${tb.asset.aid}
 						</td>
-						<td align="center" class="left_txt">
+						<td>
 							${tb.userByOutuid.uname}
 						</td>
-						<td align="center" class="left_txt">
-							${tb.outdate}
+						<td >
+						<fmt:formatDate value="${tb.outdate}" pattern="yyyy-MM-dd"/>
+							
 						</td>
-						<td align="center" class="left_txt">
+						<td >
 							${tb.outname}
 						</td>
-						<td align="center" class="left_txt">
+						<td >
 							<s:if test="%{#tb.tbstate==0}">调拨中</s:if>
 							<s:else>确认调入</s:else>
 						</td>
-						<td align="center" class="left_txt">
+						<td >
 							<a
-								href="transBills/transBills_TransBills_findTransBillsById.action?tbid=${tbid}">确认调入</a>
+								href="transBills/transBills_TransBills_findTransBillsById.action?tbid=${tbid}">确认调入</a><!--
 							|
 							<a
 								href="transBills/transBills_TransBills_deleteTransBills.action?tbid=${tbid}">删除</a>
 
+						--></td>
+						<td>
+						
+						  <a href="#myModal" role="button" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
 						</td>
 					</tr>
 				</s:iterator>
@@ -213,9 +262,32 @@ th {
 					</td>
 				</tr>
 			</table>
+			<div class="modal small fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="myModalLabel">删除确认</h3>
+        </div>
+        <div class="modal-body">
+            <p class="error-text"><i class="fa fa-warning modal-icon"></i>确定删除?</p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">取消</button>
+           <button class="btn btn-danger" data-dismiss="modal"  onclick="window.location='transBills/transBills_TransBills_deleteTransBills.action?tbid=${tb.tbid}'" > 删除</button>
+        </div>
+      </div>
+    </div>
+</div>
 		</form>
 		</div>
-		
+		<script src="${pageContext.request.contextPath}/lib/bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript">
+        $("[rel=tooltip]").tooltip();
+        $(function() {
+            $('.demo-cancel-click').click(function(){return false;});
+        });
+    </script> 
 		<!--<hr />
 		<h1>
 			创建调拨申请

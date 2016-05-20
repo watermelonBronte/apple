@@ -29,8 +29,7 @@ public class TransBillsDao extends HibernateDaoSupport implements
 		ITransBillsDao {
 
 	/*
-	 * 创建
-	 * (non-Javadoc)
+	 * 创建 (non-Javadoc)
 	 * 
 	 * @see com.mars.dao.ITransBillsDao#createTransBills(com.mars.vo.TransBills)
 	 */
@@ -66,8 +65,7 @@ public class TransBillsDao extends HibernateDaoSupport implements
 	}
 
 	/*
-	 * 更新
-	 * (non-Javadoc)
+	 * 更新 (non-Javadoc)
 	 * 
 	 * @see com.mars.dao.ITransBillsDao#updateTransBills(com.mars.vo.TransBills)
 	 */
@@ -76,26 +74,19 @@ public class TransBillsDao extends HibernateDaoSupport implements
 	}
 
 	/*
-	 * 删除
-	 * (non-Javadoc)
+	 * 删除 (non-Javadoc)
 	 * 
 	 * @see com.mars.dao.ITransBillsDao#deleteTransBills(java.lang.Integer)
 	 */
 	public void deleteTransBills(Integer tbid) {
-		try {
-			TransBills transBills = (TransBills) super.getHibernateTemplate().get(
-					TransBills.class, new Integer(tbid));
-			super.getHibernateTemplate().delete(transBills);
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
-		
+		TransBills transBills = (TransBills) super.getHibernateTemplate().load(
+				TransBills.class, new Integer(tbid));
+		super.getHibernateTemplate().delete(transBills);
 
 	}
 
 	/*
-	 * 分页查询
-	 * (non-Javadoc)
+	 * 分页查询 (non-Javadoc)
 	 * 
 	 * @see com.mars.dao.ITransBillsDao#findAllTransBills(com.mars.tools.IPage)
 	 */
@@ -128,8 +119,8 @@ public class TransBillsDao extends HibernateDaoSupport implements
 	}
 
 	/*
-	 * 根据ID查找
-	 * (non-Javadoc)
+	 * 根据ID查找 (non-Javadoc)
+	 * 
 	 * @see com.mars.dao.ITransBillsDao#findTransBillsById(java.lang.Integer)
 	 */
 	public TransBills findTransBillsById(Integer tbid) {
@@ -139,25 +130,24 @@ public class TransBillsDao extends HibernateDaoSupport implements
 	}
 
 	public Asset findAssetById(Integer aid) {
-		Asset asset = (Asset) super.getHibernateTemplate().get(
-				Asset.class, new Integer(aid));
+		Asset asset = (Asset) super.getHibernateTemplate().get(Asset.class,
+				new Integer(aid));
 		return asset;
 	}
 
 	public User findUserById(Integer uid) {
-		User user = (User) super.getHibernateTemplate().get(
-				User.class, new Integer(uid));
+		User user = (User) super.getHibernateTemplate().get(User.class,
+				new Integer(uid));
 		return user;
 	}
 
-	
 	@SuppressWarnings("unchecked")
 	public List<Asset> findAsset() {
-		return (List<Asset>)getHibernateTemplate().find("from Asset");
+		return (List<Asset>) getHibernateTemplate().find("from Asset");
 	}
 
 	@SuppressWarnings("unchecked")
 	public List<User> findUser() {
-		return (List<User>)getHibernateTemplate().find("from User");
+		return (List<User>) getHibernateTemplate().find("from User");
 	}
 }

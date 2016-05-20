@@ -361,7 +361,7 @@ public class AssetAction extends ActionSupport {
 	 * @return
 	 * @throws Exception
 	 */
-	public String createAsset() throws Exception {
+	public String createAsset(){
 		// Asset.setAccode(getAccode());
 
 		asset.setCid(getCid());
@@ -392,8 +392,9 @@ public class AssetAction extends ActionSupport {
 	 * @return
 	 * @throws Exception
 	 */
-	public String deleteAsset() throws Exception {
+	public String deleteAsset(){
 
+	    System.out.println(this.getAid());
 		assetService.deleteAsset(this.getAid());
 		this.setResult("删除");
 		return "successAsset";

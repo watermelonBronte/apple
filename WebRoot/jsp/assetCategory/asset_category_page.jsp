@@ -12,20 +12,86 @@
 <html>
 	<base href="<%=basePath%>">
 	<head>
-		<style type="text/css">
-<!--
-body {
-	margin-left: 0px;
-	margin-top: 0px;
-	margin-right: 0px;
-	margin-bottom: 0px;
-	background-color: #F8F9FA;
-}
--->
-</style>
+		
+		<link href='http://fonts.useso.com/css?family=Open+Sans:400,700'
+			rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" type="text/css"
+			href="${pageContext.request.contextPath}/lib/bootstrap/css/bootstrap.css">
+		<link rel="stylesheet"
+			href="${pageContext.request.contextPath}/lib/font-awesome/css/font-awesome.css">
 
-		<!--<link href="images/skin.css" rel="stylesheet" type="text/css" />-->
-		<script>
+		<script
+			src="${pageContext.request.contextPath}/lib/jquery-1.11.1.min.js"
+			type="text/javascript"></script>
+
+		<link rel="stylesheet" type="text/css"
+			href="${pageContext.request.contextPath}/css/theme.css">
+		<link rel="stylesheet" type="text/css"
+			href="${pageContext.request.contextPath}/css/premium.css">
+		<link rel="apple-touch-icon-precomposed" sizes="144x144"
+			href="../assets/ico/apple-touch-icon-144-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="114x114"
+			href="../assets/ico/apple-touch-icon-114-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="72x72"
+			href="../assets/ico/apple-touch-icon-72-precomposed.png">
+		<link rel="apple-touch-icon-precomposed"
+			href="../assets/ico/apple-touch-icon-57-precomposed.png">
+
+
+		<script type="text/javascript"
+			src="http://www.js-css.cn/jscode/jquery.min.js"></script>
+
+		<script><!--
+$(function(){
+	$('.date_picker').date_input();
+	})
+	
+window.onload=function(){
+
+	var oDiv=document.getElementById('charcolor');
+	var aTd=oDiv.getElementsByTagName('tr');
+	for( var i=1;i<aTd.length-1;i++){
+	
+		if(i%2!=0){
+		
+		aTd[i].style.background='#F7F7F7';
+			aTd[i].onmouseover=function(){
+			
+			this.style.background='#E3E3E3';
+		
+		}
+	
+		aTd[i].onmouseout=function(){
+			
+			this.style.background='#F7F7F7';
+
+		}
+		
+		}
+		else
+		{
+		aTd[i].onmouseover=function(){
+			
+			this.style.background='#E3E3E3';
+		
+		}
+	
+		aTd[i].onmouseout=function(){
+			
+			this.style.background='#fff';
+
+		}
+		
+		}
+	
+			
+		
+	
+	}
+	
+//	#E0EEE0 #EEE5DE #FAF0E6
+	
+}
 
 //翻页  pageNo:隐藏域控件名  formName：要提交的表单名 pageno:页码
 function goto(pageNo,formName,pageno){
@@ -38,69 +104,126 @@ function submitFrom(formName){
 	var _form=document.getElementById(formName);
 	_form.submit();
 }
+ $(function() {
+            var match = document.cookie.match(new RegExp('color=([^;]+)'));
+            if(match) var color = match[1];
+            if(color) {
+                $('body').removeClass(function (index, css) {
+                    return (css.match (/\btheme-\S+/g) || []).join(' ')
+                })
+                $('body').addClass('theme-' + color);
+            }
 
-</script>
+            $('[data-popover="true"]').popover({html: true});
+            
+        });
 
+	
+
+        $(function() {
+            var uls = $('.sidebar-nav > ul > *').clone();
+            uls.addClass('visible-xs');
+            $('#main-menu').append(uls.clone());
+        });
+--></script>
+
+<style type="text/css">
+#line-chart {
+	height: 300px;
+	width: 1000px;
+	margin: 0px auto;
+	margin-top: 1em;
+}
+
+th {
+	text-align: center
+}
+
+.navbar-default .navbar-brand,.navbar-default .navbar-brand:hover {
+	color: #fff;
+}
+</style>
 
 
 	</head>
 
-	<body>
+	<body class=" theme-blue" style="width: 993px">
 	
-	<h3>资产类别</h3>
-		<br />
+	<h3>资产类别</h3><!--
+	
 	
 		<a href="asset_category/test_AssetCategory_addAssetCategory.action">添加记录</a>
 				<br />
 				
+		-->
+		<div class="btn-toolbar list-toolbar">
+				<br />
+				<a href="asset_category/test_AssetCategory_addAssetCategory.action"
+					class="btn btn-primary"><i class="fa fa-plus"></i> 添加资产类别</a>
+				<button class="btn btn-default">
+					导入
+				</button>
+				<button class="btn btn-default">
+					导出
+				</button>
+				<div class="btn-group">
+				</div>
+			</div>
+		
+		
+		
 		<form action="" id="_form" method="post">
-			<table width="100%" border="1" cellpadding="0"
-				style="margin-top: 5px;" cellspacing="0">
-				<tr class="datalist_head">
-					<td class="left_bt2" align="center" width="10%">
+			<table class="table" style="text-align: center" id="charcolor" >
+				<thead>
+				<tr >
+					<th >
 						资产类别ID
-					</td>
-					<td class="left_bt2" align="center" width="10%">
+					</th>
+					<th>
 						资产类别编号
-					</td>
-					<td class="left_bt2" align="center" width="10%">
+					</th>
+					<th>
 						资产类别名称
-					</td>
-					<td class="left_bt2" align="center" width="10%">
+					</th>
+					<th >
 						上级资产类别ID
-					</td>
-					<td class="left_bt2" align="center" width="10%">
+					</th>
+					<th>
 						上级资产类别名称
-					</td>
-					<td class="left_bt2" align="center" width="10%">
+					</th>
+					<!--<th >
 						操作
-					</td>
+					</th>
 
+				--> <th style="width: 3.5em;"></th>
+				
 				</tr>
-
+</thead>
 				<s:iterator id="ac" value="pageInfo.result" status="st">
-					<tr align=center>
-						<td align="center" class="left_txt">
+					
+					<tr>
+						<td>
 							${ac.acid}
 						</td>
-						<td align="center" class="left_txt">
+						<td >
 							${ac.accode}
 						</td>
-						<td align="center" class="left_txt">
+						<td >
 							${ac.acname}
 						</td>
-						<td align="center" class="left_txt">
+						<td >
 							${ac.supacid}
 						</td>
-						<td align="center" class="left_txt">
+						<td >
 							${ac.supacname}
 						</td>
-						<td align="center" class="left_txt">
-							<a href="asset_category/test_AssetCategory_findAssetCategoryById.action?acid=${acid}">修改</a> |
-							<a href="asset_category/test_AssetCategory_deleteAssetCategory.action?acid=${acid}">删除</a>
-						    
+						<td >
+						<a href="asset_category/test_AssetCategory_findAssetCategoryById.action?acid=${acid}"><i class="fa fa-pencil"></i></a>
+          <a href="#myModal" role="button" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
+						
 						</td>
 					</tr>
+				
 				</s:iterator>
 
 				<tr>
@@ -130,9 +253,33 @@ function submitFrom(formName){
 				</tr>
 			</table>
 
-
+		 
+  <div class="modal small fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="myModalLabel">删除确认</h3>
+        </div>
+        <div class="modal-body">
+            <p class="error-text"><i class="fa fa-warning modal-icon"></i>确定删除?</p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">取消</button>
+           <button class="btn btn-danger" data-dismiss="modal"  onclick="window.location='asset_category/test_AssetCategory_deleteAssetCategory.action?acid=${ac.acid}'" > 删除</button>
+        </div>
+      </div>
+    </div>
+</div>
 		</form>
-
+<script src="${pageContext.request.contextPath}/lib/bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript">
+        $("[rel=tooltip]").tooltip();
+        $(function() {
+            $('.demo-cancel-click').click(function(){return false;});
+        });
+    </script> 
+   
 
 	</body>
 </html>
