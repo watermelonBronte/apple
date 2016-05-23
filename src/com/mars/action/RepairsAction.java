@@ -15,6 +15,7 @@ import com.mars.vo.Asset;
 import com.mars.vo.AssetCategory;
 import com.mars.vo.Repairs;
 import com.mars.vo.User;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
@@ -144,7 +145,9 @@ public class RepairsAction extends ActionSupport {
 	 */
 
 	public String addRepairs() {
-
+		ActionContext ctx = ActionContext.getContext();
+		
+		user=(User) ctx.getSession().get(user);
 		userList = repairsService.findUser();
 		assetList = repairsService.findAsset();
 		return "addRepairs";

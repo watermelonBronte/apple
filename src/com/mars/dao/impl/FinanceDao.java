@@ -5,11 +5,13 @@ package com.mars.dao.impl;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate3.HibernateCallback;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
@@ -17,6 +19,7 @@ import com.mars.dao.IFinanceDao;
 import com.mars.tools.Execute;
 import com.mars.tools.IExecute;
 import com.mars.tools.IPage;
+import com.mars.vo.Asset;
 import com.mars.vo.Finance;
 import com.mars.vo.User;
 
@@ -135,6 +138,46 @@ public class FinanceDao extends HibernateDaoSupport implements
 	public List<User> findUser() {
 		return (List<User>)getHibernateTemplate().find("from User");
 		
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Finance> findAllFinanceByAttr(final IPage pageInfo,final User user, final Integer enter,
+			final Date date) {
+		return (List<Finance>) super.getHibernateTemplate().execute(
+				new HibernateCallback() {
+
+					public Object doInHibernate(Session session)
+							throws HibernateException, SQLException {
+
+						IPage pages = null;
+						List<Finance> list = new ArrayList<Finance>();
+						try {
+							Criteria criteria = session
+							.createCriteria(Finance.class);
+							if(user!=null)
+								criteria.add(Restrictions.eq("user",user));
+							if(enter!=null)
+								criteria.add(Restrictions.eq("fenter",enter));
+							if(date!=null)
+								criteria.add(Restrictions.eq("fdate",date));
+							
+							IExecute exc = new Execute(pageInfo);
+							pages = exc.excute(criteria);
+							if (pages != null) {
+								list = pages.getResult();
+							}
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+
+						return list;
+
+					}
+				});
+	}
+
+	public void updateAsset(Asset asset) {
+		super.getHibernateTemplate().update(asset);
 	}
 
 }

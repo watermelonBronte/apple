@@ -3,9 +3,11 @@
  */
 package com.mars.service;
 
+import java.util.Date;
 import java.util.List;
 
 import com.mars.tools.IPage;
+import com.mars.vo.Asset;
 import com.mars.vo.Finance;
 import com.mars.vo.User;
 
@@ -60,5 +62,10 @@ public interface IFinanceService {
 	 */
 
 	public List<User> findUser() ;
+
+	public List<Finance> findAllFinanceByAttr(IPage pageInfo, User user, Integer enter,
+			Date date);
+
+	public void updateAsset(Asset asset);
 }
 

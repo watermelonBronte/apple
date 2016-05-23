@@ -367,13 +367,13 @@ public class AssetAction extends ActionSupport {
 		asset.setCid(getCid());
 		asset.setAssetCategory(assetService.findAssetCategoryById(this.getAssetCategory().getAcid()));
 		asset.setUser(assetService.findUserById(this.getUser().getUid()));
-		asset.setFinance(assetService.findFinanceById(this.getFinance().getFid()));
+//		asset.setFinance(assetService.findFinanceById(this.getFinance().getFid()));
 		asset.setAstate(this.getAstate());
 //		Date date = new Date();
 //		Timestamp nousedate = new Timestamp(date.getTime());
 //		asset.setAdate(nousedate);
 		asset.setAdate(this.getAdate());
-		asset.setPurchaseDetail(assetService.findPurchaseDetailById(this.getPurchaseDetail().getPdid()));
+//		asset.setPurchaseDetail(assetService.findPurchaseDetailById(this.getPurchaseDetail().getPdid()));
 		asset.setTprint(this.getTprint());
 		asset.setOnepath(this.getOnepath());
 		asset.setTwopath(this.getTwopath());
@@ -400,6 +400,7 @@ public class AssetAction extends ActionSupport {
 		return "successAsset";
 	}
 
+	
 	/**
 	 * 更新
 	 * 
@@ -431,15 +432,7 @@ public class AssetAction extends ActionSupport {
 		return "successAsset";
 	}
 
-	/**
-	 * 查找
-	 * 
-	 * @return
-	 */
-	public String findAsset() {
-		assetService.findAsset();
-		return "findAsset";
-	}
+
 
 	/**
 	 * 根据ID查找
