@@ -86,6 +86,14 @@ function submitFrom(formName){
 	var _form=document.getElementById(formName);
 	_form.submit();
 }
+var va;
+ function text1(va1){//获取当前id
+ va=va1;
+        }
+ function del1(){//改变url
+ 	dataP="deletePurchase.action?pnid="+va;
+ 	 window.location.href=encodeURI(dataP);
+ }
 </script>
   </head>
   
@@ -190,7 +198,7 @@ function submitFrom(formName){
 
         <td>
           <a href="selectPurchaseById.action?pnid=${purinfo.pnid}"><i class="fa fa-pencil"></i></a>
-          <a href="#myModal" role="button" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
+          <a href="#myModal" onclick="text1(${purinfo.pnid})" role="button" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
       </td>
        
        
@@ -237,7 +245,7 @@ function submitFrom(formName){
         </div>
         <div class="modal-footer">
             <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">取消</button>
-           <button class="btn btn-danger" data-dismiss="modal"  onclick="window.location='deletePurchase.action?pnid=${purinfo.pnid}'" > 删除</button>
+           <button class="btn btn-danger" data-dismiss="modal"  onclick="del1()"  > 删除</button>
         </div>
       </div>
     </div>

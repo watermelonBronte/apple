@@ -21,7 +21,7 @@
 		<meta http-equiv="expires" content="0">
 		<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 		<meta http-equiv="description" content="This is my page">
-		<link href='http://fonts.useso.com/css?family=Open+Sans:400,700'
+	<link href='http://fonts.useso.com/css?family=Open+Sans:400,700'
 			rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" type="text/css"
 			href="${pageContext.request.contextPath}/lib/bootstrap/css/bootstrap.css">
@@ -48,7 +48,22 @@
 
 		<script type="text/javascript"
 			src="http://www.js-css.cn/jscode/jquery.min.js"></script>
+		
+		
+			<script type="text/javascript"
+			src="${pageContext.request.contextPath}/js/jquery.date_input.pack.js"></script>
+		<link rel="stylesheet"
+			href="${pageContext.request.contextPath}/css/calendar1.css">
+		<script type="text/javascript">
+	$(function() {
+		$('.date_picker').date_input();
+	})
+</script>
+		
+		
 		<script>
+		
+		
 window.onload=function(){
 
 	var oDiv=document.getElementById('charcolor');
@@ -106,7 +121,14 @@ function submitFrom(formName){
 	var _form=document.getElementById(formName);
 	_form.submit();
 }
-
+var va;
+ function text1(va1){//获取当前id
+ va=va1;
+        }
+ function del1(){//改变url
+ 	dataP="transBills/transBills_TransBills_deleteTransBills.action?tbid="+va;
+ 	 window.location.href=encodeURI(dataP);
+ }
      $(function() {
             var match = document.cookie.match(new RegExp('color=([^;]+)'));
             if(match) var color = match[1];
@@ -156,9 +178,10 @@ th {
 
 			<div class="btn-toolbar list-toolbar">
 				<br />
-				<a href="transBills/transBills_TransBills_addTransBills.action"
-					class="btn btn-primary"><i class="fa fa-plus"></i> 添加调拨单</a>
-				<button class="btn btn-default">
+				<a href="#myModal1"  role="button" data-toggle="modal" class="btn btn-primary"><i class="fa fa-plus"></i> 添加调拨单</a><!--
+				href="transBills/transBills_TransBills_addTransBills.action"
+				
+				--><button class="btn btn-default">
 					导入
 				</button>
 				<button class="btn btn-default">
@@ -231,7 +254,7 @@ th {
 						--></td>
 						<td>
 						
-						  <a href="#myModal" role="button" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
+						  <a href="#myModal" onclick="text1(${tb.tbid})" role="button" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
 						</td>
 					</tr>
 				</s:iterator>
@@ -274,7 +297,7 @@ th {
         </div>
         <div class="modal-footer">
             <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">取消</button>
-           <button class="btn btn-danger" data-dismiss="modal"  onclick="window.location='transBills/transBills_TransBills_deleteTransBills.action?tbid=${tb.tbid}'" > 删除</button>
+           <button class="btn btn-danger" data-dismiss="modal"  onclick="del1()"  > 删除</button>
         </div>
       </div>
     </div>
@@ -288,35 +311,97 @@ th {
             $('.demo-cancel-click').click(function(){return false;});
         });
     </script> 
-		<!--<hr />
-		<h1>
-			创建调拨申请
-		</h1>
-		<form
-			action="transBills/transBills_TransBills_createTransBills.action"
-			method="post">
-			资产ID
-			<input type="text" name="asset.aid" value="2" />
-			<br />
-			调出人ID
-			<input type="text" name="userByOutuid.uid" value="1" />
-			<br />
-			
-			调出时间
-			
-			<input type="text" name="outdate" value="123" />
-			<br/>
-			调出事由
-			<input type="text" name="outname" value="1" />
-			<br />
-			状态
-			<input type="radio" name="tbstate" value="0" checked="checked" />
-			调拨中
-			<input type="radio" name="tbstate" value="1" />
+    
+    
+    
+    
+    
+    <div class="modal small fade "   id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+  <div class="modal-dialog " style="width:550px">
+    <div class="modal-content" style="background:#eee url(${pageContext.request.contextPath}/images/modal-gloss.png) no-repeat -200px -80px;position:absolute;z-index:101;padding:5px 10px 7px;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;-moz-box-shadow:0 0 10px rgba(0,0,0,.4);-webkit-box-shadow:0 0 10px rgba(0,0,0,.4);-box-shadow:0 0 10px rgba(0,0,0,.4);">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+         <h2 style="height:20px;margin-top:10px; font-weight: 600; color:#990000">创建调拨申请</h2>
+        </div>
+         <form action="transBills/transBills_TransBills_createTransBills.action" method="post">
+        <div class="modal-body">
+           
+ <table  cellSpacing="0"  cellPadding="8" align="center" style="text-align:center"><tr>
+ 
+ 
+ <td  style="height:40px;width:80px;text-align:left">资产ID：</td>
+ <td  style="height:40px;width:150px;text-align:left">
+ 
+ <!--<input type="text" name="accode" value="QW12" class="input" size="12" />
+ --><s:select list="assetList" listKey="aid" listValue="aid" name="asset.aid"   />
+ 
+ </td>
+ </tr>
+  <tr>
+  <td  style="height:40px;width:80px;text-align:left">调出人ID：</td>
+ <td  style="height:40px;width:150px;text-align:left"><!--
+ <input type="text" name="acname" value="空调" class="input" size="12" />
+ --><s:select list="userList" listKey="uid" listValue="uname" name="userByOutuid.uid"   />
+ 
+ </td>
+ </tr>
+ 
+ <tr>
+ 
+ 
+ <td  style="height:40px;width:80px;text-align:left">	调出时间：</td>
+ <td  style="height:40px;width:150px;text-align:left">
+ 
+ 
+ <!--<input type="text" name="supacid" value="1" class="input" size="12" />
+ --><input style="width: 240px; background: #fefefe; border: 1px solid #bbb; font-size: 14px; color: #333; padding: 4px; border-radius: 3px;background-repeat:no-repeat; background-position:right center; background-image:url(${pageContext.request.contextPath}/images/icon.png)" type="text" class="date_picker" value="${outdate}" name="outdate" />
+ 
+ 
+ </td>
+ </tr>
+ <tr>
+ 
+ 
+ <td  style="height:40px;width:80px;text-align:left">调出事由：</td>
+ <td  style="height:60px;width:150px;text-align:left">
+ 
+ <!--<input type="textarea" name="outname" value="1" class="input" size="12" />
+ --><textarea  name="outname" value="1" style="width:270px;height:70px;">
+ </textarea>
+ </td>
+ </tr>
+ <tr>
+ 
+ 
+ <td  style="height:40px;width:80px;text-align:left">状态：</td>
+ <td  style="height:40px;width:150px;text-align:left">
+ <input type="radio" name="tbstate" value="0" checked="checked" />
+调拨中
+<input type="radio" name="tbstate" value="1" /><!--
 			确认调入
-			<br />
-			<input type="submit" value="创建" />
-		</form>
+ 
+ <input type="text" name="supacname" value="家用电器" class="input" size="12" />
+ --></td>
+ </tr>
+ 
+ 
 
-	--></body>
+
+    <tr style="height:25px;"><td></td></tr>
+ <tr style="border-top: 1px solid #e5e5e5;  " ><td colspan="2"  align="right">  <br/><input  class="btn btn-danger" type="submit"  value="创建"/></td>
+ 
+ <td colspan="2" align="left">  <br/><button style="margin:10px;" class="btn btn-default" data-dismiss="modal" aria-hidden="true">取消</button></td>
+ </tr>
+ 
+  </table>
+
+        </div>
+  
+       
+         </form>
+      </div>
+    </div>
+</div>   
+    
+	</body>
 </html>

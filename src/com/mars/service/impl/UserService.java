@@ -99,6 +99,18 @@ public class UserService implements IUserService {
 		return null;
 	}
 
+
+	public List<Department> findDepartment() {
+		// TODO Auto-generated method stub
+		return userDao.findDepartment();
+	}
+
+
+	public List<Role> findRole() {
+		// TODO Auto-generated method stub
+		return userDao.findRole();
+	}
+
 	
 
 }

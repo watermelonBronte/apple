@@ -57,8 +57,16 @@
 		<tr> <td>卡片编号 </td> <td><input type="text" name="cid" value="1" /> </td></tr>
 		<tr> <td>资产类别名称 </td> <td> <s:select list="assetCategoryList" listKey="acid" listValue="acname"
 				name="assetCategory.acid" /></td></tr>
-		<tr> <td>使用人名称 </td> <td><s:select list="userList" listKey="uid" listValue="uname"
-				name="user.uid" /> </td></tr>
+		<tr> <td>
+		
+		使用人名称 </td>
+		
+		 <td><s:select list="userList" listKey="uid" listValue="uname"
+				name="user.uid" />
+				
+				 </td>
+				
+				</tr>
 		<tr> <td>财务入账单编号 </td> <td> <s:select list="financeList" listKey="fid" listValue="fcode"
 				name="finance.fid" /></td></tr>
 		<tr> <td>入库时间 </td> <td>

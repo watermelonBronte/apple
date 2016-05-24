@@ -149,6 +149,16 @@ public class UserDao extends HibernateDaoSupport implements IUserDao {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	@SuppressWarnings("unchecked")
+	public List<Department> findDepartment() {
+		return (List<Department>)getHibernateTemplate().find("from Department");
+
+	}
+	@SuppressWarnings("unchecked")
+	public List<Role> findRole() {
+		return (List<Role>)getHibernateTemplate().find("from Role");
+	
+	}
 
 
 	}

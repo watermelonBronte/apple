@@ -127,7 +127,14 @@ function submitFrom(formName){
             uls.addClass('visible-xs');
             $('#main-menu').append(uls.clone());
         });
-    
+    var va;
+ function text1(va1){//获取当前id
+ va=va1;
+        }
+ function del1(){//改变url
+ 	dataP="repairs/repairs_Repairs_deleteRepairs.action?reid="+va;
+ 	 window.location.href=encodeURI(dataP);
+ }
 </script>
 
 		<style type="text/css">
@@ -232,7 +239,7 @@ th {
 							</td>
 							<td>
 						
-						  <a href="#myModal" role="button" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
+						  <a href="#myModal" onclick="text1(${re.reid})" role="button" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
 						</td>
 						</tr>
 					</s:iterator>
@@ -275,7 +282,7 @@ th {
         </div>
         <div class="modal-footer">
             <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">取消</button>
-           <button class="btn btn-danger" data-dismiss="modal"  onclick="window.location='repairs/repairs_Repairs_deleteRepairs.action?reid=${re.reid}'" > 删除</button>
+           <button class="btn btn-danger" data-dismiss="modal" onclick="del1()"   > 删除</button>
         </div>
       </div>
     </div>

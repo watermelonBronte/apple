@@ -103,7 +103,14 @@ function submitFrom(formName){
 	var _form=document.getElementById(formName);
 	_form.submit();
 }
-
+var va;
+ function text1(va1){//获取当前id
+ va=va1;
+        }
+ function del1(){//改变url
+ 	dataP="deleteReturn.action?arid="+va;
+ 	 window.location.href=encodeURI(dataP);
+ }
         $(function() {
             var match = document.cookie.match(new RegExp('color=([^;]+)'));
             if(match) var color = match[1];
@@ -220,7 +227,7 @@ th {
        <td><a href="deleteReturn.action?arid=${reinfo.arid}">删除</a></td>
        -->
        <td><a href="selectReturnById.action?arid=${reinfo.arid}"><i class="fa fa-pencil"></i></a>
-          <a href="#myModal" role="button" data-toggle="modal"><i class="fa fa-trash-o"></i></a></td>
+          <a href="#myModal" onclick="text1(${reinfo.arid})" role="button" data-toggle="modal"><i class="fa fa-trash-o"></i></a></td>
        </tr>
 				</s:iterator>
 
@@ -265,7 +272,7 @@ th {
         </div>
         <div class="modal-footer">
             <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">取消</button>
-           <button class="btn btn-danger" data-dismiss="modal"  onclick="window.location='deleteReturn.action?arid=${reinfo.arid}'" > 删除</button>
+           <button class="btn btn-danger" data-dismiss="modal"  onclick="del1()"  > 删除</button>
         </div>
       </div>
     </div>
