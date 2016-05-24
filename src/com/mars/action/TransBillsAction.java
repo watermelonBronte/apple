@@ -195,8 +195,10 @@ public class TransBillsAction extends ActionSupport {
 		//调出事由
 		transBills.setOutname(this.getOutname());
 		transBillsService.createTransBills(transBills);
-		this.setResult("创建");
-		return "successTransBills";
+//		this.setResult("创建");
+//		return "successTransBills";
+		pageTransBills();
+		return "pageTransBills";
 	}
 	
 
@@ -214,8 +216,10 @@ public class TransBillsAction extends ActionSupport {
 		transBills.setIndate(nousedate);
 
 		transBillsService.updateTransBills(transBills);
-		this.setResult("调入确认");
-		return "successTransBills";
+//		this.setResult("调入确认");
+//		return "successTransBills";
+		pageTransBills();
+		return "pageTransBills";
 	}
 
 	/**
@@ -225,22 +229,16 @@ public class TransBillsAction extends ActionSupport {
 	 */
 	public String deleteTransBills() {
 		transBillsService.deleteTransBills(this.getTbid());
-		this.setResult("删除");
-		return "successTransBills";
+//		this.setResult("删除");
+//		return "successTransBills";
+		pageTransBills();
+		return "pageTransBills";
 	}
 
 
 
 	
-	/**
-	 * 查找
-	 * 
-	 * @return
-	 */
-	public String findTransBills() {
-		transBillsService.findTransBills();
-		return "findTransBills";
-	}
+
 
 	/**
 	 * 根据ID查找

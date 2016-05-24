@@ -122,8 +122,10 @@ public class ParameterAction extends ActionSupport{
 		parameter.setPtypename(this.getPtypename());
 
 		parameterService.createParameter(parameter);
-		this.setResult("创建");
-		return "successParameter";
+//		this.setResult("创建");
+//		return "successParameter";
+		pageParameter();
+		return "pageParameter";
 	}
 	
 	/**
@@ -132,8 +134,10 @@ public class ParameterAction extends ActionSupport{
 	 */
 	public String deleteParameter() {
 		parameterService.deleteParameter(this.getPid());
-		this.setResult("删除");
-		return "successParameter";
+//		this.setResult("删除");
+//		return "successParameter";
+		pageParameter();
+		return "pageParameter";
 	}
 	
 	/**
@@ -148,18 +152,13 @@ public class ParameterAction extends ActionSupport{
 		parameter.setPtypename(this.getPtypename());
 		parameterService.updateParameter(parameter);
 	
-		this.setResult("更新");
-		return "successParameter";
+//		this.setResult("更新");
+//		return "successParameter";
+		pageParameter();
+		return "pageParameter";
 	}
 	
-	/**
-	 * 查找
-	 * @return
-	 */
-	public String findParameter() {
-		parameterService.findParameter();
-		return "findParameter";
-	}
+
 	
 	/**
 	 * 根据ID查找

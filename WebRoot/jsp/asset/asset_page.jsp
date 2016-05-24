@@ -227,11 +227,11 @@ th {
 							<th>
 								使用人名称
 							</th>
-							<th>
+							<!--<th>
 								财务入账人名称
 							</th>
 
-							<th>
+							--><th>
 								库存状态
 							</th>
 							<th>
@@ -263,11 +263,11 @@ th {
 							<td align="center" class="left_txt">
 								${a.user.uname}
 							</td>
-							<td align="center" class="left_txt">
+							<!--<td align="center" class="left_txt">
 								${a.finance.user.uname}
 							</td>
 
-							<td align="center" class="left_txt">
+							--><td align="center" class="left_txt">
 								<!--0 库存 1 在用 2 故障 3 报废 -1 删除-->
 								<s:if test="%{#a.astate==0}">库存</s:if>
 								<s:elseif test="%{#a.astate==1}">在用</s:elseif>

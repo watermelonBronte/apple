@@ -67,5 +67,7 @@ public interface IFinanceService {
 			Date date);
 
 	public void updateAsset(Asset asset);
+
+	public Asset findAssetById(Integer aid);
 }
 

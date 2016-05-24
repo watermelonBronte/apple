@@ -93,8 +93,10 @@ public class DepartmentAction extends ActionSupport{
 	public String createDepartment() {
 		department.setDname(this.getDname());
 		departmentService.createDepartment(department);
-		this.setResult("创建");
-		return "successDepartment";
+//		this.setResult("创建");
+//		return "successDepartment";
+		pageDepartment();
+		return "pageDepartment";
 	}
 	
 	/**
@@ -103,8 +105,10 @@ public class DepartmentAction extends ActionSupport{
 	 */
 	public String deleteDepartment() {
 		departmentService.deleteDepartment(this.getDid());
-		this.setResult("删除");
-		return "successDepartment";
+//		this.setResult("删除");
+//		return "successDepartment";
+		pageDepartment();
+		return "pageDepartment";
 	}
 	
 	/**
@@ -115,18 +119,13 @@ public class DepartmentAction extends ActionSupport{
 		department.setDid(this.getDid());
 		department.setDname(this.getDname());
 		departmentService.updateDepartment(department);
-		this.setResult("更新");
-		return "successDepartment";
+//		this.setResult("更新");
+//		return "successDepartment";
+		pageDepartment();
+		return "pageDepartment";
 	}
 	
-	/**
-	 * 查找
-	 * @return
-	 */
-	public String findDepartment() {
-		departmentService.findDepartment();
-		return "findDepartment";
-	}
+	
 	
 	/**
 	 * 根据ID查找

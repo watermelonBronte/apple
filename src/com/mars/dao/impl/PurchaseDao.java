@@ -9,7 +9,9 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
+import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate3.HibernateCallback;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
@@ -17,6 +19,7 @@ import com.mars.dao.IPurchaseDao;
 import com.mars.tools.Execute;
 import com.mars.tools.IExecute;
 import com.mars.tools.IPage;
+import com.mars.vo.Asset;
 import com.mars.vo.Department;
 import com.mars.vo.PurchaseDetail;
 import com.mars.vo.PurchaseNote;
@@ -96,6 +99,35 @@ public class PurchaseDao extends HibernateDaoSupport implements IPurchaseDao {
 		// TODO Auto-generated method stub
 		PurchaseDetail purchaseetail=(PurchaseDetail)this.getHibernateTemplate().get(PurchaseDetail.class, purchaseDetail);
 		return purchaseetail;
+	}
+
+	public Integer findPDCountByPnid(Integer pnid) {
+		  String hqlString = "select count(*) from purchaseDetail as p where p.pnid ="+pnid+"";  
+		    Query query = this.getSession().createQuery(hqlString);  
+		          
+		    return (Integer) ((Number)query.uniqueResult()); 
+		
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<PurchaseDetail> findPurchaseDetailByPnid(final Integer pnid) {
+		return (List<PurchaseDetail>) super.getHibernateTemplate().execute(
+				new HibernateCallback() {
+
+					public Object doInHibernate(Session session)
+							throws HibernateException, SQLException {
+						List<PurchaseDetail> list = new ArrayList<PurchaseDetail>();
+						try {
+							Criteria criteria = session
+									.createCriteria(PurchaseDetail.class).add(Restrictions.eq("pnid",pnid)) ;
+							list = (List<PurchaseDetail>) criteria.list();
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+
+						return list;
+					}
+				});
 	}
 
 }

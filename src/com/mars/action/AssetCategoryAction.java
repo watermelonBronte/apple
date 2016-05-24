@@ -111,14 +111,7 @@ public class AssetCategoryAction extends ActionSupport {
 		this.result = result;
 	}
 
-	/**
-	 * 返回主界面
-	 * @return
-	 */
-	public String home()
-	{
-		return "home";
-	}
+
 	/**
 	 * 添加界面
 	 * @return
@@ -139,8 +132,10 @@ public class AssetCategoryAction extends ActionSupport {
 		assetCategory.setSupacname(getSupacname());
 	
 		assetCategoryService.createAssetCategory(assetCategory);
-		this.setResult("创建");
-		return "successAssetCategory";
+//		this.setResult("创建");
+//		return "successAssetCategory";
+		pageAssetCategory();
+		return "pageAssetCategory";
 	}
 
 	/**
@@ -150,8 +145,10 @@ public class AssetCategoryAction extends ActionSupport {
 	 */
 	public String deleteAssetCategory() {
 		assetCategoryService.deleteAssetCategory(this.getAcid());
-		this.setResult("删除");
-		return "successAssetCategory";
+//		this.setResult("删除");
+//		return "successAssetCategory";
+		pageAssetCategory();
+		return "pageAssetCategory";
 	}
 
 	/**
@@ -169,19 +166,13 @@ public class AssetCategoryAction extends ActionSupport {
 		assetCategory.setAcid(getAcid());
 		assetCategoryService.updateAssetCategory(assetCategory);
 
-		this.setResult("更新");
-		return "successAssetCategory";
+//		this.setResult("更新");
+//		return "successAssetCategory";
+		pageAssetCategory();
+		return "pageAssetCategory";
 	}
 
-	/**
-	 * 查找
-	 * 
-	 * @return
-	 */
-	public String findAssetCategory() {
-		assetCategoryService.findAssetCategory();
-		return "findAssetCategory";
-	}
+
 
 	/**
 	 * 根据ID查找

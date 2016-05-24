@@ -166,8 +166,10 @@ public class RepairsAction extends ActionSupport {
 		repairs.setReprice(this.getReprice());
 		repairs.setRestate(this.getRestate());
 		repairsService.createRepairs(repairs);
-		this.setResult("创建");
-		return "successRepairs";
+//		this.setResult("创建");
+//		return "successRepairs";
+		pageRepairs();
+		return "pageRepairs";
 	}
 
 	/**
@@ -177,8 +179,10 @@ public class RepairsAction extends ActionSupport {
 	 */
 	public String deleteRepairs() {
 		repairsService.deleteRepairs(this.getReid());
-		this.setResult("删除");
-		return "successRepairs";
+//		this.setResult("删除");
+//		return "successRepairs";
+		pageRepairs();
+		return "pageRepairs";
 	}
 
 	/**
@@ -191,19 +195,13 @@ public class RepairsAction extends ActionSupport {
 		repairs.setRestate(1);
 		repairsService.updateRepairs(repairs);
 
-		this.setResult("维修完成");
-		return "successRepairs";
+//		this.setResult("维修完成");
+//		return "successRepairs";
+		pageRepairs();
+		return "pageRepairs";
 	}
 
-	/**
-	 * 查找
-	 * 
-	 * @return
-	 */
-	public String findRepairs() {
-		repairsService.findRepairs();
-		return "findRepairs";
-	}
+
 
 	/**
 	 * 根据ID查找

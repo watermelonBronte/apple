@@ -180,4 +180,10 @@ public class FinanceDao extends HibernateDaoSupport implements
 		super.getHibernateTemplate().update(asset);
 	}
 
+	public Asset findAssetById(Integer aid) {
+		Asset asset = (Asset) super.getHibernateTemplate().get(
+				Asset.class, new Integer(aid));
+		return asset;
+	}
+
 }

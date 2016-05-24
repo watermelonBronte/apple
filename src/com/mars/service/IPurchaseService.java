@@ -61,4 +61,13 @@ public interface IPurchaseService {
 	 */
 	
 	public List<PurchaseNote> findPurchase(IPage pageInfo);//分页
+	
+	/**
+	 * 查找清单数量
+	 * @param pnid
+	 * @return
+	 */
+	public Integer findPDCountByPnid(Integer pnid) ;
+	
+	public void findPurchaseDetailByPnid(Integer pnid);
 }

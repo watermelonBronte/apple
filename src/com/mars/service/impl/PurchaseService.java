@@ -5,6 +5,7 @@ import java.util.List;
 import com.mars.dao.impl.PurchaseDao;
 import com.mars.service.IPurchaseService;
 import com.mars.tools.IPage;
+import com.mars.vo.Asset;
 import com.mars.vo.Department;
 import com.mars.vo.PurchaseDetail;
 import com.mars.vo.PurchaseNote;
@@ -70,6 +71,26 @@ public void setPurchasedao(PurchaseDao purchasedao) {
 	public PurchaseDetail findPurchaseByDeid(int purchaseDetail) {
 		// TODO Auto-generated method stub
 		return purchasedao.findPurchaseByDeid(purchaseDetail);
+	}
+
+	public Integer findPDCountByPnid(Integer pnid) {
+		return purchasedao.findPDCountByPnid(pnid);
+	}
+
+	public void findPurchaseDetailByPnid(Integer pnid) {
+//		return purchasedao.findPurchaseDetailByPnid(pnid);
+		List<PurchaseDetail> list = purchasedao.findPurchaseDetailByPnid(pnid);
+		for (PurchaseDetail purchaseDetail : list) {
+//			System.out.println(purchaseDetail);
+			
+			int count = purchaseDetail.getPdcount();
+			for(int i=0;i<count;i++)
+			{
+				purchaseDetail.getPdid();
+				//悲剧了。。估计要改数据库了。。
+				
+			}
+		}
 	}
 
 }

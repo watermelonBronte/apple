@@ -186,7 +186,8 @@ function submitFrom(formName){
       <td><a href="selectPurchaseById.action?pnid=${purinfo.pnid}">更新</a></td>
        <td><a href="deletePurchase.action?pnid=${purinfo.pnid}">删除</a></td>
 <<<<<<< HEAD
-        --><td><a href="queryPurDetailByPnid.action?pnid=${purinfo.pnid}">清单</a></td>
+        --><td><a href="queryPurDetailByPnid.action?pnid=${purinfo.pnid}">清单</a>|
+<a href="addAssets.action?pnid=${purinfo.pnid}">确认入库</a></td>
 
         <td>
           <a href="selectPurchaseById.action?pnid=${purinfo.pnid}"><i class="fa fa-pencil"></i></a>

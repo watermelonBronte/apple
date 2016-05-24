@@ -126,7 +126,7 @@ public String selectReturnById(){//显示当前用户
 return "success";
 }
 
-public String updateRerutn(){//更新用户
+public String updateRerutn(){//更新
 
 	assetReturn.setArgdate(this.getArgdate());
 	assetReturn.setArid(this.getArid());

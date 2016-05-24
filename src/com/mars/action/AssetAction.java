@@ -410,8 +410,10 @@ public void setSfdate(String sfdate) {
 		
 		assetService.createAsset(asset);
 
-		this.setResult("创建");
-		return "successAsset";
+//		this.setResult("创建");
+//		return "successAsset";
+		pageAsset();
+		return "pageAsset";
 	}
 
 	/**
@@ -424,8 +426,10 @@ public void setSfdate(String sfdate) {
 
 	    System.out.println(this.getAid());
 		assetService.deleteAsset(this.getAid());
-		this.setResult("删除");
-		return "successAsset";
+//		this.setResult("删除");
+//		return "successAsset";
+		pageAsset();
+		return "pageAsset";
 	}
 
 	
@@ -456,8 +460,10 @@ public void setSfdate(String sfdate) {
 		
 		assetService.updateAsset(asset);
 
-		this.setResult("更新");
-		return "successAsset";
+//		this.setResult("更新");
+//		return "successAsset";
+		pageAsset();
+		return "pageAsset";
 	}
 
 

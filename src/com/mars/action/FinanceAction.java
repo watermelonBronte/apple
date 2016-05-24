@@ -188,6 +188,16 @@ public class FinanceAction extends ActionSupport {
 		this.asset = asset;
 	}
 
+	private Integer aid;
+	
+	public Integer getAid() {
+		return aid;
+	}
+
+	public void setAid(Integer aid) {
+		this.aid = aid;
+	}
+
 	/**
 	 * 创建
 	 * 
@@ -204,11 +214,14 @@ public class FinanceAction extends ActionSupport {
 		financeService.createFinance(finance);
 		
 		//更新资产表fid
+		asset = financeService.findAssetById(this.getAid());
 		asset.setFinance(finance);
 		financeService.updateAsset(asset);
 		
-		this.setResult("创建");
-		return "successFinance";
+//		this.setResult("创建");
+//		return "successFinance";
+		pageFinance();
+		return "pageFinance";
 	}
 
 	/**
@@ -218,8 +231,10 @@ public class FinanceAction extends ActionSupport {
 	 */
 	public String deleteFinance() {
 		financeService.deleteFinance(this.getFid());
-		this.setResult("删除");
-		return "successFinance";
+//		this.setResult("删除");
+//		return "successFinance";
+		pageFinance();
+		return "pageFinance";
 	}
 
 	/**
@@ -239,8 +254,10 @@ public class FinanceAction extends ActionSupport {
 		finance.setUser(financeService.findUserById(this.getUser().getUid()));
 		financeService.updateFinance(finance);
 
-		this.setResult("更新");
-		return "successFinance";
+//		this.setResult("更新");
+//		return "successFinance";
+		pageFinance();
+		return "pageFinance";
 	}
 
 	public String updateEnter() {
@@ -250,18 +267,12 @@ public class FinanceAction extends ActionSupport {
 		finance.setFenter(1);
 
 		financeService.updateFinance(finance);
-		return "successFinance";
+//		return "successFinance";
+		pageFinance();
+		return "pageFinance";
 	}
 
-	/**
-	 * 查找
-	 * 
-	 * @return
-	 */
-	public String findFinance() {
-		financeService.findFinance();
-		return "findFinance";
-	}
+
 
 	/**
 	 * 根据ID查找

@@ -137,7 +137,7 @@ public class CheckedAction extends ActionSupport {
 		checked.setCstate(this.getCstate());
 				checked.setCdate(this.getCdate());
 		checkedService.createChecked(checked);
-		this.setResult("创建");
+//		this.setResult("创建");
 		pageChecked();
 		return "pageChecked";
 	}
@@ -164,7 +164,7 @@ public class CheckedAction extends ActionSupport {
 		checked.setCstate(1);
 		checkedService.updateChecked(checked);
 
-		this.setResult("盘点完成");
+//		this.setResult("盘点完成");
 		pageChecked();
 		return "pageChecked";
 	}
