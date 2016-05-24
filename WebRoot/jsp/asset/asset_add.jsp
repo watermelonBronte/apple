@@ -27,14 +27,16 @@
 		<link rel="stylesheet"
 			href="${pageContext.request.contextPath}/lib/font-awesome/css/font-awesome.css">
 
-		--><script
+		-->
+		<script
 			src="${pageContext.request.contextPath}/lib/jquery-1.11.1.min.js"
 			type="text/javascript"></script>
 
-	
-		
-		
-	<script type="text/javascript" src="http://www.js-css.cn/jscode/jquery.min.js"></script>
+
+
+
+		<script type="text/javascript"
+			src="http://www.js-css.cn/jscode/jquery.min.js"></script>
 		<script type="text/javascript"
 			src="${pageContext.request.contextPath}/js/jquery.date_input.pack.js"></script>
 		<link rel="stylesheet"
@@ -53,90 +55,175 @@
 			创建资产
 		</h1>
 		<form action="asset/asset_Asset_createAsset.action" method="post">
-		<table>
-		<tr> <td>卡片编号 </td> <td><input type="text" name="cid" value="1" /> </td></tr>
-		<tr> <td>资产类别名称 </td> <td> <s:select list="assetCategoryList" listKey="acid" listValue="acname"
-				name="assetCategory.acid" /></td></tr>
-		<tr> <td>
-		
-		使用人名称 </td>
-		
-		 <td><s:select list="userList" listKey="uid" listValue="uname"
-				name="user.uid" />
-				
-				 </td>
-				
+			<table>
+				<tr>
+					<td>
+						卡片编号
+					</td>
+					<td>
+						<input type="text" name="cid" value="1" />
+					</td>
 				</tr>
-		<tr> <td>财务入账单编号 </td> <td> <s:select list="financeList" listKey="fid" listValue="fcode"
-				name="finance.fid" /></td></tr>
-		<tr> <td>入库时间 </td> <td>
-		<input  style="width:240px;background: #fefefe;border: 1px solid #bbb;font-size: 14px;color: #333;padding: 7px;border-radius: 3px; background-repeat:no-repeat; background-position:right center; background-image:url(${pageContext.request.contextPath}/images/icon.png)" type="text" class="date_picker" value="${adate}" name="adate" /><!--
+				<tr>
+					<td>
+						资产类别名称
+					</td>
+					<td>
+						<s:select list="assetCategoryList" listKey="acid"
+							listValue="acname" name="assetCategory.acid" />
+					</td>
+				</tr>
+				<tr>
+					<td>
+
+						使用人名称
+					</td>
+
+					<td>
+						<s:select list="userList" listKey="uid" listValue="uname"
+							name="user.uid" />
+
+					</td>
+
+				</tr>
+				<tr>
+					<td>
+						财务入账单编号
+					</td>
+					<td>
+						<s:select list="financeList" listKey="fid" listValue="fcode"
+							name="finance.fid" />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						入库时间
+					</td>
+					<td>
+						<input
+							style="width:240px;background: #fefefe;border: 1px solid #bbb;font-size: 14px;color: #333;padding: 7px;border-radius: 3px; background-repeat:no-repeat; background-position:right center; background-image:url(${pageContext.request.contextPath}/images/icon.png)"
+							type="text" class="date_picker" value="${adate}" name="adate" />
+						<!--
 		
 		
 		 <input
 				style="width: 240px; background: #fefefe; border: 1px solid #bbb; font-size: 14px; color: #333; padding: 7px; border-radius: 3px;"
-				type="text" class="date_picker" value="${adate}" name="adate" /></td>--></tr>
-		<tr> <td>入库状态 </td> <td><input type="radio" name="astate" value="0" checked="checked" />
-			库存
-			<input type="radio" name="astate" value="1" />
-			在用
-			<input type="radio" name="astate" value="2" />
-			故障
-			<input type="radio" name="astate" value="3" />
-			报废
-			<input type="radio" name="astate" value="-1" />
-			删除 </td></tr>
-			<tr> <td>资产名称 </td> <td> <s:select list="purchaseDetailList" listKey="pdid" listValue="aname"
-				name="purchaseDetail.pdid" /></td></tr>
-				<tr> <td>是否打印标签 </td> <td><input type="radio" name="tprint" value="1" />
-			是
-			<input type="radio" name="tprint" value="2" checked="checked" />
-			否 </td></tr>
-				<tr> <td>一维码地址 </td> <td> <input type="text" name="onepath" value="1" /></td></tr>
-				<tr> <td>二维码地址 </td> <td><input type="text" name="twopath" value="1" /> </td></tr>	
-				<tr> <td>条码 </td> <td> 	<input type="text" name="barcode" value="1" /></td></tr>	
-				<tr> <td>备注 </td> <td><input type="text" name="anote" value="1" /> </td></tr>	
-			
-		<tr>	<td><input type="submit" value="创建" /></td></tr>
-			
-			<!--<input type="text" name="assetCategory.acid" value="1" />-->
-			
-		
-			
-			<!--<input type="text" name="user.uid" value="1" />-->
-			
-		
-			
-			<!--<input type="text" name="finance.fid" value="1" />-->
-			
-			
-			
-			<!--<input type="text" name="adate" value="1" />-->
-			
-		
-			
-			
-		
-			
-			<!--<input type="text" name="purchaseDetail.pdid" value="1" />-->
-			
-		
-		
-			
-		
-			
-			
-			
-			
-			
-		
-			
-		
-		
-			
-			
-			
-		
+				type="text" class="date_picker" value="${adate}" name="adate" /></td>-->
+				</tr>
+				<tr>
+					<td>
+						入库状态
+					</td>
+					<td>
+						<input type="radio" name="astate" value="0" checked="checked" />
+						库存
+						<input type="radio" name="astate" value="1" />
+						在用
+						<input type="radio" name="astate" value="2" />
+						故障
+						<input type="radio" name="astate" value="3" />
+						报废
+						<input type="radio" name="astate" value="-1" />
+						删除
+					</td>
+				</tr>
+				<tr>
+					<td>
+						资产名称
+					</td>
+					<td>
+						<s:select list="purchaseDetailList" listKey="pdid"
+							listValue="aname" name="purchaseDetail.pdid" />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						是否打印标签
+					</td>
+					<td>
+						<input type="radio" name="tprint" value="1" />
+						是
+						<input type="radio" name="tprint" value="2" checked="checked" />
+						否
+					</td>
+				</tr>
+				<tr>
+					<td>
+						一维码地址
+					</td>
+					<td>
+						<input type="text" name="onepath" value="1" />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						二维码地址
+					</td>
+					<td>
+						<input type="text" name="twopath" value="1" />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						条码
+					</td>
+					<td>
+						<input type="text" name="barcode" value="1" />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						备注
+					</td>
+					<td>
+						<input type="text" name="anote" value="1" />
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						<input type="submit" value="创建" />
+					</td>
+				</tr>
+
+				<!--<input type="text" name="assetCategory.acid" value="1" />-->
+
+
+
+				<!--<input type="text" name="user.uid" value="1" />-->
+
+
+
+				<!--<input type="text" name="finance.fid" value="1" />-->
+
+
+
+				<!--<input type="text" name="adate" value="1" />-->
+
+
+
+
+
+
+				<!--<input type="text" name="purchaseDetail.pdid" value="1" />-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			</table>
 		</form>
 	</body>

@@ -123,7 +123,7 @@ public void setSfdate(String sfdate) {
 	private Integer aid;
 	private User user;
 	private Finance finance;
-	private AssetCategory assetCategory;
+//	private AssetCategory assetCategory;
 	private PurchaseDetail purchaseDetail;
 	private String cid;
 	private Integer usestate;
@@ -229,13 +229,13 @@ public void setSfdate(String sfdate) {
 		this.finance = finance;
 	}
 
-	public AssetCategory getAssetCategory() {
-		return assetCategory;
-	}
-
-	public void setAssetCategory(AssetCategory assetCategory) {
-		this.assetCategory = assetCategory;
-	}
+//	public AssetCategory getAssetCategory() {
+//		return assetCategory;
+//	}
+//
+//	public void setAssetCategory(AssetCategory assetCategory) {
+//		this.assetCategory = assetCategory;
+//	}
 
 	
 
@@ -352,15 +352,15 @@ public void setSfdate(String sfdate) {
 //
 //			return "pageAsset";
 //		}
-		if(this.getAcid()!= null)
-	    	assetCategory = assetService.findAssetCategoryById(this.getAcid());
+//		if(this.getAcid()!= null)
+//	    	assetCategory = assetService.findAssetCategoryById(this.getAcid());
 		if(this.getUid()!= null)
     		user = assetService.findUserById(this.getUid());
 		if(this.getFid()!=null)
 	    	finance = assetService.findFinanceById(this.getFid());
 		if(this.getPdid()!=null)
 	    	purchaseDetail = assetService.findPurchaseDetailById(this.getPdid());
-		assetService.findAllAssetByAttr(pageInfo,finance,assetCategory,user,purchaseDetail);
+//		assetService.findAllAssetByAttr(pageInfo,finance,assetCategory,user,purchaseDetail);
 		return "pageAsset";
 	}
 
@@ -393,7 +393,7 @@ public void setSfdate(String sfdate) {
 		// Asset.setAccode(getAccode());
 
 		asset.setCid(getCid());
-		asset.setAssetCategory(assetService.findAssetCategoryById(this.getAssetCategory().getAcid()));
+//		asset.setAssetCategory(assetService.findAssetCategoryById(this.getAssetCategory().getAcid()));
 		asset.setUser(assetService.findUserById(this.getUser().getUid()));
 //		asset.setFinance(assetService.findFinanceById(this.getFinance().getFid()));
 		asset.setAstate(this.getAstate());
@@ -443,7 +443,7 @@ public void setSfdate(String sfdate) {
 	
         asset = assetService.findAssetById(this.getAid());
         asset.setCid(getCid());
-		asset.setAssetCategory(assetService.findAssetCategoryById(this.getAssetCategory().getAcid()));
+//		asset.setAssetCategory(assetService.findAssetCategoryById(this.getAssetCategory().getAcid()));
 		asset.setUser(assetService.findUserById(this.getUser().getUid()));
 		asset.setFinance(assetService.findFinanceById(this.getFinance().getFid()));
 		asset.setAstate(this.getAstate());
@@ -476,7 +476,7 @@ public void setSfdate(String sfdate) {
 		asset = assetService.findAssetById(this.getAid());
 		this.setAid(asset.getAid());
 		this.setCid(asset.getCid());
-		this.setAssetCategory(asset.getAssetCategory());
+//		this.setAssetCategory(asset.getAssetCategory());
 		this.setUser(asset.getUser());
 		this.setFdate(asset.getFinance().getFdate());
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");

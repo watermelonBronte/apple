@@ -15,7 +15,6 @@ public class Asset implements java.io.Serializable {
 	private Integer aid;
 	private User user;
 	private Finance finance;
-	private AssetCategory assetCategory;
 	private PurchaseDetail purchaseDetail;
 	private String cid;
 	private Date adate;
@@ -39,14 +38,13 @@ public class Asset implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Asset(User user, Finance finance, AssetCategory assetCategory,
-			PurchaseDetail purchaseDetail, String cid, Date adate,
-			Integer astate, Integer tprint, String onepath, String twopath,
-			String barcode, String anote, Set checkDetails, Set assetReturns,
-			Set repairses, Set transBillses, Set scraps, Set assetTransDetails) {
+	public Asset(User user, Finance finance, PurchaseDetail purchaseDetail,
+			String cid, Date adate, Integer astate, Integer tprint,
+			String onepath, String twopath, String barcode, String anote,
+			Set checkDetails, Set assetReturns, Set repairses,
+			Set transBillses, Set scraps, Set assetTransDetails) {
 		this.user = user;
 		this.finance = finance;
-		this.assetCategory = assetCategory;
 		this.purchaseDetail = purchaseDetail;
 		this.cid = cid;
 		this.adate = adate;
@@ -88,14 +86,6 @@ public class Asset implements java.io.Serializable {
 
 	public void setFinance(Finance finance) {
 		this.finance = finance;
-	}
-
-	public AssetCategory getAssetCategory() {
-		return this.assetCategory;
-	}
-
-	public void setAssetCategory(AssetCategory assetCategory) {
-		this.assetCategory = assetCategory;
 	}
 
 	public PurchaseDetail getPurchaseDetail() {

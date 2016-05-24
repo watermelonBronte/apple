@@ -16,7 +16,7 @@ public class AssetCategory implements java.io.Serializable {
 	private String acname;
 	private Integer supacid;
 	private String supacname;
-	private Set assets = new HashSet(0);
+	private Set purchaseDetails = new HashSet(0);
 
 	// Constructors
 
@@ -26,12 +26,12 @@ public class AssetCategory implements java.io.Serializable {
 
 	/** full constructor */
 	public AssetCategory(String accode, String acname, Integer supacid,
-			String supacname, Set assets) {
+			String supacname, Set purchaseDetails) {
 		this.accode = accode;
 		this.acname = acname;
 		this.supacid = supacid;
 		this.supacname = supacname;
-		this.assets = assets;
+		this.purchaseDetails = purchaseDetails;
 	}
 
 	// Property accessors
@@ -76,12 +76,12 @@ public class AssetCategory implements java.io.Serializable {
 		this.supacname = supacname;
 	}
 
-	public Set getAssets() {
-		return this.assets;
+	public Set getPurchaseDetails() {
+		return this.purchaseDetails;
 	}
 
-	public void setAssets(Set assets) {
-		this.assets = assets;
+	public void setPurchaseDetails(Set purchaseDetails) {
+		this.purchaseDetails = purchaseDetails;
 	}
 
 }

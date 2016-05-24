@@ -204,8 +204,7 @@ th {
 				</select>
 				
 				-->
-				资产类型ID:
-				<input type="text" name="acid" style="width: 100px; margin: 5px" />
+				
 				使用人ID:
 				<input type="text" name="uid" style="width: 100px; margin: 5px" />
 				财务入账ID:
@@ -226,9 +225,7 @@ th {
 							<th>
 								卡片编号
 							</th>
-							<th>
-								资产类别名称
-							</th>
+							
 							<th>
 								资产名称
 							</th>
@@ -262,9 +259,7 @@ th {
 							<td align="center" class="left_txt">
 								${a.cid}
 							</td>
-							<td align="center" class="left_txt">
-								${a.assetCategory.acname}
-							</td>
+							
 							<td align="center" class="left_txt">
 								${a.purchaseDetail.aname}
 							</td>

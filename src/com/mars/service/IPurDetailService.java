@@ -6,6 +6,7 @@ package com.mars.service;
 import java.util.List;
 
 import com.mars.tools.IPage;
+import com.mars.vo.AssetCategory;
 import com.mars.vo.PurchaseDetail;
 import com.mars.vo.PurchaseNote;
 import com.mars.vo.User;
@@ -63,4 +64,12 @@ public interface IPurDetailService {
 	 */
 	
 	public List<PurchaseDetail> findPurDetailByPnid(IPage pageInfo,PurchaseNote purchaseNote);//分页
+
+	/**
+	 * 根据ID查找资产类别
+	 * @param acid
+	 * @return
+	 */
+	public AssetCategory findAssetCategoryById(Integer acid);
+	
 }
