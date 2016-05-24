@@ -4,6 +4,7 @@
 package com.mars.action;
 
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -20,6 +21,14 @@ import com.opensymphony.xwork2.ActionSupport;
  * @date 2016/5/6
  */
 public class FinanceAction extends ActionSupport {
+	private String sdate;
+	public String getSdate() {
+		return sdate;
+	}
+
+	public void setSdate(String sdate) {
+		this.sdate = sdate;
+	}
 
 	private IFinanceService financeService;
 	protected IPage pageInfo = new PageInfo();
@@ -207,7 +216,10 @@ public class FinanceAction extends ActionSupport {
 
 		finance = financeService.findFinanceById(this.getFid());
 		this.setFcode(finance.getFcode());
+		
 		this.setFdate(finance.getFdate());
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		sdate=sdf.format(fdate);
 		this.setFenter(finance.getFenter());
 		this.setUser(finance.getUser());
 

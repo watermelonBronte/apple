@@ -3,6 +3,8 @@
  */
 package com.mars.action;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -19,6 +21,20 @@ import com.opensymphony.xwork2.ActionSupport;
  *@data 2016/4/21
  */
 public class UserLoginAction extends ActionSupport {
+	private Date date;
+	private String sdate;
+	public Date getDate() {
+		return date;
+	}
+	public String getSdate() {
+		return sdate;
+	}
+	public void setSdate(String sdate) {
+		this.sdate = sdate;
+	}
+	public void setDate(Date date) {
+		this.date = date;
+	}
 	private String uname;
 	public String getUname() {
 		return uname;
@@ -48,6 +64,7 @@ public class UserLoginAction extends ActionSupport {
 				ActionContext ctx = ActionContext.getContext();
 				ctx.getSession().put("user", uname);
 				//用session保存用户名
+				
 				return "success";
 			}
 			

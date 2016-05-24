@@ -58,7 +58,7 @@
 		</s:else>
 		<br />
 		入库时间
-		<input type="text" name="adate" value="${adate}" />
+		<input type="text" name="adate" value="${sdate}" />
 		<br />
 		是否打印标签
 		<s:if test="tprint==1">
@@ -112,7 +112,7 @@
 		</s:else>
 		<br />
 		财务入账时间
-		<input type="text" name="finance.fdate" value="${finance.fdate}" />
+		<input type="text" name="finance.fdate" value="${sfdate}" />
 		<br />
 		<hr />
 		<h3>

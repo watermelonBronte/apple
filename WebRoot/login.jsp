@@ -59,6 +59,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         .navbar-default .navbar-brand, .navbar-default .navbar-brand:hover { 
             color: #fff;
         }
+        #background{
+   
+        background-image:url(images/img.png) ;
+        background-repeat: no-repeat ;
+     	background-position:200px 250px ;
+   
+        }
     </style>
 
     <script type="text/javascript">
@@ -70,7 +77,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </script>
   </head>
   
-  <body class=" theme-blue">
+  <body class=" theme-blue"  id="background">
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -97,21 +104,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>
       </div>
 
-        <div class="dialog">
+        <div class="dialog" >
     <div class="panel panel-default">
-        <p class="panel-heading no-collapse">登陆</p>
+        <p class="panel-heading no-collapse" style="margin-top:1px "><span style="font-size:large;">登陆</span></p>
         
         
         <div class="panel-body">
             <form action="userLogin.action" method="post">
-                <div class="form-group">
-                    <label>用户名：</label>
+                <div class="form-group" >
+                    <label style="	text-shadow: #ccc 1px 1px ;">用户名：</label>
+              <div style="width:50px;height:10px"></div>
                     <input type="text" class="form-control span12" name="uname">
                 </div>
-                <div class="form-group">
-                <label>密码：</label>
-                    <input type="password" class="form-controlspan12 form-control" name="upwd">
+                <div class="form-group" >
+             
+                <label style="	text-shadow: #ccc 1px 1px ;">密码：</label>
+                   <div style="width:50px;height:10px"></div>
+                    <input type="password" class="form-control span12 form-control" name="upwd">
                 </div>
+           
                  <input type="submit" class="btn btn-primary pull-right" value="登陆"/><!--
                 <a href="index.html" class="btn btn-primary pull-right">登陆</a>
                 --><label class="remember-me"><input type="checkbox"> 记住我</label>

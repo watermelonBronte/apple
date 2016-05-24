@@ -54,7 +54,7 @@ $(function(){
 			</s:else>
 			<br />
 			财务入账
-			<input  style="width:240px;background: #fefefe;border: 1px solid #bbb;font-size: 14px;color: #333;padding: 7px;border-radius: 3px;" type="text" class="date_picker" value="${fdate}" name="fdate" />
+			<input  style="width:240px;background: #fefefe;border: 1px solid #bbb;font-size: 14px;color: #333;padding: 7px;border-radius: 3px;" type="text" class="date_picker" value="${sdate}" name="fdate" />
 			<br />
 			<input type="submit" value="更新" />
 		</form>

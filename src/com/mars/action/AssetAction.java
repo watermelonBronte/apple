@@ -4,6 +4,7 @@
 package com.mars.action;
 
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -28,6 +29,33 @@ import com.sun.org.apache.bcel.internal.generic.NEW;
  * @date 2016/5/6
  */
 public class AssetAction extends ActionSupport {
+private Date fdate;
+private String sfdate;
+
+private String sdate;
+	public String getSdate() {
+	return sdate;
+}
+
+public void setSdate(String sdate) {
+	this.sdate = sdate;
+}
+
+	public Date getFdate() {
+	return fdate;
+}
+
+public void setFdate(Date fdate) {
+	this.fdate = fdate;
+}
+
+public String getSfdate() {
+	return sfdate;
+}
+
+public void setSfdate(String sfdate) {
+	this.sfdate = sfdate;
+}
 
 	private IAssetService assetService;
 
@@ -453,8 +481,17 @@ public class AssetAction extends ActionSupport {
 		this.setCid(asset.getCid());
 		this.setAssetCategory(asset.getAssetCategory());
 		this.setUser(asset.getUser());
+		this.setFdate(asset.getFinance().getFdate());
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		sfdate=sdf.format(fdate);
+		
 		this.setFinance(asset.getFinance());
+		
 		this.setAdate(asset.getAdate());
+		
+		sdate=sdf.format(adate);
+		
+		
 		this.setAstate(asset.getAstate());
 		this.setPurchaseDetail(asset.getPurchaseDetail());
 		this.setTprint(asset.getTprint());

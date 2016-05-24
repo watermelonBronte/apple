@@ -148,14 +148,14 @@ document.getElementById("myframe").src=href;
     <li  ><a href="#" data-target=".premium-menu" class="nav-header collapsed" data-toggle="collapse"><i class="fa fa-fw fa-fighter-jet"></i> 统计报表<i class="fa fa-collapse"></i></a></li>
         <li><ul class="premium-menu nav nav-list collapse">
               
-            <li ><a href="#"><span class="fa fa-caret-right"></span> 按资产类型统计报表</a></li>
+            <li ><a href="#"><span class="fa fa-caret-right"></span> 按资产类型统计报表</a></li><!--
             <li ><a href="#"><span class="fa fa-caret-right"></span> 按设备名称统计报表</a></li>
             <li ><a href="#"><span class="fa fa-caret-right"></span> 按采购内容统计报表</a></li>
             <li ><a href="#"><span class="fa fa-caret-right"></span> 按业务操作统计报表</a></li>
             <li ><a href="#"><span class="fa fa-caret-right"></span> 按财务内容统计报表</a></li>
             <li ><a href="#"><span class="fa fa-caret-right"></span> 按供应商统计报表</a></li>
            
-    </ul></li>
+    --></ul></li>
 
         <li><a href="#" data-target=".legal-menu" class="nav-header collapsed" data-toggle="collapse"><i class="fa fa-fw fa-legal"></i> 系统管理<i class="fa fa-collapse"></i></a></li>
         <li><ul class="legal-menu nav nav-list collapse">

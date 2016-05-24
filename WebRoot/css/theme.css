@@ -283,11 +283,12 @@ footer hr {
   border: 1px solid #ccc;
   background: white;
   border-radius: 3px;
+
 }
 .dialog .panel {
-  -webkit-box-shadow: 1px 1px 0px #ffffff;
-  -moz-box-shadow: 1px 1px 0px #ffffff;
-  box-shadow: 1px 1px 0px #ffffff;
+  -webkit-box-shadow: 3px 3px 3px #ccc;
+  -moz-box-shadow: 3px 3px 3px #ccc;
+  box-shadow: 5px 5px 5px #ccc;
 }
 .panel .panel-heading {
   border-bottom: 1px solid #ccc;
@@ -297,7 +298,7 @@ footer hr {
   margin-bottom: 0px;
   text-shadow: none;
   text-transform: none;
-  font-size: .85em;
+  font-size: .105em;
   line-height: 1.5em;
   background: #efefef;
   background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #efefef), color-stop(1, #fafafa));
@@ -306,7 +307,8 @@ footer hr {
   background: -o-linear-gradient(bottom, #efefef, #fafafa);
   filter: progid:dximagetransform.microsoft.gradient(startColorStr='#e3e3e3', EndColorStr='#ffffff');
   -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#fafafa',EndColorStr='#efefef')";
-  box-shadow: inset 0px 1px 1px white;
+  box-shadow: inset 0px 1px 1px white;\
+  
 }
 .panel .panel-heading:not(.no-collapse):hover {
   background: #efefef;
@@ -319,7 +321,7 @@ footer hr {
 }
 .panel .panel-heading .panel-icon {
   border-right: 1px solid #AAA;
-  box-shadow: 1px 0px 1px #fff;
+  box-shadow: 1px 1px 1px #fff;
   border-left: none;
   text-align: center;
   padding-left: 1em;
@@ -358,6 +360,8 @@ a.panel-heading:hover,
 }
 .panel-body {
   min-height: .25em;
+  height:250px;
+
 }
 .panel-body h1,
 .panel-body h2,
@@ -575,10 +579,11 @@ a.panel-heading:hover,
   border: 1px solid #ddd;
 }
 .dialog {
-  margin: 0px auto;
-  margin-top: 5em;
+  margin: 150px 300px;
+  margin-top: 10em;
   float: none;
   max-width: 400px;
+
 }
 .dialog input[type="checkbox"] {
   margin: 0px;
@@ -719,6 +724,7 @@ a.panel-heading:hover,
 }
 .modal .modal-footer {
   padding: .75em;
+
 }
 .modal .modal-body {
   padding: 2em;
@@ -841,7 +847,7 @@ table.table.list tr:first-child td {
   }
   .dialog,
   .row .dialog {
-    max-width: 300px;
+    max-width: 450px;
   }
 }
 .theme-blue .navbar {

@@ -31,20 +31,7 @@
 			src="${pageContext.request.contextPath}/lib/jquery-1.11.1.min.js"
 			type="text/javascript"></script>
 
-		<!--<link rel="stylesheet" type="text/css"
-			href="${pageContext.request.contextPath}/css/theme.css">
-		<link rel="stylesheet" type="text/css"
-			href="${pageContext.request.contextPath}/css/premium.css">
-		<link rel="apple-touch-icon-precomposed" sizes="144x144"
-			href="../assets/ico/apple-touch-icon-144-precomposed.png">
-		<link rel="apple-touch-icon-precomposed" sizes="114x114"
-			href="../assets/ico/apple-touch-icon-114-precomposed.png">
-		<link rel="apple-touch-icon-precomposed" sizes="72x72"
-			href="../assets/ico/apple-touch-icon-72-precomposed.png">
-		<link rel="apple-touch-icon-precomposed"
-			href="../assets/ico/apple-touch-icon-57-precomposed.png">
-		-->
-		
+	
 		
 		
 	<script type="text/javascript" src="http://www.js-css.cn/jscode/jquery.min.js"></script>
@@ -75,7 +62,7 @@
 		<tr> <td>财务入账单编号 </td> <td> <s:select list="financeList" listKey="fid" listValue="fcode"
 				name="finance.fid" /></td></tr>
 		<tr> <td>入库时间 </td> <td>
-		<input  style="width:240px;background: #fefefe;border: 1px solid #bbb;font-size: 14px;color: #333;padding: 7px;border-radius: 3px;" type="text" class="date_picker" value="${adate}" name="adate" /><!--
+		<input  style="width:240px;background: #fefefe;border: 1px solid #bbb;font-size: 14px;color: #333;padding: 7px;border-radius: 3px; background-repeat:no-repeat; background-position:right center; background-image:url(${pageContext.request.contextPath}/images/icon.png)" type="text" class="date_picker" value="${adate}" name="adate" /><!--
 		
 		
 		 <input
