@@ -107,7 +107,14 @@ function submitFrom(formName){
 	var _form=document.getElementById(formName);
 	_form.submit();
 }
-
+var va;
+ function text1(va1){//获取当前id
+ va=va1;
+        }
+ function del1(){//改变url
+ 	dataP="checked/checked_Checked_deleteChecked.action?cid="+va;
+ 	 window.location.href=encodeURI(dataP);
+ }
         $(function() {
             var match = document.cookie.match(new RegExp('color=([^;]+)'));
             if(match) var color = match[1];
@@ -226,7 +233,7 @@ th {
 							
 							
 							<td>
-							 <a href="#myModal" role="button" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
+							 <a href="#myModal" onclick="text1(${c.cid})" role="button" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
 								<!--<a
 									href="checked/checked_Checked_deleteChecked.action?cid=${cid}">删除</a>
 							--></td>
@@ -272,7 +279,7 @@ th {
         </div>
         <div class="modal-footer">
             <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">取消</button>
-           <button class="btn btn-danger" data-dismiss="modal"  onclick="window.location='checked/checked_Checked_deleteChecked.action?cid=${c.cid}'" > 删除</button>
+           <button class="btn btn-danger" data-dismiss="modal" onclick="del1()"  > 删除</button>
         </div>
       </div>
     </div>

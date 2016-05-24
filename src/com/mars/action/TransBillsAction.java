@@ -268,6 +268,9 @@ public class TransBillsAction extends ActionSupport {
 	 */
 	public String pageTransBills() {
 		this.getPageInfo().setResult((transBillsService.findAll(pageInfo)));
+		userList = transBillsService.findUser();
+		assetList = transBillsService.findAsset();
+		
 		return "pageTransBills";
 	}
 

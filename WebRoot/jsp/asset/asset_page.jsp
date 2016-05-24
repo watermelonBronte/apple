@@ -111,7 +111,15 @@ function submitFrom(formName){
 }
 
 
-	
+        var va;
+ function text1(va1){//获取当前id
+ va=va1;
+        }
+ function del1(){//改变url
+ 	dataP="asset/asset_Asset_deleteAsset.action?aid="+va;
+ 	 window.location.href=encodeURI(dataP);
+ }
+    	
 	
 
 </script>
@@ -299,7 +307,7 @@ th {
 
 							<td>
 
-								<a href="#myModal" role="button" data-toggle="modal"><i
+								<a href="#myModal" onclick="text1(${a.aid})" role="button" data-toggle="modal"><i
 									class="fa fa-trash-o"></i>
 								</a>
 							</td>
@@ -367,7 +375,7 @@ th {
 									取消
 								</button>
 								<button class="btn btn-danger" data-dismiss="modal"
-									onclick="window.location='asset/asset_Asset_deleteAsset.action?aid=${a.aid}'">
+									onclick="del1()" >
 									删除
 								</button>
 							</div>

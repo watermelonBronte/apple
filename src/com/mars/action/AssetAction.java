@@ -447,9 +447,7 @@ public void setSfdate(String sfdate) {
 		asset.setUser(assetService.findUserById(this.getUser().getUid()));
 		asset.setFinance(assetService.findFinanceById(this.getFinance().getFid()));
 		asset.setAstate(this.getAstate());
-//		Date date = new Date();
-//		Timestamp nousedate = new Timestamp(date.getTime());
-//		asset.setAdate(nousedate);
+
 		asset.setAdate(this.getAdate());
 		asset.setPurchaseDetail(assetService.findPurchaseDetailById(this.getPurchaseDetail().getPdid()));
 		asset.setTprint(this.getTprint());

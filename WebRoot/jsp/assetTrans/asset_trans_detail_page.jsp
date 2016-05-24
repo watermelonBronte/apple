@@ -62,6 +62,14 @@ function submitFrom(formName){
 	var _form=document.getElementById(formName);
 	_form.submit();
 }
+var va;
+ function text1(va1){//获取当前id
+ va=va1;
+        }
+ function del1(){//改变url
+ 	dataP="="+va;
+ 	 window.location.href=encodeURI(dataP);
+ }
 
         $(function() {
             var match = document.cookie.match(new RegExp('color=([^;]+)'));

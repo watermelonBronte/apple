@@ -67,5 +67,6 @@ public interface IUserService {
 	 */
 	public List<User> findAll(IPage pageInfo);
 	public List<User> findUserByAttr(final IPage pageInfo, final User u) ;
- 
+	public List<Role> findRole();
+	public List<Department> findDepartment();
 }

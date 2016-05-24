@@ -28,7 +28,24 @@ import org.hibernate.HibernateException;
  */
 public class UserAction extends ActionSupport {
 
-	
+	private List<Role> roleList = new ArrayList<Role>();
+	private List<Department> DepartmentList = new ArrayList<Department>();
+	public List<Department> getDepartmentList() {
+		return DepartmentList;
+	}
+
+	public void setDepartmentList(List<Department> departmentList) {
+		DepartmentList = departmentList;
+	}
+
+	public List<Role> getRoleList() {
+		return roleList;
+	}
+
+	public void setRoleList(List<Role> roleList) {
+		this.roleList = roleList;
+	}
+
 	private UserService userService;// 设置业务逻辑组件
 private String sex;
 	public String getSex() {
@@ -162,23 +179,24 @@ public void setSex(String sex) {
 		// 将所有用户放在request范围内
 
 		this.getPageInfo().setResult((userService.findAll(pageInfo)));// 分页
-
+roleList=userService.findRole();
+DepartmentList=userService.findDepartment();
 		
 		return SUCCESS;
 	}
 
 	public String createUser() {// 增加用户信息
-		User u = new User();
-		u.setUname(user.getUname().toString());
-		u.setUpwd(user.getUpwd().toString());
+		//User u = new User();
+		user.setUname(this.getUname());
+		user.setUpwd(this.getUpwd());
 		// 根据部门id找到部门对象存储
-		u.setDepartment(userService.findDepartmentById(user.getDepartment()
-				.getDid()));
+		user.setRole(userService.findRoleById(this.getRole().getRid()));
+		user.setDepartment(userService.findDepartmentById(this.getDepartment().getDid()));
 
-		u.setRole(userService.findRoleById(user.getRole().getRid()));
-		u.setUsex(user.getUsex());
-		u.setUstate(user.getUstate());
-		userService.createUser(u);// 保存接收到的数据到数据库中
+		
+		user.setUsex(this.getUsex());
+		user.setUstate(this.getUstate());
+		userService.createUser(user);// 保存接收到的数据到数据库中
 		// System.out.print( u.getUname());
 		return SUCCESS;
 

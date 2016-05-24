@@ -99,7 +99,14 @@ function submitFrom(formName){
 	var _form=document.getElementById(formName);
 	_form.submit();
 }
-
+var va;
+ function text1(va1){//获取当前id
+ va=va1;
+        }
+ function del1(){//改变url
+ 	dataP="deleteUser.action?uid="+va;
+ 	 window.location.href=encodeURI(dataP);
+ }
 </script>
 <style type="text/css">
 
@@ -216,7 +223,7 @@ body{font:12px/180% Arial, Helvetica, sans-serif, "新宋体";}
       
        <td>
           <a href="selectUserById.action?uid=${userinfo.uid}"><i class="fa fa-pencil"></i></a>
-          <a  href="#myModal"  role="button" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
+          <a  href="#myModal" onclick="text1(${userinfo.uid})" role="button" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
       </td><!--
       
       
@@ -269,7 +276,7 @@ body{font:12px/180% Arial, Helvetica, sans-serif, "新宋体";}
         </div>
         <div class="modal-footer">
             <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">取消</button>
-           <button class="btn btn-danger" data-dismiss="modal"  onclick="window.location='deleteUser.action?uid=${userinfo.uid}'" > 删除</button>
+           <button class="btn btn-danger" data-dismiss="modal" onclick="del1()"  > 删除</button>
         </div>
       </div>
     </div>
@@ -306,16 +313,60 @@ body{font:12px/180% Arial, Helvetica, sans-serif, "新宋体";}
          <form action="createUser.action" method="post">
         <div class="modal-body">
            
- <table  cellSpacing="0"  cellPadding="8" align="center" style="text-align:center"><tr><td width='20%' style="height:40px;"> 用户名：</td><td><input type="text" name="user.uname" class="input" size="20" />
- </td><td width='25%'>密码：</td><td><input type="password" name="user.upwd" /></td></tr>
+ <table  cellSpacing="0"  cellPadding="8" align="center" style="text-align:center"><tr>
  
- <tr><td style="height:40px;">   性别：</td><td><input type="text" name="user.usex"  /></td><td>
-   角色Id: </td><td><input type="text" name="user.role.rid" />
+ 
+ <td  style="height:40px;width:75px;text-align:left"> 用户名：</td>
+ <td  style="height:40px;width:140px;text-align:left"><input type="text" name="uname" class="input" size="12" />
+ </td>
+ <td style="height:40px;width:75px;text-align:left">密码：</td>
+ <td style="height:40px;width:140px;text-align:left"><input type="password" name="upwd"  size="12" /></td></tr>
+ 
+ 
+ 
+ 
+ <tr><td  >   部门名称：</td><td style="text-align:left" ><!--
+ 
+ <input type="text" name="usex"  />
+    -->
+ <s:select list="DepartmentList" listKey="did" listValue="dname"
+				name="department.did"  />
+ 
+ </td><td style="text-align:left" >
+   角色名称: </td><td style="text-align:left">
+   
+   <!-- <input type="text" name="user.role.rid" />  -->
+
+<s:select list="roleList" listKey="rid" listValue="rname"
+				name="role.rid"    />
+
  </td></tr>
- <tr><td style="height:40px; ">   
-    部门Id：</td><td><input type="text" name="user.department.did"  /></td><td>
+ <tr><td style="height:40px;text-align:left ">   
+   性别：</td><td style="text-align:left"><!--
+    <input type="text" name="user.department.did"  />
+    -->
     
-         状态：</td><td><input type="text" name="user.ustate"   /><br/>
+    
+    
+    
+    
+    <select name="usex"  style="width:70px;">
+  <option value ="1">女</option>
+  <option value ="0">男</option>
+ 
+</select>
+    </td><td style="text-align:left">
+   
+         状态：</td><td style="text-align:left">
+         
+   
+     <select name="ustate" style="width:70px;" >
+  <option value ="1">正常</option>
+  <option value ="0">禁用</option>
+ 
+</select>
+   
+         <br/>
     </td></tr>
     <tr style="height:25px;"><td></td></tr>
  <tr style="border-top: 1px solid #e5e5e5;  " ><td colspan="2"  align="right">  <br/><input  class="btn btn-danger" type="submit"  value="提交"/></td>
