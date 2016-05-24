@@ -12,6 +12,7 @@ import java.util.List;
 import com.mars.service.IFinanceService;
 import com.mars.tools.IPage;
 import com.mars.tools.PageInfo;
+import com.mars.vo.Asset;
 import com.mars.vo.Finance;
 import com.mars.vo.User;
 import com.opensymphony.xwork2.ActionSupport;
@@ -137,6 +138,55 @@ public class FinanceAction extends ActionSupport {
 		userList = financeService.findUser();
 		return "addFinance";
 	}
+	private Integer uid;
+	private Date date;
+	private Integer enter;
+	
+
+	
+	public Integer getUid() {
+		return uid;
+	}
+
+	public void setUid(Integer uid) {
+		this.uid = uid;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	public Integer getEnter() {
+		return enter;
+	}
+
+	public void setEnter(Integer enter) {
+		this.enter = enter;
+	}
+
+	/**
+	 * 根据属性查找
+	 * @return
+	 */
+	public String SearchFinance() {
+		if(this.getUid()!= null)
+    		user = financeService.findUserById(this.getUid());
+		financeService.findAllFinanceByAttr(pageInfo,user,enter,date);
+		return "pageFinance";
+	}
+	private Asset asset = new Asset();
+	
+	public Asset getAsset() {
+		return asset;
+	}
+
+	public void setAsset(Asset asset) {
+		this.asset = asset;
+	}
 
 	/**
 	 * 创建
@@ -145,12 +195,18 @@ public class FinanceAction extends ActionSupport {
 	 */
 	public String createFinance() {
 		
+		//创建财务入账
 		finance.setFcode(this.getFcode());
 		// 将方法写入同一个Service
 		finance.setUser(financeService.findUserById(this.getUser().getUid()));
 		finance.setFenter(this.getFenter());
 		finance.setFdate(this.getFdate());
 		financeService.createFinance(finance);
+		
+		//更新资产表fid
+		asset.setFinance(finance);
+		financeService.updateAsset(asset);
+		
 		this.setResult("创建");
 		return "successFinance";
 	}
@@ -233,6 +289,7 @@ public class FinanceAction extends ActionSupport {
 	 * @return
 	 */
 	public String pageFinance() {
+		userList = financeService.findUser();
 		this.getPageInfo().setResult((financeService.findAll(pageInfo)));
 		return "pageFinance";
 	}

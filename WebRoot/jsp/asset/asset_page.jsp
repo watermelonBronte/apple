@@ -7,7 +7,7 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
-  <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 
@@ -161,7 +161,9 @@ th {
         });
     </script>
 		<div class="main-content" style="width: 993px">
-<h3>列表</h3>
+			<h3>
+				列表
+			</h3>
 			<div class="btn-toolbar list-toolbar">
 				<br />
 				<a href="asset/asset_Asset_addAsset.action" class="btn btn-primary"><i
@@ -175,7 +177,7 @@ th {
 				<div class="btn-group">
 				</div>
 			</div>
-		
+
 			<form action="asset/asset_Asset_SearchAsset.action" method="post">
 				根据
 				<!--<select id="select" name="attr">
@@ -195,56 +197,58 @@ th {
 				
 				-->
 				资产类型ID:
-				<input type="text" name="acid" style="width:100px;margin:5px"  />
+				<input type="text" name="acid" style="width: 100px; margin: 5px" />
 				使用人ID:
-				<input type="text" name="uid"  style="width:100px;margin:5px"/>
+				<input type="text" name="uid" style="width: 100px; margin: 5px" />
 				财务入账ID:
-				<input type="text" name="fid"  style="width:100px;margin:5px" />
+				<input type="text" name="fid" style="width: 100px; margin: 5px" />
 				采购单ID:
-				<input type="text" name="pdid" style="width:100px;margin:5px" />
+				<input type="text" name="pdid" style="width: 100px; margin: 5px" />
 				<!--<input type="text" name="value" />-->
 
-				<input type="submit" value="查找"  class="btn btn-default"/>
+				<input type="submit" value="查找" class="btn btn-default" />
 				<br />
 			</form>
 			<!--<a href="asset/asset_Asset_addAsset.action">添加资产</a>-->
 
 			<form action="" id="_form" method="post">
 				<table class="table" style="text-align: center" id="charcolor">
-					   <thead  >
-					<tr >
-						<th >
-							卡片编号
-						</th>
-						<th >
-							资产类别名称
-						</th>
-						<th >
-							资产名称
-						</th>
-						<th>
-							使用人名称
-						</th>
-						<th >
-							财务入账人名称
-						</th>
+					<thead>
+						<tr>
+							<th>
+								卡片编号
+							</th>
+							<th>
+								资产类别名称
+							</th>
+							<th>
+								资产名称
+							</th>
+							<th>
+								使用人名称
+							</th>
+							<th>
+								财务入账人名称
+							</th>
 
-						<th >
-							库存状态
-						</th>
-						<th >
-							入库时间
-						</th>
-						<th>详情</th>
-						
-						<!--
+							<th>
+								库存状态
+							</th>
+							<th>
+								入库时间
+							</th>
+							<th>
+								操作
+							</th>
+
+							<!--
 						<th>
 							操作
 						</th>
 					-->
-					 <th style="width: 3.5em;"></th>
-					</tr>
-  </thead>
+							<th style="width: 3.5em;"></th>
+						</tr>
+					</thead>
 					<s:iterator id="a" value="pageInfo.result" status="st">
 						<tr align=center>
 							<td align="center" class="left_txt">
@@ -275,11 +279,15 @@ th {
 								${a.adate}
 							</td>
 							-->
-							   <td> <fmt:formatDate value="${a.adate}" pattern="yyyy-MM-dd"/></td>
-							
 							<td>
-							<a href="asset/asset_Asset_findAssetById.action?aid=${aid}">详情</a>
-							
+								<fmt:formatDate value="${a.adate}" pattern="yyyy-MM-dd" />
+							</td>
+
+							<td>
+								<a href="asset/asset_Asset_findAssetById.action?aid=${aid}">详情</a>
+								|
+								<a href="finance/finance_Finance_addFinance.action?aid=${aid}">财务入账</a>
+
 							</td>
 							<!--<td align="center" class="left_txt">
 								<a href="asset/asset_Asset_findAssetById.action?aid=${aid}">详情</a>
@@ -288,12 +296,14 @@ th {
 
 							</td>
 						-->
-						
-						<td>
-       
-          <a href="#myModal" role="button" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
-      </td>
-       
+
+							<td>
+
+								<a href="#myModal" role="button" data-toggle="modal"><i
+									class="fa fa-trash-o"></i>
+								</a>
+							</td>
+
 						</tr>
 					</s:iterator>
 					<!--<tr>
@@ -307,7 +317,7 @@ th {
 				-->
 					<tr>
 						<td align="center" class="left_txt" colspan="11">
-						 
+
 							<div style="float: right;">
 								<input type="hidden" id="pageInfo.currentPage"
 									name="pageInfo.currentPage" value="${pageInfo.currentPage}" />
@@ -316,9 +326,7 @@ th {
 									${pageInfo.currentPage }
 								</label>
 								页&nbsp;
-								<font color=#808080>
-								
-								<a
+								<font color=#808080> <a
 									href="javascript:goto('pageInfo.currentPage','_form','${pageInfo.firstPage }')">第一页</a>
 								</font>&nbsp;
 								<font color=#808080><a
@@ -335,34 +343,49 @@ th {
 					</tr>
 				</table>
 
- <div class="modal small fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h3 id="myModalLabel">删除确认</h3>
-        </div>
-        <div class="modal-body">
-            <p class="error-text"><i class="fa fa-warning modal-icon"></i>确定删除采购单?</p>
-        </div>
-        <div class="modal-footer">
-            <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">取消</button>
-           <button class="btn btn-danger" data-dismiss="modal"  onclick="window.location='asset/asset_Asset_deleteAsset.action?aid=${a.aid}'" > 删除</button>
-        </div>
-      </div>
-    </div>
-</div>
+				<div class="modal small fade" id="myModal" tabindex="-1"
+					role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"
+									aria-hidden="true">
+									×
+								</button>
+								<h3 id="myModalLabel">
+									删除确认
+								</h3>
+							</div>
+							<div class="modal-body">
+								<p class="error-text">
+									<i class="fa fa-warning modal-icon"></i>确定删除采购单?
+								</p>
+							</div>
+							<div class="modal-footer">
+								<button class="btn btn-default" data-dismiss="modal"
+									aria-hidden="true">
+									取消
+								</button>
+								<button class="btn btn-danger" data-dismiss="modal"
+									onclick="window.location='asset/asset_Asset_deleteAsset.action?aid=${a.aid}'">
+									删除
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
 
 			</form>
 		</div>
-		
-<script src="${pageContext.request.contextPath}/lib/bootstrap/js/bootstrap.js"></script>
-    <script type="text/javascript">
+
+		<script
+			src="${pageContext.request.contextPath}/lib/bootstrap/js/bootstrap.js"></script>
+		<script type="text/javascript">
         $("[rel=tooltip]").tooltip();
         $(function() {
             $('.demo-cancel-click').click(function(){return false;});
         });
-    </script> 
+    </script>
 		<!--<h1>
 			创建资产
 		</h1>

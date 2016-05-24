@@ -45,6 +45,12 @@
 		<link rel="apple-touch-icon-precomposed"
 			href="../assets/ico/apple-touch-icon-57-precomposed.png">
 
+		<script type="text/javascript"
+			src="${pageContext.request.contextPath}/js/jquery.date_input.pack.js"></script>
+		<link rel="stylesheet"
+			href="${pageContext.request.contextPath}/css/calendar.css">
+
+	
 
 		<script type="text/javascript"
 			src="http://www.js-css.cn/jscode/jquery.min.js"></script>
@@ -173,7 +179,27 @@ th {
 				</div>
 			</div>
 		
-
+<form action="finance/finance_Finance_SearchFinance.action" method="post">
+				根据
+				
+				使用人ID:
+					<s:select list="userList" listKey="uid" listValue="uname"
+				name="uid" />
+				是否财务入账：
+				<input type="radio" name="enter" value="1"  checked="checked"/>
+			    是
+			    <input type="radio" name="enter" value="2"  />
+			    
+			    否
+			    财务入账时间:
+				<input
+				style="width: 240px; background: #fefefe; border: 1px solid #bbb; font-size: 14px; color: #333; padding: 7px; border-radius: 3px;"
+				type="text" class="date_picker" value="${date}" name="date" />
+			
+				
+				<input type="submit" value="查找"  class="btn btn-default"/>
+				<br />
+			</form>
 			<form action="" id="_form" method="post">
 				<table id="charcolor" class="table" style="text-align: center">
   <thead  >

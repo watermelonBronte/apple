@@ -3,11 +3,13 @@
  */
 package com.mars.service.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import com.mars.dao.IFinanceDao;
 import com.mars.service.IFinanceService;
 import com.mars.tools.IPage;
+import com.mars.vo.Asset;
 import com.mars.vo.Finance;
 import com.mars.vo.User;
 
@@ -95,6 +97,16 @@ public class FinanceService implements IFinanceService {
 
 	public List<User> findUser() {
 		return financeDao.findUser();
+	}
+
+	public List<Finance> findAllFinanceByAttr(IPage pageInfo, User user, Integer enter,
+			Date date) {
+		return financeDao.findAllFinanceByAttr(pageInfo,user,enter,date);
+		
+	}
+
+	public void updateAsset(Asset asset) {
+		financeDao.updateAsset(asset);
 	}
 
 }
