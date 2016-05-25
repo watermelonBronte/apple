@@ -134,7 +134,7 @@ var va;
 				 </table>
      </form>
    <br/>
-   <a href="addPurDetail.action?pnid=${pnid}">添加采购单</a>
    <!--<a href="addPurDetail.action?pnid=${pnid}">添加采购单</a>-->
+   <a href="addPurDetail.action?pnid=${pnid}">添加采购单</a>
   </body>
 </html>

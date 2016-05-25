@@ -193,6 +193,7 @@ public class PurDetailAction {
 		this.setPurchaseNote(purdetailservice.findPurchaseNoteByPid(pnid));
 		ActionContext ctx = ActionContext.getContext();
 		ctx.getSession().put("pnid", pnid);
+		assetCategoryList = purdetailservice.findAssetCategory();
 		this.getPageInfo().setResult(
 				purdetailservice.findPurDetailByPnid(pageInfo, purchaseNote));// 分页
 
@@ -218,8 +219,7 @@ public class PurDetailAction {
 		p.setAtype(purDetail.getAtype());
 		p.setPdcount(purDetail.getPdcount());
 		p.setPdid(purDetail.getPdid());
-		p.setAssetCategory(purdetailservice.findAssetCategoryById(this
-				.getAssetCategory().getAcid()));
+		p.setAssetCategory(purdetailservice.findAssetCategoryById(purDetail.getAssetCategory().getAcid()));
 		// p.setPurchaseNote(purdetailservice.findPurchaseNoteByPid(getPurchaseNote().getPnid()));
 		p.setPurchaseNote(purdetailservice.findPurchaseNoteByPid(pnid));
 		p.setPdmarker(purDetail.getPdmarker());

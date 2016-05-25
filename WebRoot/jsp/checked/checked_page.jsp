@@ -7,7 +7,7 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
-  <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 	<head>
@@ -49,7 +49,7 @@
 
 		<script type="text/javascript"
 			src="http://www.js-css.cn/jscode/jquery.min.js"></script>
-		
+
 		<script type="text/javascript"
 			src="${pageContext.request.contextPath}/js/jquery.date_input.pack.js"></script>
 		<link rel="stylesheet"
@@ -170,12 +170,12 @@ th {
 	<body class=" theme-blue" style="width: 993px">
 
 		<div class="main-content" style="width: 993px">
-<h3>
+			<h3>
 				维修单列表
 			</h3>
 			<div class="btn-toolbar list-toolbar">
 				<br />
-				<a href="#myModal1"  role="button" data-toggle="modal"
+				<a href="#myModal1" role="button" data-toggle="modal"
 					class="btn btn-primary"><i class="fa fa-plus"></i> 添加盘点单</a>
 				<button class="btn btn-default">
 					导入
@@ -187,66 +187,70 @@ th {
 				</div>
 			</div>
 
-			
+
 
 			<form action="" id="_form" method="post">
 				<table class="table" style="text-align: center" id="charcolor">
-<thead>
-					<tr >
-						<th >
-							盘点ID
-						</th>
-						<th >
-							发起人名称
-						</th>
-						<th >
-							发起日期
-						</th>
-						<th>
-							发起状态
-						</th>
-						<th>
-						清单
-						</th>
-						<th >
-							操作
-						</th>
-						 <th style="width: 3.5em;"></th>
-					</tr>
-</thead>
+					<thead>
+						<tr>
+							<th>
+								盘点ID
+							</th>
+							<th>
+								发起人名称
+							</th>
+							<th>
+								发起日期
+							</th>
+							<th>
+								发起状态
+							</th>
+							<th>
+								清单
+							</th>
+							<th>
+								操作
+							</th>
+							<th style="width: 3.5em;"></th>
+						</tr>
+					</thead>
 					<s:iterator id="c" value="pageInfo.result" status="st">
 						<tr align=center>
-							<td >
+							<td>
 								${c.cid}
 							</td>
-							<td >
+							<td>
 								${c.user.uname}
 							</td>
-							<td >
-								<fmt:formatDate value="${c.cdate}" pattern="yyyy-MM-dd"/>
-								
+							<td>
+								<fmt:formatDate value="${c.cdate}" pattern="yyyy-MM-dd" />
+
 							</td>
-							<td ><!--
+							<td>
+								<!--
 							0-待盘点 1-已盘点
-								--><s:if test="%{#c.cstate==0}">待盘点</s:if>
+								-->
+								<s:if test="%{#c.cstate==0}">待盘点</s:if>
 								<s:else>已盘点</s:else>
 							</td>
 							<td>
 								<a
 									href="checkDetail/checkDetail_CheckDetail_pageCheckDetailByCid.action?cid=${cid}">清单</a>
-								</td>
-								<td>
-								<a
-									href="checked/checked_Checked_updateState.action?cid=${cid}">确认盘点</a>
+							</td>
+							<td>
+								<a href="checked/checked_Checked_updateState.action?cid=${cid}">确认盘点</a>
 
 							</td>
-							
-							
+
+
 							<td>
-							 <a href="#myModal" onclick="text1(${c.cid})" role="button" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
+								<a href="#myModal" onclick="text1(${c.cid})" role="button"
+									data-toggle="modal"><i class="fa fa-trash-o"></i>
+								</a>
 								<!--<a
 									href="checked/checked_Checked_deleteChecked.action?cid=${cid}">删除</a>
-							--></td>
+							-->
+							</td>
 						</tr>
 					</s:iterator>
 
@@ -276,62 +280,90 @@ th {
 						</td>
 					</tr>
 				</table>
-			 
-  <div class="modal small fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h3 id="myModalLabel">删除确认</h3>
-        </div>
-        <div class="modal-body">
-            <p class="error-text"><i class="fa fa-warning modal-icon"></i>确定删除?</p>
-        </div>
-        <div class="modal-footer">
-            <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">取消</button>
-           <button class="btn btn-danger" data-dismiss="modal" onclick="del1()"  > 删除</button>
-        </div>
-      </div>
-    </div>
-</div>
+
+				<div class="modal small fade" id="myModal" tabindex="-1"
+					role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"
+									aria-hidden="true">
+									×
+								</button>
+								<h3 id="myModalLabel">
+									删除确认
+								</h3>
+							</div>
+							<div class="modal-body">
+								<p class="error-text">
+									<i class="fa fa-warning modal-icon"></i>确定删除?
+								</p>
+							</div>
+							<div class="modal-footer">
+								<button class="btn btn-default" data-dismiss="modal"
+									aria-hidden="true">
+									取消
+								</button>
+								<button class="btn btn-danger" data-dismiss="modal"
+									onclick="del1()">
+									删除
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
 			</form>
 		</div>
-		<script src="${pageContext.request.contextPath}/lib/bootstrap/js/bootstrap.js"></script>
-    <script type="text/javascript">
+		<script
+			src="${pageContext.request.contextPath}/lib/bootstrap/js/bootstrap.js"></script>
+		<script type="text/javascript">
         $("[rel=tooltip]").tooltip();
         $(function() {
             $('.demo-cancel-click').click(function(){return false;});
         });
-    </script> 
-    
-    
-    
-    
-    
-    <!-- 未完待续 -->
-    
-       <div class="modal small fade "   id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
-  <div class="modal-dialog " style="width:550px">
-    <div class="modal-content" style="background:#eee url(${pageContext.request.contextPath}/images/modal-gloss.png) no-repeat -200px -80px;position:absolute;z-index:101;padding:5px 10px 7px;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;-moz-box-shadow:0 0 10px rgba(0,0,0,.4);-webkit-box-shadow:0 0 10px rgba(0,0,0,.4);-box-shadow:0 0 10px rgba(0,0,0,.4);">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-         <h2 style="height:20px;margin-top:10px; font-weight: 600; color:#990000">填写移交单</h2>
-        </div>
-         <form action="checked/checked_Checked_createChecked.action" method="post">
-        <div class="modal-body">
-           
- <table  cellSpacing="0"  cellPadding="8" align="center" style="text-align:center"><tr>
- 
- 
- <td  style="height:40px;width:130px;text-align:left">盘点发起人：</td>
- <td  style="height:40px;width:130px;text-align:left">
- 
-<s:select list="userList" listKey="uid" listValue="uname"
-				name="user.uid" />
- 
- </td>
- </tr>
-  <!--<tr>
+    </script>
+
+
+
+
+
+		<!-- 未完待续 -->
+
+		<div class="modal small fade " id="myModal1" tabindex="-1"
+			role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog " style="width: 550px">
+				<div class="modal-content"
+					style="background:#eee url(${pageContext.request.contextPath}/images/modal-gloss.png) no-repeat -200px -80px;position:absolute;z-index:101;padding:5px 10px 7px;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;-moz-box-shadow:0 0 10px rgba(0,0,0,.4);-webkit-box-shadow:0 0 10px rgba(0,0,0,.4);-box-shadow:0 0 10px rgba(0,0,0,.4);">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-hidden="true">
+							×
+						</button>
+						<h2
+							style="height: 20px; margin-top: 10px; font-weight: 600; color: #990000">
+							填写移交单
+						</h2>
+					</div>
+					<form action="checked/checked_Checked_createChecked.action"
+						method="post">
+						<div class="modal-body">
+
+							<table cellSpacing="0" cellPadding="8" align="center"
+								style="text-align: center">
+								<tr>
+
+
+									<td style="height: 40px; width: 130px; text-align: left">
+										盘点发起人：
+									</td>
+									<td style="height: 40px; width: 130px; text-align: left">
+
+										<!--<s:select list="userList" listKey="uid" listValue="uname"
+				name="user.uid" />-->
+										${loginUname}
+									</td>
+								</tr>
+								<!--<tr>
   <td  style="height:40px;width:80px;text-align:left">调出人ID：</td>
  <td  style="height:40px;width:150px;text-align:left">
  <input type="text" name="acname" value="空调" class="input" size="12" />
@@ -340,46 +372,68 @@ th {
  </td>
  </tr>
  
- --><tr>
- 
- 
- <td  style="height:40px;width:100px;text-align:left">盘点时间：</td>
- <td  style="height:40px;width:130px;text-align:left">
- 
- 
- <!--<input type="text" name="supacid" value="1" class="input" size="12" />
- --><input style="width: 240px; background: #fefefe; border: 1px solid #bbb; font-size: 14px; color: #333; padding: 4px; border-radius: 3px;background-repeat:no-repeat; background-position:right center; background-image:url(${pageContext.request.contextPath}/images/icon.png)" type="text" class="date_picker" value="${cdate}" name="cdate" />
- 
- 
- </td>
- </tr><tr>
- 
- 
- <td  style="height:40px;width:100px;text-align:left">	盘点状态：<!--0-待盘点 1-已盘点--></td>
- <td  style="height:40px;width:130px;text-align:left">
- <input type="radio" name="cstate" value="0" checked="checked" />
-			待盘点
-			<input type="radio" name="cstate" value="1" />
-			已盘点
- </td>
- </tr>
- 
- 
+ -->
+								<tr>
 
-    <tr style="height:25px;"><td></td></tr>
- <tr style="border-top: 1px solid #e5e5e5;  " ><td colspan="2"  align="right">  <br/><input  class="btn btn-danger" type="submit"  value="创建"/></td>
- 
- <td colspan="2" align="left">  <br/><button style="margin:10px;" class="btn btn-default" data-dismiss="modal" aria-hidden="true">取消</button></td>
- </tr>
- 
-  </table>
 
-        </div>
-  
-       
-         </form>
-      </div>
-    </div>
-</div> 
+									<td style="height: 40px; width: 100px; text-align: left">
+										盘点时间：
+									</td>
+									<td style="height: 40px; width: 130px; text-align: left">
+
+
+										<!--<input type="text" name="supacid" value="1" class="input" size="12" />
+ -->
+										<input
+											style="width: 240px; background: #fefefe; border: 1px solid #bbb; font-size: 14px; color: #333; padding: 4px; border-radius: 3px;background-repeat:no-repeat; background-position:right center; background-image:url(${pageContext.request.contextPath}/images/icon.png)"
+											type="text" class="date_picker" value="${cdate}" name="cdate" />
+
+
+									</td>
+								</tr>
+								<tr>
+
+
+									<td style="height: 40px; width: 100px; text-align: left">
+										盘点状态：
+										<!--0-待盘点 1-已盘点-->
+									</td>
+									<td style="height: 40px; width: 130px; text-align: left">
+										<input type="radio" name="cstate" value="0" checked="checked" />
+										待盘点
+										<input type="radio" name="cstate" value="1" />
+										已盘点
+									</td>
+								</tr>
+
+
+
+								<tr style="height: 25px;">
+									<td></td>
+								</tr>
+								<tr style="border-top: 1px solid #e5e5e5;">
+									<td colspan="2" align="right">
+										<br />
+										<input class="btn btn-danger" type="submit" value="创建" />
+									</td>
+
+									<td colspan="2" align="left">
+										<br />
+										<button style="margin: 10px;" class="btn btn-default"
+											data-dismiss="modal" aria-hidden="true">
+											取消
+										</button>
+									</td>
+								</tr>
+
+							</table>
+
+						</div>
+
+
+					</form>
+				</div>
+			</div>
+		</div>
 	</body>
 </html>

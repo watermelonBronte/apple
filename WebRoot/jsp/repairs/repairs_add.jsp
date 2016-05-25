@@ -64,7 +64,7 @@
 				name="asset.aid" />
 			<br />
 			送修人名称
-			<input type="text" name="user.uid" value="user.uname" />
+			<!--<input type="text" name="user.uid" value="user.uname" />-->
 			<!--<s:select list="userList" listKey="uid" listValue="uname"
 				name="user.uid" />
 			-->
