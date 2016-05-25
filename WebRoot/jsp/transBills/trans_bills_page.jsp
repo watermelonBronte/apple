@@ -192,7 +192,8 @@ th {
 				<button class="btn btn-default">
 					导出
 				</button>
-				--><div class="btn-group">
+				-->
+				<div class="btn-group">
 				</div>
 			</div>
 
@@ -250,11 +251,21 @@ th {
 								<s:else>确认调入</s:else>
 							</td>
 							<td>
+
 								<s:if test="tbstate==0">
 									<a
 										href="transBills/transBills_TransBills_findTransBillsById.action?tbid=${tbid}">调入</a>
 								</s:if>
-								
+								<s:else>
+									<a href="javascript:void(0)"
+										onClick="return confirm('已调入，请勿重复操作！');return false;">调入</a>
+								</s:else>
+							</td>
+							<td>
+								<a href="#myModal" onclick="text1(${reinfo.arid})" role="button"
+									data-toggle="modal"><i class="fa fa-trash-o"></i>
+								</a>
+
 								<!--
 							|
 							<a

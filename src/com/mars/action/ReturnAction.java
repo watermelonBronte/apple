@@ -12,6 +12,7 @@ import com.mars.vo.Asset;
 import com.mars.vo.AssetReturn;
 import com.mars.vo.PurchaseNote;
 import com.mars.vo.User;
+import com.opensymphony.xwork2.ActionContext;
 
 /**
  *@author 杨铮
@@ -124,21 +125,21 @@ public class ReturnAction {
 	}
 
 	public String createRerutn() {// 增加信息
-		try {
+//		try {
 			AssetReturn a = new AssetReturn();
 			a.setArgdate(this.getArgdate());
 			a.setArid(this.getArid());
 			// a.setArrdate(this.getArrdate());
 			a.setArstate(this.getArstate());
 
-			a.setUserByGuid(returnService.findReturnByGid(this.getUserByGuid()
-					.getUid()));
+			a.setUserByGuid(returnService.findReturnByGid((Integer) ActionContext
+					.getContext().getSession().get("loginUid")));
 			// a.setUserByRuid(returnService.findReturnByRid(this.getUserByRuid().getUid()));
 			a.setAsset(returnService.findReturnByAid(this.getAsset().getAid()));
 			returnService.createReturn(a);// 保存接收到的数据到数据库中
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
+//		} catch (Exception e) {
+//			// TODO: handle exception
+//		}
 
 		return "success";
 

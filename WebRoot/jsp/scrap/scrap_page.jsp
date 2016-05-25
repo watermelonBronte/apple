@@ -186,7 +186,8 @@ th {
 				<button class="btn btn-default">
 					导出
 				</button>
-				--><div class="btn-group">
+				-->
+				<div class="btn-group">
 				</div>
 			</div>
 
@@ -252,7 +253,13 @@ th {
 								<s:else>维修</s:else>
 							</td>
 							<td align="center" class="left_txt">
-								<a href="scrap/scrap_Scrap_findScrapById.action?scid=${scid}">审核</a>
+								<s:if test="scstate==0">
+									<a href="scrap/scrap_Scrap_findScrapById.action?scid=${scid}">审核</a>
+								</s:if>
+								<s:else>
+									<a href="javascript:void(0)"
+										onClick="return confirm('已审核通过，请勿重复操作！');return false;">审核</a>
+								</s:else>
 								<!--
 								|
 								<a href="scrap/scrap_Scrap_deleteScrap.action?scid=${scid}">删除</a>

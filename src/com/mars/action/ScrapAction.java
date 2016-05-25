@@ -208,8 +208,8 @@ public class ScrapAction extends ActionSupport {
 	public String examinScrap() {
 		try {
 			scrap = scrapService.findScrapById(this.getScid());
-			scrap.setUserByCuid(scrapService.findUserById(this.getUserByCuid()
-					.getUid()));
+			scrap.setUserByCuid(scrapService.findUserById((Integer) ActionContext.getContext()
+					.getSession().get("loginUid")));
 			Date date = new Date();
 			// Timestamp nousedate = new Timestamp(date.getTime());
 			scrap.setCdate(date);
