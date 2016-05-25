@@ -332,9 +332,9 @@ th {
  <td  style="height:40px;width:130px;text-align:left">移交人：</td>
  <td  style="height:40px;width:130px;text-align:left">
  
- <s:select list="userList" listKey="uid" listValue="uname"
-				name="user.uid" />
- 
+ <!--<s:select list="userList" listKey="uid" listValue="uname"
+				name="user.uid" />-->
+ ${loginUname}
  </td>
  </tr>
   <!--<tr>

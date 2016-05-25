@@ -145,10 +145,8 @@ public class RepairsAction extends ActionSupport {
 	 */
 
 	public String addRepairs() {
-		ActionContext ctx = ActionContext.getContext();
 		
-		user=(User) ctx.getSession().get(user);
-		userList = repairsService.findUser();
+//		userList = repairsService.findUser();
 		assetList = repairsService.findAsset();
 		return "addRepairs";
 	}

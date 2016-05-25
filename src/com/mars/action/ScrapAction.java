@@ -207,8 +207,8 @@ public class ScrapAction extends ActionSupport {
 		scrap = scrapService.findScrapById(this.getScid());
 		scrap.setUserByCuid(scrapService.findUserById(this.getUserByCuid().getUid()));
 		Date date = new Date();
-		Timestamp nousedate = new Timestamp(date.getTime());
-		scrap.setCdate(nousedate);
+//		Timestamp nousedate = new Timestamp(date.getTime());
+		scrap.setCdate(date);
 		scrap.setScstate(this.getScstate());
         scrapService.updateScrap(scrap);
 

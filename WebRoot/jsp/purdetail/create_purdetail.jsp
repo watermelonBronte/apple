@@ -27,7 +27,7 @@
 	<body>
 		<form action="createPurDetail.action" method="post">
 			采购单id：
-			<input type="text" name="pnid" value="${pnid}" />
+			${pnid}
 			保管人id：
 			<!--<input type="text" name="purDetail.user.uid" />-->
 			${loginUname}
@@ -37,8 +37,9 @@
 			资产型号
 			<input type="text" name="purDetail.atype" />
 			资产类别名称
-			<input type="text" name="purDetail.assetCategory.acid" />
-
+			<!--<input type="text" name="purDetail.assetCategory.acid" />-->
+<s:select list="assetCategoryList" listKey="acid" listValue="acname"
+							name="purDetail.assetCategory.acid" />
 			数量：
 			<input type="text" name="purDetail.pdcount" />
 			制造商：
