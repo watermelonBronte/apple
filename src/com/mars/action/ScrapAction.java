@@ -206,7 +206,7 @@ public class ScrapAction extends ActionSupport {
 	 * @return
 	 */
 	public String examinScrap() {
-		try {
+		//try {
 			scrap = scrapService.findScrapById(this.getScid());
 			scrap.setUserByCuid(scrapService.findUserById((Integer) ActionContext.getContext()
 					.getSession().get("loginUid")));
@@ -216,9 +216,9 @@ public class ScrapAction extends ActionSupport {
 			scrap.setScstate(this.getScstate());
 			scrapService.updateScrap(scrap);
 
-		} catch (Exception e) {
+	//	} catch (Exception e) {
 			// TODO: handle exception
-		}
+	//	}
 
 		pageScrap();
 		return "pageScrap";

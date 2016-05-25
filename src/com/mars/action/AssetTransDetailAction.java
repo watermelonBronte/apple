@@ -265,6 +265,9 @@ public class AssetTransDetailAction extends ActionSupport {
 	public String pageAssetTransDetail() {
 		this.getPageInfo().setResult(
 				(assetTransDetailService.findAll(pageInfo)));
+		userList = assetTransDetailService.findUser();
+		assetList = assetTransDetailService.findAsset();
+		assetTransList = assetTransDetailService.findAssetTrans();
 		return "pageAssetTransDetail";
 	}
 
@@ -282,6 +285,9 @@ public class AssetTransDetailAction extends ActionSupport {
 			this.getPageInfo().setResult(
 					(assetTransDetailService.findAssetTransDetailByAtid(pageInfo,
 							assetTrans)));
+			userList = assetTransDetailService.findUser();
+			assetList = assetTransDetailService.findAsset();
+			assetTransList = assetTransDetailService.findAssetTrans();
 		} catch (Exception e) {
 			// TODO: handle exception
 		}

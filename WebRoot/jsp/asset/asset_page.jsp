@@ -503,7 +503,7 @@ th {
 
 										<input
 											style="width: 240px; background: #fefefe; border: 1px solid #bbb; font-size: 14px; color: #333; padding: 4px; border-radius: 3px;background-repeat:no-repeat; background-position:right center; background-image:url(${pageContext.request.contextPath}/images/icon.png)"
-											type="text" class="date_picker" value="${adate}"
+											type="text" class="date_picker"
 											name="adate" />
 									</td>
 								</tr>
