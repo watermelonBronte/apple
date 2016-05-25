@@ -22,8 +22,8 @@ public class User implements java.io.Serializable {
 	private Set scrapsForCuid = new HashSet(0);
 	private Set repairses = new HashSet(0);
 	private Set transBillsesForInuid = new HashSet(0);
-	private Set checkeds = new HashSet(0);
 	private Set transBillsesForOutuid = new HashSet(0);
+	private Set checkeds = new HashSet(0);
 	private Set assetTransDetails = new HashSet(0);
 	private Set purchaseDetails = new HashSet(0);
 	private Set assetReturnsForRuid = new HashSet(0);
@@ -43,11 +43,11 @@ public class User implements java.io.Serializable {
 	/** full constructor */
 	public User(Role role, Department department, String uname, String upwd,
 			Integer ustate, Integer usex, String uemail, Set scrapsForCuid,
-			Set repairses, Set transBillsesForInuid, Set checkeds,
-			Set transBillsesForOutuid, Set assetTransDetails,
-			Set purchaseDetails, Set assetReturnsForRuid, Set purchaseNotes,
-			Set assets, Set finances, Set assetTranses,
-			Set assetReturnsForGuid, Set scrapsForUid) {
+			Set repairses, Set transBillsesForInuid, Set transBillsesForOutuid,
+			Set checkeds, Set assetTransDetails, Set purchaseDetails,
+			Set assetReturnsForRuid, Set purchaseNotes, Set assets,
+			Set finances, Set assetTranses, Set assetReturnsForGuid,
+			Set scrapsForUid) {
 		this.role = role;
 		this.department = department;
 		this.uname = uname;
@@ -58,8 +58,8 @@ public class User implements java.io.Serializable {
 		this.scrapsForCuid = scrapsForCuid;
 		this.repairses = repairses;
 		this.transBillsesForInuid = transBillsesForInuid;
-		this.checkeds = checkeds;
 		this.transBillsesForOutuid = transBillsesForOutuid;
+		this.checkeds = checkeds;
 		this.assetTransDetails = assetTransDetails;
 		this.purchaseDetails = purchaseDetails;
 		this.assetReturnsForRuid = assetReturnsForRuid;
@@ -161,20 +161,20 @@ public class User implements java.io.Serializable {
 		this.transBillsesForInuid = transBillsesForInuid;
 	}
 
-	public Set getCheckeds() {
-		return this.checkeds;
-	}
-
-	public void setCheckeds(Set checkeds) {
-		this.checkeds = checkeds;
-	}
-
 	public Set getTransBillsesForOutuid() {
 		return this.transBillsesForOutuid;
 	}
 
 	public void setTransBillsesForOutuid(Set transBillsesForOutuid) {
 		this.transBillsesForOutuid = transBillsesForOutuid;
+	}
+
+	public Set getCheckeds() {
+		return this.checkeds;
+	}
+
+	public void setCheckeds(Set checkeds) {
+		this.checkeds = checkeds;
 	}
 
 	public Set getAssetTransDetails() {

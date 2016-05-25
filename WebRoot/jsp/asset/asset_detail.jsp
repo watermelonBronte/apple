@@ -29,10 +29,7 @@
 		卡片编号
 		<input type="text" name="cid" value="${cid}" />
 		<br />
-		资产类别名称
-		<input type="text" name="assetCategory.acname"
-			value="${assetCategory.acname}" />
-		<br />
+		
 		上级资产类别名称
 		<input type="text" name="assetCategory.supacname"
 			value="${assetCategory.supacname}" />

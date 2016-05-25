@@ -49,17 +49,17 @@
             </key>
             <one-to-many class="com.mars.vo.TransBills" />
         </set>
-        <set name="checkeds" inverse="true">
-            <key>
-                <column name="uid" />
-            </key>
-            <one-to-many class="com.mars.vo.Checked" />
-        </set>
         <set name="transBillsesForOutuid" inverse="true">
             <key>
                 <column name="outuid" />
             </key>
             <one-to-many class="com.mars.vo.TransBills" />
+        </set>
+        <set name="checkeds" inverse="true">
+            <key>
+                <column name="uid" />
+            </key>
+            <one-to-many class="com.mars.vo.Checked" />
         </set>
         <set name="assetTransDetails" inverse="true">
             <key>

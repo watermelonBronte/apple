@@ -76,4 +76,6 @@ public interface IFinanceDao {
 			Date date);
 
 	public void updateAsset(Asset asset);
+
+	public Asset findAssetById(Integer aid);
 }

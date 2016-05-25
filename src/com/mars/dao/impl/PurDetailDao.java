@@ -18,6 +18,7 @@ import com.mars.dao.IPurDetailDao;
 import com.mars.tools.Execute;
 import com.mars.tools.IExecute;
 import com.mars.tools.IPage;
+import com.mars.vo.AssetCategory;
 import com.mars.vo.PurchaseDetail;
 import com.mars.vo.PurchaseNote;
 import com.mars.vo.User;
@@ -113,6 +114,12 @@ public class PurDetailDao extends HibernateDaoSupport implements IPurDetailDao {
 
 					}
 				});
+	}
+	public AssetCategory findAssetCategoryById(Integer acid) {
+		AssetCategory assetCategory = (AssetCategory) super
+		.getHibernateTemplate().get(AssetCategory.class,
+				new Integer(acid));
+         return assetCategory;	
 	}
 
 }

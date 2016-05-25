@@ -178,8 +178,10 @@ public class ScrapAction extends ActionSupport {
 		
 		scrap.setScstate(this.getScstate());
 		scrapService.createScrap(scrap);
-		this.setResult("创建");
-		return "successScrap";
+//		this.setResult("创建");
+//		return "successScrap";
+		pageScrap();
+		return "pageScrap";
 	}
 
 	/**
@@ -189,8 +191,10 @@ public class ScrapAction extends ActionSupport {
 	 */
 	public String deleteScrap() {
 		scrapService.deleteScrap(this.getScid());
-		this.setResult("删除");
-		return "successScrap";
+//		this.setResult("删除");
+//		return "successScrap";
+		pageScrap();
+		return "pageScrap";
 	}
 
 	/**
@@ -207,20 +211,15 @@ public class ScrapAction extends ActionSupport {
 		scrap.setScstate(this.getScstate());
         scrapService.updateScrap(scrap);
 
-		this.setResult("审核");
-		return "successScrap";
+//		this.setResult("审核");
+//		return "successScrap";
+		pageScrap();
+		return "pageScrap";
+		
 	}
 
 	
-	/**
-	 * 查找
-	 * 
-	 * @return
-	 */
-	public String findScrap() {
-		scrapService.findScrap();
-		return "findScrap";
-	}
+
 
 	/**
 	 * 根据ID查找

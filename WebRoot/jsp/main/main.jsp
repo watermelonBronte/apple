@@ -130,7 +130,7 @@ document.getElementById("myframe").src=href;
     <li><ul class="accounts-menu nav nav-list collapse">
                <li ><a href="javascript:void(0);" onclick="changeSrc('../../queryPurchase.action','验收登记')"><span class="fa fa-caret-right"></span> 验收登记</a></li>  
        
-        <li ><a href="javascript:void(0);" onclick="changeSrc('../../finance/finance_Finance_pageFinance.action','财务入账')"><span class="fa fa-caret-right"></span> 财务入账</a></li>  
+        <!--<li ><a href="javascript:void(0);" onclick="changeSrc('../../finance/finance_Finance_pageFinance.action','财务入账')"><span class="fa fa-caret-right"></span> 财务入账</a></li>-->  
       <li><a href="javascript:void(0);" onclick="changeSrc('../../asset/asset_Asset_pageAsset.action','资产列表')"><span class="fa fa-caret-right"></span> 资产列表</a></li>      
  
 

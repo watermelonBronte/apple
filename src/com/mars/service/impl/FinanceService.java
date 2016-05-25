@@ -109,4 +109,8 @@ public class FinanceService implements IFinanceService {
 		financeDao.updateAsset(asset);
 	}
 
+	public Asset findAssetById(Integer aid) {
+		return financeDao.findAssetById(aid);
+	}
+
 }

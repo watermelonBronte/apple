@@ -10,6 +10,9 @@
             <column name="pdid" />
             <generator class="identity" />
         </id>
+        <many-to-one name="assetCategory" class="com.mars.vo.AssetCategory" fetch="select" lazy="false">
+            <column name="acid" />
+        </many-to-one>
         <many-to-one name="user" class="com.mars.vo.User" fetch="select" lazy="false">
             <column name="uid" />
         </many-to-one>

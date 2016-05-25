@@ -8,6 +8,7 @@ import java.util.List;
 import com.mars.dao.impl.PurDetailDao;
 import com.mars.service.IPurDetailService;
 import com.mars.tools.IPage;
+import com.mars.vo.AssetCategory;
 import com.mars.vo.PurchaseDetail;
 import com.mars.vo.PurchaseNote;
 import com.mars.vo.User;
@@ -71,6 +72,10 @@ public PurchaseNote findPurchaseNoteByPid(int pnid) {
 	public List<PurchaseDetail> findPurDetailByPnid(IPage pageInfo, PurchaseNote purchaseNote) {
 		
 		return purdetaildao.findPurDetailByPnid(pageInfo,purchaseNote);
+	}
+
+	public AssetCategory findAssetCategoryById(Integer acid) {
+		return purdetaildao.findAssetCategoryById(acid);
 	}
 
 

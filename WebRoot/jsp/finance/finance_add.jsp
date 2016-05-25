@@ -118,7 +118,7 @@ th {
 		<h1>
 			创建财务入账
 		</h1>
-		<form action="finance/finance_Finance_createFinance.action"
+		<form action="finance/finance_Finance_createFinance.action?aid=${aid}"
 			method="post">
 			财务入账编码
 			<input type="text" name="fcode" value="123" />

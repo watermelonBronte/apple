@@ -7,6 +7,7 @@ import com.mars.service.impl.PurDetailService;
 import com.mars.service.impl.PurchaseService;
 import com.mars.tools.IPage;
 import com.mars.tools.PageInfo;
+import com.mars.vo.AssetCategory;
 import com.mars.vo.PurchaseDetail;
 import com.mars.vo.PurchaseNote;
 import com.mars.vo.User;
@@ -28,6 +29,7 @@ public class PurDetailAction {
 		
 	private PurDetailService purdetailservice;
 	private PurchaseDetail purDetail=new PurchaseDetail();
+	private AssetCategory assetCategory;
 	private Integer pdid;
 	private User user;
 	private PurchaseNote purchaseNote;
@@ -40,6 +42,12 @@ public class PurDetailAction {
 	private Float pdprice;
 	
 	
+	public AssetCategory getAssetCategory() {
+		return assetCategory;
+	}
+	public void setAssetCategory(AssetCategory assetCategory) {
+		this.assetCategory = assetCategory;
+	}
 	public PurDetailService getPurdetailservice() {
 		return purdetailservice;
 	}
@@ -160,6 +168,7 @@ public String createPurDetail(){//增加信息
 			p.setAtype(purDetail.getAtype());
 			p.setPdcount(purDetail.getPdcount());
 			p.setPdid(purDetail.getPdid());
+			p.setAssetCategory(purdetailservice.findAssetCategoryById(this.getAssetCategory().getAcid()));
 //			p.setPurchaseNote(purdetailservice.findPurchaseNoteByPid(getPurchaseNote().getPnid()));
 	        p.setPurchaseNote(purdetailservice.findPurchaseNoteByPid(pnid));
 			p.setPdmarker(purDetail.getPdmarker());
@@ -177,6 +186,7 @@ public String selectPurdetailById(){//显示当前
 	this.setAtype(purDetail.getAtype());
 	this.setPdcount(purDetail.getPdcount());
 	this.setPdid(purDetail.getPdid());
+	this.setAssetCategory(purDetail.getAssetCategory());
 //	this.setPnid(this.getPnid());
 	this.setPdmarker(purDetail.getPdmarker());
 	this.setPdprice(purDetail.getPdprice());
@@ -201,6 +211,7 @@ public String updatePurDetail(){//更新
 	purDetail.setPdprovider(this.getPdprovider());
 	purDetail.setPdunit(this.getPdunit());
 	purDetail.setAname(this.getAname());
+	purDetail.setAssetCategory(purdetailservice.findAssetCategoryById(this.getAssetCategory().getAcid()));
 	purDetail.setPurchaseNote(purdetailservice.findPurchaseNoteByPid(this.getPurchaseNote().getPnid()));
 	purDetail.setUser(purdetailservice.findPurDetailByUid(this.getUser().getUid()));
 	  //不允许为空

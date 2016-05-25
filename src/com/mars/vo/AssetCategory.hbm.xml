@@ -24,11 +24,11 @@
         <property name="supacname" type="java.lang.String">
             <column name="supacname" length="50" />
         </property>
-        <set name="assets" inverse="true">
+        <set name="purchaseDetails" inverse="true">
             <key>
                 <column name="acid" />
             </key>
-            <one-to-many class="com.mars.vo.Asset" />
+            <one-to-many class="com.mars.vo.PurchaseDetail" />
         </set>
     </class>
 </hibernate-mapping>

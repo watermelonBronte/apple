@@ -12,6 +12,7 @@ public class PurchaseDetail implements java.io.Serializable {
 	// Fields
 
 	private Integer pdid;
+	private AssetCategory assetCategory;
 	private User user;
 	private PurchaseNote purchaseNote;
 	private String aname;
@@ -30,9 +31,11 @@ public class PurchaseDetail implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public PurchaseDetail(User user, PurchaseNote purchaseNote, String aname,
-			String atype, Integer pdcount, String pdmarker, String pdprovider,
-			String pdunit, Float pdprice, Set assets) {
+	public PurchaseDetail(AssetCategory assetCategory, User user,
+			PurchaseNote purchaseNote, String aname, String atype,
+			Integer pdcount, String pdmarker, String pdprovider, String pdunit,
+			Float pdprice, Set assets) {
+		this.assetCategory = assetCategory;
 		this.user = user;
 		this.purchaseNote = purchaseNote;
 		this.aname = aname;
@@ -53,6 +56,14 @@ public class PurchaseDetail implements java.io.Serializable {
 
 	public void setPdid(Integer pdid) {
 		this.pdid = pdid;
+	}
+
+	public AssetCategory getAssetCategory() {
+		return this.assetCategory;
+	}
+
+	public void setAssetCategory(AssetCategory assetCategory) {
+		this.assetCategory = assetCategory;
 	}
 
 	public User getUser() {

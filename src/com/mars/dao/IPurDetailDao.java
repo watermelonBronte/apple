@@ -6,6 +6,7 @@ package com.mars.dao;
 import java.util.List;
 
 import com.mars.tools.IPage;
+import com.mars.vo.AssetCategory;
 import com.mars.vo.PurchaseDetail;
 import com.mars.vo.PurchaseNote;
 import com.mars.vo.User;
@@ -60,4 +61,7 @@ public interface IPurDetailDao {
 	public List<PurchaseDetail> findPurDetail(IPage pageInfo);//分页
 	
 	public List<PurchaseDetail> findPurDetailByPnid(IPage pageInfo,PurchaseNote purchaseNote);//分页
+
+	public AssetCategory findAssetCategoryById(Integer acid);
+		
 }

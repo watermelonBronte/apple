@@ -142,7 +142,7 @@ public class AssetDao extends HibernateDaoSupport implements
 	 * @see com.mars.dao.IAssetDao#findAllAssetByAttr(com.mars.tools.IPage, java.lang.String)
 	 */
 	@SuppressWarnings("unchecked")
-	public List<Asset> findAllAssetByAc(final IPage pageInfo, Integer acid) {
+	public List<Asset> findAllAssetByAc(final IPage pageInfo, final Integer acid) {
 		return (List<Asset>) super.getHibernateTemplate().execute(
 				new HibernateCallback() {
 
@@ -153,7 +153,7 @@ public class AssetDao extends HibernateDaoSupport implements
 						List<Asset> list = new ArrayList<Asset>();
 						try {
 							Criteria criteria = session
-									.createCriteria(Asset.class).add(Restrictions.eq("acid","acid")) ;
+									.createCriteria(Asset.class).add(Restrictions.eq("acid",acid)) ;
 							IExecute exc = new Execute(pageInfo);
 							pages = exc.excute(criteria);
 							if (pages != null) {
@@ -175,7 +175,7 @@ public class AssetDao extends HibernateDaoSupport implements
 	 * @see com.mars.dao.IAssetDao#findAllAssetByAttr(com.mars.tools.IPage, java.lang.String)
 	 */
 	@SuppressWarnings("unchecked")
-	public List<Asset> findAllAssetByUser(final IPage pageInfo, Integer uid) {
+	public List<Asset> findAllAssetByUser(final IPage pageInfo, final Integer uid) {
 		return (List<Asset>) super.getHibernateTemplate().execute(
 				new HibernateCallback() {
 
@@ -186,7 +186,7 @@ public class AssetDao extends HibernateDaoSupport implements
 						List<Asset> list = new ArrayList<Asset>();
 						try {
 							Criteria criteria = session
-									.createCriteria(Asset.class).add(Restrictions.eq("uid","uid")) ;
+									.createCriteria(Asset.class).add(Restrictions.eq("uid",uid)) ;
 							IExecute exc = new Execute(pageInfo);
 							pages = exc.excute(criteria);
 							if (pages != null) {
