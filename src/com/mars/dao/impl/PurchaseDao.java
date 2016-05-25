@@ -101,16 +101,14 @@ public class PurchaseDao extends HibernateDaoSupport implements IPurchaseDao {
 		return purchaseetail;
 	}
 
-	public Integer findPDCountByPnid(Integer pnid) {
-		  String hqlString = "select count(*) from purchaseDetail as p where p.pnid ="+pnid+"";  
-		    Query query = this.getSession().createQuery(hqlString);  
-		          
-		    return (Integer) ((Number)query.uniqueResult()); 
-		
-	}
 	
+	/**
+	 *  @author ye
+	 * @date 2016/5/25
+	 * 确认入库
+	 */
 	@SuppressWarnings("unchecked")
-	public List<PurchaseDetail> findPurchaseDetailByPnid(final Integer pnid) {
+	public List<PurchaseDetail> findPurchaseDetailByPnid(final PurchaseNote purchaseNote) {
 		return (List<PurchaseDetail>) super.getHibernateTemplate().execute(
 				new HibernateCallback() {
 
@@ -119,7 +117,7 @@ public class PurchaseDao extends HibernateDaoSupport implements IPurchaseDao {
 						List<PurchaseDetail> list = new ArrayList<PurchaseDetail>();
 						try {
 							Criteria criteria = session
-									.createCriteria(PurchaseDetail.class).add(Restrictions.eq("pnid",pnid)) ;
+									.createCriteria(PurchaseDetail.class).add(Restrictions.eq("purchaseNote",purchaseNote)) ;
 							list = (List<PurchaseDetail>) criteria.list();
 						} catch (Exception e) {
 							e.printStackTrace();
@@ -134,5 +132,14 @@ public class PurchaseDao extends HibernateDaoSupport implements IPurchaseDao {
 		super.getHibernateTemplate().save(asset);
 		
 	}
+	
+	public User findUserById(Integer uid) {
+		User user = (User) super
+		.getHibernateTemplate().get(User.class,
+				new Integer(uid));
+         return user;
+	}
+
+	
 
 }

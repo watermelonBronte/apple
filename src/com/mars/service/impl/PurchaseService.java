@@ -74,9 +74,7 @@ public void setPurchasedao(PurchaseDao purchasedao) {
 		return purchasedao.findPurchaseByDeid(purchaseDetail);
 	}
 
-	public Integer findPDCountByPnid(Integer pnid) {
-		return purchasedao.findPDCountByPnid(pnid);
-	}
+	
 
 	private Asset asset = new Asset();
 	
@@ -88,9 +86,10 @@ public void setPurchasedao(PurchaseDao purchasedao) {
 		this.asset = asset;
 	}
 
-	public void findPurchaseDetailByPnid(Integer pnid,User user) {
-//		return purchasedao.findPurchaseDetailByPnid(pnid);
-		List<PurchaseDetail> list = purchasedao.findPurchaseDetailByPnid(pnid);
+	public void findPurchaseDetailByPnid(Integer pnid,Integer uid) {
+
+
+		List<PurchaseDetail> list = purchasedao.findPurchaseDetailByPnid(purchasedao.findPurchaseById(pnid));
 		for (PurchaseDetail purchaseDetail : list) {
 //			System.out.println(purchaseDetail);
 			
@@ -100,17 +99,18 @@ public void setPurchasedao(PurchaseDao purchasedao) {
 				
 				asset.setPurchaseDetail(purchaseDetail);
 				Date date = new Date();
-			
 				asset.setAdate(date);
-				//我也不知道
-				asset.setAstate(1);
-				asset.setUser(user);
+				asset.setAstate(0);
+				asset.setUser(purchasedao.findUserById(uid));
+				//创建资产
 				purchasedao.createAsset(asset);
 				
-				//悲剧了。。估计要改数据库了。。
+		
 				
 			}
 		}
 	}
+
+	
 
 }

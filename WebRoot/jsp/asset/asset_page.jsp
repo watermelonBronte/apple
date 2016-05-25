@@ -223,7 +223,7 @@ th {
 					<thead>
 						<tr>
 							<th>
-								卡片编号
+								资产ID
 							</th>
 							
 							<th>
@@ -257,7 +257,7 @@ th {
 					<s:iterator id="a" value="pageInfo.result" status="st">
 						<tr align=center>
 							<td align="center" class="left_txt">
-								${a.cid}
+								${a.aid}
 							</td>
 							
 							<td align="center" class="left_txt">
