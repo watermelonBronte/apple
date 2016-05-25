@@ -248,7 +248,11 @@ public class ScrapAction extends ActionSupport {
 	 * @return
 	 */
 	public String pageScrap() {
+		
 		this.getPageInfo().setResult((scrapService.findAll(pageInfo)));
+		userList = scrapService.findUser();
+		assetList = scrapService.findAsset();
+		
 		return "pageScrap";
 	}
 

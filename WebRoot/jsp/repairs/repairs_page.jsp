@@ -234,7 +234,7 @@ th {
 									href="repairs/repairs_Repairs_deleteRepairs.action?reid=${reid}">删除</a>
 								-->
 								<a
-									href="repairs/repairs_Repairs_updateState.action?reid=${reid}">确认维修</a>
+									href="repairs/repairs_Repairs_updateState.action?reid=${reid}" onClick="return confirm('确认维修?');">确认维修</a>
 
 							</td>
 							<td>

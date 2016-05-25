@@ -48,6 +48,16 @@
 
 		<script type="text/javascript"
 			src="http://www.js-css.cn/jscode/jquery.min.js"></script>
+		<script type="text/javascript"
+			src="${pageContext.request.contextPath}/js/jquery.date_input.pack.js"></script>
+		<link rel="stylesheet"
+			href="${pageContext.request.contextPath}/css/calendar1.css">
+		<script type="text/javascript">
+	$(function() {
+		$('.date_picker').date_input();
+	})
+</script>
+		
 		<script>
 
 window.onload=function(){
@@ -168,7 +178,7 @@ th {
 
 			<div class="btn-toolbar list-toolbar">
 				<br />
-				<a href="scrap/scrap_Scrap_addScrap.action"
+				<a href="#myModal1"  role="button" data-toggle="modal"
 					class="btn btn-primary"><i class="fa fa-plus"></i> 添加报废单</a>
 				<button class="btn btn-default">
 					导入
@@ -306,5 +316,90 @@ th {
             $('.demo-cancel-click').click(function(){return false;});
         });
     </script>
+    
+    
+    
+    
+    
+    <div class="modal small fade "   id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+  <div class="modal-dialog " style="width:550px">
+    <div class="modal-content" style="background:#eee url(${pageContext.request.contextPath}/images/modal-gloss.png) no-repeat -200px -80px;position:absolute;z-index:101;padding:5px 10px 7px;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;-moz-box-shadow:0 0 10px rgba(0,0,0,.4);-webkit-box-shadow:0 0 10px rgba(0,0,0,.4);-box-shadow:0 0 10px rgba(0,0,0,.4);">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+         <h2 style="height:20px;margin-top:10px; font-weight: 600; color:#990000">创建报废单</h2>
+        </div>
+         <form action="scrap/scrap_Scrap_createScrap.action" method="post">
+        <div class="modal-body">
+           
+ <table  cellSpacing="0"  cellPadding="8" align="center" style="text-align:center"><tr>
+ 
+ 
+ <td  style="height:40px;width:80px;text-align:left">资产ID：</td>
+ <td  style="height:40px;width:150px;text-align:left">
+ 
+ <!--<input type="text" name="accode" value="QW12" class="input" size="12" />
+ --><s:select list="assetList" listKey="aid" listValue="aid"
+				name="asset.aid" />
+ 
+ </td>
+ </tr>
+  <tr>
+  <td  style="height:40px;width:80px;text-align:left">	报废人ID：</td>
+ <td  style="height:40px;width:150px;text-align:left"><!--
+ <input type="text" name="acname" value="空调" class="input" size="12" />
+ --><s:select list="userList" listKey="uid" listValue="uname"
+				name="userByUid.uid" />
+ 
+ </td>
+ </tr>
+ 
+ <tr>
+ 
+ 
+ <td  style="height:40px;width:80px;text-align:left">	报废时间：</td>
+ <td  style="height:40px;width:150px;text-align:left">
+ 
+ 
+ <!--<input type="text" name="supacid" value="1" class="input" size="12" />
+ --><input style="width: 240px; background: #fefefe; border: 1px solid #bbb; font-size: 14px; color: #333; padding: 4px; border-radius: 3px;background-repeat:no-repeat; background-position:right center; background-image:url(${pageContext.request.contextPath}/images/icon.png)" type="text" class="date_picker" value="${scdate}" name="scdate" />
+ 
+ 
+ </td>
+ </tr>
+
+ <tr>
+ 
+ 
+<td  style="height:40px;width:80px;text-align:left">状态：</td>
+ <td  style="height:40px;width:150px;text-align:left">
+ 	<input type="radio" name="scstate" value="0" checked="checked" />
+报废
+<input type="radio" name="scstate" value="1" />
+			维修
+ <!--
+ <input type="text" name="supacname" value="家用电器" class="input" size="12" />
+ --></td>
+ </tr>
+ 
+ 
+
+
+    <tr style="height:25px;"><td></td></tr>
+ <tr style="border-top: 1px solid #e5e5e5;  " ><td colspan="2"  align="right">  <br/><input  class="btn btn-danger" type="submit"  value="创建"/></td>
+ 
+ <td colspan="2" align="left">  <br/><button style="margin:10px;" class="btn btn-default" data-dismiss="modal" aria-hidden="true">取消</button></td>
+ </tr>
+ 
+  </table>
+
+        </div>
+  
+       
+         </form>
+      </div>
+    </div>
+</div>   
+    
+    
 			</body>
 </html>
