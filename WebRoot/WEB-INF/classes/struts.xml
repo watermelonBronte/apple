@@ -182,7 +182,8 @@
 		</action>
 		<action name="addAssets" class="com.mars.action.PurchaseAction"
 			method="addAssets">
-
+			<result name="success" type="redirect">/queryPurchase.action
+			</result>
 		</action>
 		<action name="createPurchase" class="com.mars.action.PurchaseAction"
 			method="createPurchase">

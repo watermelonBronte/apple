@@ -190,8 +190,6 @@ public class PurchaseAction extends ActionSupport {
 	 */
 	public String addAssets()
 	{
-		//清单数量
-
 		purchaseservice.findPurchaseDetailByPnid(this.getPnid(),(Integer) ActionContext.getContext().getSession().get("loginUid"));
 		return SUCCESS;
 	}
