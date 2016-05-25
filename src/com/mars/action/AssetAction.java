@@ -507,8 +507,10 @@ public void setSfdate(String sfdate) {
 	 */
 	public String pageAsset() {
 		this.getPageInfo().setResult((assetService.findAll(pageInfo)));
-          
-
+		assetCategoryList = assetService.findAssetCategory();
+		financeList = assetService.findFinance();
+		purchaseDetailList = assetService.findPurchaseDetail();
+		userList = assetService.findUser();
 		return "pageAsset";
 	}
 

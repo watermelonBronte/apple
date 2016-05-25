@@ -17,7 +17,10 @@
 		<filter-name>struts2</filter-name>
 		<url-pattern>*.action</url-pattern>
 	</filter-mapping>
-
+<filter-mapping>
+      <filter-name>struts2</filter-name>
+      <url-pattern>*.jsp</url-pattern>
+  </filter-mapping>
 	<!-- struts2 config end-->
 	<!-- spring config start-->
 	<context-param>

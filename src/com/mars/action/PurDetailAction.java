@@ -168,7 +168,7 @@ public class PurDetailAction {
 	public String queryPurDetail() {// 显示所有信息
 
 		this.getPageInfo().setResult(purdetailservice.findPurDetail(pageInfo));// 分页
-
+		assetCategoryList = purdetailservice.findAssetCategory();
 		return "success";
 	}
 	private List<AssetCategory> assetCategoryList =new ArrayList<AssetCategory>();
@@ -190,10 +190,11 @@ public class PurDetailAction {
 		return "success";
 	}
 	public String queryPurDetailByPnid() {// 显示所有信息
-		this.setPurchaseNote(purdetailservice.findPurchaseNoteByPid(pnid));
-		ActionContext ctx = ActionContext.getContext();
-		ctx.getSession().put("pnid", pnid);
-		assetCategoryList = purdetailservice.findAssetCategory();
+		
+assetCategoryList = purdetailservice.findAssetCategory();
+this.setPurchaseNote(purdetailservice.findPurchaseNoteByPid(pnid));
+ActionContext ctx = ActionContext.getContext();
+ctx.getSession().put("pnid", pnid);
 		this.getPageInfo().setResult(
 				purdetailservice.findPurDetailByPnid(pageInfo, purchaseNote));// 分页
 
@@ -221,7 +222,8 @@ public class PurDetailAction {
 		p.setPdid(purDetail.getPdid());
 		p.setAssetCategory(purdetailservice.findAssetCategoryById(purDetail.getAssetCategory().getAcid()));
 		// p.setPurchaseNote(purdetailservice.findPurchaseNoteByPid(getPurchaseNote().getPnid()));
-		p.setPurchaseNote(purdetailservice.findPurchaseNoteByPid(pnid));
+		p.setPurchaseNote(purdetailservice.findPurchaseNoteByPid((Integer) ActionContext
+				.getContext().getSession().get("pnid")));
 		p.setPdmarker(purDetail.getPdmarker());
 		p.setPdprice(purDetail.getPdprice());
 		p.setPdprovider(purDetail.getPdprovider());

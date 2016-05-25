@@ -365,7 +365,7 @@ th {
 								
 								<tr>
 									<td style="height: 40px; width: 80px; text-align: left">
-										调出人ID：
+										调出人：
 									</td>
 									<td style="height: 40px; width: 150px; text-align: left">
 										<!--
@@ -417,9 +417,7 @@ th {
 										调出事由：
 									</td>
 									<td style="height: 60px; width: 150px; text-align: left">
-
-										<!--<input type="textarea" name="outname" value="1" class="input" size="12" />
- -->
+				
 										<textarea name="outname" value="1"
 											style="width: 270px; height: 70px;">
  </textarea>

@@ -48,6 +48,15 @@
 
 		<script type="text/javascript"
 			src="http://www.js-css.cn/jscode/jquery.min.js"></script>
+			<script type="text/javascript"
+			src="${pageContext.request.contextPath}/js/jquery.date_input.pack.js"></script>
+		<link rel="stylesheet"
+			href="${pageContext.request.contextPath}/css/calendar1.css">
+		<script type="text/javascript">
+	$(function() {
+		$('.date_picker').date_input();
+	})
+</script>
 
 		<script type="text/javascript">
 
@@ -174,7 +183,7 @@ th {
 			</h3>
 			<div class="btn-toolbar list-toolbar">
 				<br />
-				<a href="asset/asset_Asset_addAsset.action" class="btn btn-primary"><i
+				<a href="#myModal1" role="button" data-toggle="modal" class="btn btn-primary"><i
 					class="fa fa-plus"></i> 添加资产</a>
 				<button class="btn btn-default">
 					导入
@@ -309,15 +318,7 @@ th {
 
 						</tr>
 					</s:iterator>
-					<!--<tr>
-					<td>
-						<a href="asset/asset_Asset_inAsset.action?aid=${aid}">导入</a>
-					</td>
-					<td>
-						<a href="asset/asset_Asset_outAsset.action?aid=${aid}">导出</a>
-					</td>
-				</tr>
-				-->
+				
 					<tr>
 						<td align="center" class="left_txt" colspan="11">
 
@@ -345,6 +346,8 @@ th {
 						</td>
 					</tr>
 				</table>
+
+
 
 				<div class="modal small fade" id="myModal" tabindex="-1"
 					role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -389,71 +392,225 @@ th {
             $('.demo-cancel-click').click(function(){return false;});
         });
     </script>
-		<!--<h1>
-			创建资产
-		</h1>
-		<form action="asset/asset_Asset_createAsset.action" method="post">
-			卡片编号
-			<input type="text" name="cid" value="1" />
-			<br />
-			资产类别名称
-			<input type="text" name="assetCategory.acid" value="1" />
-			<s:select list="assetCategoryList" listKey="acid" listValue="acname"
-				name="assetCategory.acid" />
-			<br />
-			使用人名称
-			<input type="text" name="user.uid" value="1" />
-			<s:select list="userList" listKey="uid" listValue="uname"
-				name="user.uid" />
-			<br />
-			财务入账单编号
-			<input type="text" name="finance.fid" value="1" />
-			<s:select list="financeList" listKey="fid" listValue="fcode"
-				name="finance.fid" />
-			<br />
-			入库时间
-			<input type="text" name="adate" value="1" />
-			<input
-				style="width: 240px; background: #fefefe; border: 1px solid #bbb; font-size: 14px; color: #333; padding: 7px; border-radius: 3px;"
-				type="text" class="date_picker" value="${adate}" name="adate" />
-			<br />
-			入库状态
-			<input type="radio" name="astate" value="0" checked="checked" />
-			库存
-			<input type="radio" name="astate" value="1" />
-			在用
-			<input type="radio" name="astate" value="2" />
-			故障
-			<input type="radio" name="astate" value="3" />
-			报废
-			<input type="radio" name="astate" value="-1" />
-			删除
-			<br />
-			资产名称
-			<input type="text" name="purchaseDetail.pdid" value="1" />
-			<s:select list="purchaseDetailList" listKey="pdid" listValue="aname"
-				name="purchaseDetail.pdid" />
-			<br />
-			是否打印标签
-			<input type="radio" name="tprint" value="1" />
-			是
-			<input type="radio" name="tprint" value="2" checked="checked" />
-			否
-			<br />
-			一维码地址
-			<input type="text" name="onepath" value="1" />
-			<br />
-			二维码地址
-			<input type="text" name="twopath" value="1" />
-			<br />
-			条码
-			<input type="text" name="barcode" value="1" />
-			<br />
-			备注
-			<input type="text" name="anote" value="1" />
-			<br />
-			<input type="submit" value="创建" />
-		</form>
-	-->
+    
+    
+    
+
+
+
+
+
+
+		<div class="modal small fade " id="myModal1" tabindex="-1"
+			role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog " style="width: 550px">
+				<div class="modal-content"
+					style="background:#eee url(${pageContext.request.contextPath}/images/modal-gloss.png) no-repeat -200px -80px;position:absolute;z-index:101;padding:5px 10px 7px;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;-moz-box-shadow:0 0 10px rgba(0,0,0,.4);-webkit-box-shadow:0 0 10px rgba(0,0,0,.4);-box-shadow:0 0 10px rgba(0,0,0,.4);">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-hidden="true">
+							×
+						</button>
+						<h2
+							style="height: 20px; margin-top: 10px; font-weight: 600; color: #990000">
+						创建资产
+						</h2>
+					</div>
+					<form
+						action="asset/asset_Asset_createAsset.action"
+						method="post">
+						<div class="modal-body">
+
+							<table cellSpacing="0" cellPadding="8" align="center"
+								style="text-align: center">
+								
+								<tr>
+									<td style="height: 40px; width: 80px; text-align: left">
+										卡片编号：
+									</td>
+									<td style="height: 40px; width: 150px; text-align: left">
+										
+										<input type="text" name="cid" value="1" />
+									</td>
+								</tr>
+									<tr>
+									<td style="height: 40px; width: 80px; text-align: left">
+										资产类别名称：
+									</td>
+									<td style="height: 40px; width: 150px; text-align: left">
+
+										
+										<s:select list="assetCategoryList" listKey="acid"
+							listValue="acname" name="assetCategory.acid" />
+
+									</td>
+								</tr>
+								
+								<tr>
+									<td style="height: 40px; width: 80px; text-align: left">
+										使用人名称：
+									</td>
+									<td style="height: 40px; width: 150px; text-align: left">
+
+										
+										<s:select list="userList" listKey="uid" listValue="uname"
+							name="user.uid" />
+
+									</td>
+								</tr>
+								<tr>
+									<td style="height: 40px; width: 80px; text-align: left">
+										财务入账单编号：
+									</td>
+									<td style="height: 40px; width: 150px; text-align: left">
+
+										
+										<s:select list="financeList" listKey="fid" listValue="fcode"
+							name="finance.fid" />
+
+									</td>
+								</tr>
+								
+								
+								
+								<tr>
+
+
+									<td style="height: 40px; width: 80px; text-align: left">
+										入库时间：
+									</td>
+									<td style="height: 40px; width: 150px; text-align: left">
+
+										<input
+											style="width: 240px; background: #fefefe; border: 1px solid #bbb; font-size: 14px; color: #333; padding: 4px; border-radius: 3px;background-repeat:no-repeat; background-position:right center; background-image:url(${pageContext.request.contextPath}/images/icon.png)"
+											type="text" class="date_picker" value="${adate}"
+											name="adate" />
+									</td>
+								</tr>
+								<tr>
+
+
+									<td style="height: 40px; width: 80px; text-align: left">
+										入库状态：
+									</td>
+									<td style="height: 60px; width: 150px; text-align: left">
+
+										<input type="radio" name="astate" value="0" checked="checked" />
+						库存
+						<input type="radio" name="astate" value="1" />
+						在用
+						<input type="radio" name="astate" value="2" />
+						故障
+						<input type="radio" name="astate" value="3" />
+						报废
+						<input type="radio" name="astate" value="-1" />
+						删除
+
+									</td>
+								</tr>
+								
+								<tr>
+									<td style="height: 40px; width: 80px; text-align: left">
+										资产名称：
+									</td>
+									<td style="height: 40px; width: 150px; text-align: left">
+
+										
+										<s:select list="purchaseDetailList" listKey="pdid"
+							listValue="aname" name="purchaseDetail.pdid" />
+
+									</td>
+								</tr>
+								
+								
+								
+							<tr>
+
+
+									<td style="height: 40px; width: 80px; text-align: left">
+										是否打印标签：
+									</td>
+									<td style="height: 60px; width: 150px; text-align: left">
+
+										<input type="radio" name="tprint" value="1" />
+						是
+						<input type="radio" name="tprint" value="2" checked="checked" />
+						否
+
+									</td>
+								</tr>
+
+
+
+								<tr>
+									<td style="height: 40px; width: 80px; text-align: left">
+										一维码地址：
+									</td>
+									<td style="height: 40px; width: 150px; text-align: left">
+										
+											<input type="text" name="onepath" value="1" />
+									</td>
+								</tr>
+								
+								<tr>
+									<td style="height: 40px; width: 80px; text-align: left">
+										二维码地址：
+									</td>
+									<td style="height: 40px; width: 150px; text-align: left">
+										
+										<input type="text" name="twopath" value="1" />
+									</td>
+								</tr>
+								
+								<tr>
+									<td style="height: 40px; width: 80px; text-align: left">
+										条码：
+									</td>
+									<td style="height: 40px; width: 150px; text-align: left">
+										
+										<input type="text" name="barcode" value="1" />
+									</td>
+								</tr>
+<tr>
+
+
+									<td style="height: 40px; width: 80px; text-align: left">
+										备注：
+									</td>
+									<td style="height: 60px; width: 150px; text-align: left">
+				
+										<textarea name="anote" value="1"
+											style="width: 270px; height: 70px;">
+ </textarea>
+									</td>
+								</tr>
+
+								<tr style="height: 25px;">
+									<td></td>
+								</tr>
+								<tr style="border-top: 1px solid #e5e5e5;">
+									<td colspan="2" align="right">
+										<br />
+										<input class="btn btn-danger" type="submit" value="创建" />
+									</td>
+
+									<td colspan="2" align="left">
+										<br />
+										<button style="margin: 10px;" class="btn btn-default"
+											data-dismiss="modal" aria-hidden="true">
+											取消
+										</button>
+									</td>
+								</tr>
+
+							</table>
+
+						</div>
+
+
+					</form>
+				</div>
+			</div>
+		</div>
 	</body>
 </html>
