@@ -173,8 +173,8 @@ public class PurchaseAction extends ActionSupport {
 		purchase.setPndate(this.getPndate());
 		purchase.setPnstate(this.getPnstate());
 		purchase.setPnuse(this.getPnuse());
-//		purchase.setUser(purchaseservice.findPurchaseByPid(this.getUser()
-//				.getUid()));
+		purchase.setUser(purchaseservice.findPurchaseByPid(this.getUser()
+				.getUid()));
 		// 不允许为空
 
 		purchaseservice.updatePurchase(purchase);
@@ -184,12 +184,13 @@ public class PurchaseAction extends ActionSupport {
 	}
 
 	/*
+	 * @author ye
+	 * @date 2016/5/25
 	 * 确认入库，批量添加资产
 	 */
-	public void addAssets()
+	public String addAssets()
 	{
-		//清单数量
-//		Integer countInteger = purchaseservice.findPDCountByPnid(pnid);
-		purchaseservice.findPurchaseDetailByPnid(pnid,user);
+		purchaseservice.findPurchaseDetailByPnid(this.getPnid(),(Integer) ActionContext.getContext().getSession().get("loginUid"));
+		return SUCCESS;
 	}
 }

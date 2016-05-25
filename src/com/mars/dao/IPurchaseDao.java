@@ -66,16 +66,22 @@ public interface IPurchaseDao {
 	//public List<PurchaseNote> findAlldeletPurchase();
 	public List<PurchaseNote> findPurchase(IPage pageInfo);//分页
 	
-	public Integer findPDCountByPnid(Integer pnid) ;
+	/**
+	 *  @author ye
+	 * @date 2016/5/25
+	 * 确认入库
+	 */
+	
 	/**
 	 * 查找清单
 	 * @param pnid
 	 * @return
 	 */
-	public List<PurchaseDetail> findPurchaseDetailByPnid(Integer pnid) ;
+	public List<PurchaseDetail> findPurchaseDetailByPnid(PurchaseNote purchaseNote) ;
 	/**
 	 * 创建资产
 	 * @param Asset
 	 */
 	public void createAsset(Asset asset); 
+	public User findUserById(Integer uid) ;
 }
