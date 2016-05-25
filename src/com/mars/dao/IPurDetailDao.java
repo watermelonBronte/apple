@@ -63,5 +63,7 @@ public interface IPurDetailDao {
 	public List<PurchaseDetail> findPurDetailByPnid(IPage pageInfo,PurchaseNote purchaseNote);//分页
 
 	public AssetCategory findAssetCategoryById(Integer acid);
+	
+	public List<AssetCategory> findAssetCategory() ;
 		
 }

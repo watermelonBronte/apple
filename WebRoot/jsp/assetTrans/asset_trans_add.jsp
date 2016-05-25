@@ -69,8 +69,9 @@ $(function(){
 		<form action="assetTrans/assetTrans_AssetTrans_createAssetTrans.action"
 			method="post">
 			移交人
-			<s:select list="userList" listKey="uid" listValue="uname"
-				name="user.uid" />
+			<!--<s:select list="userList" listKey="uid" listValue="uname"
+				name="user.uid" />-->
+				${loginUname}
 			<br />
 			移交发起时间
 			<input

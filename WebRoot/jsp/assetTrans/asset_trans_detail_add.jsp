@@ -74,8 +74,9 @@
 				name="asset.aid" />
 			<br />
 			接收人
-			<s:select list="userList" listKey="uid" listValue="uname"
-				name="user.uid" />
+			<!--<s:select list="userList" listKey="uid" listValue="uname"
+				name="user.uid" />-->
+			${loginUname}
 			<br />
 			接收时间
 			<input

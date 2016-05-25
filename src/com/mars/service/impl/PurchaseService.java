@@ -1,5 +1,6 @@
 package com.mars.service.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import com.mars.dao.impl.PurchaseDao;
@@ -77,7 +78,17 @@ public void setPurchasedao(PurchaseDao purchasedao) {
 		return purchasedao.findPDCountByPnid(pnid);
 	}
 
-	public void findPurchaseDetailByPnid(Integer pnid) {
+	private Asset asset = new Asset();
+	
+	public Asset getAsset() {
+		return asset;
+	}
+
+	public void setAsset(Asset asset) {
+		this.asset = asset;
+	}
+
+	public void findPurchaseDetailByPnid(Integer pnid,User user) {
 //		return purchasedao.findPurchaseDetailByPnid(pnid);
 		List<PurchaseDetail> list = purchasedao.findPurchaseDetailByPnid(pnid);
 		for (PurchaseDetail purchaseDetail : list) {
@@ -86,7 +97,16 @@ public void setPurchasedao(PurchaseDao purchasedao) {
 			int count = purchaseDetail.getPdcount();
 			for(int i=0;i<count;i++)
 			{
-				purchaseDetail.getPdid();
+				
+				asset.setPurchaseDetail(purchaseDetail);
+				Date date = new Date();
+			
+				asset.setAdate(date);
+				//我也不知道
+				asset.setAstate(1);
+				asset.setUser(user);
+				purchasedao.createAsset(asset);
+				
 				//悲剧了。。估计要改数据库了。。
 				
 			}

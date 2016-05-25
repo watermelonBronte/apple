@@ -12,7 +12,7 @@
 <html>
 	<base href="<%=basePath%>">
 	<head>
-	<title>调入确认</title>
+		<title>调入确认</title>
 		<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="pragma" content="no-cache">
@@ -60,8 +60,12 @@
 	</head>
 
 	<body>
-	<h3>调入确认</h3>
-		<form action="transBills/transBills_TransBills_verifyTransBills.action" method="post">
+		<h3>
+			调入确认
+		</h3>
+		<form
+			action="transBills/transBills_TransBills_verifyTransBills.action"
+			method="post">
 			调拨ID
 			<input type="text" name="tbid" value="${tbid}" readonly="readonly" />
 			<br />
@@ -87,15 +91,18 @@
 			<br />
 			调入人ID
 			<!--<input type="text" name="userByInuid.uid" />-->
-			<s:select list="userList" listKey="uid" listValue="uname"
+			<!--
+			<!--<s:select list="userList" listKey="uid" listValue="uname"
 				name="userByInuid.uid" />
+				-->
+			${loginUname}
 			<br />
 			调入时间
 			<!--<input type="text" name="outdate" value="123" />-->
 			<input
 				style="width: 240px; background: #fefefe; border: 1px solid #bbb; font-size: 14px; color: #333; padding: 7px; border-radius: 3px;"
 				type="text" class="date_picker" value="${indate}" name="indate" />
-			
+
 			<br />
 			状态
 			<s:if test="tbstate==0">

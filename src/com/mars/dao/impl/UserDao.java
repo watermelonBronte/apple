@@ -19,6 +19,7 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import com.mars.dao.IUserDao;
 import com.mars.tools.IPage;
 import com.mars.vo.Asset;
+import com.mars.vo.AssetCategory;
 import com.mars.vo.Department;
 import com.mars.vo.Role;
 import com.mars.vo.User;
@@ -158,6 +159,12 @@ public class UserDao extends HibernateDaoSupport implements IUserDao {
 	public List<Role> findRole() {
 		return (List<Role>)getHibernateTemplate().find("from Role");
 	
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<User> findUidByUname(String uname) {
+		   return (List<User>)getHibernateTemplate().find("from User where uname="+"'"+uname+"'");
+			
 	}
 
 

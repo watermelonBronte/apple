@@ -69,8 +69,9 @@ $(function(){
 		<form action="checked/checked_Checked_createChecked.action"
 			method="post">
 			盘点发起人
-			<s:select list="userList" listKey="uid" listValue="uname"
-				name="user.uid" />
+			<!--<s:select list="userList" listKey="uid" listValue="uname"
+				name="user.uid" />-->
+			${loginUname}
 			<br />
 			盘点时间
 			<input

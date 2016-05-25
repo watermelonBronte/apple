@@ -125,8 +125,10 @@ th {
 			<br />
 			财务入账人ID
 			<!--<input type="text" name="user.uid" value="1" />-->
-				<s:select list="userList" listKey="uid" listValue="uname"
+			<!--<s:select list="userList" listKey="uid" listValue="uname"
 				name="user.uid" />
+			-->
+			${loginUname}
 			<br />
 			财务是否入账
 			<!--<input type="text" name="fenter" value="123" />-->

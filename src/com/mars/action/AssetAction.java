@@ -21,6 +21,7 @@ import com.mars.vo.Department;
 import com.mars.vo.Finance;
 import com.mars.vo.PurchaseDetail;
 import com.mars.vo.User;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.sun.org.apache.bcel.internal.generic.NEW;
 
@@ -376,7 +377,7 @@ public void setSfdate(String sfdate) {
 		
 		assetCategoryList = assetService.findAssetCategory();
 		financeList = assetService.findFinance();
-		userList = assetService.findUser();
+//		userList = assetService.findUser();
 		purchaseDetailList = assetService.findPurchaseDetail();
 		return "addAsset";
 	}
@@ -394,7 +395,7 @@ public void setSfdate(String sfdate) {
 
 		asset.setCid(getCid());
 //		asset.setAssetCategory(assetService.findAssetCategoryById(this.getAssetCategory().getAcid()));
-		asset.setUser(assetService.findUserById(this.getUser().getUid()));
+		asset.setUser(assetService.findUserById((Integer) ActionContext.getContext().getSession().get("loginUid")));
 //		asset.setFinance(assetService.findFinanceById(this.getFinance().getFid()));
 		asset.setAstate(this.getAstate());
 //		Date date = new Date();

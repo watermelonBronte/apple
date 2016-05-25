@@ -69,5 +69,5 @@ public interface IPurchaseService {
 	 */
 	public Integer findPDCountByPnid(Integer pnid) ;
 	
-	public void findPurchaseDetailByPnid(Integer pnid);
+	public void findPurchaseDetailByPnid(Integer pnid,User user);
 }

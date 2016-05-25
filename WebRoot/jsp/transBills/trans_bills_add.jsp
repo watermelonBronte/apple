@@ -57,8 +57,10 @@
 			<br />
 			调出人ID
 			<!--<input type="text" name="userByOutuid.uid" value="1" />-->
-			<s:select list="userList" listKey="uid" listValue="uname"
+			<!--<s:select list="userList" listKey="uid" listValue="uname"
 				name="userByOutuid.uid" />
+				-->
+				${loginUname}
 			<br />
 			调出时间
 			<!--<input type="text" name="outdate" value="123" />-->

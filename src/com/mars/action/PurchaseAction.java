@@ -3,6 +3,7 @@
  */
 package com.mars.action;
 
+import java.rmi.server.UID;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -13,6 +14,7 @@ import com.mars.vo.Department;
 import com.mars.vo.PurchaseDetail;
 import com.mars.vo.PurchaseNote;
 import com.mars.vo.User;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
@@ -130,14 +132,18 @@ public class PurchaseAction extends ActionSupport {
 		return SUCCESS;
 	}
 
+
+
 	public String createPurchase() {// 增加信息
 		PurchaseNote p = new PurchaseNote();
 		p.setPndate(purchase.getPndate());
 		p.setPnid(purchase.getPnid());
 		p.setPnstate(purchase.getPnstate());
 		p.setPnuse(purchase.getPnuse());
+		
+
 		p.setUser(purchaseservice
-				.findPurchaseByPid(purchase.getUser().getUid()));
+				.findPurchaseByPid((Integer) ActionContext.getContext().getSession().get("loginUid")));
 
 		purchaseservice.createPurchase(p);// 保存接收到的数据到数据库中
 		return SUCCESS;
@@ -167,8 +173,8 @@ public class PurchaseAction extends ActionSupport {
 		purchase.setPndate(this.getPndate());
 		purchase.setPnstate(this.getPnstate());
 		purchase.setPnuse(this.getPnuse());
-		purchase.setUser(purchaseservice.findPurchaseByPid(this.getUser()
-				.getUid()));
+//		purchase.setUser(purchaseservice.findPurchaseByPid(this.getUser()
+//				.getUid()));
 		// 不允许为空
 
 		purchaseservice.updatePurchase(purchase);
@@ -183,7 +189,7 @@ public class PurchaseAction extends ActionSupport {
 	public void addAssets()
 	{
 		//清单数量
-		Integer count = purchaseservice.findPDCountByPnid(this.getPnid());
-		System.out.print(count);
+//		Integer countInteger = purchaseservice.findPDCountByPnid(pnid);
+		purchaseservice.findPurchaseDetailByPnid(pnid,user);
 	}
 }

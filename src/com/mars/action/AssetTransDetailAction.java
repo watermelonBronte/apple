@@ -188,7 +188,7 @@ public class AssetTransDetailAction extends ActionSupport {
 
 	
 		assetTransDetail.setAsset(assetTransDetailService.findAssetById(this.getAsset().getAid()));
-		assetTransDetail.setUser(assetTransDetailService.findUserById(this.getUser().getUid()));
+		assetTransDetail.setUser(assetTransDetailService.findUserById((Integer) ActionContext.getContext().getSession().get("loginUid")));
 		assetTransDetail.setAssetTrans(assetTransDetailService.findAssetTransById(this.getAtid()));
 		assetTransDetail.setTdresult(this.getTdresult());
 		assetTransDetail.setTddate(this.getTddate());

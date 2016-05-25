@@ -161,7 +161,7 @@ public class RepairsAction extends ActionSupport {
 	public String createRepairs() {
 
 		repairs.setAsset(repairsService.findAssetById(this.getAsset().getAid()));
-		repairs.setUser(repairsService.findUserById(this.getUser().getUid()));
+		repairs.setUser(repairsService.findUserById((Integer) ActionContext.getContext().getSession().get("loginUid")));
 		repairs.setRecondition(this.getRecondition());
 		repairs.setReprice(this.getReprice());
 		repairs.setRestate(this.getRestate());

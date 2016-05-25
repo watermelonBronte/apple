@@ -121,5 +121,10 @@ public class PurDetailDao extends HibernateDaoSupport implements IPurDetailDao {
 				new Integer(acid));
          return assetCategory;	
 	}
+	@SuppressWarnings("unchecked")
+	public List<AssetCategory> findAssetCategory() {
+		 return (List<AssetCategory>)getHibernateTemplate().find("from AssetCategory");
+			
+	}
 
 }

@@ -67,7 +67,9 @@
 			<input type="text" name="user.uid" value="user.uname" />
 			<!--<s:select list="userList" listKey="uid" listValue="uname"
 				name="user.uid" />
-			--><br />
+			-->
+			${loginUname}
+			<br />
 			损坏情况
 			<input type="text" name="recondition" value="非常严重" />
 			<br />

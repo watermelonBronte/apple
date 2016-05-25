@@ -75,8 +75,10 @@
 			<br />
 			报废人ID
 			<!--<input type="text" name="userByUid.uid" value="1" />-->
-			<s:select list="userList" listKey="uid" listValue="uname"
+			<!--<s:select list="userList" listKey="uid" listValue="uname"
 				name="userByUid.uid" />
+				-->
+			${loginUname}
 			<br />
 			报废时间
 			<!-- 时间控件 -->
@@ -84,7 +86,7 @@
 			<input
 				style="width: 240px; background: #fefefe; border: 1px solid #bbb; font-size: 14px; color: #333; padding: 7px; border-radius: 3px;"
 				type="text" class="date_picker" value="${scdate}" name="scdate" />
-			
+
 			<br />
 			状态
 			<input type="radio" name="scstate" value="0" checked="checked" />

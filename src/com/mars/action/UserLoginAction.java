@@ -49,6 +49,17 @@ public class UserLoginAction extends ActionSupport {
 		this.upwd = upwd;
 	}
 	private String upwd;
+	private Integer uid;
+	
+	public Integer getUid() {
+		return uid;
+	}
+	public void setUid(Integer uid) {
+		this.uid = uid;
+	}
+	public UserService getUserService() {
+		return userService;
+	}
 	private UserService userService;//设置业务逻辑组件
 	public void setUserService(UserService userService) {
 		this.userService = userService;
@@ -62,9 +73,14 @@ public class UserLoginAction extends ActionSupport {
 			if(uname.trim().equals(user.getUname())&&upwd.trim().equals(user.getUpwd())){
 				this.setUname(user.getUname());
 				ActionContext ctx = ActionContext.getContext();
-				ctx.getSession().put("user", uname);
+				ctx.getSession().put("loginUname", uname);
 				//用session保存用户名
+				if((userService.findUidByUname(uname))!=null)
+				uid = userService.findUidByUname(uname);
+				ctx.getSession().put("loginUid", uid);
 				
+				
+//				System.out.println(uid);
 				return "success";
 			}
 			

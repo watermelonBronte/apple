@@ -15,6 +15,7 @@ import com.mars.vo.Asset;
 import com.mars.vo.CheckDetail;
 import com.mars.vo.AssetTrans;
 import com.mars.vo.User;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
@@ -155,8 +156,7 @@ public class AssetTransAction extends ActionSupport {
 	 */
 	public String createAssetTrans() {
 
-		assetTrans.setUser(assetTransService.findUserById(this.getUser()
-				.getUid()));
+		assetTrans.setUser(assetTransService.findUserById((Integer) ActionContext.getContext().getSession().get("loginUid")));
 		assetTrans.setAtrdate(this.getAtrdate());
 		assetTrans.setAttype(this.getAttype());
 		assetTrans.setAtstate(this.getAtstate());

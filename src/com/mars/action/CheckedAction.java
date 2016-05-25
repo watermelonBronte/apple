@@ -15,6 +15,7 @@ import com.mars.vo.Asset;
 import com.mars.vo.CheckDetail;
 import com.mars.vo.Checked;
 import com.mars.vo.User;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
@@ -133,7 +134,7 @@ public class CheckedAction extends ActionSupport {
 	 */
 	public String createChecked() {
 
-		checked.setUser(checkedService.findUserById(this.getUser().getUid()));
+		checked.setUser(checkedService.findUserById((Integer) ActionContext.getContext().getSession().get("loginUid")));
 		checked.setCstate(this.getCstate());
 				checked.setCdate(this.getCdate());
 		checkedService.createChecked(checked);

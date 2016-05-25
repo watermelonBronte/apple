@@ -15,6 +15,7 @@ import com.mars.tools.PageInfo;
 import com.mars.vo.Asset;
 import com.mars.vo.Finance;
 import com.mars.vo.User;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
@@ -208,7 +209,7 @@ public class FinanceAction extends ActionSupport {
 		//创建财务入账
 		finance.setFcode(this.getFcode());
 		// 将方法写入同一个Service
-		finance.setUser(financeService.findUserById(this.getUser().getUid()));
+		finance.setUser(financeService.findUserById((Integer) ActionContext.getContext().getSession().get("loginUid")));
 		finance.setFenter(this.getFenter());
 		finance.setFdate(this.getFdate());
 		financeService.createFinance(finance);

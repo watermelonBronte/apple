@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.mars.dao.impl.UserDao;
 import com.mars.service.IUserService;
 import com.mars.tools.IPage;
+import com.mars.vo.Asset;
 import com.mars.vo.Department;
 import com.mars.vo.Role;
 import com.mars.vo.User;
@@ -109,6 +110,16 @@ public class UserService implements IUserService {
 	public List<Role> findRole() {
 		// TODO Auto-generated method stub
 		return userDao.findRole();
+	}
+
+
+	public Integer findUidByUname(String uname) {
+//		return userDao.findUidByUname(uname);
+		List<User> list = userDao.findUidByUname(uname);
+		for (User user : list) {
+			return user.getUid();
+		}
+		return null;
 	}
 
 	

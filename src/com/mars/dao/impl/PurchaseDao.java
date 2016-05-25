@@ -130,4 +130,9 @@ public class PurchaseDao extends HibernateDaoSupport implements IPurchaseDao {
 				});
 	}
 
+	public void createAsset(Asset asset) {
+		super.getHibernateTemplate().save(asset);
+		
+	}
+
 }

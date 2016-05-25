@@ -78,6 +78,10 @@ public PurchaseNote findPurchaseNoteByPid(int pnid) {
 		return purdetaildao.findAssetCategoryById(acid);
 	}
 
+	public List<AssetCategory> findAssetCategory() {
+		return purdetaildao.findAssetCategory();
+	}
+
 
 
 }

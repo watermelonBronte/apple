@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.struts2.ServletActionContext;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
-
 import com.mars.service.impl.UserService;
 import com.mars.tools.IPage;
 import com.mars.tools.PageInfo;
@@ -30,6 +29,7 @@ public class UserAction extends ActionSupport {
 
 	private List<Role> roleList = new ArrayList<Role>();
 	private List<Department> DepartmentList = new ArrayList<Department>();
+
 	public List<Department> getDepartmentList() {
 		return DepartmentList;
 	}
@@ -47,14 +47,15 @@ public class UserAction extends ActionSupport {
 	}
 
 	private UserService userService;// 设置业务逻辑组件
-private String sex;
-	public String getSex() {
-	return sex;
-}
+	private String sex;
 
-public void setSex(String sex) {
-	this.sex = sex;
-}
+	public String getSex() {
+		return sex;
+	}
+
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
 
 	protected IPage pageInfo = new PageInfo();
 
@@ -179,21 +180,21 @@ public void setSex(String sex) {
 		// 将所有用户放在request范围内
 
 		this.getPageInfo().setResult((userService.findAll(pageInfo)));// 分页
-roleList=userService.findRole();
-DepartmentList=userService.findDepartment();
-		
+		roleList = userService.findRole();
+		DepartmentList = userService.findDepartment();
+
 		return SUCCESS;
 	}
 
 	public String createUser() {// 增加用户信息
-		//User u = new User();
+		// User u = new User();
 		user.setUname(this.getUname());
 		user.setUpwd(this.getUpwd());
 		// 根据部门id找到部门对象存储
 		user.setRole(userService.findRoleById(this.getRole().getRid()));
-		user.setDepartment(userService.findDepartmentById(this.getDepartment().getDid()));
+		user.setDepartment(userService.findDepartmentById(this.getDepartment()
+				.getDid()));
 
-		
 		user.setUsex(this.getUsex());
 		user.setUstate(this.getUstate());
 		userService.createUser(user);// 保存接收到的数据到数据库中
@@ -233,9 +234,8 @@ DepartmentList=userService.findDepartment();
 		this.setRole(user.getRole());
 
 		if (user.getUsex() != null) {
-		
-			
-		this.setUsex(user.getUsex());
+
+			this.setUsex(user.getUsex());
 		}
 		if (user.getUstate() != null) {
 			this.setUstate(user.getUstate());
@@ -243,7 +243,7 @@ DepartmentList=userService.findDepartment();
 
 		this.setUid(user.getUid());
 		this.setUpwd(user.getUpwd());
-	// System.out.print("dfdf");
+		// System.out.print("dfdf");
 		return SUCCESS;
 	}
 
@@ -261,8 +261,5 @@ DepartmentList=userService.findDepartment();
 	// //将所有用户放在request范围内
 	// return "success";
 	// }
-	
 
-	
-		
-	}
+}

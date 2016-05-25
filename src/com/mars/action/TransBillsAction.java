@@ -15,6 +15,7 @@ import com.mars.vo.Asset;
 import com.mars.vo.Department;
 import com.mars.vo.TransBills;
 import com.mars.vo.User;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 /**
  * @author ye
@@ -185,7 +186,7 @@ public class TransBillsAction extends ActionSupport {
 	 * @return
 	 */
 	public String createTransBills() {
-		transBills.setUserByOutuid(transBillsService.findUserById(this.getUserByOutuid().getUid()));
+		transBills.setUserByOutuid(transBillsService.findUserById((Integer) ActionContext.getContext().getSession().get("loginUid")));
 		transBills.setAsset(transBillsService.findAssetById(this.getAsset().getAid()));
 		//状态：0调拨中1确定调入
 		transBills.setTbstate(this.getTbstate());
@@ -208,7 +209,7 @@ public class TransBillsAction extends ActionSupport {
 	 */
 	public String verifyTransBills() {
 		transBills=transBillsService.findTransBillsById(this.getTbid());
-		transBills.setUserByInuid(transBillsService.findUserById(this.getUserByInuid().getUid()));
+		transBills.setUserByInuid(transBillsService.findUserById((Integer) ActionContext.getContext().getSession().get("loginUid")));
 		//状态：0调拨中1确定调入
 		transBills.setTbstate(this.getTbstate());
 		Date date = new Date();

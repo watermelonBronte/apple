@@ -42,7 +42,7 @@ window.onload=function(){
   
   <body>
 
-  <marquee direction=left><span class="font">${user}</span>，您好！欢迎光临资产管理系统,今天是<span id='getdate' class="font"></span></marquee>
+  <marquee direction=left><span class="font">${loginUname}</span>，您好！欢迎光临资产管理系统,今天是<span id='getdate' class="font"></span></marquee>
   
   <!-- 时钟 -->
   <div  style="position: relative;">

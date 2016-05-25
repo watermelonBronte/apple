@@ -6,6 +6,7 @@ package com.mars.dao;
 import java.util.List;
 
 import com.mars.tools.IPage;
+import com.mars.vo.Asset;
 import com.mars.vo.Department;
 import com.mars.vo.PurchaseDetail;
 import com.mars.vo.PurchaseNote;
@@ -72,4 +73,9 @@ public interface IPurchaseDao {
 	 * @return
 	 */
 	public List<PurchaseDetail> findPurchaseDetailByPnid(Integer pnid) ;
+	/**
+	 * 创建资产
+	 * @param Asset
+	 */
+	public void createAsset(Asset asset); 
 }

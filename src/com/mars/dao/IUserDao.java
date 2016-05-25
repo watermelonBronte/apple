@@ -78,4 +78,6 @@ public interface IUserDao {
 	public List<User> findUserByAttr(final IPage pageInfo, final User u) ;
 	public List<Role> findRole();
 	public List<Department> findDepartment();
+	
+	public List<User> findUidByUname(String uname);
 }

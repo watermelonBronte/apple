@@ -14,6 +14,7 @@ import com.mars.tools.PageInfo;
 import com.mars.vo.Asset;
 import com.mars.vo.Scrap;
 import com.mars.vo.User;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 /**
  * @author ye
@@ -170,7 +171,7 @@ public class ScrapAction extends ActionSupport {
 	public String createScrap() {
 
 		scrap.setAsset(scrapService.findAssetById(this.getAsset().getAid()));
-		scrap.setUserByUid(scrapService.findUserById(this.getUserByUid().getUid()));
+		scrap.setUserByUid(scrapService.findUserById((Integer) ActionContext.getContext().getSession().get("loginUid")));
 		
 		Date date = new Date();
 		Timestamp nousedate = new Timestamp(date.getTime());

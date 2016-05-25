@@ -72,4 +72,6 @@ public interface IPurDetailService {
 	 */
 	public AssetCategory findAssetCategoryById(Integer acid);
 	
+	public List<AssetCategory> findAssetCategory() ;
+	
 }
