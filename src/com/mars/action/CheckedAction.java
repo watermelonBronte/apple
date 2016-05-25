@@ -194,6 +194,7 @@ public class CheckedAction extends ActionSupport {
 	 */
 	public String pageChecked() {
 		this.getPageInfo().setResult((checkedService.findAll(pageInfo)));
+		userList = checkedService.findUser();
 		return "pageChecked";
 	}
 

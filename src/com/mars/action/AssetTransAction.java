@@ -224,6 +224,7 @@ public class AssetTransAction extends ActionSupport {
 	 */
 	public String pageAssetTrans() {
 		this.getPageInfo().setResult((assetTransService.findAll(pageInfo)));
+		userList = assetTransService.findUser();
 		return "pageAssetTrans";
 	}
 

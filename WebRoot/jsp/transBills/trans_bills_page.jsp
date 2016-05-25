@@ -377,9 +377,9 @@ th {
  <td  style="height:40px;width:150px;text-align:left">
  <input type="radio" name="tbstate" value="0" checked="checked" />
 调拨中
-<input type="radio" name="tbstate" value="1" /><!--
+<input type="radio" name="tbstate" value="1" />
 			确认调入
- 
+ <!--
  <input type="text" name="supacname" value="家用电器" class="input" size="12" />
  --></td>
  </tr>
