@@ -175,7 +175,7 @@ th {
 			</h3>
 			<div class="btn-toolbar list-toolbar">
 				<br />
-				<a href="checked/checked_Checked_addChecked.action"
+				<a href="#myModal1"  role="button" data-toggle="modal"
 					class="btn btn-primary"><i class="fa fa-plus"></i> 添加盘点单</a>
 				<button class="btn btn-default">
 					导入
@@ -323,10 +323,10 @@ th {
  <table  cellSpacing="0"  cellPadding="8" align="center" style="text-align:center"><tr>
  
  
- <td  style="height:40px;width:130px;text-align:left">移交人：</td>
+ <td  style="height:40px;width:130px;text-align:left">盘点发起人：</td>
  <td  style="height:40px;width:130px;text-align:left">
  
- <s:select list="userList" listKey="uid" listValue="uname"
+<s:select list="userList" listKey="uid" listValue="uname"
 				name="user.uid" />
  
  </td>
@@ -343,40 +343,28 @@ th {
  --><tr>
  
  
- <td  style="height:40px;width:100px;text-align:left">移交发起时间：</td>
+ <td  style="height:40px;width:100px;text-align:left">盘点时间：</td>
  <td  style="height:40px;width:130px;text-align:left">
  
  
  <!--<input type="text" name="supacid" value="1" class="input" size="12" />
- --><input style="width: 240px; background: #fefefe; border: 1px solid #bbb; font-size: 14px; color: #333; padding: 4px; border-radius: 3px;background-repeat:no-repeat; background-position:right center; background-image:url(${pageContext.request.contextPath}/images/icon.png)" type="text" class="date_picker" value="${atrdate}" name="atrdate" />
+ --><input style="width: 240px; background: #fefefe; border: 1px solid #bbb; font-size: 14px; color: #333; padding: 4px; border-radius: 3px;background-repeat:no-repeat; background-position:right center; background-image:url(${pageContext.request.contextPath}/images/icon.png)" type="text" class="date_picker" value="${cdate}" name="cdate" />
  
  
  </td>
  </tr><tr>
  
  
- <td  style="height:40px;width:100px;text-align:left">移交类型：</td>
+ <td  style="height:40px;width:100px;text-align:left">	盘点状态：<!--0-待盘点 1-已盘点--></td>
  <td  style="height:40px;width:130px;text-align:left">
- <input type="radio" name="attype" value="0" checked="checked" />
-第一种类型
-	<input type="radio" name="attype" value="1" />
-			第二种类型
+ <input type="radio" name="cstate" value="0" checked="checked" />
+			待盘点
+			<input type="radio" name="cstate" value="1" />
+			已盘点
  </td>
  </tr>
  
  
-<tr>
- 
- 
- <td  style="height:40px;width:100px;text-align:left">	移交状态：
-			<!--0-待移交 1-移交完毕--></td>
- <td  style="height:40px;width:130px;text-align:left">
- <input type="radio" name="atstate" value="0" checked="checked" />
-			待移交
-<input type="radio" name="atstate" value="1" />
-			移交完毕
- </td>
- </tr>
 
     <tr style="height:25px;"><td></td></tr>
  <tr style="border-top: 1px solid #e5e5e5;  " ><td colspan="2"  align="right">  <br/><input  class="btn btn-danger" type="submit"  value="创建"/></td>
