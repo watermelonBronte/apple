@@ -225,6 +225,7 @@ public class RepairsAction extends ActionSupport {
 	 */
 	public String pageRepairs() {
 		this.getPageInfo().setResult((repairsService.findAll(pageInfo)));
+		assetList = repairsService.findAsset();
 		return "pageRepairs";
 	}
 
