@@ -9,7 +9,7 @@
 	<filter>
 	
 		<filter-name>onlineFilter</filter-name>
-		<filter-class>com.mars.tools.OnlineFilter</filter-class>
+		<filter-class>com.mars.util.OnlineFilter</filter-class>
 	</filter>
 
 
