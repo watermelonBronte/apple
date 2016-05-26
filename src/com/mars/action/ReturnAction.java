@@ -112,92 +112,56 @@ public class ReturnAction {
 	}
 
 	public String deleteReturn() {// 删除
-//		try {
+		try {
 			returnService.deletReturn(arid);
-//<<<<<<< HEAD
-				  
-				  return "success";
-			  }
-	
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		
 
-public String createRerutn(){//增加信息
-	  AssetReturn a=new AssetReturn();
-	  a.setArgdate(this.getArgdate());
-	  a.setArid(this.getArid());
-	 // a.setArrdate(this.getArrdate());
-	  a.setArstate(this.getArstate());
-	 
-	  a.setUserByGuid(returnService.findReturnByGid(this.getUserByGuid().getUid()));
-	 // a.setUserByRuid(returnService.findReturnByRid(this.getUserByRuid().getUid()));
-	  a.setAsset(returnService.findReturnByAid(this.getAsset().getAid()));
-returnService.createReturn(a);//保存接收到的数据到数据库中
-	  return "success";
-	  
-}
-	
-public String selectReturnById(){//显示当前用户		
-	assetReturn=returnService.findReturnById(this.getArid());
+		return "success";
+	}
 
-	this.setArgdate(assetReturn.getArgdate());
-	this.setArid(assetReturn.getArid());
-	//this.setArrdate(assetReturn.getArrdate());
-	this.setArstate(assetReturn.getArstate());
-	this.setAsset(assetReturn.getAsset());
-	this.setUserByGuid(assetReturn.getUserByGuid());
-	//this.setUserByRuid(assetReturn.getUserByRuid());
-	
+	public String createRerutn() {// 增加信息
+		try {
+			AssetReturn a = new AssetReturn();
+			a.setArgdate(this.getArgdate());
+			a.setArid(this.getArid());
+			// a.setArrdate(this.getArrdate());
+			a.setArstate(this.getArstate());
 
-return "success";
-}
-//=======
-//		} catch (Exception e) {
-//			// TODO: handle exception
-//		}
+			a.setUserByGuid(returnService.findReturnByGid(this.getUserByGuid()
+					.getUid()));
+			// a.setUserByRuid(returnService.findReturnByRid(this.getUserByRuid().getUid()));
+			a.setAsset(returnService.findReturnByAid(this.getAsset().getAid()));
+			returnService.createReturn(a);// 保存接收到的数据到数据库中
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 
-//		return "success";
-//	}
-//>>>>>>> 322297b676a0ccfb153670cc7478c7e2cf05eb0e
+		return "success";
 
-//	public String createRerutn() {// 增加信息
-//		try {
-//			AssetReturn a = new AssetReturn();
-//			a.setArgdate(this.getArgdate());
-//			a.setArid(this.getArid());
-//			a.setArrdate(this.getArrdate());
-//			a.setArstate(this.getArstate());
-//
-//			a.setUserByGuid(returnService.findReturnByGid(this.getUserByGuid()
-//					.getUid()));
-//			a.setUserByRuid(returnService.findReturnByRid(this.getUserByRuid()
-//					.getUid()));
-//			a.setAsset(returnService.findReturnByAid(this.getAsset().getAid()));
-//			returnService.createReturn(a);// 保存接收到的数据到数据库中
-//		} catch (Exception e) {
-//			// TODO: handle exception
-//		}
-//
-//		return "success";
-//
-//	}
+	}
 
-//	public String selectReturnById() {// 显示当前用户
-//		try {
-//			assetReturn = returnService.findReturnById(this.getArid());
-//
-//			this.setArgdate(assetReturn.getArgdate());
-//			this.setArid(assetReturn.getArid());
-//			this.setArrdate(assetReturn.getArrdate());
-//			this.setArstate(assetReturn.getArstate());
-//			this.setAsset(assetReturn.getAsset());
-//			this.setUserByGuid(assetReturn.getUserByGuid());
-//			this.setUserByRuid(assetReturn.getUserByRuid());
-//
-//		} catch (Exception e) {
-//			// TODO: handle exception
-//		}
-//
-//		return "success";
-//	}
+	public String selectReturnById() {// 显示当前用户
+		try {
+			assetReturn = returnService.findReturnById(this.getArid());
+
+			this.setArgdate(assetReturn.getArgdate());
+			this.setArid(assetReturn.getArid());
+			// this.setArrdate(assetReturn.getArrdate());
+			this.setArstate(assetReturn.getArstate());
+			this.setAsset(assetReturn.getAsset());
+			this.setUserByGuid(assetReturn.getUserByGuid());
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+
+		// this.setUserByRuid(assetReturn.getUserByRuid());
+
+		return "success";
+	}
 
 	public String updateRerutn() {// 更新
 		try {
