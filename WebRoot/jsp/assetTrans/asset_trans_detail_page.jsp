@@ -90,7 +90,52 @@ var va;
             uls.addClass('visible-xs');
             $('#main-menu').append(uls.clone());
         });
-    
+    window.onload=function(){
+
+	var oDiv=document.getElementById('charcolor');
+	var aTd=oDiv.getElementsByTagName('tr');
+	for( var i=1;i<aTd.length-1;i++){
+	
+		if(i%2!=0){
+		
+		aTd[i].style.background='#F7F7F7';
+			aTd[i].onmouseover=function(){
+			
+			this.style.background='#E3E3E3';
+		
+		}
+	
+		aTd[i].onmouseout=function(){
+			
+			this.style.background='#F7F7F7';
+
+		}
+		
+		}
+		else
+		{
+		aTd[i].onmouseover=function(){
+			
+			this.style.background='#E3E3E3';
+		
+		}
+	
+		aTd[i].onmouseout=function(){
+			
+			this.style.background='#fff';
+
+		}
+		
+		}
+	
+			
+		
+	
+	}
+	
+//	#E0EEE0 #EEE5DE #FAF0E6
+	
+}
 </script>
 
 		<style type="text/css">
@@ -131,53 +176,53 @@ th {
 				</div>
 			</div>
 
-			<h1>
-				盘点单ID${atid}清单列表
-			</h1>
+			<h3>
+				移交单ID:${atid}清单列表
+			</h3>
 
 			<form action="" id="_form" method="post">
-				<table class="table" style="text-align: center">
-
-					<tr class="datalist_head">
-						<td class="left_bt2" align="center" width="10%">
+				<table id="charcolor" class="table" style="text-align: center">
+  <thead  >
+					<tr>
+						<th >
 							移交清单ID
-						</td>
-						<td class="left_bt2" align="center" width="10%">
+						</th>
+						<th >
 							资产ID
-						</td>
-						<td class="left_bt2" align="center" width="10%">
+						</th>
+						<th >
 							接收人
-						</td>
-						<td class="left_bt2" align="center" width="10%">
+						</th>
+						<th >
 							接收结果
-						</td>
-							<td class="left_bt2" align="center" width="10%">
+						</th>
+							<th >
 							接收时间
-						</td>
-						<td class="left_bt2" align="center" width="10%">
+						</th>
+						<th >
 							操作
-						</td>
+						</th>
 					</tr>
 
 					<s:iterator id="ad" value="pageInfo.result" status="st">
 						<tr align=center>
-							<td align="center" class="left_txt">
+							<td >
 								${ad.tdid}
 							</td>
-							<td align="center" class="left_txt">
+							<td >
 								${ad.asset.aid}
 							</td>
-							<td align="center" class="left_txt">
+							<td >
 								${ad.user.uname}
 							</td>
-							<td align="center" class="left_txt">
+							<td >
 								<s:if test="%{#ad.tdresult==0}">接收</s:if>
 								<s:else>不接收</s:else>
 							</td>
-							<td align="center" class="left_txt">
+							<td >
 								${ad.tddate}
 							</td>
-							<td align="center" class="left_txt">
+							<td >
 								<a
 									href="assetTransDetail/assetTransDetail_AssetTransDetail_deleteAssetTransDetail.action?tdid=${tdid}&&atid=${atid}">删除</a>
 							</td>

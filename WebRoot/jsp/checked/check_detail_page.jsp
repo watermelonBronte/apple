@@ -50,7 +50,52 @@
 		<script type="text/javascript"
 			src="http://www.js-css.cn/jscode/jquery.min.js"></script>
 		<script>
+    window.onload=function(){
 
+	var oDiv=document.getElementById('charcolor');
+	var aTd=oDiv.getElementsByTagName('tr');
+	for( var i=1;i<aTd.length-1;i++){
+	
+		if(i%2!=0){
+		
+		aTd[i].style.background='#F7F7F7';
+			aTd[i].onmouseover=function(){
+			
+			this.style.background='#E3E3E3';
+		
+		}
+	
+		aTd[i].onmouseout=function(){
+			
+			this.style.background='#F7F7F7';
+
+		}
+		
+		}
+		else
+		{
+		aTd[i].onmouseover=function(){
+			
+			this.style.background='#E3E3E3';
+		
+		}
+	
+		aTd[i].onmouseout=function(){
+			
+			this.style.background='#fff';
+
+		}
+		
+		}
+	
+			
+		
+	
+	}
+	
+//	#E0EEE0 #EEE5DE #FAF0E6
+	
+}
 //翻页  pageNo:隐藏域控件名  formName：要提交的表单名 pageno:页码
 function goto(pageNo,formName,pageno){
 	document.getElementById(pageNo).value=pageno;
@@ -123,40 +168,40 @@ th {
 				</div>
 			</div>
 
-			<h1>
-				盘点单ID${cid}清单列表
-			</h1>
+			<h3>
+				盘点单ID：${cid}清单列表
+			</h3>
 
 			<form action="" id="_form" method="post">
-				<table class="table" style="text-align: center">
-
-					<tr class="datalist_head">
-						<td class="left_bt2" align="center" width="10%">
+				<table id="charcolor" class="table" style="text-align: center">
+<thead>
+					<tr >
+						<th >
 							盘点清单ID
-						</td>
-						<td class="left_bt2" align="center" width="10%">
+						</th>
+						<th >
 							资产ID
-						</td>
-						<td class="left_bt2" align="center" width="10%">
+						</th>
+						<th >
 							盘点结果
-						</td>
-						<td class="left_bt2" align="center" width="10%">
+						</th>
+						<th >
 							盘点时间
-						</td>
-						<td class="left_bt2" align="center" width="10%">
+						</th>
+						<th >
 							操作
-						</td>
+						</th>
 					</tr>
-
+</thead>
 					<s:iterator id="cd" value="pageInfo.result" status="st">
-						<tr align=center>
-							<td align="center" class="left_txt">
+						<tr >
+							<td >
 								${cd.cdid}
 							</td>
-							<td align="center" class="left_txt">
+							<td >
 								${cd.asset.aid}
 							</td>
-							<td align="center" class="left_txt">
+							<td >
 								<!--
 								${cd.cdresult}
 								-->
