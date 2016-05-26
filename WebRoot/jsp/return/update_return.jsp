@@ -26,13 +26,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    <h1><s:text name="修改领用归还信息"></s:text></h1>
   <form action="updateRerutn.action" method="post">
   
-<table><tr><td>领用归还id：</td><td><input type="text"  value="${arid}" name=arid readonly="readonly"/></td></tr>
-<tr><td>资产id：</td><td><input type="text" value='${asset.aid}' name="asset.aid" /></td></tr>
-<tr><td> 领用人id：</td><td>  <input type="text"  value="${userByGuid.uid}"  name="userByGuid.uid" /></td></tr>
+<table><tr style="display:none"><td>领用归还id：</td><td><input type="text"  value="${arid}" name=arid readonly="readonly" /></td></tr>
+<tr style="display:none"><td >资产id：</td><td><input type="text" value='${asset.aid}' name="asset.aid" style="display:none"/></td></tr>
+<tr style="display:none"><td> 领用人id：</td><td>  <input type="text"  value="${userByGuid.uid}"  name="userByGuid.uid" style="display:none"/></td></tr>
 <tr><td>归还人id：</td><td> <input type="text" value="${userByRuid.uid}" name="userByRuid.uid" /></td></tr>
-<tr><td>领用时间：</td><td> <input type="text" value="${argdate}" name="argdate" /></td></tr>
+<tr style="display:none"><td>领用时间：</td><td> <input type="text" value="${argdate}" name="argdate" style="display:none"/></td></tr>
 <tr><td>归还时间 ：</td><td> <input type="text" value="${arrdate}" name="arrdate" /></td></tr>
-<tr><td> 状态：</td><td> <input type="text" value="${arstate}" name="arstate" />  </td></tr>
+<tr style="display:none"><td> 状态：</td><td> <input type="text" value="1" name="arstate" />  </td></tr>
 <tr><td> <input type="submit" value="提交"/></td><td> <input type="reset" value="重置"/></td></tr>
 
 </table>

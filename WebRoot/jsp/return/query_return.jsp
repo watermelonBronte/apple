@@ -158,7 +158,7 @@ th {
 			<div class="btn-toolbar list-toolbar">
 				<br />
 				<a href="jsp/return/create_return.jsp"
-					class="btn btn-primary"><i class="fa fa-plus"></i> 添加信息</a>
+					class="btn btn-primary"><i class="fa fa-plus"></i> 添加领用信息</a>
 				<button class="btn btn-default">
 					导入
 				</button>
@@ -199,11 +199,11 @@ th {
    	修改
    		</th>
    		
-   	
+   	-->
    			<th>
-   		删除
+   		操作
    		</th>	
-   -->
+   
     <th style="width: 3.5em;"></th>
    </tr>
    
@@ -221,13 +221,27 @@ th {
          <td>
          	<fmt:formatDate value="${reinfo.arrdate}" pattern="yyyy-MM-dd"/>
         </td>
-          <td>${reinfo.arstate}</td>
+          <td>
+          
+          
+<s:if test="%{#reinfo.arstate==0}">被领用</s:if>
+<s:else>已归还</s:else><!--
+          ${reinfo.arstate}
+          
+          
+          --></td>
       
       <!--<td><a href="selectReturnById.action?arid=${reinfo.arid}">更新</a></td>
        <td><a href="deleteReturn.action?arid=${reinfo.arid}">删除</a></td>
        -->
-       <td><a href="selectReturnById.action?arid=${reinfo.arid}"><i class="fa fa-pencil"></i></a>
-          <a href="#myModal" onclick="text1(${reinfo.arid})" role="button" data-toggle="modal"><i class="fa fa-trash-o"></i></a></td>
+       
+       <td>
+       
+       <s:if test="%{#reinfo.arstate==0}">
+								<a href="selectReturnById.action?arid=${reinfo.arid}">归还</a>
+								</s:if>
+       <s:else> <a href="javascript:void(0)" onClick="return confirm('已归还，请勿重复操作！');return false;">归还</a></s:else>
+         </td><td> <a href="#myModal" onclick="text1(${reinfo.arid})" role="button" data-toggle="modal"><i class="fa fa-trash-o"></i></a></td>
        </tr>
 				</s:iterator>
 

@@ -100,11 +100,11 @@ public String createRerutn(){//增加信息
 	  AssetReturn a=new AssetReturn();
 	  a.setArgdate(this.getArgdate());
 	  a.setArid(this.getArid());
-	  a.setArrdate(this.getArrdate());
+	 // a.setArrdate(this.getArrdate());
 	  a.setArstate(this.getArstate());
 	 
 	  a.setUserByGuid(returnService.findReturnByGid(this.getUserByGuid().getUid()));
-	  a.setUserByRuid(returnService.findReturnByRid(this.getUserByRuid().getUid()));
+	 // a.setUserByRuid(returnService.findReturnByRid(this.getUserByRuid().getUid()));
 	  a.setAsset(returnService.findReturnByAid(this.getAsset().getAid()));
 returnService.createReturn(a);//保存接收到的数据到数据库中
 	  return "success";
@@ -116,11 +116,11 @@ public String selectReturnById(){//显示当前用户
 
 	this.setArgdate(assetReturn.getArgdate());
 	this.setArid(assetReturn.getArid());
-	this.setArrdate(assetReturn.getArrdate());
+	//this.setArrdate(assetReturn.getArrdate());
 	this.setArstate(assetReturn.getArstate());
 	this.setAsset(assetReturn.getAsset());
 	this.setUserByGuid(assetReturn.getUserByGuid());
-	this.setUserByRuid(assetReturn.getUserByRuid());
+	//this.setUserByRuid(assetReturn.getUserByRuid());
 	
 
 return "success";
