@@ -250,8 +250,13 @@ th {
 								<s:else>确认调入</s:else>
 							</td>
 							<td>
-								<a
-									href="transBills/transBills_TransBills_findTransBillsById.action?tbid=${tbid}">确认调入</a>
+								<s:if test="tbstate==0">
+									<a
+										href="transBills/transBills_TransBills_findTransBillsById.action?tbid=${tbid}">确认调入</a>
+								</s:if>
+								<s:else>
+								已调入
+								</s:else>
 								<!--
 							|
 							<a
@@ -262,8 +267,7 @@ th {
 							<td>
 
 								<a href="#myModal" onclick="text1(${tb.tbid})" role="button"
-									data-toggle="modal"><i class="fa fa-trash-o"></i>
-								</a>
+									data-toggle="modal"><i class="fa fa-trash-o"></i> </a>
 							</td>
 						</tr>
 					</s:iterator>
@@ -362,7 +366,7 @@ th {
 
 							<table cellSpacing="0" cellPadding="8" align="center"
 								style="text-align: center">
-								
+
 								<tr>
 									<td style="height: 40px; width: 80px; text-align: left">
 										调出人：
@@ -376,7 +380,7 @@ th {
 										${loginUname}
 									</td>
 								</tr>
-<tr>
+								<tr>
 
 
 									<td style="height: 40px; width: 80px; text-align: left">
@@ -417,7 +421,7 @@ th {
 										调出事由：
 									</td>
 									<td style="height: 60px; width: 150px; text-align: left">
-				
+
 										<textarea name="outname" value="1"
 											style="width: 270px; height: 70px;">
  </textarea>

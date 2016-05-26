@@ -73,7 +73,7 @@
 			<input type="text" name="asset.aid" value="${asset.aid}"
 				readonly="readonly" />
 			<br />
-			调出人ID
+			调出人
 			<input type="text" name="userByOutuid.uname"
 				value="${userByOutuid.uname}" readonly="readonly" />
 			<br />
@@ -89,7 +89,7 @@
 			<input type="text" name="outname" value="${outname}"
 				readonly="readonly" />
 			<br />
-			调入人ID
+			调入人
 			<!--<input type="text" name="userByInuid.uid" />-->
 			<!--
 			<!--<s:select list="userList" listKey="uid" listValue="uname"
@@ -105,18 +105,12 @@
 
 			<br />
 			状态
-			<s:if test="tbstate==0">
-				<input type="radio" name="tbstate" value="0" checked="checked" />
-			调拨中
-			<input type="radio" name="tbstate" value="1" />
-			确认调入
-			</s:if>
-			<s:else>
-				<input type="radio" name="tbstate" value="0" />
+
+			<input type="radio" name="tbstate" value="0" />
 			调拨中
 			<input type="radio" name="tbstate" value="1" checked="checked" />
 			确认调入
-			</s:else>
+
 			<br />
 			<input type="submit" value="更新" />
 		</form>
