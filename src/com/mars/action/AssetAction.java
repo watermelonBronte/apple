@@ -9,10 +9,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import com.mars.dao.ICommonDao;
 import com.mars.service.IAssetCategoryService;
 import com.mars.service.IAssetService;
-import com.mars.service.ICommonService;
 import com.mars.tools.IPage;
 import com.mars.tools.PageInfo;
 import com.mars.vo.Asset;
@@ -417,6 +415,26 @@ public void setSfdate(String sfdate) {
 		return "pageAsset";
 	}
 
+	/**
+	 * 导出资产
+	 * @return
+	 */
+	public String excelOutAsset(){
+		assetService.excelOutAsset();
+//		System.out.println("assetacion");
+		pageAsset();
+		return "pageAsset";
+	}
+	/**
+	 * 导入资产
+	 * @return
+	 */
+	public String excelInAsset(){
+		assetService.excelInAsset();
+//		System.out.println("assetacion");
+		pageAsset();
+		return "pageAsset";
+	}
 	/**
 	 * 删除
 	 * 
