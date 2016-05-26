@@ -34,7 +34,7 @@ $(function(){
   <form action="updatePurchase.action" method="post">
   
 <table><tr><td>采购单id：</td><td><input type="text"  value="${pnid}" name=pnid readonly="readonly"/></td></tr>
-<tr><td> 经办人：</td><td>  <input type="text"  value="${purchase.user.uname}"  name="purchase.user.uname" readonly="readonly"/></td></tr>
+<tr><td> 经办人：</td><td>  <input type="text"  value="${user.uname}"  name="user.uname" readonly="readonly"/></td></tr>
 <tr><td>采购日期：</td><td> <input  style="width:240px;background: #fefefe;border: 1px solid #bbb;font-size: 14px;color: #333;padding: 7px;border-radius: 3px;" type="text" class="date_picker" value="${sdate}" name="pndate" /></td></tr>
 <!--<input id="txtBeginDate" style="width:170px;padding:7px 10px;border:1px solid #ccc;margin-right:10px;" value='请选择开始日期'/>
 -->

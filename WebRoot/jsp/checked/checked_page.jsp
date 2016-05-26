@@ -177,13 +177,13 @@ th {
 				<br />
 				<a href="#myModal1" role="button" data-toggle="modal"
 					class="btn btn-primary"><i class="fa fa-plus"></i> 添加盘点单</a>
-				<button class="btn btn-default">
+				<!--<button class="btn btn-default">
 					导入
 				</button>
 				<button class="btn btn-default">
 					导出
 				</button>
-				<div class="btn-group">
+				--><div class="btn-group">
 				</div>
 			</div>
 

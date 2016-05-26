@@ -186,18 +186,21 @@ public class TransBillsAction extends ActionSupport {
 	 * @return
 	 */
 	public String createTransBills() {
-		transBills.setUserByOutuid(transBillsService.findUserById((Integer) ActionContext.getContext().getSession().get("loginUid")));
-		transBills.setAsset(transBillsService.findAssetById(this.getAsset().getAid()));
-		//状态：0调拨中1确定调入
-		transBills.setTbstate(this.getTbstate());
-		Date date = new Date();
-		Timestamp nousedate = new Timestamp(date.getTime());
-		transBills.setOutdate(nousedate);
-		//调出事由
-		transBills.setOutname(this.getOutname());
-		transBillsService.createTransBills(transBills);
-//		this.setResult("创建");
-//		return "successTransBills";
+		try {
+			transBills.setUserByOutuid(transBillsService.findUserById((Integer) ActionContext.getContext().getSession().get("loginUid")));
+			transBills.setAsset(transBillsService.findAssetById(this.getAsset().getAid()));
+			//状态：0调拨中1确定调入
+			transBills.setTbstate(this.getTbstate());
+			Date date = new Date();
+			Timestamp nousedate = new Timestamp(date.getTime());
+			transBills.setOutdate(nousedate);
+			//调出事由
+			transBills.setOutname(this.getOutname());
+			transBillsService.createTransBills(transBills);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	
 		pageTransBills();
 		return "pageTransBills";
 	}
@@ -208,17 +211,21 @@ public class TransBillsAction extends ActionSupport {
 	 * @return
 	 */
 	public String verifyTransBills() {
-		transBills=transBillsService.findTransBillsById(this.getTbid());
-		transBills.setUserByInuid(transBillsService.findUserById((Integer) ActionContext.getContext().getSession().get("loginUid")));
-		//状态：0调拨中1确定调入
-		transBills.setTbstate(this.getTbstate());
-		Date date = new Date();
-		Timestamp nousedate = new Timestamp(date.getTime());
-		transBills.setIndate(nousedate);
+		try {
+			transBills=transBillsService.findTransBillsById(this.getTbid());
+			transBills.setUserByInuid(transBillsService.findUserById((Integer) ActionContext.getContext().getSession().get("loginUid")));
+			//状态：0调拨中1确定调入
+			transBills.setTbstate(this.getTbstate());
+			Date date = new Date();
+			Timestamp nousedate = new Timestamp(date.getTime());
+			transBills.setIndate(nousedate);
 
-		transBillsService.updateTransBills(transBills);
-//		this.setResult("调入确认");
-//		return "successTransBills";
+			transBillsService.updateTransBills(transBills);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+
 		pageTransBills();
 		return "pageTransBills";
 	}
@@ -229,9 +236,12 @@ public class TransBillsAction extends ActionSupport {
 	 * @return
 	 */
 	public String deleteTransBills() {
-		transBillsService.deleteTransBills(this.getTbid());
-//		this.setResult("删除");
-//		return "successTransBills";
+		try {
+			transBillsService.deleteTransBills(this.getTbid());
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	
 		pageTransBills();
 		return "pageTransBills";
 	}
@@ -248,14 +258,19 @@ public class TransBillsAction extends ActionSupport {
 	 */
 	public String findTransBillsById() {
 
-		userList = transBillsService.findUser();
-		transBills = transBillsService.findTransBillsById(this.getTbid());
+		try {
+			userList = transBillsService.findUser();
+			transBills = transBillsService.findTransBillsById(this.getTbid());
 
-		this.setAsset(transBills.getAsset());
-		this.setUserByOutuid(transBills.getUserByOutuid());
-		this.setOutdate(transBills.getOutdate());
-		this.setOutname(transBills.getOutname());
-		this.setTbstate(transBills.getTbstate());
+			this.setAsset(transBills.getAsset());
+			this.setUserByOutuid(transBills.getUserByOutuid());
+			this.setOutdate(transBills.getOutdate());
+			this.setOutname(transBills.getOutname());
+			this.setTbstate(transBills.getTbstate());
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
        
 
 		return "findTransBillsById";
@@ -269,8 +284,7 @@ public class TransBillsAction extends ActionSupport {
 	 */
 	public String pageTransBills() {
 		this.getPageInfo().setResult((transBillsService.findAll(pageInfo)));
-	/*	userList = transBillsService.findUser();
-		assetList = transBillsService.findAsset();*/
+
 		userList = transBillsService.findUser();
 		assetList = transBillsService.findAsset();
 		return "pageTransBills";

@@ -205,22 +205,25 @@ public class FinanceAction extends ActionSupport {
 	 * @return
 	 */
 	public String createFinance() {
+		try {
+			//创建财务入账
+			finance.setFcode(this.getFcode());
+			// 将方法写入同一个Service
+			finance.setUser(financeService.findUserById((Integer) ActionContext.getContext().getSession().get("loginUid")));
+			finance.setFenter(this.getFenter());
+			finance.setFdate(this.getFdate());
+			financeService.createFinance(finance);
+			
+			//更新资产表fid
+			asset = financeService.findAssetById(this.getAid());
+			asset.setFinance(finance);
+			financeService.updateAsset(asset);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	
 		
-		//创建财务入账
-		finance.setFcode(this.getFcode());
-		// 将方法写入同一个Service
-		finance.setUser(financeService.findUserById((Integer) ActionContext.getContext().getSession().get("loginUid")));
-		finance.setFenter(this.getFenter());
-		finance.setFdate(this.getFdate());
-		financeService.createFinance(finance);
-		
-		//更新资产表fid
-		asset = financeService.findAssetById(this.getAid());
-		asset.setFinance(finance);
-		financeService.updateAsset(asset);
-		
-//		this.setResult("创建");
-//		return "successFinance";
+
 		pageFinance();
 		return "pageFinance";
 	}
@@ -231,9 +234,13 @@ public class FinanceAction extends ActionSupport {
 	 * @return
 	 */
 	public String deleteFinance() {
-		financeService.deleteFinance(this.getFid());
-//		this.setResult("删除");
-//		return "successFinance";
+		try {
+
+			financeService.deleteFinance(this.getFid());
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	
 		pageFinance();
 		return "pageFinance";
 	}
@@ -245,30 +252,37 @@ public class FinanceAction extends ActionSupport {
 	 */
 	public String updateFinance() {
 
-		finance.setFid(getFid());
-		finance.setFcode(getFcode());
-//		Date date = new Date();
-//		Timestamp nousedate = new Timestamp(date.getTime());
-//		finance.setFdate(nousedate);
-		finance.setFdate(this.getFdate());
-		finance.setFenter(getFenter());
-		finance.setUser(financeService.findUserById(this.getUser().getUid()));
-		financeService.updateFinance(finance);
+		try {
+			finance.setFid(getFid());
+			finance.setFcode(getFcode());
+//			Date date = new Date();
+//			Timestamp nousedate = new Timestamp(date.getTime());
+//			finance.setFdate(nousedate);
+			finance.setFdate(this.getFdate());
+			finance.setFenter(getFenter());
+			finance.setUser(financeService.findUserById(this.getUser().getUid()));
+			financeService.updateFinance(finance);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
 
-//		this.setResult("更新");
-//		return "successFinance";
 		pageFinance();
 		return "pageFinance";
 	}
 
 	public String updateEnter() {
-		finance = financeService.findFinanceById(this.getFid());
-		// finance.setFid(getFid());
+		try {
+			finance = financeService.findFinanceById(this.getFid());
+			// finance.setFid(getFid());
 
-		finance.setFenter(1);
+			finance.setFenter(1);
 
-		financeService.updateFinance(finance);
-//		return "successFinance";
+			financeService.updateFinance(finance);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+
 		pageFinance();
 		return "pageFinance";
 	}
@@ -282,14 +296,19 @@ public class FinanceAction extends ActionSupport {
 	 */
 	public String findFinanceById() {
 
-		finance = financeService.findFinanceById(this.getFid());
-		this.setFcode(finance.getFcode());
-		
-		this.setFdate(finance.getFdate());
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		sdate=sdf.format(fdate);
-		this.setFenter(finance.getFenter());
-		this.setUser(finance.getUser());
+		try {
+			finance = financeService.findFinanceById(this.getFid());
+			this.setFcode(finance.getFcode());
+			
+			this.setFdate(finance.getFdate());
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+			sdate=sdf.format(fdate);
+			this.setFenter(finance.getFenter());
+			this.setUser(finance.getUser());
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	
 
 		return "findFinanceById";
 

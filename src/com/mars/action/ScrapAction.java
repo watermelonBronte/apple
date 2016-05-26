@@ -16,6 +16,7 @@ import com.mars.vo.Scrap;
 import com.mars.vo.User;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+
 /**
  * @author ye
  * @date 2016/5/6
@@ -24,7 +25,6 @@ public class ScrapAction extends ActionSupport {
 
 	private IScrapService scrapService;
 	protected IPage pageInfo = new PageInfo();
-
 
 	private String result;
 	private Integer scid;
@@ -35,13 +35,9 @@ public class ScrapAction extends ActionSupport {
 	private Date cdate;
 	private Integer scstate;
 	private Scrap scrap = new Scrap();
-	
+
 	private List<User> userList = new ArrayList<User>();
-	private List<Asset> assetList =new ArrayList<Asset>();
-
-
-
-	
+	private List<Asset> assetList = new ArrayList<Asset>();
 
 	public List<User> getUserList() {
 		return userList;
@@ -147,9 +143,6 @@ public class ScrapAction extends ActionSupport {
 		this.scrapService = scrapService;
 	}
 
-	
-
-
 	/**
 	 * 添加界面
 	 * 
@@ -169,18 +162,24 @@ public class ScrapAction extends ActionSupport {
 	 * @return
 	 */
 	public String createScrap() {
+		try {
+			scrap
+					.setAsset(scrapService.findAssetById(this.getAsset()
+							.getAid()));
+			scrap.setUserByUid(scrapService
+					.findUserById((Integer) ActionContext.getContext()
+							.getSession().get("loginUid")));
 
-		scrap.setAsset(scrapService.findAssetById(this.getAsset().getAid()));
-		scrap.setUserByUid(scrapService.findUserById((Integer) ActionContext.getContext().getSession().get("loginUid")));
-		
-		Date date = new Date();
-		Timestamp nousedate = new Timestamp(date.getTime());
-		scrap.setScdate(nousedate);
-		
-		scrap.setScstate(this.getScstate());
-		scrapService.createScrap(scrap);
-//		this.setResult("创建");
-//		return "successScrap";
+			Date date = new Date();
+			Timestamp nousedate = new Timestamp(date.getTime());
+			scrap.setScdate(nousedate);
+
+			scrap.setScstate(this.getScstate());
+			scrapService.createScrap(scrap);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+
 		pageScrap();
 		return "pageScrap";
 	}
@@ -191,9 +190,12 @@ public class ScrapAction extends ActionSupport {
 	 * @return
 	 */
 	public String deleteScrap() {
-		scrapService.deleteScrap(this.getScid());
-//		this.setResult("删除");
-//		return "successScrap";
+		try {
+			scrapService.deleteScrap(this.getScid());
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+
 		pageScrap();
 		return "pageScrap";
 	}
@@ -204,23 +206,24 @@ public class ScrapAction extends ActionSupport {
 	 * @return
 	 */
 	public String examinScrap() {
-		scrap = scrapService.findScrapById(this.getScid());
-		scrap.setUserByCuid(scrapService.findUserById(this.getUserByCuid().getUid()));
-		Date date = new Date();
-//		Timestamp nousedate = new Timestamp(date.getTime());
-		scrap.setCdate(date);
-		scrap.setScstate(this.getScstate());
-        scrapService.updateScrap(scrap);
+		try {
+			scrap = scrapService.findScrapById(this.getScid());
+			scrap.setUserByCuid(scrapService.findUserById(this.getUserByCuid()
+					.getUid()));
+			Date date = new Date();
+			// Timestamp nousedate = new Timestamp(date.getTime());
+			scrap.setCdate(date);
+			scrap.setScstate(this.getScstate());
+			scrapService.updateScrap(scrap);
 
-//		this.setResult("审核");
-//		return "successScrap";
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+
 		pageScrap();
 		return "pageScrap";
-		
+
 	}
-
-	
-
 
 	/**
 	 * 根据ID查找
@@ -228,15 +231,18 @@ public class ScrapAction extends ActionSupport {
 	 * @return
 	 */
 	public String findScrapById() {
+		try {
+			userList = scrapService.findUser();
 
-		userList = scrapService.findUser();
-		
-		scrap = scrapService.findScrapById(this.getScid());
-		this.setAsset(scrap.getAsset());
-		this.setUserByUid(scrap.getUserByUid());
-		this.setScdate(scrap.getScdate());
-		this.setScstate(scrap.getScstate());
+			scrap = scrapService.findScrapById(this.getScid());
+			this.setAsset(scrap.getAsset());
+			this.setUserByUid(scrap.getUserByUid());
+			this.setScdate(scrap.getScdate());
+			this.setScstate(scrap.getScstate());
 
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 
 		return "findScrapById";
 
@@ -248,11 +254,11 @@ public class ScrapAction extends ActionSupport {
 	 * @return
 	 */
 	public String pageScrap() {
-		
+
 		this.getPageInfo().setResult((scrapService.findAll(pageInfo)));
 		userList = scrapService.findUser();
 		assetList = scrapService.findAsset();
-		
+
 		return "pageScrap";
 	}
 

@@ -178,72 +178,96 @@ public class UserAction extends ActionSupport {
 		 * request.setAttribute("userList", userList);
 		 */
 		// 将所有用户放在request范围内
-
-		this.getPageInfo().setResult((userService.findAll(pageInfo)));// 分页
-		roleList = userService.findRole();
-		DepartmentList = userService.findDepartment();
+try {
+	this.getPageInfo().setResult((userService.findAll(pageInfo)));// 分页
+	roleList = userService.findRole();
+	DepartmentList = userService.findDepartment();
+} catch (Exception e) {
+	// TODO: handle exception
+}
+	
 
 		return SUCCESS;
 	}
 
 	public String createUser() {// 增加用户信息
-		// User u = new User();
-		user.setUname(this.getUname());
-		user.setUpwd(this.getUpwd());
-		// 根据部门id找到部门对象存储
-		user.setRole(userService.findRoleById(this.getRole().getRid()));
-		user.setDepartment(userService.findDepartmentById(this.getDepartment()
-				.getDid()));
+		try {
+			user.setUname(this.getUname());
+			user.setUpwd(this.getUpwd());
+			// 根据部门id找到部门对象存储
+			user.setRole(userService.findRoleById(this.getRole().getRid()));
+			user.setDepartment(userService.findDepartmentById(this.getDepartment()
+					.getDid()));
 
-		user.setUsex(this.getUsex());
-		user.setUstate(this.getUstate());
-		userService.createUser(user);// 保存接收到的数据到数据库中
+			user.setUsex(this.getUsex());
+			user.setUstate(this.getUstate());
+			userService.createUser(user);// 保存接收到的数据到数据库中
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		// User u = new User();
+		
 		// System.out.print( u.getUname());
 		return SUCCESS;
 
 	}
 
 	public String deleteUser() {// 删除用户
-		userService.deletUser(getUid());
+		try {
+			userService.deletUser(getUid());
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	
 
 		return SUCCESS;
 	}
 
 	public String updateUser() {// 更新用户
-		user.setUid(this.getUid());
-		user.setUname(this.getUname());
-		user.setUpwd(this.getUpwd());
+		try {
+			user.setUid(this.getUid());
+			user.setUname(this.getUname());
+			user.setUpwd(this.getUpwd());
 
-		user.setDepartment(userService.findDepartmentById(this.getDepartment()
-				.getDid()));
+			user.setDepartment(userService.findDepartmentById(this.getDepartment()
+					.getDid()));
 
-		user.setRole(userService.findRoleById(this.getRole().getRid()));
-		user.setUsex(this.getUsex());
-		user.setUstate(this.getUstate());
+			user.setRole(userService.findRoleById(this.getRole().getRid()));
+			user.setUsex(this.getUsex());
+			user.setUstate(this.getUstate());
 
-		userService.updateUser(user);
+			userService.updateUser(user);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	
 
 		return SUCCESS;
 
 	}
 
 	public String selectUserById() {// 显示当前用户
-		user = userService.findUserById(this.getUid());
-		this.setDepartment(user.getDepartment());
-		this.setUname(user.getUname());
-		this.setRole(user.getRole());
+		try {
+			user = userService.findUserById(this.getUid());
+			this.setDepartment(user.getDepartment());
+			this.setUname(user.getUname());
+			this.setRole(user.getRole());
 
-		if (user.getUsex() != null) {
+			if (user.getUsex() != null) {
 
-			this.setUsex(user.getUsex());
+				this.setUsex(user.getUsex());
+			}
+			if (user.getUstate() != null) {
+				this.setUstate(user.getUstate());
+			}
+
+			this.setUid(user.getUid());
+			this.setUpwd(user.getUpwd());
+			// System.out.print("dfdf");
+		} catch (Exception e) {
+			// TODO: handle exception
 		}
-		if (user.getUstate() != null) {
-			this.setUstate(user.getUstate());
-		}
-
-		this.setUid(user.getUid());
-		this.setUpwd(user.getUpwd());
-		// System.out.print("dfdf");
+	
 		return SUCCESS;
 	}
 

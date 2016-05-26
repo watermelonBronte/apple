@@ -30,25 +30,21 @@ public class AssetTransDetailAction extends ActionSupport {
 	protected IPage pageInfo = new PageInfo();
 
 	private List<User> userList = new ArrayList<User>();
-	private List<Asset> assetList =new ArrayList<Asset>();
-	private List<AssetTrans> assetTransList =new ArrayList<AssetTrans>();
-	
-	
+	private List<Asset> assetList = new ArrayList<Asset>();
+	private List<AssetTrans> assetTransList = new ArrayList<AssetTrans>();
+
 	private AssetTransDetail assetTransDetail = new AssetTransDetail();
-	
+
 	private String result;
-	
-	
+
 	private Integer tdid;
 	private AssetTrans assetTrans;
 	private Asset asset;
 	private User user;
 	private Integer tdresult;
 	private Date tddate;
-	
+
 	private Integer atid;
-	
-	
 
 	public Integer getAtid() {
 		return atid;
@@ -158,12 +154,11 @@ public class AssetTransDetailAction extends ActionSupport {
 		return assetTransDetailService;
 	}
 
-	public void setAssetTransDetailService(IAssetTransDetailService assetTransDetailService) {
+	public void setAssetTransDetailService(
+			IAssetTransDetailService assetTransDetailService) {
 		this.assetTransDetailService = assetTransDetailService;
 	}
 
-
-	
 	/**
 	 * 添加界面
 	 * 
@@ -173,7 +168,7 @@ public class AssetTransDetailAction extends ActionSupport {
 	public String addAssetTransDetail() {
 
 		userList = assetTransDetailService.findUser();
-		assetList =assetTransDetailService.findAsset();
+		assetList = assetTransDetailService.findAsset();
 		assetTransList = assetTransDetailService.findAssetTrans();
 		return "addAssetTransDetail";
 	}
@@ -185,17 +180,22 @@ public class AssetTransDetailAction extends ActionSupport {
 	 */
 	public String createAssetTransDetail() {
 
+		try {
+			assetTransDetail.setAsset(assetTransDetailService
+					.findAssetById(this.getAsset().getAid()));
+			assetTransDetail.setUser(assetTransDetailService
+					.findUserById((Integer) ActionContext.getContext()
+							.getSession().get("loginUid")));
+			assetTransDetail.setAssetTrans(assetTransDetailService
+					.findAssetTransById(this.getAtid()));
+			assetTransDetail.setTdresult(this.getTdresult());
+			assetTransDetail.setTddate(this.getTddate());
 
-	
-		assetTransDetail.setAsset(assetTransDetailService.findAssetById(this.getAsset().getAid()));
-		assetTransDetail.setUser(assetTransDetailService.findUserById((Integer) ActionContext.getContext().getSession().get("loginUid")));
-		assetTransDetail.setAssetTrans(assetTransDetailService.findAssetTransById(this.getAtid()));
-		assetTransDetail.setTdresult(this.getTdresult());
-		assetTransDetail.setTddate(this.getTddate());
-		
-		assetTransDetailService.createAssetTransDetail(assetTransDetail);
-//		this.setResult("创建");
-//		return "successAssetTransDetail";
+			assetTransDetailService.createAssetTransDetail(assetTransDetail);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+
 		pageAssetTransDetailByAtid();
 		return "pageAssetTransDetailByAtid";
 	}
@@ -206,7 +206,12 @@ public class AssetTransDetailAction extends ActionSupport {
 	 * @return
 	 */
 	public String deleteAssetTransDetail() {
-		assetTransDetailService.deleteAssetTransDetail(this.getTdid());
+		try {
+			assetTransDetailService.deleteAssetTransDetail(this.getTdid());
+
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		
 		pageAssetTransDetailByAtid();
 		return "pageAssetTransDetailByAtid";
@@ -217,41 +222,40 @@ public class AssetTransDetailAction extends ActionSupport {
 	 * 
 	 * @return
 	 */
-//	public String updateState() {
-//		assetTransDetail = assetTransDetailService.findAssetTransDetailById(this.getTdid());
-//		assetTransDetail.setAsset(assetTransDetailService.findAssetById(this.getAsset().getAid()));
-//		assetTransDetail.setUser(assetTransDetailService.findUserById(this.getUser().getUid()));
-//		assetTransDetail.setAssetTrans(assetTransDetailService.findAssetTransById(this.getAssetTrans().getAtid()));
-//		assetTransDetail.setTdresult(this.getTdresult());
-//		assetTransDetail.setTddate(this.getTddate());
-//		
-//		
-//		assetTransDetailService.updateAssetTransDetail(assetTransDetail);
-//
-////		this.setResult("修改移交清单");
-//		pageAssetTransDetailByAtid();
-//		return "pageAssetTransDetailByAtid";
-//	}
-	
-	
-
+	// public String updateState() {
+	// assetTransDetail =
+	// assetTransDetailService.findAssetTransDetailById(this.getTdid());
+	// assetTransDetail.setAsset(assetTransDetailService.findAssetById(this.getAsset().getAid()));
+	// assetTransDetail.setUser(assetTransDetailService.findUserById(this.getUser().getUid()));
+	// assetTransDetail.setAssetTrans(assetTransDetailService.findAssetTransById(this.getAssetTrans().getAtid()));
+	// assetTransDetail.setTdresult(this.getTdresult());
+	// assetTransDetail.setTddate(this.getTddate());
+	//		
+	//		
+	// assetTransDetailService.updateAssetTransDetail(assetTransDetail);
+	//
+	// // this.setResult("修改移交清单");
+	// pageAssetTransDetailByAtid();
+	// return "pageAssetTransDetailByAtid";
+	// }
 
 	/**
 	 * 根据ID查找
 	 * 
 	 * @return
 	 */
-//	public String findAssetTransDetailById() {
-//
-//		assetTransDetail = assetTransDetailService.findAssetTransDetailById(this.getTdid());
-//		this.setUser(assetTransDetail.getUser());
-//		this.setAsset(assetTransDetail.getAsset());
-//		this.setAssetTrans(assetTransDetail.getAssetTrans());
-//		this.setTdresult(assetTransDetail.getTdresult());
-//		this.setTddate(assetTransDetail.getTddate());
-//		return "findAssetTransDetailById";
-//
-//	}
+	// public String findAssetTransDetailById() {
+	//
+	// assetTransDetail =
+	// assetTransDetailService.findAssetTransDetailById(this.getTdid());
+	// this.setUser(assetTransDetail.getUser());
+	// this.setAsset(assetTransDetail.getAsset());
+	// this.setAssetTrans(assetTransDetail.getAssetTrans());
+	// this.setTdresult(assetTransDetail.getTdresult());
+	// this.setTddate(assetTransDetail.getTddate());
+	// return "findAssetTransDetailById";
+	//
+	// }
 
 	/**
 	 * 分页查找
@@ -259,20 +263,29 @@ public class AssetTransDetailAction extends ActionSupport {
 	 * @return
 	 */
 	public String pageAssetTransDetail() {
-		this.getPageInfo().setResult((assetTransDetailService.findAll(pageInfo)));
+		this.getPageInfo().setResult(
+				(assetTransDetailService.findAll(pageInfo)));
 		return "pageAssetTransDetail";
 	}
-	
+
 	/**
 	 * 根据ATID分页查找
 	 * 
 	 * @return
 	 */
 	public String pageAssetTransDetailByAtid() {
-		this.setAssetTrans(assetTransDetailService.findAssetTransById(this.getAtid()));
-		ActionContext ctx = ActionContext.getContext();
-		ctx.getSession().put("atid",this.getAtid());
-		this.getPageInfo().setResult((assetTransDetailService.findAssetTransDetailByAtid(pageInfo,assetTrans)));
+		try {
+			this.setAssetTrans(assetTransDetailService.findAssetTransById(this
+					.getAtid()));
+			ActionContext ctx = ActionContext.getContext();
+			ctx.getSession().put("atid", this.getAtid());
+			this.getPageInfo().setResult(
+					(assetTransDetailService.findAssetTransDetailByAtid(pageInfo,
+							assetTrans)));
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
 		return "pageAssetTransDetailByAtid";
 	}
 

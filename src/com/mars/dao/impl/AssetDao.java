@@ -28,14 +28,12 @@ import com.mars.vo.User;
  * @author ye
  * @date 2016/5/2
  */
-public class AssetDao extends HibernateDaoSupport implements
-		IAssetDao {
+public class AssetDao extends HibernateDaoSupport implements IAssetDao {
 
 	/*
-	 * 添加对象
-	 * (non-Javadoc)
-	 * @see com.mars.dao.IAssetDao#createAsset(com.mars.vo.Asset
-	 * )
+	 * 添加对象 (non-Javadoc)
+	 * 
+	 * @see com.mars.dao.IAssetDao#createAsset(com.mars.vo.Asset )
 	 */
 	public void createAsset(Asset asset) {
 		super.getHibernateTemplate().save(asset);
@@ -43,28 +41,27 @@ public class AssetDao extends HibernateDaoSupport implements
 	}
 
 	/*
-	 * 查找对象
-	 * (non-Javadoc)
+	 * 查找对象 (non-Javadoc)
+	 * 
 	 * @see com.mars.dao.IAssetDao#findAsset()
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Asset> findAsset() {
-		return (List<Asset>)getHibernateTemplate().find("from Asset");
+		return (List<Asset>) getHibernateTemplate().find("from Asset");
 	}
 
 	/*
-	 * 更新对象
-	 * (non-Javadoc)
-	 * @see com.mars.dao.IAssetDao#updateAsset(com.mars.vo.Asset
-	 * )
+	 * 更新对象 (non-Javadoc)
+	 * 
+	 * @see com.mars.dao.IAssetDao#updateAsset(com.mars.vo.Asset )
 	 */
 	public void updateAsset(Asset asset) {
 		super.getHibernateTemplate().update(asset);
 	}
 
 	/*
-	 * 分页查找对象
-	 * (non-Javadoc)
+	 * 分页查找对象 (non-Javadoc)
+	 * 
 	 * @see com.mars.dao.IAssetDao#findAllAsset(com.mars.tools.IPage)
 	 */
 	@SuppressWarnings("unchecked")
@@ -96,34 +93,33 @@ public class AssetDao extends HibernateDaoSupport implements
 	}
 
 	/*
-	 * 根据主键删除对象
-	 * (non-Javadoc)
+	 * 根据主键删除对象 (non-Javadoc)
+	 * 
 	 * @see com.mars.dao.IAssetDao#deleteAsset(java.lang.Integer)
 	 */
 	public void deleteAsset(Integer aid) {
-		Asset asset = (Asset) super
-				.getHibernateTemplate().load(Asset.class,
-						new Integer(aid));
+		Asset asset = (Asset) super.getHibernateTemplate().load(Asset.class,
+				new Integer(aid));
 		super.getHibernateTemplate().delete(asset);
 
 	}
 
 	/*
-	 * 根据主键查找对象并返回对象
-	 * (non-Javadoc)
+	 * 根据主键查找对象并返回对象 (non-Javadoc)
+	 * 
 	 * @see com.mars.dao.IAssetDao#findAssetById(java.lang.Integer)
 	 */
 	public Asset findAssetById(Integer aid) {
-		Asset asset = (Asset) super
-				.getHibernateTemplate().get(Asset.class,
-						new Integer(aid));
+		Asset asset = (Asset) super.getHibernateTemplate().get(Asset.class,
+				new Integer(aid));
 		return asset;
 	}
 
 	/*
-	 * 根据资产类别分页查询
-	 * (non-Javadoc)
-	 * @see com.mars.dao.IAssetDao#findAllAssetByAttr(com.mars.tools.IPage, java.lang.String)
+	 * 根据资产类别分页查询 (non-Javadoc)
+	 * 
+	 * @see com.mars.dao.IAssetDao#findAllAssetByAttr(com.mars.tools.IPage,
+	 * java.lang.String)
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Asset> findAllAssetByAc(final IPage pageInfo, final Integer acid) {
@@ -136,8 +132,9 @@ public class AssetDao extends HibernateDaoSupport implements
 						IPage pages = null;
 						List<Asset> list = new ArrayList<Asset>();
 						try {
-							Criteria criteria = session
-									.createCriteria(Asset.class).add(Restrictions.eq("acid",acid)) ;
+							Criteria criteria = session.createCriteria(
+									Asset.class).add(
+									Restrictions.eq("acid", acid));
 							IExecute exc = new Execute(pageInfo);
 							pages = exc.excute(criteria);
 							if (pages != null) {
@@ -154,12 +151,14 @@ public class AssetDao extends HibernateDaoSupport implements
 	}
 
 	/*
-	 * 根据用户ID分页查询
-	 * (non-Javadoc)
-	 * @see com.mars.dao.IAssetDao#findAllAssetByAttr(com.mars.tools.IPage, java.lang.String)
+	 * 根据用户ID分页查询 (non-Javadoc)
+	 * 
+	 * @see com.mars.dao.IAssetDao#findAllAssetByAttr(com.mars.tools.IPage,
+	 * java.lang.String)
 	 */
 	@SuppressWarnings("unchecked")
-	public List<Asset> findAllAssetByUser(final IPage pageInfo, final Integer uid) {
+	public List<Asset> findAllAssetByUser(final IPage pageInfo,
+			final Integer uid) {
 		return (List<Asset>) super.getHibernateTemplate().execute(
 				new HibernateCallback() {
 
@@ -169,8 +168,9 @@ public class AssetDao extends HibernateDaoSupport implements
 						IPage pages = null;
 						List<Asset> list = new ArrayList<Asset>();
 						try {
-							Criteria criteria = session
-									.createCriteria(Asset.class).add(Restrictions.eq("uid",uid)) ;
+							Criteria criteria = session.createCriteria(
+									Asset.class).add(
+									Restrictions.eq("uid", uid));
 							IExecute exc = new Execute(pageInfo);
 							pages = exc.excute(criteria);
 							if (pages != null) {
@@ -187,7 +187,8 @@ public class AssetDao extends HibernateDaoSupport implements
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Asset> findAllAssetByAC(final IPage pageInfo, final AssetCategory ac) {
+	public List<Asset> findAllAssetByAC(final IPage pageInfo,
+			final AssetCategory ac) {
 		return (List<Asset>) super.getHibernateTemplate().execute(
 				new HibernateCallback() {
 
@@ -197,8 +198,9 @@ public class AssetDao extends HibernateDaoSupport implements
 						IPage pages = null;
 						List<Asset> list = new ArrayList<Asset>();
 						try {
-							Criteria criteria = session
-									.createCriteria(Asset.class).add(Restrictions.eq("assetCategory",ac)) ;
+							Criteria criteria = session.createCriteria(
+									Asset.class).add(
+									Restrictions.eq("assetCategory", ac));
 							IExecute exc = new Execute(pageInfo);
 							pages = exc.excute(criteria);
 							if (pages != null) {
@@ -216,21 +218,20 @@ public class AssetDao extends HibernateDaoSupport implements
 
 	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see com.mars.dao.IAssetDao#findAssetCategoryById(java.lang.Integer)
 	 */
 	public AssetCategory findAssetCategoryById(Integer acid) {
 		AssetCategory assetCategory = (AssetCategory) super
-		.getHibernateTemplate().get(AssetCategory.class,
-				new Integer(acid));
-         return assetCategory;
+				.getHibernateTemplate().get(AssetCategory.class,
+						new Integer(acid));
+		return assetCategory;
 	}
 
-	
 	public User findUserById(Integer uid) {
-		User user = (User) super
-		.getHibernateTemplate().get(User.class,
+		User user = (User) super.getHibernateTemplate().get(User.class,
 				new Integer(uid));
-         return user;
+		return user;
 	}
 
 	@SuppressWarnings("unchecked")
@@ -244,8 +245,9 @@ public class AssetDao extends HibernateDaoSupport implements
 						IPage pages = null;
 						List<Asset> list = new ArrayList<Asset>();
 						try {
-							Criteria criteria = session
-									.createCriteria(Asset.class).add(Restrictions.eq("user",u)) ;
+							Criteria criteria = session.createCriteria(
+									Asset.class)
+									.add(Restrictions.eq("user", u));
 							IExecute exc = new Execute(pageInfo);
 							pages = exc.excute(criteria);
 							if (pages != null) {
@@ -260,9 +262,10 @@ public class AssetDao extends HibernateDaoSupport implements
 					}
 				});
 	}
-	
+
 	@SuppressWarnings("unchecked")
-	public List<Asset> findAllAssetByPurchaseDetail(final IPage pageInfo, final PurchaseDetail pd) {
+	public List<Asset> findAllAssetByPurchaseDetail(final IPage pageInfo,
+			final PurchaseDetail pd) {
 		return (List<Asset>) super.getHibernateTemplate().execute(
 				new HibernateCallback() {
 
@@ -272,8 +275,9 @@ public class AssetDao extends HibernateDaoSupport implements
 						IPage pages = null;
 						List<Asset> list = new ArrayList<Asset>();
 						try {
-							Criteria criteria = session
-									.createCriteria(Asset.class).add(Restrictions.eq("purchaseDetail",pd)) ;
+							Criteria criteria = session.createCriteria(
+									Asset.class).add(
+									Restrictions.eq("purchaseDetail", pd));
 							IExecute exc = new Execute(pageInfo);
 							pages = exc.excute(criteria);
 							if (pages != null) {
@@ -288,8 +292,10 @@ public class AssetDao extends HibernateDaoSupport implements
 					}
 				});
 	}
+
 	@SuppressWarnings("unchecked")
-	public List<Asset> findAllAssetByFinance(final IPage pageInfo, final Finance f) {
+	public List<Asset> findAllAssetByFinance(final IPage pageInfo,
+			final Finance f) {
 		return (List<Asset>) super.getHibernateTemplate().execute(
 				new HibernateCallback() {
 
@@ -299,8 +305,9 @@ public class AssetDao extends HibernateDaoSupport implements
 						IPage pages = null;
 						List<Asset> list = new ArrayList<Asset>();
 						try {
-							Criteria criteria = session
-									.createCriteria(Asset.class).add(Restrictions.eq("finance",f)) ;
+							Criteria criteria = session.createCriteria(
+									Asset.class).add(
+									Restrictions.eq("finance", f));
 							IExecute exc = new Execute(pageInfo);
 							pages = exc.excute(criteria);
 							if (pages != null) {
@@ -315,48 +322,50 @@ public class AssetDao extends HibernateDaoSupport implements
 					}
 				});
 	}
-	
+
 	public Finance findFinanceById(Integer fid) {
-		Finance finance = (Finance) super
-		.getHibernateTemplate().get(Finance.class,
-				new Integer(fid));
-         return finance;
+		Finance finance = (Finance) super.getHibernateTemplate().get(
+				Finance.class, new Integer(fid));
+		return finance;
 	}
+
 	public PurchaseDetail findPurchaseDetailById(Integer pdid) {
-		PurchaseDetail pd = (PurchaseDetail) super
-		.getHibernateTemplate().get(PurchaseDetail.class,
-				new Integer(pdid));
-         return pd;
+		PurchaseDetail pd = (PurchaseDetail) super.getHibernateTemplate().get(
+				PurchaseDetail.class, new Integer(pdid));
+		return pd;
 	}
-	
+
 	/**
 	 * select
 	 */
 	@SuppressWarnings("unchecked")
 	public List<AssetCategory> findAssetCategory() {
-         return (List<AssetCategory>)getHibernateTemplate().find("from AssetCategory");
+		return (List<AssetCategory>) getHibernateTemplate().find(
+				"from AssetCategory");
 	}
 
 	@SuppressWarnings("unchecked")
 	public List<Finance> findFinance() {
-		 return (List<Finance>)getHibernateTemplate().find("from Finance");
-			
+		return (List<Finance>) getHibernateTemplate().find("from Finance");
+
 	}
 
 	@SuppressWarnings("unchecked")
 	public List<PurchaseDetail> findPurchaseDetail() {
-		return (List<PurchaseDetail>)getHibernateTemplate().find("from PurchaseDetail");
+		return (List<PurchaseDetail>) getHibernateTemplate().find(
+				"from PurchaseDetail");
 	}
 
 	@SuppressWarnings("unchecked")
 	public List<User> findUser() {
-		return (List<User>)getHibernateTemplate().find("from User");
-		
+		return (List<User>) getHibernateTemplate().find("from User");
+
 	}
-	
-	
+
 	@SuppressWarnings("unchecked")
-	public List<Asset> findAllAssetByAttr(final IPage pageInfo, final Finance finance,final AssetCategory assetCategory,final User user,final PurchaseDetail purchaseDetail) {
+	public List<Asset> findAllAssetByAttr(final IPage pageInfo,
+			final Finance finance, final User user,
+			final PurchaseDetail purchaseDetail) {
 		return (List<Asset>) super.getHibernateTemplate().execute(
 				new HibernateCallback() {
 
@@ -367,15 +376,16 @@ public class AssetDao extends HibernateDaoSupport implements
 						List<Asset> list = new ArrayList<Asset>();
 						try {
 							Criteria criteria = session
-							.createCriteria(Asset.class);
-							if(finance!=null)
-								criteria.add(Restrictions.eq("finance",finance));
-							if(assetCategory!=null)
-								criteria.add(Restrictions.eq("assetCategory",assetCategory));
-							if(user!=null)
-								criteria.add(Restrictions.eq("user",user));
-							if(purchaseDetail!=null)
-								criteria.add(Restrictions.eq("purchaseDetail",purchaseDetail));
+									.createCriteria(Asset.class);
+							if (finance != null)
+								criteria.add(Restrictions
+										.eq("finance", finance));
+
+							if (user != null)
+								criteria.add(Restrictions.eq("user", user));
+							if (purchaseDetail != null)
+								criteria.add(Restrictions.eq("purchaseDetail",
+										purchaseDetail));
 							IExecute exc = new Execute(pageInfo);
 							pages = exc.excute(criteria);
 							if (pages != null) {
@@ -390,5 +400,5 @@ public class AssetDao extends HibernateDaoSupport implements
 					}
 				});
 	}
-	
+
 }

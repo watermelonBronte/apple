@@ -8,7 +8,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
 import com.mars.service.IAssetCategoryService;
 import com.mars.tools.IPage;
 import com.mars.tools.PageInfo;
@@ -22,7 +21,7 @@ import com.opensymphony.xwork2.ActionSupport;
 public class AssetCategoryAction extends ActionSupport {
 
 	private IAssetCategoryService assetCategoryService;
-	
+
 	protected IPage pageInfo = new PageInfo();
 
 	private Integer acid;
@@ -32,7 +31,7 @@ public class AssetCategoryAction extends ActionSupport {
 	private String supacname;
 
 	private String result;
-	
+
 	private AssetCategory assetCategory = new AssetCategory();
 
 	public AssetCategory getAssetCategory() {
@@ -51,8 +50,6 @@ public class AssetCategoryAction extends ActionSupport {
 			IAssetCategoryService assetCategoryService) {
 		this.assetCategoryService = assetCategoryService;
 	}
-
-	
 
 	public IPage getPageInfo() {
 		return pageInfo;
@@ -102,7 +99,6 @@ public class AssetCategoryAction extends ActionSupport {
 		this.supacname = supacname;
 	}
 
-	
 	public String getResult() {
 		return result;
 	}
@@ -111,29 +107,32 @@ public class AssetCategoryAction extends ActionSupport {
 		this.result = result;
 	}
 
-
 	/**
 	 * 添加界面
+	 * 
 	 * @return
 	 */
-	public String addAssetCategory()
-	{
+	public String addAssetCategory() {
 		return "addAssetCategory";
 	}
+
 	/**
 	 * 创建
 	 * 
 	 * @return
 	 */
 	public String createAssetCategory() {
-		assetCategory.setAccode(getAccode());
-		assetCategory.setAcname(getAcname());
-		assetCategory.setSupacid(getSupacid());
-		assetCategory.setSupacname(getSupacname());
-	
-		assetCategoryService.createAssetCategory(assetCategory);
-//		this.setResult("创建");
-//		return "successAssetCategory";
+		try {
+			assetCategory.setAccode(getAccode());
+			assetCategory.setAcname(getAcname());
+			assetCategory.setSupacid(getSupacid());
+			assetCategory.setSupacname(getSupacname());
+
+			assetCategoryService.createAssetCategory(assetCategory);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+
 		pageAssetCategory();
 		return "pageAssetCategory";
 	}
@@ -144,9 +143,12 @@ public class AssetCategoryAction extends ActionSupport {
 	 * @return
 	 */
 	public String deleteAssetCategory() {
-		assetCategoryService.deleteAssetCategory(this.getAcid());
-//		this.setResult("删除");
-//		return "successAssetCategory";
+		try {
+			assetCategoryService.deleteAssetCategory(this.getAcid());
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+
 		pageAssetCategory();
 		return "pageAssetCategory";
 	}
@@ -158,21 +160,22 @@ public class AssetCategoryAction extends ActionSupport {
 	 */
 	public String updateAssetCategory() {
 
-//		System.out.println(this.getAccode()+this.getAcname()+this.getSupacname()+this.getSupacid()+this.getAcid());
-		assetCategory.setAccode(getAccode());
-		assetCategory.setAcname(getAcname());
-		assetCategory.setSupacid(getSupacid());
-		assetCategory.setSupacname(getSupacname());
-		assetCategory.setAcid(getAcid());
-		assetCategoryService.updateAssetCategory(assetCategory);
+		try {
+			assetCategory.setAccode(getAccode());
+			assetCategory.setAcname(getAcname());
+			assetCategory.setSupacid(getSupacid());
+			assetCategory.setSupacname(getSupacname());
+			assetCategory.setAcid(getAcid());
+			assetCategoryService.updateAssetCategory(assetCategory);
 
-//		this.setResult("更新");
-//		return "successAssetCategory";
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		// System.out.println(this.getAccode()+this.getAcname()+this.getSupacname()+this.getSupacid()+this.getAcid());
+
 		pageAssetCategory();
 		return "pageAssetCategory";
 	}
-
-
 
 	/**
 	 * 根据ID查找
@@ -181,10 +184,14 @@ public class AssetCategoryAction extends ActionSupport {
 	 */
 	public String findAssetCategoryById() {
 
-		assetCategory = assetCategoryService.findAssetCategoryById(this
-				.getAcid());
+		try {
+			assetCategory = assetCategoryService.findAssetCategoryById(this
+					.getAcid());
 
-	this.setAssetCategory(assetCategory);
+			this.setAssetCategory(assetCategory);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 
 		return "findAssetCategoryById";
 	}
@@ -199,9 +206,5 @@ public class AssetCategoryAction extends ActionSupport {
 
 		return "pageAssetCategory";
 	}
-	
-	
-	
-	
 
 }

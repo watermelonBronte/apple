@@ -155,15 +155,20 @@ public class AssetTransAction extends ActionSupport {
 	 * @return
 	 */
 	public String createAssetTrans() {
+		try {
+			assetTrans.setUser(assetTransService
+					.findUserById((Integer) ActionContext.getContext()
+							.getSession().get("loginUid")));
+			assetTrans.setAtrdate(this.getAtrdate());
+			assetTrans.setAttype(this.getAttype());
+			assetTrans.setAtstate(this.getAtstate());
 
-		assetTrans.setUser(assetTransService.findUserById((Integer) ActionContext.getContext().getSession().get("loginUid")));
-		assetTrans.setAtrdate(this.getAtrdate());
-		assetTrans.setAttype(this.getAttype());
-		assetTrans.setAtstate(this.getAtstate());
+			assetTransService.createAssetTrans(assetTrans);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 
-		assetTransService.createAssetTrans(assetTrans);
-//		this.setResult("创建");
-//		return "successAssetTrans";
+		
 		pageAssetTrans();
 		return "pageAssetTrans";
 	}
@@ -174,7 +179,12 @@ public class AssetTransAction extends ActionSupport {
 	 * @return
 	 */
 	public String deleteAssetTrans() {
-		assetTransService.deleteAssetTrans(this.getAtid());
+		try {
+			assetTransService.deleteAssetTrans(this.getAtid());
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
 
 		pageAssetTrans();
 		return "pageAssetTrans";
@@ -186,19 +196,22 @@ public class AssetTransAction extends ActionSupport {
 	 * @return
 	 */
 	public String updateState() {
-		assetTrans = assetTransService.findAssetTransById(this.getAtid());
-		Date date = new Date();
-//		Timestamp nousedate = new Timestamp(date.getTime());
-		assetTrans.setAtfdate(date);
-		assetTrans.setAtstate(1);
+		try {
+			assetTrans = assetTransService.findAssetTransById(this.getAtid());
+			Date date = new Date();
+			// Timestamp nousedate = new Timestamp(date.getTime());
+			assetTrans.setAtfdate(date);
+			assetTrans.setAtstate(1);
 
-		assetTransService.updateAssetTrans(assetTrans);
+			assetTransService.updateAssetTrans(assetTrans);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
 
 		pageAssetTrans();
 		return "pageAssetTrans";
 	}
-
-	
 
 	/**
 	 * 根据ID查找
@@ -207,12 +220,17 @@ public class AssetTransAction extends ActionSupport {
 	 */
 	public String findAssetTransById() {
 
-		assetTrans = assetTransService.findAssetTransById(this.getAtid());
-		this.setUser(assetTrans.getUser());
-		this.setAtrdate(assetTrans.getAtrdate());
-		this.setAtfdate(assetTrans.getAtfdate());
-		this.setAttype(assetTrans.getAttype());
-		this.setAtstate(assetTrans.getAtstate());
+		try {
+			assetTrans = assetTransService.findAssetTransById(this.getAtid());
+			this.setUser(assetTrans.getUser());
+			this.setAtrdate(assetTrans.getAtrdate());
+			this.setAtfdate(assetTrans.getAtfdate());
+			this.setAttype(assetTrans.getAttype());
+			this.setAtstate(assetTrans.getAtstate());
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
 		return "findAssetTransById";
 
 	}

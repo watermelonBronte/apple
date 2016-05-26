@@ -236,11 +236,7 @@ th {
 								${purinfo.pnuse}
 							</td>
 							<td>
-								<!--
-          
-          ${purinfo.pnstate}
-          
-             -->
+					
 								<s:if test="%{#purinfo.pnstate==1}">入库</s:if>
 								<s:else>审核</s:else>
 

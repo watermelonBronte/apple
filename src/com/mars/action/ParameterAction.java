@@ -116,14 +116,17 @@ public class ParameterAction extends ActionSupport{
 	 * @return
 	 */
 	public String createParameter() {
-		parameter.setPname(this.getPname());
-		parameter.setPnum(this.getPnum());
-		parameter.setPtypeid(this.getPtypeid());
-		parameter.setPtypename(this.getPtypename());
+		try {
+			parameter.setPname(this.getPname());
+			parameter.setPnum(this.getPnum());
+			parameter.setPtypeid(this.getPtypeid());
+			parameter.setPtypename(this.getPtypename());
 
-		parameterService.createParameter(parameter);
-//		this.setResult("创建");
-//		return "successParameter";
+			parameterService.createParameter(parameter);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
 		pageParameter();
 		return "pageParameter";
 	}
@@ -133,9 +136,13 @@ public class ParameterAction extends ActionSupport{
 	 * @return
 	 */
 	public String deleteParameter() {
-		parameterService.deleteParameter(this.getPid());
-//		this.setResult("删除");
-//		return "successParameter";
+		try {
+			parameterService.deleteParameter(this.getPid());
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+
 		pageParameter();
 		return "pageParameter";
 	}
@@ -145,15 +152,18 @@ public class ParameterAction extends ActionSupport{
 	 * @return
 	 */
 	public String updateParameter() {
-		parameter.setPid(this.getPid());
-		parameter.setPname(this.getPname());
-		parameter.setPnum(this.getPnum());
-		parameter.setPtypeid(this.getPtypeid());
-		parameter.setPtypename(this.getPtypename());
-		parameterService.updateParameter(parameter);
-	
-//		this.setResult("更新");
-//		return "successParameter";
+		try {
+			parameter.setPid(this.getPid());
+			parameter.setPname(this.getPname());
+			parameter.setPnum(this.getPnum());
+			parameter.setPtypeid(this.getPtypeid());
+			parameter.setPtypename(this.getPtypename());
+			parameterService.updateParameter(parameter);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+
 		pageParameter();
 		return "pageParameter";
 	}
@@ -167,15 +177,20 @@ public class ParameterAction extends ActionSupport{
 	 */
 	public String findParameterById() {
 
-		parameter = parameterService.findParameterById(this
-				.getPid());
-		// System.out.println(assetCategory.getAccode());
+		try {
+			parameter = parameterService.findParameterById(this
+					.getPid());
+			
 
-		this.setPid(parameter.getPid());
-		this.setPname(parameter.getPname());
-		this.setPnum(parameter.getPnum());
-		this.setPtypeid(parameter.getPtypeid());
-		this.setPtypename(parameter.getPtypename());
+			this.setPid(parameter.getPid());
+			this.setPname(parameter.getPname());
+			this.setPnum(parameter.getPnum());
+			this.setPtypeid(parameter.getPtypeid());
+			this.setPtypename(parameter.getPtypename());
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
 		return "findParameterById";
 	}
 

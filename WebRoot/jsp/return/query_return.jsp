@@ -157,15 +157,17 @@ th {
 
 			<div class="btn-toolbar list-toolbar">
 				<br />
-				<a href="jsp/return/create_return.jsp"
-					class="btn btn-primary"><i class="fa fa-plus"></i> 添加领用信息</a>
-				<button class="btn btn-default">
+				<a href="#myModal1" role="button" data-toggle="modal" class="btn btn-primary"><i class="fa fa-plus"></i> 增加领用信息</a><!--
+=======
+					class="btn btn-primary"><i class="fa fa-plus"></i> 添加信息</a>
+				--><!--<button class="btn btn-default">
+>>>>>>> 322297b676a0ccfb153670cc7478c7e2cf05eb0e
 					导入
 				</button>
 				<button class="btn btn-default">
 					导出
 				</button>
-				<div class="btn-group">
+				--><div class="btn-group">
 				</div>
 			</div>
 
