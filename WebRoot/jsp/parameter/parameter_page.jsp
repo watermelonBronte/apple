@@ -135,9 +135,9 @@ function submitFrom(formName){
 <div class="btn-toolbar list-toolbar">
     <br/>
    <a href="parameter/test_Parameter_addParameter.action" class="btn btn-primary"><i class="fa fa-plus"></i> 添加参数信息</a>
-   <button class="btn btn-default">导入</button>
+   <!--<button class="btn btn-default">导入</button>
     <button class="btn btn-default">导出</button>
-  <div class="btn-group">
+  --><div class="btn-group">
   </div>
 </div>
 		

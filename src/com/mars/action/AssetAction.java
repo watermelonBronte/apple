@@ -28,41 +28,42 @@ import com.sun.org.apache.bcel.internal.generic.NEW;
  * @date 2016/5/6
  */
 public class AssetAction extends ActionSupport {
-private Date fdate;
-private String sfdate;
+	private Date fdate;
+	private String sfdate;
 
-private String sdate;
+	private String sdate;
+
 	public String getSdate() {
-	return sdate;
-}
+		return sdate;
+	}
 
-public void setSdate(String sdate) {
-	this.sdate = sdate;
-}
+	public void setSdate(String sdate) {
+		this.sdate = sdate;
+	}
 
 	public Date getFdate() {
-	return fdate;
-}
+		return fdate;
+	}
 
-public void setFdate(Date fdate) {
-	this.fdate = fdate;
-}
+	public void setFdate(Date fdate) {
+		this.fdate = fdate;
+	}
 
-public String getSfdate() {
-	return sfdate;
-}
+	public String getSfdate() {
+		return sfdate;
+	}
 
-public void setSfdate(String sfdate) {
-	this.sfdate = sfdate;
-}
+	public void setSfdate(String sfdate) {
+		this.sfdate = sfdate;
+	}
 
 	private IAssetService assetService;
 
 	private List<User> userList = new ArrayList<User>();
-	private List<AssetCategory> assetCategoryList =new ArrayList<AssetCategory>();
+	private List<AssetCategory> assetCategoryList = new ArrayList<AssetCategory>();
 	private List<Finance> financeList = new ArrayList<Finance>();
 	private List<PurchaseDetail> purchaseDetailList = new ArrayList<PurchaseDetail>();
-	
+
 	protected IPage pageInfo = new PageInfo();
 	protected String attr;
 	protected Integer value;
@@ -122,7 +123,7 @@ public void setSfdate(String sfdate) {
 	private Integer aid;
 	private User user;
 	private Finance finance;
-//	private AssetCategory assetCategory;
+	// private AssetCategory assetCategory;
 	private PurchaseDetail purchaseDetail;
 	private String cid;
 	private Integer usestate;
@@ -138,8 +139,7 @@ public void setSfdate(String sfdate) {
 	private Integer uid;
 	private Integer pdid;
 	private Integer fid;
-	
-	
+
 	public Integer getAcid() {
 		return acid;
 	}
@@ -228,15 +228,13 @@ public void setSfdate(String sfdate) {
 		this.finance = finance;
 	}
 
-//	public AssetCategory getAssetCategory() {
-//		return assetCategory;
-//	}
-//
-//	public void setAssetCategory(AssetCategory assetCategory) {
-//		this.assetCategory = assetCategory;
-//	}
-
-	
+	// public AssetCategory getAssetCategory() {
+	// return assetCategory;
+	// }
+	//
+	// public void setAssetCategory(AssetCategory assetCategory) {
+	// this.assetCategory = assetCategory;
+	// }
 
 	public PurchaseDetail getPurchaseDetail() {
 		return purchaseDetail;
@@ -318,52 +316,23 @@ public void setSfdate(String sfdate) {
 		this.anote = anote;
 	}
 
-
 	/**
 	 * 根据属性查找
+	 * 
 	 * @return
 	 */
 	public String SearchAsset() {
-//		if(this.getAttr().equals("ac"))
-//		{
-//		assetCategory = assetService.findAssetCategoryById(this.getValue());
-//		this.getPageInfo().setResult(
-//				(assetService.findAllAssetByAC(pageInfo, assetCategory)));
-//		}
-//		else if(this.getAttr().equals("u")){
-//			user = assetService.findUserById(this.getValue());
-//			this.getPageInfo().setResult(
-//					(assetService.findAllAssetByUser(pageInfo, user)));
-//
-//			return "pageAsset";
-//		}
-//		else if(this.getAttr().equals("f")){
-//			finance = assetService.findFinanceById(this.getValue());
-//			this.getPageInfo().setResult(
-//					(assetService.findAllAssetByFinance(pageInfo, finance)));
-//
-//			return "pageAsset";
-//		}
-//		else {
-//			purchaseDetail = assetService.findPurchaseDetailById(this.getValue());
-//			this.getPageInfo().setResult(
-//					(assetService.findAllAssetByPurchaseDetail(pageInfo, purchaseDetail)));
-//
-//			return "pageAsset";
-//		}
-//		if(this.getAcid()!= null)
-//	    	assetCategory = assetService.findAssetCategoryById(this.getAcid());
-		if(this.getUid()!= null)
-    		user = assetService.findUserById(this.getUid());
-		if(this.getFid()!=null)
-	    	finance = assetService.findFinanceById(this.getFid());
-		if(this.getPdid()!=null)
-	    	purchaseDetail = assetService.findPurchaseDetailById(this.getPdid());
-//		assetService.findAllAssetByAttr(pageInfo,finance,assetCategory,user,purchaseDetail);
+		if (this.getUid() != null)
+			user = assetService.findUserById(this.getUid());
+		if (this.getFid() != null)
+			finance = assetService.findFinanceById(this.getFid());
+		if (this.getPdid() != null)
+			purchaseDetail = assetService
+					.findPurchaseDetailById(this.getPdid());
+		assetService
+				.findAllAssetByAttr(pageInfo, finance, user, purchaseDetail);
 		return "pageAsset";
 	}
-
-	
 
 	/**
 	 * 添加界面
@@ -372,86 +341,87 @@ public void setSfdate(String sfdate) {
 	 */
 
 	public String addAsset() {
-		
+
 		assetCategoryList = assetService.findAssetCategory();
 		financeList = assetService.findFinance();
-//		userList = assetService.findUser();
+		// userList = assetService.findUser();
 		purchaseDetailList = assetService.findPurchaseDetail();
 		return "addAsset";
 	}
 
-
-	
 	/**
 	 * 创建
 	 * 
 	 * @return
 	 * @throws Exception
 	 */
-	public String createAsset(){
+	public String createAsset() {
 		// Asset.setAccode(getAccode());
 
 		asset.setCid(getCid());
-//		asset.setAssetCategory(assetService.findAssetCategoryById(this.getAssetCategory().getAcid()));
-		asset.setUser(assetService.findUserById((Integer) ActionContext.getContext().getSession().get("loginUid")));
-//		asset.setFinance(assetService.findFinanceById(this.getFinance().getFid()));
+		// asset.setAssetCategory(assetService.findAssetCategoryById(this.getAssetCategory().getAcid()));
+		asset.setUser(assetService.findUserById((Integer) ActionContext
+				.getContext().getSession().get("loginUid")));
+		// asset.setFinance(assetService.findFinanceById(this.getFinance().getFid()));
 		asset.setAstate(this.getAstate());
-//		Date date = new Date();
-//		Timestamp nousedate = new Timestamp(date.getTime());
-//		asset.setAdate(nousedate);
+		// Date date = new Date();
+		// Timestamp nousedate = new Timestamp(date.getTime());
+		// asset.setAdate(nousedate);
 		asset.setAdate(this.getAdate());
-//		asset.setPurchaseDetail(assetService.findPurchaseDetailById(this.getPurchaseDetail().getPdid()));
+		// asset.setPurchaseDetail(assetService.findPurchaseDetailById(this.getPurchaseDetail().getPdid()));
 		asset.setTprint(this.getTprint());
 		asset.setOnepath(this.getOnepath());
 		asset.setTwopath(this.getTwopath());
 		asset.setBarcode(this.getBarcode());
 		asset.setAnote(this.getAnote());
-		
+
 		assetService.createAsset(asset);
 
-//		this.setResult("创建");
-//		return "successAsset";
+		// this.setResult("创建");
+		// return "successAsset";
 		pageAsset();
 		return "pageAsset";
 	}
 
 	/**
 	 * 导出资产
+	 * 
 	 * @return
 	 */
-	public String excelOutAsset(){
+	public String excelOutAsset() {
 		assetService.excelOutAsset();
-//		System.out.println("assetacion");
+		// System.out.println("assetacion");
 		pageAsset();
 		return "pageAsset";
 	}
+
 	/**
 	 * 导入资产
+	 * 
 	 * @return
 	 */
-	public String excelInAsset(){
-		assetService.excelInAsset();
-//		System.out.println("assetacion");
-		pageAsset();
-		return "pageAsset";
-	}
+	// public String excelInAsset(){
+	// assetService.excelInAsset();
+	// // System.out.println("assetacion");
+	// pageAsset();
+	// return "pageAsset";
+	// }
 	/**
 	 * 删除
 	 * 
 	 * @return
 	 * @throws Exception
 	 */
-	public String deleteAsset(){
+	public String deleteAsset() {
 
-	    System.out.println(this.getAid());
+		System.out.println(this.getAid());
 		assetService.deleteAsset(this.getAid());
-//		this.setResult("删除");
-//		return "successAsset";
+		// this.setResult("删除");
+		// return "successAsset";
 		pageAsset();
 		return "pageAsset";
 	}
 
-	
 	/**
 	 * 更新
 	 * 
@@ -459,31 +429,35 @@ public void setSfdate(String sfdate) {
 	 */
 	public String updateAsset() {
 
-	
-        asset = assetService.findAssetById(this.getAid());
-        asset.setCid(getCid());
-//		asset.setAssetCategory(assetService.findAssetCategoryById(this.getAssetCategory().getAcid()));
-		asset.setUser(assetService.findUserById(this.getUser().getUid()));
-		asset.setFinance(assetService.findFinanceById(this.getFinance().getFid()));
-		asset.setAstate(this.getAstate());
+		try {
+			asset = assetService.findAssetById(this.getAid());
+			asset.setCid(getCid());
+			// asset.setAssetCategory(assetService.findAssetCategoryById(this.getAssetCategory().getAcid()));
 
-		asset.setAdate(this.getAdate());
-		asset.setPurchaseDetail(assetService.findPurchaseDetailById(this.getPurchaseDetail().getPdid()));
-		asset.setTprint(this.getTprint());
-		asset.setOnepath(this.getOnepath());
-		asset.setTwopath(this.getTwopath());
-		asset.setBarcode(this.getBarcode());
-		asset.setAnote(this.getAnote());
-		
-		assetService.updateAsset(asset);
+			asset.setUser(assetService.findUserById(this.getUser().getUid()));
+			asset.setFinance(assetService.findFinanceById(this.getFinance()
+					.getFid()));
+			asset.setAstate(this.getAstate());
 
-//		this.setResult("更新");
-//		return "successAsset";
+			asset.setAdate(this.getAdate());
+			asset.setPurchaseDetail(assetService.findPurchaseDetailById(this
+					.getPurchaseDetail().getPdid()));
+			asset.setTprint(this.getTprint());
+			asset.setOnepath(this.getOnepath());
+			asset.setTwopath(this.getTwopath());
+			asset.setBarcode(this.getBarcode());
+			asset.setAnote(this.getAnote());
+
+			assetService.updateAsset(asset);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+
+		// this.setResult("更新");
+		// return "successAsset";
 		pageAsset();
 		return "pageAsset";
 	}
-
-
 
 	/**
 	 * 根据ID查找
@@ -491,30 +465,33 @@ public void setSfdate(String sfdate) {
 	 * @return
 	 */
 	public String findAssetById() {
+		try {
 
-		asset = assetService.findAssetById(this.getAid());
-		this.setAid(asset.getAid());
-		this.setCid(asset.getCid());
-//		this.setAssetCategory(asset.getAssetCategory());
-		this.setUser(asset.getUser());
-		this.setFdate(asset.getFinance().getFdate());
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		sfdate=sdf.format(fdate);
-		
-		this.setFinance(asset.getFinance());
-		
-		this.setAdate(asset.getAdate());
-		
-		sdate=sdf.format(adate);
-		
-		
-		this.setAstate(asset.getAstate());
-		this.setPurchaseDetail(asset.getPurchaseDetail());
-		this.setTprint(asset.getTprint());
-		this.setOnepath(asset.getOnepath());
-		this.setTwopath(asset.getTwopath());
-		this.setBarcode(asset.getBarcode());
-		this.setAnote(asset.getAnote());
+			asset = assetService.findAssetById(this.getAid());
+			this.setAid(asset.getAid());
+			this.setCid(asset.getCid());
+			// this.setAssetCategory(asset.getAssetCategory());
+			this.setUser(asset.getUser());
+			this.setFdate(asset.getFinance().getFdate());
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+			sfdate = sdf.format(fdate);
+
+			this.setFinance(asset.getFinance());
+
+			this.setAdate(asset.getAdate());
+
+			sdate = sdf.format(adate);
+
+			this.setAstate(asset.getAstate());
+			this.setPurchaseDetail(asset.getPurchaseDetail());
+			this.setTprint(asset.getTprint());
+			this.setOnepath(asset.getOnepath());
+			this.setTwopath(asset.getTwopath());
+			this.setBarcode(asset.getBarcode());
+			this.setAnote(asset.getAnote());
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		return "findAssetById";
 	}
 
@@ -533,5 +510,4 @@ public void setSfdate(String sfdate) {
 	}
 
 	
-	//excel
 }

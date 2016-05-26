@@ -177,17 +177,17 @@ th {
 				<br />
 				<a href="finance/finance_Finance_addFinance.action"
 					class="btn btn-primary"><i class="fa fa-plus"></i> 添加财务入账</a>
-				<button class="btn btn-default">
+				<!--<button class="btn btn-default">
 					导入
 				</button>
 				<button class="btn btn-default">
 					导出
 				</button>
-				<div class="btn-group">
+				--><div class="btn-group">
 				</div>
 			</div>
-		
-<form action="finance/finance_Finance_SearchFinance.action" method="post">
+
+			<!--<form action="finance/finance_Finance_SearchFinance.action" method="post">
 				根据
 				
 				使用人ID:
@@ -208,6 +208,7 @@ th {
 				<input type="submit" value="查找"  class="btn btn-default"/>
 				<br />
 			</form>
+			-->
 			<form action="" id="_form" method="post">
 				<table id="charcolor" class="table" style="text-align: center">
   <thead  >

@@ -159,13 +159,13 @@ th {
 				<br />
 				<a href="jsp/return/create_return.jsp"
 					class="btn btn-primary"><i class="fa fa-plus"></i> 添加信息</a>
-				<button class="btn btn-default">
+				<!--<button class="btn btn-default">
 					导入
 				</button>
 				<button class="btn btn-default">
 					导出
 				</button>
-				<div class="btn-group">
+				--><div class="btn-group">
 				</div>
 			</div>
 

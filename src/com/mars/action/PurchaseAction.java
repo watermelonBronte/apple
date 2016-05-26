@@ -169,12 +169,12 @@ public class PurchaseAction extends ActionSupport {
 	}
 
 	public String updatePurchase() {// 更新用户
-		purchase.setPnid(this.getPnid());
+		purchase = purchaseservice.findPurchaseById(this.getPnid());
+		
 		purchase.setPndate(this.getPndate());
 		purchase.setPnstate(this.getPnstate());
 		purchase.setPnuse(this.getPnuse());
-		purchase.setUser(purchaseservice.findPurchaseByPid(this.getUser()
-				.getUid()));
+		
 		// 不允许为空
 
 		purchaseservice.updatePurchase(purchase);

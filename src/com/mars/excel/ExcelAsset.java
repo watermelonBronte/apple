@@ -118,24 +118,25 @@ public class ExcelAsset {
 					cell= readsheet.getCell(0, i);
 					asset.setCid(cell.getContents());
 					
+//					cell= readsheet.getCell(1, i);
+//					Integer uid = Integer.parseInt(cell.getContents());
+//					System.out.println(assetDao.findUserById(uid));
+//					asset.setUser(assetDao.findUserById(uid));
+					
+//					cell= readsheet.getCell(2, i);
+//					Integer fid = Integer.parseInt(cell.getContents());
+//					asset.setFinance(assetDao.findFinanceById(fid));
+//					
+//					cell= readsheet.getCell(3, i);
+//					Integer pdid = Integer.parseInt(cell.getContents());
+//					asset.setPurchaseDetail(assetDao.findPurchaseDetailById(pdid));
+					
 					cell= readsheet.getCell(1, i);
-					Integer uid = Integer.parseInt(cell.getContents());
-					asset.setUser(assetDao.findUserById(uid));
-					
-					cell= readsheet.getCell(2, i);
-					Integer fid = Integer.parseInt(cell.getContents());
-					asset.setFinance(assetDao.findFinanceById(fid));
-					
-					cell= readsheet.getCell(3, i);
-					Integer pdid = Integer.parseInt(cell.getContents());
-					asset.setPurchaseDetail(assetDao.findPurchaseDetailById(pdid));
-					
-					cell= readsheet.getCell(4, i);
 					SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");//小写的mm表示的是分钟
 					Date date=sdf.parse(cell.getContents());
 					asset.setAdate(date);
 					
-					cell= readsheet.getCell(5, i);
+					cell= readsheet.getCell(2, i);
 				
 						if (cell.getContents() == "库存")
 							asset.setAstate(0);
