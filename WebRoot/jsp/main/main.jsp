@@ -193,7 +193,7 @@ document.getElementById("myframe").src=href;
     
     
    <div style=" ">
-     <iframe frameborder="0" src="welcome.jsp" id="myframe" style="width:993px;height:600px;margin-left:-7px;margin-top:-22px;"></iframe>
+     <iframe frameborder="0" src="welcome.jsp" id="myframe" style="width:993px;height:700px;margin-left:-7px;margin-top:-22px;"></iframe>
     </div>
    
 </div>

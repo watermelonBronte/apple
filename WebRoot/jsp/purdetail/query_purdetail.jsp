@@ -361,25 +361,27 @@ th {
 						method="post">
 						<div class="modal-body">
 
-							<table cellSpacing="0" cellPadding="8" align="center"
+							<table cellSpacing="0" cellPadding="0" align="center"
 								style="text-align: center">
 								<tr>
-									<td style="height: 40px; width: 80px; text-align: left">
-										采购单id：
-									</td>
 									<td style="height: 40px; width: 150px; text-align: left">
+										采购单id：
+									<!-- 
+									</td>
+									<td style="height: 40px; width: 40px; text-align: left"> -->
 										${pnid}
 									</td>
-								</tr>
-								<tr>
-									<td style="height: 40px; width: 80px; text-align: left">
-										保管人：
-									</td>
 									<td style="height: 40px; width: 150px; text-align: left">
+										保管人：
+									<!--  </td>
+									<td style="height: 40px; width: 40px; text-align: left">-->
 										${loginUname}
 									</td>
 								</tr>
-<tr>
+								<!--<tr>
+									
+								</tr>
+--><tr>
 
 
 									<td style="height: 40px; width: 80px; text-align: left">
@@ -450,33 +452,34 @@ th {
 									<td style="height: 40px; width: 80px; text-align: left">
 										单位：
 									</td>
-									<td style="height: 40px; width: 150px; text-align: left">
-									<input type="text" name="purDetail.pdunit" />
+									<td style="height: 40px; width: 150px; text-align: left"> 
+									<input type="text" name="purDetail.pdunit" size="10"  />
 									</td>
+									
 								</tr>
 								<tr>
 									<td style="height: 40px; width: 80px; text-align: left">
 										单价：
-									</td>
-									<td style="height: 40px; width: 150px; text-align: left">
-									<input type="text" name="purDetail.pdprice" />
+									 </td>
+									<td style="height: 40px; width: 150px; text-align: left"> 
+									<input type="text" name="purDetail.pdprice" size="10" />
 									</td>
 								</tr>
 
 
-								<tr style="height: 25px;">
+								<tr style="height: 15px;">
 									<td></td>
 								</tr>
-								<tr style="border-top: 1px solid #e5e5e5;">
-									<td colspan="2" align="right">
-										<br />
-										<input class="btn btn-danger" type="submit" value="创建" />
+								<tr style="border-top: 1px solid #e5e5e5; " >
+									<td colspan="2" align="right" >
+										
+										<input class="btn btn-danger" type="submit" style="margin-top:15px;" value="创建" />
 									</td>
 
 									<td colspan="2" align="left">
-										<br />
-										<button style="margin: 10px;" class="btn btn-default"
-											data-dismiss="modal" aria-hidden="true">
+									
+										<button style="margin-left: 10px;margin-top:15px;" class="btn btn-default"
+											data-dismiss="modal" aria-hidden="true" >
 											取消
 										</button>
 									</td>

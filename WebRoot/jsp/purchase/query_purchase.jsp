@@ -29,6 +29,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+<script type="text/javascript"
+			src="http://www.js-css.cn/jscode/jquery.min.js"></script>
+	<script type="text/javascript"
+			src="${pageContext.request.contextPath}/js/jquery.date_input.pack.js"></script>
+		<link rel="stylesheet"
+			href="${pageContext.request.contextPath}/css/calendar1.css">
+		<script type="text/javascript">
+	$(function() {
+		$('.date_picker').date_input();
+	})
+</script>
+
 <script>
 window.onload=function(){
 
@@ -138,7 +150,7 @@ var va;
        
 <div class="btn-toolbar list-toolbar">
     <br/>
-   <a href="jsp/purchase/create_purchase.jsp" class="btn btn-primary"><i class="fa fa-plus"></i> 增加采购单</a>
+   <a href="#myModal1" role="button" data-toggle="modal" class="btn btn-primary"><i class="fa fa-plus"></i> 增加采购单</a>
    <button class="btn btn-default">导入</button>
     <button class="btn btn-default">导出</button>
   <div class="btn-group">
@@ -189,7 +201,15 @@ var va;
          
          <td> <fmt:formatDate value="${purinfo.pndate}" pattern="yyyy-MM-dd"/></td>
          <td>${purinfo.pnuse}</td>
-          <td>${purinfo.pnstate}</td><!--
+          <td><!--
+          
+          ${purinfo.pnstate}
+          
+             --><s:if test="%{#purinfo.pnstate==1}">入库</s:if>
+	<s:else>审核</s:else>
+          
+          
+          </td><!--
       
       <td><a href="selectPurchaseById.action?pnid=${purinfo.pnid}">更新</a></td>
        <td><a href="deletePurchase.action?pnid=${purinfo.pnid}">删除</a></td>
@@ -263,5 +283,90 @@ var va;
         });
     </script> 
   
+  
+  
+  
+       
+  <div class="modal small fade "   id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+  <div class="modal-dialog " style="width:550px">
+    <div class="modal-content" style="background:#eee url(${pageContext.request.contextPath}/images/modal-gloss.png) no-repeat -200px -80px;position:absolute;z-index:101;padding:5px 10px 7px;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;-moz-box-shadow:0 0 10px rgba(0,0,0,.4);-webkit-box-shadow:0 0 10px rgba(0,0,0,.4);-box-shadow:0 0 10px rgba(0,0,0,.4);">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+         <h2 style="height:20px;margin-top:10px; font-weight: 600; color:#990000">添加采购单</h2>
+        </div>
+         <form action="createPurchase.action" method="post">
+        <div class="modal-body">
+           
+ <table  cellSpacing="0"  cellPadding="8" align="center" style="text-align:center"><tr>
+ 
+ 
+ <td  style="height:40px;width:75px;text-align:left"> 经办人： </td>
+ <td  style="height:40px;width:140px;text-align:left">${loginUname}
+ </td>
+ </tr>
+ 
+ <tr>
+
+
+									<td style="height: 40px; width: 80px; text-align: left">
+										采购日期：
+									</td>
+									<td style="height: 40px; width: 150px; text-align: left">
+		
+										<input
+											style="width: 240px; background: #fefefe; border: 1px solid #bbb; font-size: 14px; color: #333; padding: 4px; border-radius: 3px;background-repeat:no-repeat; background-position:right center; background-image:url(${pageContext.request.contextPath}/images/icon.png)"
+											type="text" class="date_picker" value="${purchase.pndate}"
+											name="purchase.pndate" />
+
+
+									</td>
+								</tr>
+								
+							<tr>
+
+
+									<td style="height: 40px; width: 80px; text-align: left">
+										状态：
+									</td>
+									<td style="height: 40px; width: 150px; text-align: left">
+										审核
+										
+										<input type="radio" name="purchase.pnstate" value="0" checked="checked" />
+										入库
+										<input type="radio" name="purchase.pnstate" value="1" />
+									
+										
+									</td>
+								</tr>	
+								<tr>
+
+
+									<td style="height: 40px; width: 80px; text-align: left">
+										采购用途：
+									</td>
+									<td style="height: 60px; width: 150px; text-align: left">
+
+										<textarea name="purchase.pnuse" value="1"
+											style="width: 270px; height: 70px;">
+ </textarea>
+									</td>
+								</tr>
+								
+
+    <tr style="height:25px;"><td></td></tr>
+ <tr style="border-top: 1px solid #e5e5e5;  " ><td colspan="2"  align="right">  <br/><input  class="btn btn-danger" type="submit"  value="提交"/></td>
+ 
+ <td colspan="2" align="left">  <br/><button style="margin:10px;" class="btn btn-default" data-dismiss="modal" aria-hidden="true">取消</button></td>
+ </tr>
+ 
+  </table>
+
+        </div>
+  
+       
+         </form>
+      </div>
+    </div>
+</div>   
   </body>
 </html>
