@@ -425,40 +425,60 @@ th {
 								style="text-align: center">
 								
 								<tr>
-									<td style="height: 40px; width: 80px; text-align: left">
+									<td style="height: 40px; width: 120px; text-align: left">
 										卡片编号：
 									</td>
-									<td style="height: 40px; width: 150px; text-align: left">
+									<td style="height: 40px; width: 150px; text-align: left" colspan="3">
 										
 										<input type="text" name="cid" value="1" />
 									</td>
 								</tr>
 									<tr>
 									<td style="height: 40px; width: 80px; text-align: left">
-										资产类别名称：
+										资产类别：
 									</td>
-									<td style="height: 40px; width: 150px; text-align: left">
+									<td style="height: 40px; width: 100px; text-align: left">
 
 										
 										<s:select list="assetCategoryList" listKey="acid"
 							listValue="acname" name="assetCategory.acid" />
 
 									</td>
+									<td style="height: 40px; width: 80px; text-align: left">
+										资产名称：
+									</td>
+									<td style="height: 40px; width: 100px; text-align: left">
+
+										
+										<s:select list="purchaseDetailList" listKey="pdid"
+							listValue="aname" name="purchaseDetail.pdid" />
+
+									</td>
 								</tr>
 								
 								<tr>
 									<td style="height: 40px; width: 80px; text-align: left">
-										使用人名称：
+										使用人：
 									</td>
-									<td style="height: 40px; width: 150px; text-align: left">
+									<td style="height: 40px; width: 100px; text-align: left">
 
 										
 										<s:select list="userList" listKey="uid" listValue="uname"
 							name="user.uid" />
 
 									</td>
+									<td style="height: 40px; width: 130px; text-align: left">
+										财务入账单号：
+									</td>
+									<td style="height: 40px; width: 100px; text-align: left">
+
+										
+										<s:select list="financeList" listKey="fid" listValue="fcode"
+							name="finance.fid" />
+
+									</td>
 								</tr>
-								<tr>
+								<!--<tr>
 									<td style="height: 40px; width: 80px; text-align: left">
 										财务入账单编号：
 									</td>
@@ -473,13 +493,13 @@ th {
 								
 								
 								
-								<tr>
+								--><tr>
 
 
 									<td style="height: 40px; width: 80px; text-align: left">
 										入库时间：
 									</td>
-									<td style="height: 40px; width: 150px; text-align: left">
+									<td style="height: 40px; width: 150px; text-align: left" colspan="3">
 
 										<input
 											style="width: 240px; background: #fefefe; border: 1px solid #bbb; font-size: 14px; color: #333; padding: 4px; border-radius: 3px;background-repeat:no-repeat; background-position:right center; background-image:url(${pageContext.request.contextPath}/images/icon.png)"
@@ -493,7 +513,7 @@ th {
 									<td style="height: 40px; width: 80px; text-align: left">
 										入库状态：
 									</td>
-									<td style="height: 60px; width: 150px; text-align: left">
+									<td style="height: 60px; width: 150px; text-align: left" colspan="3">
 
 										<input type="radio" name="astate" value="0" checked="checked" />
 						库存
@@ -507,7 +527,7 @@ th {
 						删除
 
 									</td>
-								</tr>
+								</tr><!--
 								
 								<tr>
 									<td style="height: 40px; width: 80px; text-align: left">
@@ -524,13 +544,13 @@ th {
 								
 								
 								
-							<tr>
+							--><tr>
 
 
 									<td style="height: 40px; width: 80px; text-align: left">
 										是否打印标签：
 									</td>
-									<td style="height: 60px; width: 150px; text-align: left">
+									<td style="height: 60px; width: 150px; text-align: left" colspan="3">
 
 										<input type="radio" name="tprint" value="1" />
 						是
@@ -546,7 +566,7 @@ th {
 									<td style="height: 40px; width: 80px; text-align: left">
 										一维码地址：
 									</td>
-									<td style="height: 40px; width: 150px; text-align: left">
+									<td style="height: 40px; width: 150px; text-align: left" colspan="3">
 										
 											<input type="text" name="onepath" value="1" />
 									</td>
@@ -556,7 +576,7 @@ th {
 									<td style="height: 40px; width: 80px; text-align: left">
 										二维码地址：
 									</td>
-									<td style="height: 40px; width: 150px; text-align: left">
+									<td style="height: 40px; width: 150px; text-align: left" colspan="3">
 										
 										<input type="text" name="twopath" value="1" />
 									</td>
@@ -566,7 +586,7 @@ th {
 									<td style="height: 40px; width: 80px; text-align: left">
 										条码：
 									</td>
-									<td style="height: 40px; width: 150px; text-align: left">
+									<td style="height: 40px; width: 150px; text-align: left" colspan="3">
 										
 										<input type="text" name="barcode" value="1" />
 									</td>
@@ -577,10 +597,10 @@ th {
 									<td style="height: 40px; width: 80px; text-align: left">
 										备注：
 									</td>
-									<td style="height: 60px; width: 150px; text-align: left">
+									<td style="height: 60px; width: 150px; text-align: left" colspan="3">
 				
 										<textarea name="anote" value="1"
-											style="width: 270px; height: 70px;">
+											style="width: 300px; height: 70px;">
  </textarea>
 									</td>
 								</tr>
