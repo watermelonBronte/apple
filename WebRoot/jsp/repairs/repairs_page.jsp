@@ -127,7 +127,7 @@ function submitFrom(formName){
             uls.addClass('visible-xs');
             $('#main-menu').append(uls.clone());
         });
-    var va;
+var va;
  function text1(va1){//获取当前id
  va=va1;
         }
@@ -166,7 +166,7 @@ th {
 			</h3>
 			<div class="btn-toolbar list-toolbar">
 				<br />
-				<a href="repairs/repairs_Repairs_addRepairs.action"
+				<a href="#myModal1" role="button" data-toggle="modal"
 					class="btn btn-primary"><i class="fa fa-plus"></i> 添加维修单</a>
 				<!--<button class="btn btn-default">
 					导入
@@ -181,34 +181,33 @@ th {
 
 			<form action="" id="_form" method="post">
 				<table id="charcolor" class="table" style="text-align: center">
-					<thead>
-						<tr>
-							<th>
-								资产维修ID
-							</th>
-							<th>
-								资产ID
-							</th>
-							<th>
-								送修人名字
-							</th>
-							<th>
-								维修费用
-							</th>
-							<th>
-								状态
-							</th>
-							<!--<th>详情</th>
-						-->
-							<th>
-								操作
-							</th>
-							<th style="width: 3.5em;"></th>
-						</tr>
-					</thead>
+ <thead>
+					<tr >
+						<th >
+							资产维修ID
+						</th>
+						<th >
+							资产ID
+						</th>
+						<th >
+							送修人名字
+						</th>
+						<th>
+							维修费用
+						</th>
+						<th >
+							状态
+						</th>
+						<th>详情</th>
+						<th>
+							操作
+						</th>
+						 <th style="width: 3.5em;"></th>
+					</tr>
+</thead>
 					<s:iterator id="re" value="pageInfo.result" status="st">
 						<tr>
-							<td>
+							<td >
 								${re.reid}
 							</td>
 							<td>
@@ -217,28 +216,31 @@ th {
 							<td>
 								${re.user.uname}
 							</td>
-							<td>
+							<td >
 								${re.reprice}
 							</td>
-							<td>
+							<td >
 								<s:if test="%{#re.restate==0}">维修中</s:if>
 								<s:else>维修完成</s:else>
 							</td>
-							<td>
+							<td >
 								<a
 									href="repairs/repairs_Repairs_findRepairsById.action?reid=${reid}">详情</a>
-								<s:if test="restate==0">
+									
+									</td><td>
+									<!--
 								|
 								<a
-										href="repairs/repairs_Repairs_updateState.action?reid=${reid}"
-										onClick="return confirm('确认维修?');">确认维修</a>
-								</s:if>
+									href="repairs/repairs_Repairs_deleteRepairs.action?reid=${reid}">删除</a>
+								-->
+								<a
+									href="repairs/repairs_Repairs_updateState.action?reid=${reid}" onClick="return confirm('确认维修?');">确认维修</a>
+
 							</td>
 							<td>
-
-								<a href="#myModal" onclick="text1(${re.reid})" role="button"
-									data-toggle="modal"><i class="fa fa-trash-o"></i> </a>
-							</td>
+						
+						  <a href="#myModal" onclick="text1(${re.reid})" role="button" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
+						</td>
 						</tr>
 					</s:iterator>
 
@@ -268,39 +270,115 @@ th {
 						</td>
 					</tr>
 				</table>
-				<div class="modal small fade" id="myModal" tabindex="-1"
-					role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-					<div class="modal-dialog">
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal"
-									aria-hidden="true">
-									×
-								</button>
-								<h3 id="myModalLabel">
-									删除确认
-								</h3>
-							</div>
-							<div class="modal-body">
-								<p class="error-text">
-									<i class="fa fa-warning modal-icon"></i>确定删除?
-								</p>
-							</div>
-							<div class="modal-footer">
-								<button class="btn btn-default" data-dismiss="modal"
-									aria-hidden="true">
-									取消
-								</button>
-								<button class="btn btn-danger" data-dismiss="modal"
-									onclick="del1()">
-									删除
-								</button>
-							</div>
-						</div>
-					</div>
-				</div>
+<div class="modal small fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="myModalLabel">删除确认</h3>
+        </div>
+        <div class="modal-body">
+            <p class="error-text"><i class="fa fa-warning modal-icon"></i>确定删除?</p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">取消</button>
+           <button class="btn btn-danger" data-dismiss="modal" onclick="del1()"   > 删除</button>
+        </div>
+      </div>
+    </div>
+</div>
 			</form>
 		</div>
-	
+		<script src="${pageContext.request.contextPath}/lib/bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript">
+        $("[rel=tooltip]").tooltip();
+        $(function() {
+            $('.demo-cancel-click').click(function(){return false;});
+        });
+    </script> 
+    
+    
+    
+        
+     
+  <div class="modal small fade "   id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+  <div class="modal-dialog " style="width:550px">
+    <div class="modal-content" style="background:#eee url(${pageContext.request.contextPath}/images/modal-gloss.png) no-repeat -200px -80px;position:absolute;z-index:101;padding:5px 10px 7px;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;-moz-box-shadow:0 0 10px rgba(0,0,0,.4);-webkit-box-shadow:0 0 10px rgba(0,0,0,.4);-box-shadow:0 0 10px rgba(0,0,0,.4);">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+         <h2 style="height:20px;margin-top:10px; font-weight: 600; color:#990000">添加维修单</h2>
+        </div>
+         <form action="repairs/repairs_Repairs_createRepairs.action" method="post">
+        <div class="modal-body">
+           
+ <table  cellSpacing="0"  cellPadding="8" align="center" style="text-align:center"><tr>
+ 
+ 
+ <td  style="height:40px;width:75px;text-align:right"> 资产ID：</td>
+ <td  style="height:40px;width:100px;text-align:left"><s:select list="assetList" listKey="aid" listValue="aid"
+				name="asset.aid" />
+ </td>
+ <td style="height:40px;width:100px;text-align:right">送修人：</td>
+ <td style="height:40px;width:120px;text-align:left">${loginUname}</td></tr>
+ 
+ 
+
+
+ <tr><td style="height:40px;text-align:left ">   
+  维修费用：</td><td style="text-align:left">
+
+<input type="text" name="reprice" value="100"  size="6"/>  ￥	
+    </td>
+  
+    
+    <td style="text-align:right;height:40px;width:50px;" >
+   
+         状态：</td><td style="text-align:left">
+         
+   
+     <!--0-维修中 1-维修完成--><!--
+				维修中<input type="radio" name="restate" value="0" checked="checked" />
+		
+			维修完成<input type="radio" name="restate" value="1" />
+			
+			
+			 --><select name="restate"  style="width:95px;">
+  <option value ="1">维修完成</option>
+  <option value ="0">维修中</option>
+ 
+</select>
+			
+    </td></tr>
+     
+ <tr>
+
+
+									<td style="height: 40px; width: 80px; text-align: left">
+										损坏情况：
+									</td>
+									<td style="height: 60px; width: 150px; text-align: left" colspan=3">
+
+										<textarea name="recondition" value="非常严重"
+											style="width: 297px; height: 70px;">
+ </textarea>
+									</td>
+								</tr>
+    
+    <tr style="height:25px;"><td></td></tr>
+ <tr style="border-top: 1px solid #e5e5e5;  " ><td colspan="2"  align="right">  <br/><input  class="btn btn-danger" type="submit"  value="提交"/></td>
+ 
+ <td colspan="2" align="left">  <br/><button style="margin:10px;" class="btn btn-default" data-dismiss="modal" aria-hidden="true">取消</button></td>
+ </tr>
+ 
+  </table>
+
+        </div>
+  
+       
+         </form>
+      </div>
+    </div>
+</div> 
+    
 	</body>
 </html>

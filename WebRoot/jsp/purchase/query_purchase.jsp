@@ -380,22 +380,7 @@ th {
 									</td>
 								</tr>
 
-								<tr>
-
-
-									<td style="height: 40px; width: 80px; text-align: left">
-										采购日期：
-									</td>
-									<td style="height: 40px; width: 150px; text-align: left">
-
-										<input
-											style="width: 240px; background: #fefefe; border: 1px solid #bbb; font-size: 14px; color: #333; padding: 4px; border-radius: 3px;background-repeat:no-repeat; background-position:right center; background-image:url(${pageContext.request.contextPath}/images/icon.png)"
-											type="text" class="date_picker" value="${purchase.pndate}"
-											name="purchase.pndate" />
-
-
-									</td>
-								</tr>
+								
 
 								<tr>
 
@@ -411,6 +396,22 @@ th {
 
 										<input type="radio" name="purchase.pnstate" value="1" />
 										入库
+
+									</td>
+								</tr>
+								<tr>
+
+
+									<td style="height: 40px; width: 80px; text-align: left">
+										采购日期：
+									</td>
+									<td style="height: 40px; width: 150px; text-align: left">
+
+										<input
+											style="width: 240px; background: #fefefe; border: 1px solid #bbb; font-size: 14px; color: #333; padding: 4px; border-radius: 3px;background-repeat:no-repeat; background-position:right center; background-image:url(${pageContext.request.contextPath}/images/icon.png)"
+											type="text" class="date_picker" value="${purchase.pndate}"
+											name="purchase.pndate" />
+
 
 									</td>
 								</tr>
