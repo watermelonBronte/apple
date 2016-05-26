@@ -18,6 +18,6 @@
   </head>
   
   <body>
-     <jsp:forward page="securityMgr?act=toLogin"></jsp:forward>
+     <jsp:forward page="jsp/login.jsp"></jsp:forward>
   </body>
 </html>

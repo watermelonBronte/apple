@@ -49,23 +49,7 @@ public class AssetDao extends HibernateDaoSupport implements
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Asset> findAsset() {
-		return (List<Asset>) super.getHibernateTemplate().execute(
-				new HibernateCallback() {
-
-					public Object doInHibernate(Session session)
-							throws HibernateException, SQLException {
-						List<Asset> list = new ArrayList<Asset>();
-						try {
-							Criteria criteria = session
-									.createCriteria(Asset.class);
-							list = (List<Asset>) criteria.list();
-						} catch (Exception e) {
-							e.printStackTrace();
-						}
-
-						return list;
-					}
-				});
+		return (List<Asset>)getHibernateTemplate().find("from Asset");
 	}
 
 	/*

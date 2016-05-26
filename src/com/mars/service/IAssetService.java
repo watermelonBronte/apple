@@ -36,10 +36,14 @@ public interface IAssetService {
 	public void updateAsset(Asset asset);
 	
 	/**
-	 * 查找资产
+	 * 导出资产Excel
 	 */
-	public void findAsset();
+	public void excelOutAsset();
 	
+	/**
+	 * 导入资产Excel
+	 */
+	public void excelInAsset();
 	/**
 	 * 分页查找资产
 	 * @param pageInfo

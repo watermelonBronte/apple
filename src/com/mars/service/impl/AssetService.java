@@ -9,8 +9,12 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
+import jxl.write.WriteException;
+
 import com.mars.dao.IAssetDao;
+import com.mars.excel.ExcelAsset;
 import com.mars.service.IAssetService;
+import com.mars.tools.ExcelOperator;
 import com.mars.tools.IPage;
 import com.mars.vo.Asset;
 import com.mars.vo.AssetCategory;
@@ -59,13 +63,32 @@ public class AssetService implements IAssetService {
 	 * 
 	 * @see com.mars.service.IAssetService#findAsset()
 	 */
-	public void findAsset() {
+	public void excelOutAsset() {
 		List<Asset> list = assetDao.findAsset();
-		for (Asset asset : list) {
-			System.out.println(asset);
+//		for (Asset asset : list) {
+//			System.out.println(asset);
+//		}
+		ExcelAsset excel = new ExcelAsset();
+		try {
+			excel.outExcel(list, "D:/excel/asset.xls");
+		} catch (WriteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+		
 	}
-
+	/**
+	 * 导入Excel
+	 */
+	public void excelInAsset() {
+		ExcelAsset excel = new ExcelAsset();
+		excel.inExcel("C:/Users/ye/Desktop/testAsset.xls");
+		
+	}
+	
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -161,7 +184,5 @@ public class AssetService implements IAssetService {
 	
 
 
-	/**
-	 * excel
-	 */
+	
 }
