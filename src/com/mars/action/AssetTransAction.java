@@ -181,15 +181,15 @@ public class AssetTransAction extends ActionSupport {
 	}
 
 	/**
-	 * 移交完成
+	 * 移交完成（后面全部接受，才可以,不过缺失逻辑）
 	 * 
 	 * @return
 	 */
 	public String updateState() {
 		assetTrans = assetTransService.findAssetTransById(this.getAtid());
 		Date date = new Date();
-		Timestamp nousedate = new Timestamp(date.getTime());
-		assetTrans.setAtfdate(nousedate);
+//		Timestamp nousedate = new Timestamp(date.getTime());
+		assetTrans.setAtfdate(date);
 		assetTrans.setAtstate(1);
 
 		assetTransService.updateAssetTrans(assetTrans);

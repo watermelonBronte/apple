@@ -252,11 +252,9 @@ th {
 							<td>
 								<s:if test="tbstate==0">
 									<a
-										href="transBills/transBills_TransBills_findTransBillsById.action?tbid=${tbid}">确认调入</a>
+										href="transBills/transBills_TransBills_findTransBillsById.action?tbid=${tbid}">调入</a>
 								</s:if>
-								<s:else>
-								已调入
-								</s:else>
+								
 								<!--
 							|
 							<a

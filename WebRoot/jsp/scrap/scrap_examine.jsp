@@ -12,7 +12,7 @@
 <html>
 	<base href="<%=basePath%>">
 	<head>
-<title>调入确认</title>
+		<title>调入确认</title>
 		<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="pragma" content="no-cache">
@@ -79,13 +79,16 @@
 				value="${userByUid.department.dname}" readonly="readonly" />
 			<br />
 			报废时间
-			<input type="text" name="scdate" value="${scdate}"	readonly="readonly" />
+			<input type="text" name="scdate" value="${scdate}"
+				readonly="readonly" />
 			<br />
 			<hr />
 			审核人ID
 			<!--<input type="text" name="userByCuid.uid" value="${userByCuid.uid}"/>-->
-			<s:select list="userList" listKey="uid" listValue="uname"
+			<!--<s:select list="userList" listKey="uid" listValue="uname"
 				name="userByCuid.uid" />
+			-->
+			${loginUname}
 			<br />
 			审核时间
 			<!-- 时间控件 -->
@@ -93,21 +96,15 @@
 			<input
 				style="width: 240px; background: #fefefe; border: 1px solid #bbb; font-size: 14px; color: #333; padding: 7px; border-radius: 3px;"
 				type="text" class="date_picker" value="${cdate}" name="cdate" />
-			
+
 			<br />
 			状态
-			<s:if test="scstate==0">
-				<input type="radio" name="scstate" value="0" checked="checked" />
-			报废
-			<input type="radio" name="scstate" value="1" />
-			维修
-			</s:if>
-			<s:else>
-				<input type="radio" name="scstate" value="0" />
+
+			<input type="radio" name="scstate" value="0" />
 			报废
 			<input type="radio" name="scstate" value="1" checked="checked" />
 			维修
-			</s:else>
+
 			<br />
 
 

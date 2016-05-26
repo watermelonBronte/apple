@@ -205,9 +205,7 @@ th {
 							<th>
 								发起状态
 							</th>
-							<th>
-								清单
-							</th>
+
 							<th>
 								操作
 							</th>
@@ -236,17 +234,18 @@ th {
 							<td>
 								<a
 									href="checkDetail/checkDetail_CheckDetail_pageCheckDetailByCid.action?cid=${cid}">清单</a>
-							</td>
-							<td>
-								<a href="checked/checked_Checked_updateState.action?cid=${cid}">确认盘点</a>
+								
+								<s:if test="cstate==0">
+								|
+									<a href="checked/checked_Checked_updateState.action?cid=${cid}">确认盘点</a>
+								</s:if>
 
 							</td>
 
 
 							<td>
 								<a href="#myModal" onclick="text1(${c.cid})" role="button"
-									data-toggle="modal"><i class="fa fa-trash-o"></i>
-								</a>
+									data-toggle="modal"><i class="fa fa-trash-o"></i> </a>
 								<!--<a
 									href="checked/checked_Checked_deleteChecked.action?cid=${cid}">删除</a>
 							-->

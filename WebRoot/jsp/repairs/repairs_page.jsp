@@ -181,33 +181,34 @@ th {
 
 			<form action="" id="_form" method="post">
 				<table id="charcolor" class="table" style="text-align: center">
- <thead>
-					<tr >
-						<th >
-							资产维修ID
-						</th>
-						<th >
-							资产ID
-						</th>
-						<th >
-							送修人名字
-						</th>
-						<th>
-							维修费用
-						</th>
-						<th >
-							状态
-						</th>
-						<th>详情</th>
-						<th>
-							操作
-						</th>
-						 <th style="width: 3.5em;"></th>
-					</tr>
-</thead>
+					<thead>
+						<tr>
+							<th>
+								资产维修ID
+							</th>
+							<th>
+								资产ID
+							</th>
+							<th>
+								送修人名字
+							</th>
+							<th>
+								维修费用
+							</th>
+							<th>
+								状态
+							</th>
+							<!--<th>详情</th>
+						-->
+							<th>
+								操作
+							</th>
+							<th style="width: 3.5em;"></th>
+						</tr>
+					</thead>
 					<s:iterator id="re" value="pageInfo.result" status="st">
 						<tr>
-							<td >
+							<td>
 								${re.reid}
 							</td>
 							<td>
@@ -216,31 +217,28 @@ th {
 							<td>
 								${re.user.uname}
 							</td>
-							<td >
+							<td>
 								${re.reprice}
 							</td>
-							<td >
+							<td>
 								<s:if test="%{#re.restate==0}">维修中</s:if>
 								<s:else>维修完成</s:else>
 							</td>
-							<td >
+							<td>
 								<a
 									href="repairs/repairs_Repairs_findRepairsById.action?reid=${reid}">详情</a>
-									
-									</td><td>
-									<!--
+								<s:if test="restate==0">
 								|
 								<a
-									href="repairs/repairs_Repairs_deleteRepairs.action?reid=${reid}">删除</a>
-								-->
-								<a
-									href="repairs/repairs_Repairs_updateState.action?reid=${reid}" onClick="return confirm('确认维修?');">确认维修</a>
-
+										href="repairs/repairs_Repairs_updateState.action?reid=${reid}"
+										onClick="return confirm('确认维修?');">确认维修</a>
+								</s:if>
 							</td>
 							<td>
-						
-						  <a href="#myModal" onclick="text1(${re.reid})" role="button" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
-						</td>
+
+								<a href="#myModal" onclick="text1(${re.reid})" role="button"
+									data-toggle="modal"><i class="fa fa-trash-o"></i> </a>
+							</td>
 						</tr>
 					</s:iterator>
 
@@ -270,31 +268,39 @@ th {
 						</td>
 					</tr>
 				</table>
-<div class="modal small fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h3 id="myModalLabel">删除确认</h3>
-        </div>
-        <div class="modal-body">
-            <p class="error-text"><i class="fa fa-warning modal-icon"></i>确定删除?</p>
-        </div>
-        <div class="modal-footer">
-            <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">取消</button>
-           <button class="btn btn-danger" data-dismiss="modal" onclick="del1()"   > 删除</button>
-        </div>
-      </div>
-    </div>
-</div>
+				<div class="modal small fade" id="myModal" tabindex="-1"
+					role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"
+									aria-hidden="true">
+									×
+								</button>
+								<h3 id="myModalLabel">
+									删除确认
+								</h3>
+							</div>
+							<div class="modal-body">
+								<p class="error-text">
+									<i class="fa fa-warning modal-icon"></i>确定删除?
+								</p>
+							</div>
+							<div class="modal-footer">
+								<button class="btn btn-default" data-dismiss="modal"
+									aria-hidden="true">
+									取消
+								</button>
+								<button class="btn btn-danger" data-dismiss="modal"
+									onclick="del1()">
+									删除
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
 			</form>
 		</div>
-		<script src="${pageContext.request.contextPath}/lib/bootstrap/js/bootstrap.js"></script>
-    <script type="text/javascript">
-        $("[rel=tooltip]").tooltip();
-        $(function() {
-            $('.demo-cancel-click').click(function(){return false;});
-        });
-    </script> 
+	
 	</body>
 </html>

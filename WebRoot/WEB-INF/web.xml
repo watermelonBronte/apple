@@ -3,6 +3,18 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
 	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+	<!-- security 安全机制-->
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>jsp-pages</web-resource-name>
+			<url-pattern>/jsp/*</url-pattern>
+		</web-resource-collection>
+		<auth-constraint />
+	</security-constraint>
+	<login-config>
+		<auth-method>BASIC</auth-method>
+	</login-config>
+	
 	<welcome-file-list>
 		<welcome-file>login.jsp</welcome-file>
 		<!--<welcome-file>index.jsp</welcome-file>-->
