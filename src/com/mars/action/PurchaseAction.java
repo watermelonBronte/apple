@@ -127,57 +127,72 @@ public class PurchaseAction extends ActionSupport {
 	}
 
 	public String deletePurchase() {// 删除
-		purchaseservice.deletPurchase(pnid);
+		try {
+			purchaseservice.deletPurchase(pnid);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 
 		return SUCCESS;
 	}
 
-
-
 	public String createPurchase() {// 增加信息
-		PurchaseNote p = new PurchaseNote();
-		p.setPndate(purchase.getPndate());
-		p.setPnid(purchase.getPnid());
-		p.setPnstate(purchase.getPnstate());
-		p.setPnuse(purchase.getPnuse());
-		
+		try {
+			PurchaseNote p = new PurchaseNote();
+			p.setPndate(purchase.getPndate());
+			p.setPnid(purchase.getPnid());
+			p.setPnstate(purchase.getPnstate());
+			p.setPnuse(purchase.getPnuse());
 
-		p.setUser(purchaseservice
-				.findPurchaseByPid((Integer) ActionContext.getContext().getSession().get("loginUid")));
+			p.setUser(purchaseservice.findPurchaseByPid((Integer) ActionContext
+					.getContext().getSession().get("loginUid")));
 
-		purchaseservice.createPurchase(p);// 保存接收到的数据到数据库中
+			purchaseservice.createPurchase(p);// 保存接收到的数据到数据库中
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+
 		return SUCCESS;
 
 	}
 
 	public String selectPurchaseById() {// 显示当前
 
-		purchase = purchaseservice.findPurchaseById(this.getPnid());
-		this.setPnid(purchase.getPnid());
-		this.setPndate(purchase.getPndate());
+		try {
+			purchase = purchaseservice.findPurchaseById(this.getPnid());
+			this.setPnid(purchase.getPnid());
+			this.setPndate(purchase.getPndate());
 
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		sdate = sdf.format(pndate);
-		// System.out.println(sdate);
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+			sdate = sdf.format(pndate);
+			// System.out.println(sdate);
 
-		this.setPnuse(purchase.getPnuse());
-		this.setPnstate(purchase.getPnstate());
+			this.setPnuse(purchase.getPnuse());
+			this.setPnstate(purchase.getPnstate());
 
-		this.setUser(purchase.getUser());
+			this.setUser(purchase.getUser());
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 
 		return SUCCESS;
 	}
 
 	public String updatePurchase() {// 更新用户
-		purchase = purchaseservice.findPurchaseById(this.getPnid());
-		
-		purchase.setPndate(this.getPndate());
-		purchase.setPnstate(this.getPnstate());
-		purchase.setPnuse(this.getPnuse());
-		
-		// 不允许为空
+		try {
+			purchase = purchaseservice.findPurchaseById(this.getPnid());
 
-		purchaseservice.updatePurchase(purchase);
+			purchase.setPndate(this.getPndate());
+			purchase.setPnstate(this.getPnstate());
+			purchase.setPnuse(this.getPnuse());
+
+			// 不允许为空
+
+			purchaseservice.updatePurchase(purchase);
+
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 
 		return SUCCESS;
 
@@ -185,17 +200,23 @@ public class PurchaseAction extends ActionSupport {
 
 	/*
 	 * @author ye
-	 * @date 2016/5/25
-	 * 确认入库，批量添加资产
+	 * 
+	 * @date 2016/5/25 确认入库，批量添加资产
 	 */
-	public String addAssets()
-	{
-		//添加资产
-		purchaseservice.findPurchaseDetailByPnid(this.getPnid(),(Integer) ActionContext.getContext().getSession().get("loginUid"));
-		//确认入库
-		purchase = purchaseservice.findPurchaseById(this.getPnid());
-		purchase.setPnstate(1);
-		purchaseservice.updatePurchase(purchase);
+	public String addAssets() {
+		try {
+			// 添加资产
+			purchaseservice.findPurchaseDetailByPnid(this.getPnid(),
+					(Integer) ActionContext.getContext().getSession().get(
+							"loginUid"));
+			// 确认入库
+			purchase = purchaseservice.findPurchaseById(this.getPnid());
+			purchase.setPnstate(1);
+			purchaseservice.updatePurchase(purchase);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+
 		return SUCCESS;
 	}
 }

@@ -358,27 +358,31 @@ public class AssetAction extends ActionSupport {
 	public String createAsset() {
 		// Asset.setAccode(getAccode());
 
-		asset.setCid(getCid());
-		// asset.setAssetCategory(assetService.findAssetCategoryById(this.getAssetCategory().getAcid()));
-		asset.setUser(assetService.findUserById((Integer) ActionContext
-				.getContext().getSession().get("loginUid")));
-		// asset.setFinance(assetService.findFinanceById(this.getFinance().getFid()));
-		asset.setAstate(this.getAstate());
-		// Date date = new Date();
-		// Timestamp nousedate = new Timestamp(date.getTime());
-		// asset.setAdate(nousedate);
-		asset.setAdate(this.getAdate());
-		// asset.setPurchaseDetail(assetService.findPurchaseDetailById(this.getPurchaseDetail().getPdid()));
-		asset.setTprint(this.getTprint());
-		asset.setOnepath(this.getOnepath());
-		asset.setTwopath(this.getTwopath());
-		asset.setBarcode(this.getBarcode());
-		asset.setAnote(this.getAnote());
+		try {
+			asset.setCid(getCid());
+			// asset.setAssetCategory(assetService.findAssetCategoryById(this.getAssetCategory().getAcid()));
+			asset.setUser(assetService.findUserById((Integer) ActionContext
+					.getContext().getSession().get("loginUid")));
+			// asset.setFinance(assetService.findFinanceById(this.getFinance().getFid()));
+			asset.setAstate(this.getAstate());
+			// Date date = new Date();
+			// Timestamp nousedate = new Timestamp(date.getTime());
+			// asset.setAdate(nousedate);
+			asset.setAdate(this.getAdate());
+			// asset.setPurchaseDetail(assetService.findPurchaseDetailById(this.getPurchaseDetail().getPdid()));
+			asset.setTprint(this.getTprint());
+			asset.setOnepath(this.getOnepath());
+			asset.setTwopath(this.getTwopath());
+			asset.setBarcode(this.getBarcode());
+			asset.setAnote(this.getAnote());
 
-		assetService.createAsset(asset);
+			assetService.createAsset(asset);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
 
-		// this.setResult("创建");
-		// return "successAsset";
+		
 		pageAsset();
 		return "pageAsset";
 	}
@@ -389,6 +393,7 @@ public class AssetAction extends ActionSupport {
 	 * @return
 	 */
 	public String excelOutAsset() {
+	
 		assetService.excelOutAsset();
 		// System.out.println("assetacion");
 		pageAsset();
@@ -414,8 +419,13 @@ public class AssetAction extends ActionSupport {
 	 */
 	public String deleteAsset() {
 
-		System.out.println(this.getAid());
-		assetService.deleteAsset(this.getAid());
+//		System.out.println(this.getAid());
+		try {
+			assetService.deleteAsset(this.getAid());
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
 		// this.setResult("删除");
 		// return "successAsset";
 		pageAsset();

@@ -171,8 +171,9 @@ public class PurDetailAction {
 		assetCategoryList = purdetailservice.findAssetCategory();
 		return "success";
 	}
-	private List<AssetCategory> assetCategoryList =new ArrayList<AssetCategory>();
-	
+
+	private List<AssetCategory> assetCategoryList = new ArrayList<AssetCategory>();
+
 	public List<AssetCategory> getAssetCategoryList() {
 		return assetCategoryList;
 	}
@@ -183,26 +184,43 @@ public class PurDetailAction {
 
 	/**
 	 * 添加界面
+	 * 
 	 * @return
 	 */
-	public String addPurDetail(){
-		assetCategoryList = purdetailservice.findAssetCategory();
+	public String addPurDetail() {
+		try {
+			assetCategoryList = purdetailservice.findAssetCategory();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+
 		return "success";
 	}
+
 	public String queryPurDetailByPnid() {// 显示所有信息
-		
-assetCategoryList = purdetailservice.findAssetCategory();
-this.setPurchaseNote(purdetailservice.findPurchaseNoteByPid(pnid));
-ActionContext ctx = ActionContext.getContext();
-ctx.getSession().put("pnid", pnid);
-		this.getPageInfo().setResult(
-				purdetailservice.findPurDetailByPnid(pageInfo, purchaseNote));// 分页
+		try {
+			assetCategoryList = purdetailservice.findAssetCategory();
+			this.setPurchaseNote(purdetailservice.findPurchaseNoteByPid(pnid));
+			ActionContext ctx = ActionContext.getContext();
+			ctx.getSession().put("pnid", pnid);
+			this.getPageInfo().setResult(
+					purdetailservice
+							.findPurDetailByPnid(pageInfo, purchaseNote));// 分页
+
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 
 		return "success";
 	}
 
 	public String deletePurDetail() {// 删除
-		purdetailservice.deletPurDetail(pdid);
+		try {
+			purdetailservice.deletPurDetail(pdid);
+
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 
 		return "success";
 	}
@@ -214,75 +232,81 @@ ctx.getSession().put("pnid", pnid);
 	//	
 	// }
 	public String createPurDetail() {// 增加信息
-		System.out.println(pnid);
-		PurchaseDetail p = new PurchaseDetail();
-		p.setAname(purDetail.getAname());
-		p.setAtype(purDetail.getAtype());
-		p.setPdcount(purDetail.getPdcount());
-		p.setPdid(purDetail.getPdid());
-		p.setAssetCategory(purdetailservice.findAssetCategoryById(purDetail.getAssetCategory().getAcid()));
-		// p.setPurchaseNote(purdetailservice.findPurchaseNoteByPid(getPurchaseNote().getPnid()));
-		p.setPurchaseNote(purdetailservice.findPurchaseNoteByPid((Integer) ActionContext
-				.getContext().getSession().get("pnid")));
-		p.setPdmarker(purDetail.getPdmarker());
-		p.setPdprice(purDetail.getPdprice());
-		p.setPdprovider(purDetail.getPdprovider());
-		p.setPdunit(purDetail.getPdunit());
-		// p.setUser(purdetailservice.findPurDetailByUid(purDetail.getUser().getUid()));
-		p.setUser(purdetailservice.findPurDetailByUid((Integer) ActionContext
-				.getContext().getSession().get("loginUid")));
-		purdetailservice.createPurDetail(p);// 保存接收到的数据到数据库中
+		try {
+			// System.out.println(pnid);
+			PurchaseDetail p = new PurchaseDetail();
+			p.setAname(purDetail.getAname());
+			p.setAtype(purDetail.getAtype());
+			p.setPdcount(purDetail.getPdcount());
+			p.setPdid(purDetail.getPdid());
+			p.setAssetCategory(purdetailservice.findAssetCategoryById(purDetail
+					.getAssetCategory().getAcid()));
+			// p.setPurchaseNote(purdetailservice.findPurchaseNoteByPid(getPurchaseNote().getPnid()));
+			p.setPurchaseNote(purdetailservice
+					.findPurchaseNoteByPid((Integer) ActionContext.getContext()
+							.getSession().get("pnid")));
+			p.setPdmarker(purDetail.getPdmarker());
+			p.setPdprice(purDetail.getPdprice());
+			p.setPdprovider(purDetail.getPdprovider());
+			p.setPdunit(purDetail.getPdunit());
+			// p.setUser(purdetailservice.findPurDetailByUid(purDetail.getUser().getUid()));
+			p.setUser(purdetailservice
+					.findPurDetailByUid((Integer) ActionContext.getContext()
+							.getSession().get("loginUid")));
+			purdetailservice.createPurDetail(p);// 保存接收到的数据到数据库中
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+
 		return "success";
 
 	}
 
 	public String selectPurdetailById() {// 显示当前
-		purDetail = purdetailservice.findPurDetailById(this.getPdid());
-		this.setAtype(purDetail.getAtype());
-		this.setPdcount(purDetail.getPdcount());
-		this.setPdid(purDetail.getPdid());
-		this.setAssetCategory(purDetail.getAssetCategory());
-		// this.setPnid(this.getPnid());
-		this.setPdmarker(purDetail.getPdmarker());
-		this.setPdprice(purDetail.getPdprice());
-		this.setPdprovider(purDetail.getPdprovider());
-		this.setPdunit(purDetail.getPdunit());
-		this.setUser(purDetail.getUser());
-		this.setAname(purDetail.getAname());
-		this.setPurchaseNote(purDetail.getPurchaseNote());
+		try {
+			purDetail = purdetailservice.findPurDetailById(this.getPdid());
+			this.setAtype(purDetail.getAtype());
+			this.setPdcount(purDetail.getPdcount());
+			this.setPdid(purDetail.getPdid());
+			this.setAssetCategory(purDetail.getAssetCategory());
+			// this.setPnid(this.getPnid());
+			this.setPdmarker(purDetail.getPdmarker());
+			this.setPdprice(purDetail.getPdprice());
+			this.setPdprovider(purDetail.getPdprovider());
+			this.setPdunit(purDetail.getPdunit());
+			this.setUser(purDetail.getUser());
+			this.setAname(purDetail.getAname());
+			this.setPurchaseNote(purDetail.getPurchaseNote());
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 
 		return "success";
 	}
 
 	public String updatePurDetail() {// 更新
+		try {
+			purDetail.setPdid(this.getPdid());
+			purDetail.setAtype(this.getAtype());
+			purDetail.setPdcount(this.getPdcount());
+			purDetail.setPdid(this.getPdid());
+			purDetail.setPdmarker(this.getPdmarker());
+			purDetail.setPdprice(this.getPdprice());
+			purDetail.setPdprovider(this.getPdprovider());
+			purDetail.setPdunit(this.getPdunit());
+			purDetail.setAname(this.getAname());
+			purDetail.setAssetCategory(purdetailservice
+					.findAssetCategoryById(this.getAssetCategory().getAcid()));
+			purDetail.setPurchaseNote(purdetailservice
+					.findPurchaseNoteByPid(this.getPurchaseNote().getPnid()));
+			purDetail.setUser(purdetailservice.findPurDetailByUid(this
+					.getUser().getUid()));
+			purdetailservice.updatePurDetail(purDetail);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 
-		purDetail.setPdid(this.getPdid());
-		purDetail.setAtype(this.getAtype());
-		purDetail.setPdcount(this.getPdcount());
-		purDetail.setPdid(this.getPdid());
-		purDetail.setPdmarker(this.getPdmarker());
-		purDetail.setPdprice(this.getPdprice());
-		purDetail.setPdprovider(this.getPdprovider());
-		purDetail.setPdunit(this.getPdunit());
-		purDetail.setAname(this.getAname());
-		purDetail.setAssetCategory(purdetailservice.findAssetCategoryById(this
-				.getAssetCategory().getAcid()));
-		purDetail.setPurchaseNote(purdetailservice.findPurchaseNoteByPid(this
-				.getPurchaseNote().getPnid()));
-		purDetail.setUser(purdetailservice.findPurDetailByUid(this.getUser()
-				.getUid()));
-		// 不允许为空
-
-		// purDetail.setPnid(this.getPnid());
-		// purchase.setDepartment(purchaseservice.findPurchaseByDid(this.getDepartment().getDid()));
-		// purchase.setPndate(this.getPndate());
-		// purchase.setPnstate(this.getPnstate());
-		// purchase.setPnuse(this.getPnuse());
-		// purchase.setUser(purchaseservice.findPurchaseByPid(this.getUser().getUid()));
-		// purchase.setPurchaseDetail(purchaseservice.findPurchaseByDeid(this.getPurchaseDetail().getPdid()));
-
-		purdetailservice.updatePurDetail(purDetail);
-
+		
 		return "success";
 
 	}

@@ -31,13 +31,11 @@ public class CheckedAction extends ActionSupport {
 	private List<User> userList = new ArrayList<User>();
 
 	private String result;
-	
+
 	private Integer cid;
 	private User user;
 	private Date cdate;
 	private Integer cstate;
-
-	
 
 	public Integer getCid() {
 		return cid;
@@ -54,7 +52,6 @@ public class CheckedAction extends ActionSupport {
 	public void setUser(User user) {
 		this.user = user;
 	}
-
 
 	public Date getCdate() {
 		return cdate;
@@ -104,9 +101,6 @@ public class CheckedAction extends ActionSupport {
 		this.checkedService = checkedService;
 	}
 
-
-	
-
 	public List<User> getUserList() {
 		return userList;
 	}
@@ -133,12 +127,16 @@ public class CheckedAction extends ActionSupport {
 	 * @return
 	 */
 	public String createChecked() {
+		try {
+			checked.setUser(checkedService.findUserById((Integer) ActionContext
+					.getContext().getSession().get("loginUid")));
+			checked.setCstate(this.getCstate());
+			checked.setCdate(this.getCdate());
+			checkedService.createChecked(checked);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 
-		checked.setUser(checkedService.findUserById((Integer) ActionContext.getContext().getSession().get("loginUid")));
-		checked.setCstate(this.getCstate());
-				checked.setCdate(this.getCdate());
-		checkedService.createChecked(checked);
-//		this.setResult("创建");
 		pageChecked();
 		return "pageChecked";
 	}
@@ -149,8 +147,12 @@ public class CheckedAction extends ActionSupport {
 	 * @return
 	 */
 	public String deleteChecked() {
-		checkedService.deleteChecked(this.getCid());
-//		this.setResult("删除");
+		try {
+			checkedService.deleteChecked(this.getCid());
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+
 		pageChecked();
 		return "pageChecked";
 	}
@@ -161,16 +163,17 @@ public class CheckedAction extends ActionSupport {
 	 * @return
 	 */
 	public String updateState() {
-		checked = checkedService.findCheckedById(this.getCid());
-		checked.setCstate(1);
-		checkedService.updateChecked(checked);
+		try {
+			checked = checkedService.findCheckedById(this.getCid());
+			checked.setCstate(1);
+			checkedService.updateChecked(checked);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 
-//		this.setResult("盘点完成");
 		pageChecked();
 		return "pageChecked";
 	}
-
-
 
 	/**
 	 * 根据ID查找
@@ -178,11 +181,15 @@ public class CheckedAction extends ActionSupport {
 	 * @return
 	 */
 	public String findCheckedById() {
+		try {
+			checked = checkedService.findCheckedById(this.getCid());
+			this.setUser(checked.getUser());
+			this.setCstate(checked.getCstate());
+			this.setCdate(checked.getCdate());
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 
-		checked = checkedService.findCheckedById(this.getCid());
-		this.setUser(checked.getUser());
-		this.setCstate(checked.getCstate());
-		this.setCdate(checked.getCdate());
 		return "findCheckedById";
 
 	}

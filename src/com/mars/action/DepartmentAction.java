@@ -3,30 +3,27 @@
  */
 package com.mars.action;
 
-
-
 import com.mars.service.IDepartmentService;
 import com.mars.tools.IPage;
 import com.mars.tools.PageInfo;
 import com.mars.vo.Department;
 import com.opensymphony.xwork2.ActionSupport;
 
-
 /**
  * @author ye
  * @date 2016/4/19
  */
-public class DepartmentAction extends ActionSupport{
+public class DepartmentAction extends ActionSupport {
 	private IDepartmentService departmentService;
 
-	protected IPage pageInfo = new PageInfo();   
-	
+	protected IPage pageInfo = new PageInfo();
+
 	private Integer did;
 	private String dname;
 	private Department department = new Department();
-	
+
 	private String result;
-	
+
 	public String getDname() {
 		return dname;
 	}
@@ -55,7 +52,6 @@ public class DepartmentAction extends ActionSupport{
 		this.departmentService = departmentService;
 	}
 
-	
 	public IPage getPageInfo() {
 		return pageInfo;
 	}
@@ -63,8 +59,6 @@ public class DepartmentAction extends ActionSupport{
 	public void setPageInfo(IPage pageInfo) {
 		this.pageInfo = pageInfo;
 	}
-
-	
 
 	public String getResult() {
 		return result;
@@ -80,53 +74,65 @@ public class DepartmentAction extends ActionSupport{
 
 	/**
 	 * 添加界面
+	 * 
 	 * @return
 	 */
-	public String addDepartment()
-	{
+	public String addDepartment() {
 		return "addDepartment";
 	}
+
 	/**
 	 * 创建
+	 * 
 	 * @return
 	 */
 	public String createDepartment() {
-		department.setDname(this.getDname());
-		departmentService.createDepartment(department);
-//		this.setResult("创建");
-//		return "successDepartment";
+		try {
+			department.setDname(this.getDname());
+			departmentService.createDepartment(department);
+
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+
 		pageDepartment();
 		return "pageDepartment";
 	}
-	
+
 	/**
 	 * 删除
+	 * 
 	 * @return
 	 */
 	public String deleteDepartment() {
-		departmentService.deleteDepartment(this.getDid());
-//		this.setResult("删除");
-//		return "successDepartment";
+		try {
+			departmentService.deleteDepartment(this.getDid());
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+
 		pageDepartment();
 		return "pageDepartment";
 	}
-	
+
 	/**
 	 * 更新
+	 * 
 	 * @return
 	 */
 	public String updateDepartment() {
-		department.setDid(this.getDid());
-		department.setDname(this.getDname());
-		departmentService.updateDepartment(department);
-//		this.setResult("更新");
-//		return "successDepartment";
+		try {
+			department.setDid(this.getDid());
+			department.setDname(this.getDname());
+			departmentService.updateDepartment(department);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+
 		pageDepartment();
 		return "pageDepartment";
 	}
-	
-	
-	
+
 	/**
 	 * 根据ID查找
 	 * 
@@ -134,11 +140,15 @@ public class DepartmentAction extends ActionSupport{
 	 */
 	public String findDepartmentById() {
 
-		department = departmentService.findDepartmentById(this
-				.getDid());
-		
-		this.setDid(department.getDid());
-		this.setDname(department.getDname());
+		try {
+			department = departmentService.findDepartmentById(this.getDid());
+
+			this.setDid(department.getDid());
+			this.setDname(department.getDname());
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+
 		return "findDepartmentById";
 	}
 

@@ -76,24 +76,39 @@ public String queryRole(){
 	  return SUCCESS;
   }
 public String selectRoleById(){//显示当前角色	
-	role = roleService.findRoleById(this.getRid());
-	 this.setRid(role.getRid());
-	  this.setRname(role.getRname());
+	try {
+		role = roleService.findRoleById(this.getRid());
+		 this.setRid(role.getRid());
+		  this.setRname(role.getRname());
+	} catch (Exception e) {
+		// TODO: handle exception
+	}
+	
 	
 
 return SUCCESS;
 }
 public String deleteRole(){//删除角色
-	roleService.deletRole(getRid());
+	try {
+		roleService.deletRole(getRid());
+	} catch (Exception e) {
+		// TODO: handle exception
+	}
+	
 		  
 		  return SUCCESS;
 	  }
 
 public String createRole(){//增加角色
-	  Role r=new Role();
-	  r.setRname(role.getRname().toString());
-	 
-	  roleService.createRole(r);//保存接收到的数据到数据库中
+	try {
+		  Role r=new Role();
+		  r.setRname(role.getRname().toString());
+		 
+		  roleService.createRole(r);//保存接收到的数据到数据库中
+	} catch (Exception e) {
+		// TODO: handle exception
+	}
+
 
 	  return SUCCESS;
 	  
@@ -101,11 +116,15 @@ public String createRole(){//增加角色
 
 
 public String updateRole(){//更新
-	
+	try {
 		role.setRname(this.getRname());
 		role.setRid(this.getRid());
 		
 		roleService.updateRole(role);
+	} catch (Exception e) {
+		// TODO: handle exception
+	}
+	
 		  
  return "success";
 	

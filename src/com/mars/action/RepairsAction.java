@@ -29,8 +29,8 @@ public class RepairsAction extends ActionSupport {
 
 	private Repairs repairs = new Repairs();
 	private List<User> userList = new ArrayList<User>();
-	private List<Asset> assetList =new ArrayList<Asset>();
-	
+	private List<Asset> assetList = new ArrayList<Asset>();
+
 	private String result;
 	private Integer reid;
 	private Asset asset;
@@ -135,9 +135,6 @@ public class RepairsAction extends ActionSupport {
 		this.repairsService = repairsService;
 	}
 
-
-	
-
 	/**
 	 * 添加界面
 	 * 
@@ -145,8 +142,8 @@ public class RepairsAction extends ActionSupport {
 	 */
 
 	public String addRepairs() {
-		
-//		userList = repairsService.findUser();
+
+		// userList = repairsService.findUser();
 		assetList = repairsService.findAsset();
 		return "addRepairs";
 	}
@@ -157,15 +154,19 @@ public class RepairsAction extends ActionSupport {
 	 * @return
 	 */
 	public String createRepairs() {
+		try {
+			repairs.setAsset(repairsService.findAssetById(this.getAsset()
+					.getAid()));
+			repairs.setUser(repairsService.findUserById((Integer) ActionContext
+					.getContext().getSession().get("loginUid")));
+			repairs.setRecondition(this.getRecondition());
+			repairs.setReprice(this.getReprice());
+			repairs.setRestate(this.getRestate());
+			repairsService.createRepairs(repairs);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 
-		repairs.setAsset(repairsService.findAssetById(this.getAsset().getAid()));
-		repairs.setUser(repairsService.findUserById((Integer) ActionContext.getContext().getSession().get("loginUid")));
-		repairs.setRecondition(this.getRecondition());
-		repairs.setReprice(this.getReprice());
-		repairs.setRestate(this.getRestate());
-		repairsService.createRepairs(repairs);
-//		this.setResult("创建");
-//		return "successRepairs";
 		pageRepairs();
 		return "pageRepairs";
 	}
@@ -176,9 +177,13 @@ public class RepairsAction extends ActionSupport {
 	 * @return
 	 */
 	public String deleteRepairs() {
-		repairsService.deleteRepairs(this.getReid());
-//		this.setResult("删除");
-//		return "successRepairs";
+		try {
+			repairsService.deleteRepairs(this.getReid());
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		
 		pageRepairs();
 		return "pageRepairs";
 	}
@@ -189,17 +194,17 @@ public class RepairsAction extends ActionSupport {
 	 * @return
 	 */
 	public String updateState() {
-		repairs = repairsService.findRepairsById(this.getReid());
-		repairs.setRestate(1);
-		repairsService.updateRepairs(repairs);
-
-//		this.setResult("维修完成");
-//		return "successRepairs";
+		try {
+			repairs = repairsService.findRepairsById(this.getReid());
+			repairs.setRestate(1);
+			repairsService.updateRepairs(repairs);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
 		pageRepairs();
 		return "pageRepairs";
 	}
-
-
 
 	/**
 	 * 根据ID查找
@@ -208,12 +213,17 @@ public class RepairsAction extends ActionSupport {
 	 */
 	public String findRepairsById() {
 
-		repairs = repairsService.findRepairsById(this.getReid());
-		this.setUser(repairs.getUser());
-		this.setAsset(repairs.getAsset());
-		this.setRecondition(repairs.getRecondition());
-		this.setReprice(repairs.getReprice());
-		this.setRestate(repairs.getRestate());
+		try {
+			repairs = repairsService.findRepairsById(this.getReid());
+			this.setUser(repairs.getUser());
+			this.setAsset(repairs.getAsset());
+			this.setRecondition(repairs.getRecondition());
+			this.setReprice(repairs.getReprice());
+			this.setRestate(repairs.getRestate());
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	
 		return "findRepairsById";
 
 	}
