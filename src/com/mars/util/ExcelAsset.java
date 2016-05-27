@@ -90,7 +90,7 @@ public class ExcelAsset {
 
 				// 获取Sheet表中所包含的总列数
 
-//				int rsColumns = readsheet.getColumns();
+				// int rsColumns = readsheet.getColumns();
 
 				// 获取Sheet表中所包含的总行数
 
@@ -102,56 +102,54 @@ public class ExcelAsset {
 
 				{
 
-//					for (int j = 0; j < rsColumns; j++)
-//
-//					{
-//
-//						Cell cell = readsheet.getCell(j, i);
-//
-//						System.out.print(cell.getContents() + " ");
-//
-//					}
+					// for (int j = 0; j < rsColumns; j++)
+					//
+					// {
+					//
+					// Cell cell = readsheet.getCell(j, i);
+					//
+					// System.out.print(cell.getContents() + " ");
+					//
+					// }
 
-//					System.out.println();
-					Cell cell =null;
-					
-					cell= readsheet.getCell(0, i);
+					// System.out.println();
+					Cell cell = null;
+
+					cell = readsheet.getCell(0, i);
 					asset.setCid(cell.getContents());
-					
-//					cell= readsheet.getCell(1, i);
-//					Integer uid = Integer.parseInt(cell.getContents());
-//					System.out.println(assetDao.findUserById(uid));
-//					asset.setUser(assetDao.findUserById(uid));
-					
-//					cell= readsheet.getCell(2, i);
-//					Integer fid = Integer.parseInt(cell.getContents());
-//					asset.setFinance(assetDao.findFinanceById(fid));
-//					
-//					cell= readsheet.getCell(3, i);
-//					Integer pdid = Integer.parseInt(cell.getContents());
-//					asset.setPurchaseDetail(assetDao.findPurchaseDetailById(pdid));
-					
-					cell= readsheet.getCell(1, i);
-					SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");//小写的mm表示的是分钟
-					Date date=sdf.parse(cell.getContents());
+
+					// cell= readsheet.getCell(1, i);
+					// Integer uid = Integer.parseInt(cell.getContents());
+					// System.out.println(assetDao.findUserById(uid));
+					// asset.setUser(assetDao.findUserById(uid));
+
+					// cell= readsheet.getCell(2, i);
+					// Integer fid = Integer.parseInt(cell.getContents());
+					// asset.setFinance(assetDao.findFinanceById(fid));
+					//					
+					// cell= readsheet.getCell(3, i);
+					// Integer pdid = Integer.parseInt(cell.getContents());
+					// asset.setPurchaseDetail(assetDao.findPurchaseDetailById(pdid));
+
+					cell = readsheet.getCell(1, i);
+					SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");// 小写的mm表示的是分钟
+					Date date = sdf.parse(cell.getContents());
 					asset.setAdate(date);
-					
-					cell= readsheet.getCell(2, i);
-				
-						if (cell.getContents() == "库存")
-							asset.setAstate(0);
-						else if (cell.getContents() == "在用")
-							asset.setAstate(1);
-						else if (cell.getContents() == "故障")
-							asset.setAstate(2);
-						else if (cell.getContents()  == "报废")
-							asset.setAstate(3);
-						else
-							asset.setAstate(-1);
-						
+
+					cell = readsheet.getCell(2, i);
+
+					if (cell.getContents() == "库存")
+						asset.setAstate(0);
+					else if (cell.getContents() == "在用")
+						asset.setAstate(1);
+					else if (cell.getContents() == "故障")
+						asset.setAstate(2);
+					else if (cell.getContents() == "报废")
+						asset.setAstate(3);
+					else
+						asset.setAstate(-1);
+
 					assetDao.createAsset(asset);
-					
-					
 
 				}
 			} catch (Exception e) {
@@ -241,7 +239,7 @@ public class ExcelAsset {
 				i++;
 			}
 			readwb.write();
-			// readwb.close();
+			readwb.close();
 		} catch (RowsExceededException e) {
 			e.printStackTrace();
 		} catch (WriteException e) {
@@ -249,8 +247,6 @@ public class ExcelAsset {
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
-
-			readwb.close();
 
 		}
 

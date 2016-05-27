@@ -386,7 +386,7 @@ th {
 									</td>
 									<td style="height: 40px; width: 150px; text-align: left">
 										<!--<input type="text"    name="userByGuid.uid" />-->
-										${user.uname}
+										${loginUname}
 
 									</td>
 								</tr>

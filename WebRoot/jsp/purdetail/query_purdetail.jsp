@@ -1,22 +1,24 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
-  <head>
-    <base href="<%=basePath%>">
-    
-    <title>My JSP 'query_purdetail.jsp' starting page</title>
-       <%@ taglib uri="/struts-tags" prefix="s" %>
-	<meta http-equiv="pragma" content="no-cache">
-	<meta http-equiv="cache-control" content="no-cache">
-	<meta http-equiv="expires" content="0">    
-	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-	<meta http-equiv="description" content="This is my page">
-	<link href='http://fonts.useso.com/css?family=Open+Sans:400,700'
+	<head>
+		<base href="<%=basePath%>">
+
+		<title>My JSP 'query_purdetail.jsp' starting page</title>
+		<%@ taglib uri="/struts-tags" prefix="s"%>
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="cache-control" content="no-cache">
+		<meta http-equiv="expires" content="0">
+		<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+		<meta http-equiv="description" content="This is my page">
+		<link href='http://fonts.useso.com/css?family=Open+Sans:400,700'
 			rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" type="text/css"
 			href="${pageContext.request.contextPath}/lib/bootstrap/css/bootstrap.css">
@@ -164,12 +166,12 @@ th {
 	color: #fff;
 }
 </style>
-  </head>
-  
-  
-  
-  <body class=" theme-blue" style="width: 993px">
-   <h3>
+	</head>
+
+
+
+	<body class=" theme-blue" style="width: 993px">
+		<h3>
 			采购单明细信息
 		</h3>
 		<div class="main-content" style="width: 993px">
@@ -188,44 +190,48 @@ th {
 				<button class="btn btn-default">
 					导出
 				</button>
-				--><div class="btn-group">
+				-->
+				<a  class="btn btn-default" href="queryPurchase.action"> 返回</a>
+				<div class="btn-group">
 				</div>
 			</div>
-			
-			
-    <form action="" id="_form" method="post">
-   <table id="charcolor" class="table" style="text-align: center">
-  <thead>
-   <tr >
-   		<th>
-   		采购单明细id
-   		</th>
-   		<th>采购单id
-   		</th>
-   			<th>
-   		保管人id
-   		</th>
-   		<th>
-   		资产名称</th>
-   			<th>
-资产型号
-   		</th>
-   		<th>
-   数量
-   		</th>
-   		<th>
-   	制造商
-   		</th>
-   		<th>
-  供应商
-   		</th>
-   			<th>
-   	单位
-   		</th>
-   				<th>
-   	单价
-   		</th>
-   		<!--<th>
+
+
+			<form action="" id="_form" method="post">
+				<table id="charcolor" class="table" style="text-align: center">
+					<thead>
+						<tr>
+							<th>
+								采购单明细id
+							</th>
+							<th>
+								采购单id
+							</th>
+							<th>
+								保管人id
+							</th>
+							<th>
+								资产名称
+							</th>
+							<th>
+								资产型号
+							</th>
+							<th>
+								数量
+							</th>
+							<th>
+								制造商
+							</th>
+							<th>
+								供应商
+							</th>
+							<th>
+								单位
+							</th>
+							<th>
+								单价
+							</th>
+							<!--<th>
    	修改
    		</th>
    		
@@ -234,68 +240,93 @@ th {
    		删除
    		</th>	
    -->
-   <th style="width: 3.5em;"></th>
-   </tr>
-   
-   </thead>
-   
-   <s:iterator id="purdeinfo" value="pageInfo.result" status="st">
-					 <tr>
-       <td>${purdeinfo.pdid}</td>
-       <td>${purdeinfo.purchaseNote.pnid}</td>
-         <td>${purdeinfo.user.uname}</td>
-         <td>${purdeinfo.aname}</td>
-          <td>${purdeinfo.atype}</td>
-         <td>${purdeinfo.pdcount}</td>
-          <td>${purdeinfo.pdmarker}</td>
-         <td>${purdeinfo.pdprovider}</td>
-          <td>${purdeinfo.pdunit}</td>
-        <td>${purdeinfo.pdprice}</td>
-        
-        <!--
+							<th style="width: 3.5em;"></th>
+						</tr>
+
+					</thead>
+
+					<s:iterator id="purdeinfo" value="pageInfo.result" status="st">
+						<tr>
+							<td>
+								${purdeinfo.pdid}
+							</td>
+							<td>
+								${purdeinfo.purchaseNote.pnid}
+							</td>
+							<td>
+								${purdeinfo.user.uname}
+							</td>
+							<td>
+								${purdeinfo.aname}
+							</td>
+							<td>
+								${purdeinfo.atype}
+							</td>
+							<td>
+								${purdeinfo.pdcount}
+							</td>
+							<td>
+								${purdeinfo.pdmarker}
+							</td>
+							<td>
+								${purdeinfo.pdprovider}
+							</td>
+							<td>
+								${purdeinfo.pdunit}
+							</td>
+							<td>
+								${purdeinfo.pdprice}
+							</td>
+
+							<!--
       <td><a href="selectPurdetailById.action?pdid=${purdeinfo.pdid}">更新</a></td>
        <td><a href="deletePurdetail.action?pdid=${purdeinfo.pdid}">删除</a></td>
-       --><td>
-       <a href="selectPurdetailById.action?pdid=${purdeinfo.pdid}"><i class="fa fa-pencil"></i></a>
-          <a  href="#myModal" onclick="text1(${purdeinfo.pdid})" role="button" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
-       </td>
-       
-       </tr>
-				</s:iterator>
+       -->
+							<td>
+								<a href="selectPurdetailById.action?pdid=${purdeinfo.pdid}"><i
+									class="fa fa-pencil"></i>
+								</a>
+								<a href="#myModal" onclick="text1(${purdeinfo.pdid})"
+									role="button" data-toggle="modal"><i class="fa fa-trash-o"></i>
+								</a>
+							</td>
+
+						</tr>
+					</s:iterator>
 
 
-   
- <tr>
-					<td align="center" class="left_txt" colspan="11">
-						<div style="float: right;">
-							<input type="hidden" id="pageInfo.currentPage"
-								name="pageInfo.currentPage" value="${pageInfo.currentPage}" />
-							共${pageInfo.pages }页(${pageInfo.rows }条记录 )&nbsp; 当前第
-							<label>
-								${pageInfo.currentPage }
-							</label>
-							页&nbsp;
-							<font color=#808080><a
-								href="javascript:goto('pageInfo.currentPage','_form','${pageInfo.firstPage }')">第一页</a>
-							</font>&nbsp;
-							<font color=#808080><a
-								href="javascript:goto('pageInfo.currentPage','_form','${pageInfo.prevPage }')">上一页</a>
-							</font>&nbsp;
-							<font color=#808080><a
-								href="javascript:goto('pageInfo.currentPage','_form','${pageInfo.nextPage }')">下一页</a>
-							</font>&nbsp;
-							<font color=#808080><a
-								href="javascript:goto('pageInfo.currentPage','_form','${pageInfo.lastPage }')">最后一页</a>
-							</font>
-						</div>
-					</td>
-				</tr>
-				 </table>
-  
+
+					<tr>
+						<td align="center" class="left_txt" colspan="11">
+							<div style="float: right;">
+								<input type="hidden" id="pageInfo.currentPage"
+									name="pageInfo.currentPage" value="${pageInfo.currentPage}" />
+								共${pageInfo.pages }页(${pageInfo.rows }条记录 )&nbsp; 当前第
+								<label>
+									${pageInfo.currentPage }
+								</label>
+								页&nbsp;
+								<font color=#808080><a
+									href="javascript:goto('pageInfo.currentPage','_form','${pageInfo.firstPage }')">第一页</a>
+								</font>&nbsp;
+								<font color=#808080><a
+									href="javascript:goto('pageInfo.currentPage','_form','${pageInfo.prevPage }')">上一页</a>
+								</font>&nbsp;
+								<font color=#808080><a
+									href="javascript:goto('pageInfo.currentPage','_form','${pageInfo.nextPage }')">下一页</a>
+								</font>&nbsp;
+								<font color=#808080><a
+									href="javascript:goto('pageInfo.currentPage','_form','${pageInfo.lastPage }')">最后一页</a>
+								</font>
+							</div>
+						</td>
+					</tr>
+				</table>
 
 
-   
-   <div class="modal small fade" id="myModal" tabindex="-1"
+
+
+				<div class="modal small fade" id="myModal" tabindex="-1"
 					role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 					<div class="modal-dialog">
 						<div class="modal-content">
@@ -328,9 +359,9 @@ th {
 				</div>
 			</form>
 		</div>
-   
-   
-   	<script
+
+
+		<script
 			src="${pageContext.request.contextPath}/lib/bootstrap/js/bootstrap.js"></script>
 		<script type="text/javascript">
         $("[rel=tooltip]").tooltip();
@@ -338,9 +369,9 @@ th {
             $('.demo-cancel-click').click(function(){return false;});
         });
     </script>
-   
-   
-   
+
+
+
 		<div class="modal small fade " id="myModal1" tabindex="-1"
 			role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog " style="width: 550px">
@@ -356,9 +387,7 @@ th {
 							创建采购单
 						</h2>
 					</div>
-					<form
-						action="createPurDetail.action?pnid=${pnid}"
-						method="post">
+					<form action="createPurDetail.action?pnid=${pnid}" method="post">
 						<div class="modal-body">
 
 							<table cellSpacing="0" cellPadding="0" align="center"
@@ -366,14 +395,14 @@ th {
 								<tr>
 									<td style="height: 40px; width: 150px; text-align: left">
 										采购单id：
-									<!-- 
+										<!-- 
 									</td>
 									<td style="height: 40px; width: 40px; text-align: left"> -->
 										${pnid}
 									</td>
 									<td style="height: 40px; width: 150px; text-align: left">
 										保管人：
-									<!--  </td>
+										<!--  </td>
 									<td style="height: 40px; width: 40px; text-align: left">-->
 										${loginUname}
 									</td>
@@ -381,15 +410,16 @@ th {
 								<!--<tr>
 									
 								</tr>
---><tr>
+-->
+								<tr>
 
 
 									<td style="height: 40px; width: 80px; text-align: left">
 										资产名称：
 									</td>
 									<td style="height: 40px; width: 150px; text-align: left">
-		
-											<input type="text" name="purDetail.aname" />
+
+										<input type="text" name="purDetail.aname" />
 
 									</td>
 								</tr>
@@ -400,7 +430,7 @@ th {
 										资产型号：
 									</td>
 									<td style="height: 40px; width: 150px; text-align: left">
-											<input type="text" name="purDetail.atype" />
+										<input type="text" name="purDetail.atype" />
 
 									</td>
 								</tr>
@@ -411,10 +441,10 @@ th {
 										资产类别名称：
 									</td>
 									<td style="height: 60px; width: 150px; text-align: left">
-				
+
 										<s:select list="assetCategoryList" listKey="acid"
-							listValue="acname" name="purDetail.assetCategory.acid" />
- </textarea>
+											listValue="acname" name="purDetail.assetCategory.acid" />
+										</textarea>
 									</td>
 								</tr>
 								<tr>
@@ -429,7 +459,7 @@ th {
 								</tr>
 
 
-					<tr>
+								<tr>
 
 
 									<td style="height: 40px; width: 80px; text-align: left">
@@ -439,30 +469,30 @@ th {
 										<input type="text" name="purDetail.pdmarker" />
 									</td>
 								</tr>
-													<tr>
+								<tr>
 									<td style="height: 40px; width: 80px; text-align: left">
 										供应商：
 									</td>
 									<td style="height: 40px; width: 150px; text-align: left">
-									<input type="text" name="purDetail.pdprovider" />
+										<input type="text" name="purDetail.pdprovider" />
 									</td>
 								</tr>
 
-<tr>
+								<tr>
 									<td style="height: 40px; width: 80px; text-align: left">
 										单位：
 									</td>
-									<td style="height: 40px; width: 150px; text-align: left"> 
-									<input type="text" name="purDetail.pdunit" size="10"  />
+									<td style="height: 40px; width: 150px; text-align: left">
+										<input type="text" name="purDetail.pdunit" size="10" />
 									</td>
-									
+
 								</tr>
 								<tr>
 									<td style="height: 40px; width: 80px; text-align: left">
 										单价：
-									 </td>
-									<td style="height: 40px; width: 150px; text-align: left"> 
-									<input type="text" name="purDetail.pdprice" size="10" />
+									</td>
+									<td style="height: 40px; width: 150px; text-align: left">
+										<input type="text" name="purDetail.pdprice" size="10" />
 									</td>
 								</tr>
 
@@ -470,16 +500,18 @@ th {
 								<tr style="height: 15px;">
 									<td></td>
 								</tr>
-								<tr style="border-top: 1px solid #e5e5e5; " >
-									<td colspan="2" align="right" >
-										
-										<input class="btn btn-danger" type="submit" style="margin-top:15px;" value="创建" />
+								<tr style="border-top: 1px solid #e5e5e5;">
+									<td colspan="2" align="right">
+
+										<input class="btn btn-danger" type="submit"
+											style="margin-top: 15px;" value="创建" />
 									</td>
 
 									<td colspan="2" align="left">
-									
-										<button style="margin-left: 10px;margin-top:15px;" class="btn btn-default"
-											data-dismiss="modal" aria-hidden="true" >
+
+										<button style="margin-left: 10px; margin-top: 15px;"
+											class="btn btn-default" data-dismiss="modal"
+											aria-hidden="true">
 											取消
 										</button>
 									</td>
@@ -494,5 +526,5 @@ th {
 				</div>
 			</div>
 		</div>
-  </body>
+	</body>
 </html>

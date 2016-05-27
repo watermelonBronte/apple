@@ -407,12 +407,12 @@ public class AssetAction extends ActionSupport {
 	 * 
 	 * @return
 	 */
-	// public String excelInAsset(){
-	// assetService.excelInAsset();
-	// // System.out.println("assetacion");
-	// pageAsset();
-	// return "pageAsset";
-	// }
+	 public String excelInAsset(){
+	 assetService.excelInAsset();
+	 // System.out.println("assetacion");
+	 pageAsset();
+	 return "pageAsset";
+	 }
 	/**
 	 * 删除
 	 * 

@@ -70,7 +70,7 @@ public class AssetService implements IAssetService {
 //		}
 		ExcelAsset excel = new ExcelAsset();
 		try {
-			excel.outExcel(list, "D:/excel/asset.xls");
+			excel.outExcel(list, "D:/asset.xls");
 		} catch (WriteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
