@@ -12,7 +12,7 @@
 <html>
 	<base href="<%=basePath%>">
 	<head>
-		<title>调入确认</title>
+		<title>报废审核</title>
 		<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="pragma" content="no-cache">
@@ -116,7 +116,7 @@ font{text-shadow:#ccc 1px 1px 1px; }
 			--><table cellSpacing="0"  cellPadding="4" width="62%" align="center"  border="1" bordercolor="#CCD3DD" style="border-collapse:collapse;">
 				<tr  >
 					<td colSpan="2"  style="font-size:20px; font-weight:bold;background-color:#7A8DA7">
-						<div align="center" > <font color="#fff" >修改资产类别列表</font></div>
+						<div align="center" > <font color="#fff" >审核</font></div>
 					</td>
 				</tr>
 				<tr style="display:none"><td>报废ID
@@ -150,7 +150,7 @@ font{text-shadow:#ccc 1px 1px 1px; }
                     <td width='79%'>
                        <input
 				style="width: 240px; background: #fefefe; border: 1px solid #bbb; font-size: 14px; color: #333; padding: 7px; border-radius: 3px;"
-				type="text" class="date_picker" value="${cdate}" name="cdate" />
+				type="text" class="date_picker"  name="cdate" />
 
                          </td>
 

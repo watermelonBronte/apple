@@ -22,29 +22,7 @@ font{text-shadow:#ccc 1px 1px 1px; }
 	</head>
 
 	<body>
-		<!--<form action="asset_category/test_AssetCategory_updateAssetCategory.action"
-			method="post">
-			资产类别ID
-			<input type="text" name="acid" value="${assetCategory.acid}" readonly="readonly"/>
-			<br />
-			资产类别编号
-			<input type="text" name="accode" value="${assetCategory.accode}"/>
-			<br />
-			资产类别名称
-			<input type="text" name="acname" value="${assetCategory.acname}"/>
-			<br />
-			上级资产类别ID
-			<input type="text" name="supacid" value="${assetCategory.supacid}"/>
-			<br />
-			上级资产类别名称
-			<input type="text" name="supacname" value="${assetCategory.supacname}"/>
-			<br />
-			<input type="submit" value="更新" />
-		</form>
-
-
-
-	--><form action="asset_category/test_AssetCategory_updateAssetCategory.action"
+	<form action="asset_category/test_AssetCategory_updateAssetCategory.action"
 			method="post">
 <table cellSpacing="0"  cellPadding="4" width="62%" align="center"  border="1" bordercolor="#CCD3DD" style="border-collapse:collapse;">
 				<tr  >
@@ -62,10 +40,7 @@ font{text-shadow:#ccc 1px 1px 1px; }
                     <td width='79%'>
                         <input type="text" name="accode" value="${assetCategory.accode}"/>
                          </td>
-
 </tr>
-
-
                         <tr>
                         <td noWrap class="style2" style=" background-color:#F4F4F4"><FONT face='宋体' >资产类别名称:</FONT></td>
                         <td width='79%'>
@@ -73,22 +48,11 @@ font{text-shadow:#ccc 1px 1px 1px; }
                         </td>
                         <tr><td noWrap class="style2" style=" background-color:#F4F4F4"><FONT face='宋体' >上级资产类别ID:</FONT></td><td width='79%'>
                         <input type="text" name="supacid" value="${assetCategory.supacid}"/>
-                        </td></tr>
-                        
-                        
+                        </td></tr>                  
                         <tr><td noWrap class="style2" style=" background-color:#F4F4F4"><FONT face='宋体' >上级资产类别名称:</FONT></td><td width='79%'>
   <input type="text" name="supacname" value="${assetCategory.supacname}"/>
-  </td></tr><!--
-  
-                        <tr><td noWrap class="style2" style=" background-color:#ECECFF"><FONT face='宋体' style="font-size:large">丢失人:</FONT>
-                        
-                        </td><td width='79%'>
-                        
-                        
-				    <tr><td noWrap class="style2" style=" background-color:#ECECFF"><FONT face='宋体' style="font-size:large">联系方式:</FONT></td><td width='79%'>
-				    
-
-                --><tr>
+  </td></tr>
+  <tr>
 					<td noWrap height="25" class="style2">
 						<div align="right"><FONT face="宋体"></FONT>&nbsp;</div>
 					</td>

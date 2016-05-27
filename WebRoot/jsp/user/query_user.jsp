@@ -163,10 +163,10 @@ body{font:12px/180% Arial, Helvetica, sans-serif, "新宋体";}
   </div>
 </div>
   
-   <form action="" id="_form" method="post"><!--alert(parseInt(userinfor.value)) -->
+   <form action="" id="_form" method="post"><!--alert(parseInt(userinfor.value)) --><!--
   根据用户id查询：<input id="userinfor" type="text"  value="" name="user.uid" />
   <a href="selectUserId.action?id=3"> 查询</a>
-   <table id="charcolor" class="table" style="text-align:center">
+   --><table id="charcolor" class="table" style="text-align:center">
   <thead  >
     <tr>
    		<th >

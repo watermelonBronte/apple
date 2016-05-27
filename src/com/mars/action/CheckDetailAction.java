@@ -219,6 +219,7 @@ public class CheckDetailAction extends ActionSupport {
 	public String pageCheckDetail() {
 
 		this.getPageInfo().setResult((checkDetailService.findAll(pageInfo)));
+		assetList = checkDetailService.findAsset();
 		return "pageCheckDetail";
 	}
 
@@ -232,7 +233,7 @@ public class CheckDetailAction extends ActionSupport {
 			ctx.getSession().put("cid", this.getCid());
 			this.getPageInfo().setResult(
 					checkDetailService.findCheckDetailByCid(pageInfo, checked));// 分页
-
+			assetList = checkDetailService.findAsset();
 		} catch (Exception e) {
 			// TODO: handle exception
 		}

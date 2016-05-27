@@ -348,8 +348,8 @@ th {
 										领用人ID：
 									</td>
 									<td style="height: 40px; width: 150px; text-align: left">
-<!--<input type="text"    name="userByGuid.uid" />
-										-->
+<input type="text"    name="userByGuid.uid" />
+									
 
 								</td>
 								</tr>
@@ -369,10 +369,10 @@ th {
 									</td>
 								</tr>
 
-								<tr>
+								<tr style="display:none">
 
 
-									<td style="height: 40px; width: 80px; text-align: left;display:none">
+									<td style="height: 40px; width: 80px; text-align: left;">
 										状态：
 									</td>
 									<td style="height: 40px; width: 150px; text-align: left">

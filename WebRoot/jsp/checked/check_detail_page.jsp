@@ -7,7 +7,7 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
-
+   <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 	<head>
@@ -46,9 +46,19 @@
 		<link rel="apple-touch-icon-precomposed"
 			href="../assets/ico/apple-touch-icon-57-precomposed.png">
 
-
-		<script type="text/javascript"
+<script type="text/javascript"
 			src="http://www.js-css.cn/jscode/jquery.min.js"></script>
+		
+		<script type="text/javascript"
+			src="${pageContext.request.contextPath}/js/jquery.date_input.pack.js"></script>
+		<link rel="stylesheet"
+			href="${pageContext.request.contextPath}/css/calendar1.css">
+		<script type="text/javascript">
+	$(function() {
+		$('.date_picker').date_input();
+	})
+</script>
+		
 		<script>
     window.onload=function(){
 
@@ -156,7 +166,7 @@ th {
 
 			<div class="btn-toolbar list-toolbar">
 				<br />
-				<a href="checkDetail/checkDetail_CheckDetail_addCheckDetail.action"
+				<a href="#myModal1" role="button" data-toggle="modal"
 					class="btn btn-primary"><i class="fa fa-plus"></i> 添加盘点清单</a>
 				<!--<button class="btn btn-default">
 					导入
@@ -209,11 +219,12 @@ th {
 								<s:else>帐物相符</s:else>
 							</td>
 							<td align="center" class="left_txt">
-								${cd.cddate}
+								
+									 <fmt:formatDate value="${cd.cddate}" pattern="yyyy-MM-dd"/>
 							</td>
 							<td align="center" class="left_txt">
 								<a
-									href="checkDetail/checkDetail_CheckDetail_deleteCheckDetail.action?cdid=${cdid}&&cid=${cid}">删除</a>
+									href="checkDetail/checkDetail_CheckDetail_deleteCheckDetail.action?cdid=${cdid}&&cid=${cid}" onClick="return confirm('确认删除?');">删除</a>
 							</td>
 						</tr>
 					</s:iterator>
@@ -248,5 +259,86 @@ th {
 			</form>
 		</div>
 
+
+
+<script src="${pageContext.request.contextPath}/lib/bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript">
+        $("[rel=tooltip]").tooltip();
+        $(function() {
+            $('.demo-cancel-click').click(function(){return false;});
+        });
+    </script> 
+
+
+  <div class="modal small fade "   id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+  <div class="modal-dialog " style="width:550px">
+    <div class="modal-content" style="background:#eee url(${pageContext.request.contextPath}/images/modal-gloss.png) no-repeat -200px -80px;position:absolute;z-index:101;padding:5px 10px 7px;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;-moz-box-shadow:0 0 10px rgba(0,0,0,.4);-webkit-box-shadow:0 0 10px rgba(0,0,0,.4);-box-shadow:0 0 10px rgba(0,0,0,.4);">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+         <h2 style="height:20px;margin-top:10px; font-weight: 600; color:#990000">填写盘点单ID：${cid}的清单</h2>
+        </div>
+         <form action="checkDetail/checkDetail_CheckDetail_createCheckDetail.action?cid=${cid}"  method="post">
+        <div class="modal-body">
+           
+ <table  cellSpacing="0"  cellPadding="8" align="center" style="text-align:center"><tr>
+ 
+ 
+ <td  style="height:40px;width:70px;text-align:right"> 资产ID：</td>
+ <td  style="height:40px;width:70px;text-align:left"><s:select list="assetList" listKey="aid" listValue="aid"
+				name="asset.aid" />
+ </td>
+ <td style="height:40px;width:100px;text-align:right">盘点结果：</td>
+ <td style="height:40px;width:120px;text-align:left"><!--
+ 
+ 
+ <input type="radio" name="cdresult" value="0" checked="checked" />
+			帐物不符
+			<input type="radio" name="cdresult" value="1" />
+			帐物相符
+			
+	 --><select name="cdresult" style="width:90px;" >
+  <option value ="1">帐物相符</option>
+  <option value ="0">	帐物不符</option>		
+			
+			</select>
+			</td></tr>
+ 
+ 
+<tr>
+
+
+									<td style="height: 40px; width: 80px; text-align: left">
+										盘点时间：
+									</td>
+									<td style="height: 40px; width: 150px; text-align: left" colspan="3">
+
+
+										<!--<input type="text" name="supacid" value="1" class="input" size="12" />
+ -->
+										<input
+											style="width: 240px; background: #fefefe; border: 1px solid #bbb; font-size: 14px; color: #333; padding: 4px; border-radius: 3px;background-repeat:no-repeat; background-position:right center; background-image:url(${pageContext.request.contextPath}/images/icon.png)"
+											type="text" class="date_picker" 
+											name="cddate" />
+
+
+									</td>
+								</tr>
+
+
+    <tr style="height:25px;"><td></td></tr>
+ <tr style="border-top: 1px solid #e5e5e5;  " ><td colspan="2"  align="right">  <br/><input  class="btn btn-danger" type="submit"  value="提交"/></td>
+ 
+ <td colspan="2" align="left">  <br/><button style="margin:10px;" class="btn btn-default" data-dismiss="modal" aria-hidden="true">取消</button></td>
+ </tr>
+ 
+  </table>
+
+        </div>
+  
+       
+         </form>
+      </div>
+    </div>
+</div> 
 	</body>
 </html>

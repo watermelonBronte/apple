@@ -7,7 +7,7 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
-
+   <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 	<head>
@@ -239,11 +239,12 @@ th {
 								<s:else>不接收</s:else>
 							</td>
 							<td >
-								${ad.tddate}
+								
+								 <fmt:formatDate value="${ad.tddate}" pattern="yyyy-MM-dd"/>
 							</td>
 							<td >
 								<a
-									href="assetTransDetail/assetTransDetail_AssetTransDetail_deleteAssetTransDetail.action?tdid=${tdid}&&atid=${atid}">删除</a>
+									href="assetTransDetail/assetTransDetail_AssetTransDetail_deleteAssetTransDetail.action?tdid=${tdid}&&atid=${atid}" onClick="return confirm('确认删除?');">删除</a>
 							</td>
 						</tr>
 					</s:iterator>
