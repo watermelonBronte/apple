@@ -61,7 +61,7 @@ window.onload=function(){
 	</section>-->
 	<section>
 	    <!--<button class='lined thin'>项目名称：资产管理系统。<br/>小组成员：杨铮，叶慧娟</button>-->
-	<button class='dotted thin'><p><span style="color:#CD5555">项目名称：</span><span style="">资产管理系统</span></p><p style="text-align:left"><span style="color:#CD5555">小组成员：</span></br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;叶慧娟 150327024</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;杨铮 &nbsp;&nbsp;&nbsp;150327025</p></button><!--
+	<button class='dotted thin'><p><span style="color:#CD5555">项目名称：</span><span style="">资产管理系统</span></p><p style="text-align:left"><span style="color:#CD5555">小组成员：</span></br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;杨铮 &nbsp;&nbsp; 150327025</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;叶慧娟 150327026</p></button><!--
 	  <button class='dashed thin'>项目名称：资产管理系统。<br/>小组成员：杨铮，叶慧娟</button>
 	--></section>
 </div>
