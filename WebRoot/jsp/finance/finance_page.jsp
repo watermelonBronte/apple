@@ -259,7 +259,7 @@ th {
 								${f.fdate}
 							</td>
 							--><td >
-								<a href="finance/finance_Finance_updateEnter.action?fid=${fid}">确认入账</a>
+								<a href="finance/finance_Finance_updateEnter.action?fid=${fid}" onClick="return confirm('确认入账?');">确认入账</a>
 								</td><td>
 								
 								<!--

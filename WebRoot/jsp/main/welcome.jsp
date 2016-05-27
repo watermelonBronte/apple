@@ -13,6 +13,11 @@
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
+	 <link rel="stylesheet" type="text/css" href="../../css/normalize.css"  />
+<link rel="stylesheet" type="text/css" href="../../css/htmleaf-demo.css" >
+<link rel="stylesheet" href="../../css/style1.css">
+	 
+	 
 	 <link rel="stylesheet" href="../../css/style.css" media="screen" type="text/css" />
 	<style>
 	.font{
@@ -40,12 +45,29 @@ window.onload=function(){
 </script>
   </head>
   
-  <body>
+  <body >
 
-  <marquee direction=left><span class="font">${loginUname}</span>，您好！欢迎光临资产管理系统,今天是<span id='getdate' class="font"></span></marquee>
+  <marquee direction=left ><span class="font">${loginUname}</span><span style="color:black">，您好！欢迎光临资产管理系统,今天是</span><span id='getdate' class="font"></span></marquee>
   
   <!-- 时钟 -->
   <div  style="position: relative;">
+  
+  
+  <div class="htmleaf-container" style="position:absolute;top:10px;left:50px">
+	<!--<section>
+	  <button class='lined thick'>Lined Thick</button>
+	  <button class='dotted thick'>Dotted Thick</button>
+	  <button class='dashed thick'>Dashed Thick</button>
+	</section>-->
+	<section>
+	    <!--<button class='lined thin'>项目名称：资产管理系统。<br/>小组成员：杨铮，叶慧娟</button>-->
+	<button class='dotted thin'><p><span style="color:#CD5555">项目名称：</span><span style="">资产管理系统</span></p><p style="text-align:left"><span style="color:#CD5555">小组成员：</span></br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;叶慧娟 150327024</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;杨铮 &nbsp;&nbsp;&nbsp;150327025</p></button><!--
+	  <button class='dashed thin'>项目名称：资产管理系统。<br/>小组成员：杨铮，叶慧娟</button>
+	--></section>
+</div>
+  
+  
+  
   
   <svg version="1.1" id="clock" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="200px" height="200px" viewBox="94.257 101.184 300 300" enable-background="new 94.257 101.184 300 300"
@@ -195,5 +217,7 @@ window.onload=function(){
   <script src="../../js/index.js"></script>
 
   </div>
+  
+  
 </body>
 </html>

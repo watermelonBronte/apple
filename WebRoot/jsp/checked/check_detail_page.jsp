@@ -7,7 +7,7 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
-
+   <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 	<head>
@@ -219,11 +219,12 @@ th {
 								<s:else>帐物相符</s:else>
 							</td>
 							<td align="center" class="left_txt">
-								${cd.cddate}
+								
+									 <fmt:formatDate value="${cd.cddate}" pattern="yyyy-MM-dd"/>
 							</td>
 							<td align="center" class="left_txt">
 								<a
-									href="checkDetail/checkDetail_CheckDetail_deleteCheckDetail.action?cdid=${cdid}&&cid=${cid}">删除</a>
+									href="checkDetail/checkDetail_CheckDetail_deleteCheckDetail.action?cdid=${cdid}&&cid=${cid}" onClick="return confirm('确认删除?');">删除</a>
 							</td>
 						</tr>
 					</s:iterator>

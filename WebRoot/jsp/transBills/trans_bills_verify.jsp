@@ -43,9 +43,7 @@
 	</head>
 
 	<body>
-		<h3>
-			调入确认
-		</h3>
+	
 		<form
 			action="transBills/transBills_TransBills_verifyTransBills.action"
 			method="post"><!--
