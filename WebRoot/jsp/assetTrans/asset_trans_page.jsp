@@ -235,8 +235,8 @@ th {
 								<!--
 							0- 1-
 								-->
-								<s:if test="%{#at.attype==0}">第一种类型</s:if>
-								<s:else>第二种类型</s:else>
+								<s:if test="%{#at.attype==0}">调岗</s:if>
+								<s:else>离职</s:else>
 							</td>
 							<td>
 								<s:if test="%{#at.atstate==0}">待移交</s:if>
@@ -414,9 +414,9 @@ th {
 									</td>
 									<td style="height: 40px; width: 130px; text-align: left">
 										<input type="radio" name="attype" value="0" checked="checked" />
-										第一种类型
+										调岗
 										<input type="radio" name="attype" value="1" />
-										第二种类型
+										离职
 									</td>
 								</tr>
 

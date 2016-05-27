@@ -148,7 +148,7 @@ document.getElementById("myframe").src=href;
     <li  ><a href="#" data-target=".premium-menu" class="nav-header collapsed" data-toggle="collapse"><i class="fa fa-fw fa-fighter-jet"></i> 统计报表<i class="fa fa-collapse"></i></a></li>
         <li><ul class="premium-menu nav nav-list collapse">
               
-            <li ><a href="#"><span class="fa fa-caret-right"></span> 按资产类型统计报表</a></li><!--
+            <li ><a href="javascript:void(0);" onclick="changeSrc('../../asset/asset_Asset_chartAsset.action','按资产类型统计报表')"><span class="fa fa-caret-right"></span> 按资产类型统计报表</a></li><!--
             <li ><a href="#"><span class="fa fa-caret-right"></span> 按设备名称统计报表</a></li>
             <li ><a href="#"><span class="fa fa-caret-right"></span> 按采购内容统计报表</a></li>
             <li ><a href="#"><span class="fa fa-caret-right"></span> 按业务操作统计报表</a></li>

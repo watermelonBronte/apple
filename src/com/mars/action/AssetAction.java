@@ -349,6 +349,10 @@ public class AssetAction extends ActionSupport {
 		return "addAsset";
 	}
 
+	public String chartAsset() {
+		return "chartAsset";
+	}
+
 	/**
 	 * 创建
 	 * 
@@ -380,9 +384,7 @@ public class AssetAction extends ActionSupport {
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-		
 
-		
 		pageAsset();
 		return "pageAsset";
 	}
@@ -393,7 +395,7 @@ public class AssetAction extends ActionSupport {
 	 * @return
 	 */
 	public String excelOutAsset() {
-	
+
 		assetService.excelOutAsset();
 		// System.out.println("assetacion");
 		pageAsset();
@@ -419,13 +421,13 @@ public class AssetAction extends ActionSupport {
 	 */
 	public String deleteAsset() {
 
-//		System.out.println(this.getAid());
+		// System.out.println(this.getAid());
 		try {
 			assetService.deleteAsset(this.getAid());
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-		
+
 		// this.setResult("删除");
 		// return "successAsset";
 		pageAsset();
@@ -519,5 +521,4 @@ public class AssetAction extends ActionSupport {
 		return "pageAsset";
 	}
 
-	
 }

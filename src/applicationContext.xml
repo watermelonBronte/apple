@@ -400,5 +400,24 @@
 	</bean>
 
 	<!-- 盘点清单end -->
+	
+		<!-- 报表start -->
+	<!-- dao -->
+	<bean id="chartDao" class="com.mars.dao.impl.ChartDao">
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+	<!-- Service -->
+	<bean id="chartService" class="com.mars.service.impl.ChartService">
+		<property name="chartDao" ref="chartDao" />
+	</bean>
+	<!-- Action -->
+	<bean id="ChartAction" class="com.mars.action.ChartAction"
+		scope="prototype">
+		<property name="chartService" ref="chartService" />
+	</bean>
+
+	<!-- 报表end -->
 
 </beans>
