@@ -357,7 +357,7 @@ th {
 						</h2>
 					</div>
 					<form
-						action="createPurDetail.action"
+						action="createPurDetail.action?pnid=${pnid}"
 						method="post">
 						<div class="modal-body">
 

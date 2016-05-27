@@ -227,11 +227,7 @@
 			<result name="success" type="redirect">/queryPurDetail.action
 			</result>
 		</action>
-		<action name="addPurDetail" class="com.mars.action.PurDetailAction"
-			method="addPurDetail">
-			<result name="success" type="redirect">/jsp/purdetail/create_purdetail.jsp
-			</result>
-		</action>
+		
 		<action name="createPurDetail" class="com.mars.action.PurDetailAction"
 			method="createPurDetail">
 			<result name="success" type="redirect">/queryPurDetail.action

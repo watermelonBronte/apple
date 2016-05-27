@@ -102,4 +102,9 @@ public class ReturnDao extends HibernateDaoSupport implements IReturnDao {
 		this.getHibernateTemplate().update(assetReturn);//更新
 	}
 
+	@SuppressWarnings("unchecked")
+	public List<Asset> findAsset() {
+		return (List<Asset>)getHibernateTemplate().find("from Asset");
+	}
+
 }
