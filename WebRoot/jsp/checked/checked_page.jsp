@@ -340,7 +340,7 @@ th {
 						</button>
 						<h2
 							style="height: 20px; margin-top: 10px; font-weight: 600; color: #990000">
-							填写移交单
+							填写盘点单
 						</h2>
 					</div>
 					<form action="checked/checked_Checked_createChecked.action"

@@ -261,18 +261,18 @@ th {
 										onClick="return confirm('已调入，请勿重复操作！');return false;">调入</a>
 								</s:else>
 							</td>
-							<td>
+							<!--<td>
 								<a href="#myModal" onclick="text1(${reinfo.arid})" role="button"
 									data-toggle="modal"><i class="fa fa-trash-o"></i>
 								</a>
 
-								<!--
+								
 							|
 							<a
 								href="transBills/transBills_TransBills_deleteTransBills.action?tbid=${tbid}">删除</a>
 
-						-->
-							</td>
+						
+							</td>-->
 							<td>
 
 								<a href="#myModal" onclick="text1(${tb.tbid})" role="button"

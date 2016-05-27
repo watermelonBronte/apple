@@ -87,7 +87,14 @@ function submitFrom(formName){
 	var _form=document.getElementById(formName);
 	_form.submit();
 }
-
+var va;
+ function text1(va1){//获取当前id
+ va=va1;
+        }
+ function del1(){//改变url
+ 	dataP="parameter/test_Parameter_deleteParameter.action?pid="+va;
+ 	 window.location.href=encodeURI(dataP);
+ }
 </script>
 
 
@@ -188,7 +195,7 @@ function submitFrom(formName){
 						</td>
 						<td>
           <a href="parameter/test_Parameter_findParameterById.action?pid=${pid}"><i class="fa fa-pencil"></i></a>
-          <a href="#myModal" role="button" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
+          <a href="#myModal" onclick="text1(${pid})" role="button" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
       </td>
 						</tr>
 					
@@ -233,7 +240,7 @@ function submitFrom(formName){
         </div>
         <div class="modal-footer">
             <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">取消</button>
-           <button class="btn btn-danger" data-dismiss="modal"  onclick="window.location='parameter/test_Parameter_deleteParameter.action?pid=${pid}'" > 删除</button>
+           <button class="btn btn-danger" data-dismiss="modal" onclick="del1()" > 删除</button>
         </div>
       </div>
     </div>
