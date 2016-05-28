@@ -178,14 +178,13 @@ public class UserAction extends ActionSupport {
 		 * request.setAttribute("userList", userList);
 		 */
 		// 将所有用户放在request范围内
-try {
-	this.getPageInfo().setResult((userService.findAll(pageInfo)));// 分页
-	roleList = userService.findRole();
-	DepartmentList = userService.findDepartment();
-} catch (Exception e) {
-	// TODO: handle exception
-}
-	
+		try {
+			this.getPageInfo().setResult((userService.findAll(pageInfo)));// 分页
+			roleList = userService.findRole();
+			DepartmentList = userService.findDepartment();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 
 		return SUCCESS;
 	}
@@ -196,8 +195,8 @@ try {
 			user.setUpwd(this.getUpwd());
 			// 根据部门id找到部门对象存储
 			user.setRole(userService.findRoleById(this.getRole().getRid()));
-			user.setDepartment(userService.findDepartmentById(this.getDepartment()
-					.getDid()));
+			user.setDepartment(userService.findDepartmentById(this
+					.getDepartment().getDid()));
 
 			user.setUsex(this.getUsex());
 			user.setUstate(this.getUstate());
@@ -206,7 +205,7 @@ try {
 			// TODO: handle exception
 		}
 		// User u = new User();
-		
+
 		// System.out.print( u.getUname());
 		return SUCCESS;
 
@@ -218,7 +217,6 @@ try {
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-	
 
 		return SUCCESS;
 	}
@@ -229,8 +227,8 @@ try {
 			user.setUname(this.getUname());
 			user.setUpwd(this.getUpwd());
 
-			user.setDepartment(userService.findDepartmentById(this.getDepartment()
-					.getDid()));
+			user.setDepartment(userService.findDepartmentById(this
+					.getDepartment().getDid()));
 
 			user.setRole(userService.findRoleById(this.getRole().getRid()));
 			user.setUsex(this.getUsex());
@@ -240,7 +238,6 @@ try {
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-	
 
 		return SUCCESS;
 
@@ -267,7 +264,7 @@ try {
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-	
+
 		return SUCCESS;
 	}
 

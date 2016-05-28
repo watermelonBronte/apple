@@ -23,72 +23,109 @@ import com.opensymphony.xwork2.ActionSupport;
 public class UserLoginAction extends ActionSupport {
 	private Date date;
 	private String sdate;
+
 	public Date getDate() {
 		return date;
 	}
+
 	public String getSdate() {
 		return sdate;
 	}
+
 	public void setSdate(String sdate) {
 		this.sdate = sdate;
 	}
+
 	public void setDate(Date date) {
 		this.date = date;
 	}
+
 	private String uname;
+
 	public String getUname() {
 		return uname;
 	}
+
 	public void setUname(String uname) {
 		this.uname = uname;
 	}
+
 	public String getUpwd() {
 		return upwd;
 	}
+
 	public void setUpwd(String upwd) {
 		this.upwd = upwd;
 	}
+
 	private String upwd;
 	private Integer uid;
-	
+
 	public Integer getUid() {
 		return uid;
 	}
+
 	public void setUid(Integer uid) {
 		this.uid = uid;
 	}
+
 	public UserService getUserService() {
 		return userService;
 	}
-	private UserService userService;//设置业务逻辑组件
+
+	private UserService userService;// 设置业务逻辑组件
+
 	public void setUserService(UserService userService) {
 		this.userService = userService;
 	}
-	public String execute(){
-		List<User> list=(List<User>) userService.findAllUser();
-		User user=new User();
-		Iterator<User> it=list.iterator();
-		while(it.hasNext()){
-			user=(User)it.next();
-			if(uname.trim().equals(user.getUname())&&upwd.trim().equals(user.getUpwd())){
+
+	
+	public String execute() {
+		List<User> list = userService.findAllUser();
+		// User user=new User();
+		// Iterator<User> it=list.iterator();
+		
+		for (User user : list) {
+//			System.out.println(user.getUname());
+			if (uname.trim().equals(user.getUname())
+					&& upwd.trim().equals(user.getUpwd())) {
 				this.setUname(user.getUname());
+				System.out.print("hehe");
 				ActionContext ctx = ActionContext.getContext();
 				ctx.getSession().put("loginUname", uname);
-				//用session保存用户名
-				if((userService.findUidByUname(uname))!=null)
-				uid = userService.findUidByUname(uname);
+				// 用session保存用户名
+				if ((userService.findUidByUname(uname)) != null)
+					uid = userService.findUidByUname(uname);
 				ctx.getSession().put("loginUid", uid);
-				
-				
-//				System.out.println(uid);
+
+				// System.out.println(User);
 				return "success";
 			}
-			
-			else 
-				return "fail";
+
 		}
-		return "fail" ;
-		
+		// while(it.hasNext()){
+		// user=(User)it.next();
+		// System.out.print("2");
+		// if(uname.trim().equals(user.getUname())&&upwd.trim().equals(user.getUpwd())){
+		// this.setUname(user.getUname());
+		// System.out.print("hehe");
+		// ActionContext ctx = ActionContext.getContext();
+		// ctx.getSession().put("loginUname", uname);
+		// //用session保存用户名
+		// if((userService.findUidByUname(uname))!=null)
+		// uid = userService.findUidByUname(uname);
+		// ctx.getSession().put("loginUid", uid);
+		//				
+		//				
+		// // System.out.println(uid);
+		// return "success";
+		// }
+		//			
+		// else
+		// return "fail";
+		// }
+		return "fail";
+
 	}
-	
+
 }

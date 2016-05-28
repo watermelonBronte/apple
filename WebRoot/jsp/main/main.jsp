@@ -269,10 +269,7 @@ document.getElementById("myframe").src=href;
 				</li>
 
 				<li>
-					<a id="user" href="javascript:void(0);"
-						onclick=
-	changeSrc('../../userAction.action', '用户信息');
-class="nav-header glyphicon glyphicon-user padding-right-small"><span
+					<a id="user" href="javascript:void(0);" onclick="changeSrc('../../userAction.action', '用户信息')" class="nav-header glyphicon glyphicon-user padding-right-small"><span
 						style="padding-left: 8px;">人员管理</span>
 					</a>
 				</li>

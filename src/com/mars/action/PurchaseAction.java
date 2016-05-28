@@ -129,8 +129,8 @@ public class PurchaseAction extends ActionSupport {
 	public String deletePurchase() {// 删除
 		try {
 			purchaseservice.deletPurchase(pnid);
-		} catch (Exception e) {
-			// TODO: handle exception
+	} catch (Exception e) {
+	// TODO: handle exception
 		}
 
 		return SUCCESS;

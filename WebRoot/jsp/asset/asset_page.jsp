@@ -188,7 +188,7 @@ th {
 				
 				<!--<a class="btn btn-default" href="asset/asset_Asset_excelInAsset.action?">导入</a>-->
 				
-				<a class="btn btn-default" href="asset/asset_Asset_excelOutAsset.action?">导出到D盘</a>
+				<a class="btn btn-default" href="asset/asset_Asset_excelOutAsset.action?" onClick="return confirm('确定要导出？');" >导出到D盘</a>
 				
 			
 				<div class="btn-group">
