@@ -67,4 +67,5 @@ public interface IReturnService {
 	
 	public List<AssetReturn> findAllReturn();
 	public List<AssetReturn> findReturn(IPage pageInfo);//分页
+	public List<Asset> findAsset() ;
 }

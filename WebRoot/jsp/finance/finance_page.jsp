@@ -183,7 +183,9 @@ th {
 				<button class="btn btn-default">
 					导出
 				</button>
-				--><div class="btn-group">
+				-->
+				<a href="asset/asset_Asset_pageAsset.action"  class="btn btn-default"> 返回</a>
+				<div class="btn-group">
 				</div>
 			</div>
 

@@ -3,7 +3,9 @@
  */
 package com.mars.action;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import com.mars.service.impl.ReturnService;
 import com.mars.tools.IPage;
@@ -21,6 +23,23 @@ import com.opensymphony.xwork2.ActionContext;
 public class ReturnAction {
 	private AssetReturn assetReturn = new AssetReturn();
 	protected IPage pageInfo = new PageInfo();
+	private List<Asset> assetList = new ArrayList<Asset>();
+
+	public AssetReturn getAssetReturn() {
+		return assetReturn;
+	}
+
+	public void setAssetReturn(AssetReturn assetReturn) {
+		this.assetReturn = assetReturn;
+	}
+
+	public List<Asset> getAssetList() {
+		return assetList;
+	}
+
+	public void setAssetList(List<Asset> assetList) {
+		this.assetList = assetList;
+	}
 
 	public IPage getPageInfo() {
 		return pageInfo;
@@ -107,6 +126,7 @@ public class ReturnAction {
 
 	public String queryReturn() {// 显示所有信息
 
+		assetList = returnService.findAsset();
 		this.getPageInfo().setResult(returnService.findReturn(pageInfo));// 分页
 
 		return "success";
@@ -124,6 +144,7 @@ public class ReturnAction {
 		return "success";
 	}
 
+	
 	public String createRerutn() {// 增加信息
 //		try {
 			AssetReturn a = new AssetReturn();

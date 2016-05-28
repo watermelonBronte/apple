@@ -78,4 +78,8 @@ public void setReturnDao(ReturnDao returnDao) {
 		returnDao.updateReturn(assetReturn);
 	}
 
+	public List<Asset> findAsset() {
+		return returnDao.findAsset();
+	}
+
 }
